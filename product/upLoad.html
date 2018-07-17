@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传清单</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style>
+        ol, ul{margin-bottom: 0;}
+        .right>p{ font: bold 14px/2em '微软雅黑'; padding: 15px 0;}
+        .right>h5{border-bottom: 1px solid #eeeeee; padding-bottom: 15px;}
+        #fileSelect{width: 300px;}
+        .btn-file{    position: relative;overflow: hidden;}
+        .btn-file>input{opacity: 0;position: absolute; top: 10%;left: 0;}
+        .inputFiles{width:250px; height: 34px;border:1px solid #eeeeee;border-radius: 4px;vertical-align: top;}
+        .upLoadBox{display: inline-block;  margin-top: 20px;}
+        .LoadBtnS{width: 100%;text-align: center}
+        .LoadBtnS .LoadBtn{padding:10px 60px;
+            margin-top: 40px;}
+    </style>
+</head>
+<body>
+ <div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+ <div id="header" class="header clearfix">
+     <ul>
+         <li><span >首页</span></li>
+         <li><span>基础设置</span></li>
+         <li class="finishMoney"><span class="head_active">商品管理</span></li>
+         <li class="finishMoney"><span >订单管理</span></li>
+         <li class="finishMoney"><span >对账管理</span></li>
+     </ul>
+ </div>
+ <div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>供货管理</span>
+                <ul>
+                    <li class="first">商品模板</li>
+                </ul>
+            </li>
+            <li >
+                <span>商品管理</span>
+                <ul>
+                    <li >在售商品</li>
+                    <li >库存管理</li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div class="right">
+        <p>商品管理》供货管理》商品模板</p>
+        <h5>商品清单</h5>
+        <span>请严格按照平台提供的商品模板填写并上传！</span>
+        <div id="fileBoxs">
+            <label for="">选择文件:</label>
+            <!--<input id="fileSelect" class="form-control" type="file"
+            accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+            application/vnd.ms-excel" />-->
+            <div class="upLoadBox">
+                <span class="inputFiles"></span>
+                <div class="btn btn-primary btn-file">
+                    <i class="glyphicon glyphicon-folder-open"></i>
+                    &nbsp; <span class="hidden-xs">浏览...</span>
+                    <input type="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,
+            application/vnd.ms-excel" id="files">
+                </div>
+            </div>
+        </div>
+        <div class="LoadBtnS">
+            <button class="btn btn-primary LoadBtn"> 确认并上传</button>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pagination.js"></script>
+<script>
+    $('.temBtn').click(function () {
+        window.location.href='./upLoad.html'
+    })
+    $('#files').change(function () {
+        $('.inputFiles').text($('#files').val());
+    })
+</script>
+</body>
+</html>
+

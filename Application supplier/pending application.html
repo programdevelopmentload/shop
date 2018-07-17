@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待申请</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .account_cont{padding-right: 30px;}
+        .account_cont .account_p1{padding: 10px 0 10px 10px; border: 1px solid #337ab7;background: #f2f2f2}
+        .account_cont>p{ padding-top: 10px;}
+        /*.pend_application_ul{padding:30px 0;}*/
+        .pend_application_cont{    padding: 30px 0;}
+        .pend_application_ul li{ background: url("../image/circle.png") no-repeat 0  3px;padding-left: 35px; position: relative; height: 54px;}
+        .pend_application_ul li .line{height: 40px; width: 1px; background: #999999; position: absolute;top: 18px; left:6px;}
+        .fr li{height: 54px;}
+        .fr li>p{background: url("../image/complete.png") no-repeat 0 center;padding-left: 20px;}
+        .apply_btn{display: block;margin: 0 auto; font-size: 16px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span class="head_active">基础设置</span></li>
+
+
+    </ul>
+</div>
+    <div id="box">
+        <div class="left">
+            <ul>
+                <li >
+                    <span>账户信息</span>
+                    <ul>
+                        <li>基本信息</li>
+                        <li>认证资料</li>
+
+                    </ul>
+                </li>
+                <li >
+                    <span>经营管理</span>
+                    <ul>
+                        <li >经营区域</li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="right">
+            <div class="account_cont">
+                <p class="router">首页</p>
+                <p class="account_p1">温馨提示: 请完成剩余两步，即可申请供应商资质 ！</p>
+                <div class="pend_application_cont clearfix">
+                    <ul class="pend_application_ul fl">
+                        <li>账号注册
+                            <p class="line"></p>
+                        </li>
+                        <li>填写企业身份信息
+                            <p class="line"></p>
+                        </li>
+
+                        <li>上传资质证明
+                            <span style="color:red;display: inherit;font-size: 13px;opacity: 0">审核不通过</span>
+                        </li>
+                    </ul>
+                    <ul class="fr">
+                        <li>
+                            <p>已完成</p>
+                        </li>
+                        <li>
+                            <p>已完成</p>
+                        </li>
+
+                        <li class="status">
+                            <button class="btn btn-primary" id="complete"> 去完成</button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+     </div>
+<div class="footer">
+    <p>西藏新博美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        $(".header li").click(function () {
+            if($(this).html()==localStorage.getItem("username")){
+                window.location.href="../basis_setting/account_msg.html"
+
+            }else if($(this).html()=="基础设置"){
+                window.location.href="../basis_setting/basis_msg.html"
+
+            }
+        });
+        var url = getBaseUrl('yy');
+        pullUrl = url +'/auth/auth/partner';
+        pullUrls = url +'/user/seller/sellerApplyState';
+
+        $.ajax({
+            url:pullUrls,
+            type:"post",
+            data:{
+                userId:localStorage.getItem("userId"),
+            },
+            headers: {
+                Authorization:localStorage.getItem("token"),
+            },
+            dataType:"json",
+            success:function (res) {
+                if(res.errorCode==9999){
+                    window.location.href="../login.html";
+                }
+                console.log(res);
+                localStorage.setItem("imagesState",res.data.imagesState);
+                localStorage.setItem("companyId",res.data.companyId);
+                imagesState=res.data.imagesState
+                if(imagesState==0){
+                    $("#complete").click(function () {
+                        window.location.href="../basis_setting/cert-already.html";
+                    })
+                }else if(imagesState==1){
+                    $(".status").html("待审核");
+                }else if(imagesState==3){
+                    $(".status button").html("去查看");
+                    $("#complete").click(function () {
+                        window.location.href="../basis_setting/cert-already.html";
+                    });
+                    $(".pend_application_ul li span").css("opacity",1);
+
+                }
+
+            }
+        })
+
+
+    </script>
+</body>
+</html>

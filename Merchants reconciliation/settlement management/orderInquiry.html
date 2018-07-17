@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单查询</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../js/layer/css/layui.css">
+    <style>
+        .btns{padding:20px 0 30px;}
+        .btns .excelBtn{background: #333333; border:none;}
+        .form-group{margin-right: 35px;}
+        .queryLefts{padding-bottom: 20px;}
+        .purch_title span{padding-right: 30px;}
+        .orderqueryLeft{width: 75%; border-right: 1px solid #dedede;}
+        .orderqueryLeft .orderNumWith{    width: 22%;}
+        .orderqueryLeft .numbers{    width: 11%;}
+        .orderqueryRight{width: 25%;  }
+        .orderqueryRight ul{width: 100%;}
+        .orderqueryLeft ul{width: 100%;}
+        .orderquery{border:1px solid #ddd; border-left: none;border-right: none;}
+
+    </style>
+</head>
+<body>
+  <div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+  <div id="header" class="header clearfix">
+      <ul>
+          <li><span >首页</span></li>
+          <li><span>基础设置</span></li>
+          <li class="finishMoney"><span >商品管理</span></li>
+          <li class="finishMoney"><span >订单管理</span></li>
+          <li class="finishMoney"><span class="head_active">对账管理</span></li>
+      </ul>
+  </div>
+  <div id="box">
+      <div class="left">
+          <ul>
+              <li >
+                  <span>订单管理</span>
+                  <ul>
+                      <li class="first">订单管理</li>
+                      <li>采购单管理</li>
+                      <li>验证取货码</li>
+                  </ul>
+              </li>
+          </ul>
+      </div>
+      <div class="right">
+          <p class="crumbs">1》2》3</p>
+            <!--查询条件  -->
+          <div class="form-inline queryLefts">
+              <div class="form-group">
+                  <label for="">订单:</label>
+                  <input type="text" class="form-control" placeholder="订单号">
+              </div>
+              <div class="form-group">
+                  <label for="">下单时间:</label>
+                  <input type="" class="form-control dates">- <input type="" class="form-control datesEnd" >
+              </div>
+              <button type="button" class="btn btn-primary">查询</button>
+              <button type="button" class="btn btn-default excelBtn" id="Excelbtn">导出excel</button>
+          </div>
+           <!--列表-->
+          <div class="list">
+              <ul class="list_head">
+                  <li class="col-sm-3 ">商品名称</li>
+                  <li class="col-sm-2 ">商品编码</li>
+                  <li class="col-sm-3 ">结算价</li>
+                  <li class="col-sm-1 ">数量</li>
+                  <li class="col-sm-2">结算金额</li>
+                  <li class="col-sm-1">操作</li>
+              </ul>
+              <div class="list_bottom">
+                  <p class="purch_title clearfix">
+                      <span class="fl">订单编号:co201806142021189168</span>
+                      <span class="fl ">下单时间:2018-05-26 12:20:30</span>
+                  </p>
+                  <div class="orderquery clearfix">
+                      <div class="orderqueryLeft fl">
+                          <ul class="clearfix fl ">
+                              <li class="col-sm-4">北欧餐桌椅组合小户型现代简约家用饭桌LS003</li>
+                              <li class="col-sm-3 orderNumWith">L3003</li>
+                              <li class="col-sm-4">￥3000.00</li>
+                              <li class="col-sm-1 numbers">1</li>
+                          </ul>
+                      </div>
+                      <div class="orderqueryRight fl">
+                          <ul class="clearfix fl">
+                              <li class="col-sm-8">￥1800.00</li>
+                              <li class="col-sm-4">
+                                  <a href="javascript:;">详情</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+              <div class="list_bottom">
+                  <p class="purch_title clearfix">
+                      <span class="fl">订单编号:co201806142021189168</span>
+                      <span class="fl ">下单时间:2018-05-26 12:20:30</span>
+                  </p>
+                  <div class="orderquery clearfix">
+                      <div class="orderqueryLeft fl">
+                          <ul class="clearfix fl ">
+                              <li class="col-sm-4">北欧餐桌椅组合小户型现代简约家用饭桌LS003</li>
+                              <li class="col-sm-3 orderNumWith">L3003</li>
+                              <li class="col-sm-4">￥3000.00</li>
+                              <li class="col-sm-1 numbers">1</li>
+                          </ul>
+                      </div>
+                      <div class="orderqueryRight fl">
+                          <ul class="clearfix fl">
+                              <li class="col-sm-8">￥1800.00</li>
+                              <li class="col-sm-4">
+                                  <a href="javascript:;">详情</a>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+   <script src="../../js/jquery-1.12.4.min.js"></script>
+   <script src="../../js/common.js"></script>
+  <script src="../../js/layer/layer.js"></script>
+  <script src="../../js/layer/layui.js"></script>
+  <script>
+      // 日期插件
+      layui.use('laydate', function(){
+          var laydate = layui.laydate;
+          //执行一个laydate实例
+          laydate.render({
+              elem: '.dates', //指定元素
+              time:"yyyy-MM-dd hh-mm-ss"
+          });
+          laydate.render({
+              elem: '.datesEnd', //指定元素
+              time:"yyyy-MM-dd hh-mm-ss"
+          });
+      });
+
+
+  </script>
+</body>
+</html>

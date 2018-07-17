@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>支付</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+
+     .form-control{
+        width:200px;
+         float: left;
+         margin-right: 30px;
+         margin-top: 30px;
+    }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span  >首页</span></li>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span class="head_active" >基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li  class="first">保证金</li>
+                </ul>
+            </li>
+            <!--<li >-->
+            <!--<span>合同管理</span>-->
+            <!--<ul>-->
+            <!---->
+            <!--<li >我的合同</li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li>经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="right">
+        <p class="router">基础设置》认证资料》保证金</p>
+        <div id="qrcode" style="width:200px; height:200px; margin-top:15px;overflow: hidden"></div>
+        <input type="button" value="刷新" class="form-control btn-primary sx">
+        <input type="button" value="支付完成" class="form-control btn-primary already">
+    </div>
+
+</div>
+
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/qrcode.js"></script>
+
+<script>
+    var val=sessionStorage.getItem("pay");
+    var qrcode = new QRCode(document.getElementById("qrcode"), {
+        width : 200,
+        height : 200
+    });
+
+    var   pay=   sessionStorage.getItem("pay");
+    var  payType=sessionStorage.getItem("payType");
+    var money=sessionStorage.getItem("money");
+$(".sx").click(function () {
+    console.log(1);
+    console.log(payType);
+    $.ajax({
+        url:"http://172.16.40.134:8003/pay/seller/payCautionMoney",
+        type:"post",
+        dataType:"json",
+        data:{companyId:7,payType:payType,cautionMoney:0.01},
+        success:function (res) {
+            console.log(res);
+            if(res.success){
+                val=res.data;
+
+            }
+            makeCode(res.data)
+        },
+        error:function (err) {
+            console.log(err);
+        }
+    });
+})
+
+
+    makeCode(val);
+    function makeCode (val) {
+
+        qrcode.makeCode(val);
+    }
+    $(".already").click(function () {
+        setTimeout(function () {
+            $.ajax({
+                url:"http://172.16.40.134:8003/seller/selectCompanyBycompanyid",
+                type:"post",
+                dataType:"json",
+                data:{companyId:7},
+                success:function (res) {
+                    console.log(res);
+                    if(res.success){
+                        if(res.data.isCautionMoney==1){
+                            window.location.href="deposit.html";
+                        }
+                    }
+
+                },
+                error:function (err) {
+                    console.log(err);
+                }
+            });
+        },1000);
+
+    })
+</script>
+</body>
+</html>

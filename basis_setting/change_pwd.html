@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        #box .account_cont p{
+            margin: 20px 0;
+            border-bottom:1px solid #dedede;
+            line-height: 45px;
+        }
+
+        #box .account_cont li span{
+            margin: 0;
+        }
+             .account_cont  .company_msg>div{
+                 overflow: hidden;
+             }
+        .account_cont  .company_msg>div>div{
+            width:50%;
+        }
+        .account_cont  .service_msg>div{
+            overflow: hidden;
+        }
+        .account_cont  .service_msg>div>div{
+            width:50%;
+        }
+        .account_cont ol{
+                overflow: hidden;
+            border:1px solid #000;
+            border-left:none;
+            width:352px;
+
+            }
+
+       .right ul li{
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        ul label{
+            float: left;
+        }
+       .right ul .form-control{
+            float: left;
+            width: 250px;
+        }
+        .btn-primary{margin-top: 30px;width: 200px}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span>订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+
+
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li >保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">基础设置》个人中心》更改密码</p>
+
+            <div class="account_title">
+                <p>更换密码</p>
+                <ul>
+                    <li>
+                        <label for="">旧密码:</label>
+                        <input type="password" class="form-control old">
+                    </li>
+                    <li>
+                        <label for="">新密码:</label>
+                        <input type="password" class="form-control new1">
+
+                    </li>
+                    <li>
+                        <label for="">确认密码:</label>
+                        <input type="password" class="form-control new2">
+                        <span class="pwdErr" style="color:red;font-size: 13px;display: none"></span>
+                    </li>
+
+
+                </ul>
+            </div>
+            <input type="button" class="form-control btn-primary" value="提交">
+        </div>
+
+
+
+
+    </div>
+
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    $(".header li").click(function () {
+        if($(this).html()==localStorage.getItem("username")){
+
+            window.location.href="account_msg.html";
+
+        }else if($(this).html()=="基础设置"){
+            window.location.href="basis_msg.html";
+
+        }
+    });
+    var url = getBaseUrl('yy')
+    pullUrl = url +'/seller/updatePassword';
+
+    var boo=false;
+    $(".new2").blur(function () {
+        if($(".new1").val()!==$(".new2").val()){
+            $(".pwdErr").show()
+            boo=false;
+        }else{
+            boo=true;
+            $(".pwdErr").hide()
+        }
+    });
+    $(".btn-primary").click(function () {
+
+        if(boo){
+            $.ajax({
+                url:pullUrl,
+                type:"post",
+                data:{oldPassword:$(".old").val(),newPasswprd:$(".new1").val(),userId:localStorage.getItem("userId")},
+                dataType:"json",
+                headers:{
+                    Authorization:localStorage.getItem("token")
+                },
+                success:function (res) {
+                    if(res.errorCode==9999){
+                        window.location.href="../login.html";
+                    }
+                    console.log(res);
+                    if(res.success){
+                        alert_html("修改成功");
+                    }
+                }
+            })
+
+        }
+    })
+
+</script>
+</body>
+</html>

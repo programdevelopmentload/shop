@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .account_cont{padding-right: 30px;}
+        .account_cont .nav{line-height: 35px;margin-top: 30px;font-size: 18px;}
+        .nav{
+            border-bottom: 1px solid #dedede;
+        }
+        .form-control{
+            width: 250px;display: inline-block}
+        .down{width: 250px}
+       .right ul li{margin-top: 20px}
+        ul li span{
+
+            text-align: left;
+        }
+        .pay span{
+            width: 100px;
+            text-align: left;
+        }
+        .pay{
+            line-height: 40px;
+            margin: 0;
+        }
+        .pay label{
+            margin-right: 30px;}
+        .btn-primary{margin:30px auto;width: 250px;display: block}
+        ul.bao{display: none}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span class="head_active" >基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+
+
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li >保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li class="first">账户管理</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">基础设置》收款账户》账户管理</p>
+            <p class="nav">添加账户</p>
+            <p class="pay">
+                <span>收款方式：</span>
+                银行卡
+
+            </p>
+            <ul class="rank">
+                <li>
+                    <span>收款人：</span><input type="text" class="form-control man">
+                </li>
+
+                <li>
+                    <span>银行：</span><select name="" id="sel" class="form-control down">
+                    <option value=""></option>
+                </select>
+                </li>
+                <li>
+                    <span>账户：</span><input type="text" class="form-control card">
+                </li>
+                <li>
+                    <span>开户行：</span><input type="text" class="form-control subbranch">
+                </li>
+                <li>
+                    <span>设置：</span><label><input type="radio" name="default">设为默认账户</label>
+                </li>
+            </ul>
+            <ul class="bao">
+                <li>
+                    <span>收款人：</span><input type="text" class="form-control man">
+                </li>
+
+                <li>
+                    <span>账户：</span><input type="text" class="form-control card">
+                </li>
+
+                <li>
+                    <span>设置：</span><label><input type="radio" name="default">设为默认账户</label>
+                </li>
+            </ul>
+            <input type="button" class="form-control btn-primary submit" value="确认并提交">
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>西藏新博美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../layer/layer.js"></script>
+<script>
+    if(sessionStorage.getItem("bankType")==0){
+        $(".pay").html("<span>收款方式：</span>银行卡");
+        $(".bao").hide();
+        $(".rank").show()
+    }else{
+        $(".pay").html("<span>收款方式：</span>支付宝");
+        $(".bao").show();
+        $(".rank").hide()
+    }
+    //银行
+    $.ajax({
+        url:getBaseUrl("yy")+"/sellerReceivables/selectAllBank",
+        dataType:"json",
+        type:"post",
+        headers: {
+            Authorization:localStorage.getItem("token"),
+        },
+        success:function (res) {
+            if(res.errorCode==9999){
+                window.location.href="../login.html";
+            }
+            console.log(res);
+            if(res.success){
+                for(var i=0;i<res.data.length;i++){
+                    $("#sel").append('<option value="'+res.data[i].id+'">'+res.data[i].bankName+'</option>')
+                }
+            }
+
+        }
+    });
+    //回显
+    console.log(sessionStorage.getItem("bankId"))
+    $.ajax({
+        url: getBaseUrl("yy") + "/sellerReceivables/selectSellerReceivingById",
+        dataType: "json",
+        headers: {
+            Authorization:localStorage.getItem("token"),
+        },
+        data: {userSellerReceivingId: sessionStorage.getItem("bankId")},
+        type: "post",
+        success: function (res) {
+            if(res.errorCode==9999){
+                window.location.href="../login.html";
+            }
+            console.log(res);
+            if (res.success) {
+                if (res.data.type == 0) {
+                    $("#sel").val(res.data.bank);
+                    $(".man").eq(0).val(res.data.payee);
+
+                    $(".card").eq(0).val(res.data.bankCard);
+                    $(".subbranch").val(res.data.subbranch);
+                    console.log(res.data.isDefault)
+                    if (res.data.isDefault==1) {
+                        $("input[name=default]").eq(0).prop("checked", true)
+                    }
+                } else {
+                    $(".man").eq(1).val(res.data.payee);
+
+                    $(".card").eq(1).val(res.data.bankCard);
+                    console.log(res.data.isDefault)
+                    if (res.data.isDefault ==1) {
+                        $("input[name=default]").eq(1).prop("checked", true)
+
+                    }
+                }
+
+            }
+        }
+    });
+    //编辑
+    $(".submit").click(function () {
+        var obj={};
+
+
+        obj.id=sessionStorage.getItem("bankId")
+        if(sessionStorage.getItem("bankId")=="0"){
+            obj.bank=$("#sel").val();
+            obj.payee=$(".man").eq(0).val();
+
+            obj.bankCard=$(".card").eq(0).val();
+            obj.subbranch=$(".subbranch").val();
+            if($("input[name=default]").eq(0).prop("checked")){
+                obj.isDefault=1;
+            }
+        }else{
+            if($("input[name=default]").eq(1).prop("checked")){
+                obj.isDefault=1;
+            }
+            obj.payee=$(".man").eq(1).val();
+
+            obj.bankCard=$(".card").eq(1).val();
+        }
+
+       $.ajax({
+           url:getBaseUrl("yy")+"/sellerReceivables/updateSellerReceiving",
+           data:obj,
+           type:"post",
+           dataType:"json",
+           success:function (res) {
+               if(res.errorCode==9999){
+                   window.location.href="../login.html";
+               }
+               console.log(res);
+               if(res.success){
+                   layer.msg("修改成功")
+               }
+           }
+       })
+
+    })
+
+</script>
+</body>
+</html>

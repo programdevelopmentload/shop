@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <title>在售商品(详情)</title>
+    <style>
+        .account_cont{padding-bottom: 30px;}
+        .account_cont>p{padding-top:10px;}
+        .account_cont .account_p1{padding:10px 0 10px 10px;border:1px solid #337ab7; background: #f2f2f2;}
+        .account_file{position: relative; overflow: hidden; display: inline-block;}
+        .account_file input{height: 48px; position: absolute;top:0;left:0;opacity: 0;}
+        .account_title .account_card >li{float: left; margin-right: 160px; padding:20px 0;}
+        .account_card img{padding-left: 20px;}
+        .account_card li{float: left;}
+        .cer-infor-btn{width: 300px; display: block;margin:0 auto;}
+        .click_img{display: none; background: url("../image/look.png") no-repeat 10px center;cursor: pointer;
+
+        }
+        .account_cont ol{
+            overflow: hidden;
+            background: #f2f2f2;
+            border:1px solid #337ab7;
+        }
+        .account_cont ol li{
+            float: left;
+            width:30%;
+            margin-left: 20px;
+            line-height: 35px;
+        }
+        .account_cont ol li .reason{
+            display: inherit;
+            margin-left: 60px;
+        }
+        .account_title label{min-width: 94px;}
+        .account_title a{padding-left: 40px;}
+        .account_title li div{
+            position: relative;
+        }
+        .account_title li div img{
+            margin: 0;
+            padding: 0;
+        }
+        .account_title li div input{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 30px;
+            width: 100%;
+        }
+        .account_title li span{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            background: #00000080;
+            line-height: 30px;
+            width: 100%;
+            text-align: center
+        }
+        .account_title label{width: 94px;}
+        .account_title a{padding-left: 40px;}
+        .upimg img{
+            width:220px;
+            height: 140px;
+        }
+        .look_nav{
+            padding: 15px 0;
+            border-bottom: 1px solid #dedede
+        }
+        .upimg span{
+            display: none;
+        }
+        .product_specification{
+            overflow: hidden;
+            width: 80%;
+            background: #f2f2f2;
+
+        }
+        .specification_msg{
+            margin-top:20px;
+            border-top: 1px solid #dedede;
+            width: 80%;
+        }
+        .specification_msg img{
+            width: 50px;
+        }
+        .specification_msg ul{
+            overflow: hidden;
+            padding: 10px 0;
+            width: 100%;
+            border-bottom: 1px solid #dedede;
+        }
+        .basics_msg{
+            /*width: 60%;*/
+            /*overflow: hidden;*/
+            margin-right: 20%;
+        }
+        .basics_msg li{
+            /*float: left;*/
+            /*width: 33.33%;*/
+            padding: 8px 0;
+        }
+        #box .col-sm-3{
+            width: 170px;
+        }
+        #box .col-sm-2{
+            width: 120px;
+        }
+        .specification_msg ul span{
+            display: inherit;
+        }
+        .other_msg{
+            overflow: hidden;
+            width: 80%;
+        }
+        .other_msg ul{
+            overflow: hidden;margin: 13px 0;
+        }
+        .other_msg ul span{
+            margin-right: 30px;
+        }
+        .other_msg .fl{
+            width: 12%;
+        }
+        .other_msg .fr{
+            width: 88%;
+        }
+        #box  .product_img_detail{
+            border:none;
+            background: #fff;
+        }
+        .kucun{
+            overflow: hidden;
+        }
+        .kucun ol,.kucun ul{
+            width: 80%;
+            overflow: hidden;
+
+        }
+        .kucun ul {
+            line-height: 40px;
+            border-bottom: 1px solid #dedede;
+        }
+        #box .kucun li {
+            margin-left: 0;
+        }
+        .kucun ol{
+            border:1px solid #dedede;
+        }
+        .basics li>span{padding-left: 20px;}
+        .specification_msg li:last-child img{width: 45px; height: 45px;border: 1px solid red}
+        .product_img_detail{overflow: hidden}
+        .product_img_detail>img{
+            display: inline-block;
+            width: 80%;
+            height: 300px;
+
+        }
+        .other_msg .bgList>ol li{ margin-left: 0;}
+        .other_msg .bgList>ol{    background:none;border: 0;}
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span class="head_active">商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>供货管理</span>
+                <ul>
+                    <li>商品模板</li>
+                </ul>
+            </li>
+            <li >
+                <span>商品管理</span>
+                <ul>
+                    <li class="first">在售商品</li>
+                    <li >库存管理</li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">商品管理》商品管理》在售商品</p>
+
+            <ol class="launchTime">
+                <li>上架时间：<span class="applyTime"></span></li>
+                <li>商品状态：<span class="audit_status" style="color:orange;">在售</span> </li>
+            </ol>
+            <div class="basicMes">
+                <p class="look_nav"> 基本信息</p>
+                <div class="basics clearfix">
+                    <ul class="basics_msg basicsMsgL fl">
+                        <li>所属分类:<span></span></li>
+                        <li>所属品牌:<span></span></li>
+                        <li>型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:<span></span></li>
+                        <li>产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地:<span></span></li>
+                        <li>风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格:<span></span></li>
+                    </ul>
+                    <ul class="basics_msg fl">
+                        <li>等级:<span></span></li>
+                        <li>单位:<span></span></li>
+                    </ul>
+                    <ul class="basics_msg fl">
+                        <li>商品类型:<span></span></li>
+                        <li>测量服务:<span></span></li>
+                        <li>安装服务:<span></span></li>
+                        <li>服务类型:<span></span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="shopMessagess list">
+                <p class="look_nav">商品信息</p>
+                <ul class="product_specification list_head">
+                    <li class="col-sm-3">规格信息</li>
+                    <li class="col-sm-3">商品编码</li>
+                    <li class="col-sm-2">商品类型</li>
+                    <li class="col-sm-2">成本报价</li>
+                    <li class="col-sm-2">规格图片</li>
+                </ul>
+                <div class="specification_msg ">
+                    <!--<ul>-->
+                        <!--<li class="col-sm-3">-->
+                            <!--<span>1</span>-->
+                        <!--</li>-->
+                        <!--<li class="col-sm-2">111</li>-->
+                        <!--<li class="col-sm-2">222</li>-->
+                        <!--<li class="col-sm-2">222</li>-->
+                        <!--<li>-->
+                            <!--<img src="../image/icon.png" alt="">-->
+                            <!--<img src="../image/icon.png" alt="">-->
+                            <!--<img src="../image/icon.png" alt="">-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                </div>
+            </div>
+
+            <p class="look_nav">库存信息</p>
+            <div class="kucun list">
+                <ul class="list_head">
+                    <li class="col-sm-2">仓库</li>
+                    <li class="col-sm-2">实体库存</li>
+                    <li class="col-sm-2">虚拟库存</li>
+                </ul>
+                <ul class="">
+                    <li class="col-sm-2">仓库</li>
+                    <li class="col-sm-2">实体库存</li>
+                    <li class="col-sm-2">销售库存</li>
+                </ul>
+            </div>
+            <p class="look_nav">商品详情</p>
+            <div class="product_img_detail">
+               <img src="" alt="">
+            </div>
+            <p class="look_nav">其他信息</p>
+            <div class="other_msg">
+                <ul class="otherBzList">
+                    <li class="fl ">包装清单：</li>
+                    <li class="fr bgList">
+                        <ol>
+                            <li></li>
+                        </ol>
+                    </li>
+                </ul>
+                <ul class="pjList">
+                    <li class="fl">配件清单：</li>
+                    <li class="fr pjListFr">
+                        <!--<span>231233</span>-->
+                    </li>
+                </ul>
+                <ul class="mailSm">
+                    <li class="fl">购买说明：</li>
+                    <li class="fr mailSmFr">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    (function($) {
+        $.getUrlParam = function(name) {
+            var reg = new RegExp("(^|&)" +
+                name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+    })(jQuery);
+    var dataId=$.getUrlParam("dataId");
+    var data={
+        "data":{
+            "attributes":[
+                {
+                    "name":"播放电影温度",
+                    "type":0,
+                    "unit":"",
+                    "value":"10"
+                },
+                {
+                    "name":"重量",
+                    "type":1,
+                    "unit":"tytytyty",
+                    "value":"10 "
+                },
+                {
+                    "name":"厚度",
+                    "type":2,
+                    "unit":"",
+                    "value":"10"
+                },
+                {
+                    "name":"续航时间",
+                    "type":2,
+                    "unit":"",
+                    "value":"100"
+                }
+            ],
+            "brandId":16,
+            "brandName":"苹果",
+            "buyInstructions":"测试测试测试测试",
+            "createTime":1530339292000,
+            "goodsDetails":"group100/M00/00/00/rBAKo1s3H7uAZZqBAAA_JUamJzk463.jpg",
+            "goodsService":{
+                "goodsType":"冒号",
+                "id":14,
+                "installService":1,
+                "isDelete":0,
+                "measureService":1,
+                "sendService":1,
+                "updateTime":1530170260000
+            },
+            "id":"1012942525699629056",
+            "isDelete":0,
+            "leafClassId":210,
+            "leafClassName":"威图手机",
+            "model":"8",
+            "number":"1012942525728989184",
+            "otherName":"",
+            "packings":[
+                {
+                    "packingsName":"13",
+                    "value":13
+                },
+                {
+                    "packingsName":"13",
+                    "value":13
+                },
+                {
+                    "packingsName":"13",
+                    "value":13
+                },
+                {
+                    "packingsName":"13",
+                    "value":13
+                }
+            ],
+            "parts":[
+                {
+                    "partsName":"12",
+                    "value":12
+                },
+                {
+                    "partsName":"12",
+                    "value":12
+                },
+                {
+                    "partsName":"12",
+                    "value":12
+                },
+                {
+                    "partsName":"12",
+                    "value":12
+                }
+            ],
+            "pics":[
+                {
+                    "id":14,
+                    "pic":"http://172.16.10.117group100/M00/0000/rBAKols3H7CABP7FAAA_JUamJzk418.jpg"
+                }
+            ],
+            "price":110,
+            "publishers":[
+
+            ],
+            "salesVolume":0,
+            "shelfTime":1530343737000,
+            "showName":"",
+            "spuId":55,
+            "state":0,
+            "unit":"单位",
+            "level":"等级",
+            "sysName":"苹果 8 威图手机 10 10 100 10"
+        },
+        "errorCode":0,
+        "message":"成功",
+        "success":true
+    }
+    if (data.success) {
+        // 上架时间  商品状态
+        var data=data.data;
+        var html="";
+       $(".applyTime").html(data.shelfTime)
+          // 基本信息
+        html+='<p class="look_nav"> 基本信息</p>'
+        html+='<div class="basics clearfix">' +
+                '<ul class="basics_msg basicsMsgL fl">' +
+                '<li>所属分类:<span>'+data.leafClassName+'</span></li>' +
+                '<li>所属品牌:<span>'+data.brandName+'</span></li>' +
+                '<li>型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号:<span>'+data. model+'</span></li>'
+             for (var i=0;i<data.attributes.length;i++){
+                if (data.attributes[i].type==2) {
+                    // html+='<li><span>'+data.attributes[i].attributeName+'</span>:<span>'+data.attributes[i].value+'</span></li>'
+                    html += '<li>' + data.attributes[i].name + ':<span>' + data.attributes[i].value + '</span></li>'
+                }
+             }
+        html+='</ul>'
+        html+='<ul class="basics_msg fl">' +
+            '<li>等级:<span>'+data.level+'</span></li>' +
+            '<li>单位:<span>'+data.unit+'</span></li>' +
+            '</ul>'
+        html+='<ul class="basics_msg fl">' +
+            '<li>商品类型:<span>'+data.goodsService.goodsType+'</span></li>' +
+            '<li>测量服务:<span>'+data.goodsService.measureService+'</span></li>' +
+            '<li>安装服务:<span>'+data.goodsService.installService+'</span></li>' +
+            '<li>服务类型:<span>'+data.goodsService.sendService+'</span></li>' +
+            '</ul>' +
+            '</div>'
+        $('.basicMes').html(html)
+         // 商品信息
+        html=''
+        for (var j=0;j<data.attributes.length;j++){
+           if (data.attributes[j].type!=2){
+               html+='<ul>' +
+                   '<li class="col-sm-3">' +
+                   '<span>'+data.attributes[j].value+data.attributes[j].unit+'</span>' +
+                   '</li>' +
+                   '<li class="col-sm-3">'+data.number+'</li>' +
+                   '<li class="col-sm-2">'+data.goodsService.goodsType+'</li>' +
+                   '<li class="col-sm-2">222</li>' +
+                   '<li class="col-sm-2">' +
+                    '<img src="'+data.pics[0].pic+'" alt="" >' +
+                   '</li>' +
+                   '</ul>'
+           }
+        }
+        $('.specification_msg').html(html)
+
+    }
+    // 商品详情
+    html=''
+    html+='<img src="'+data.goodsDetails+'" >'
+    $('.product_img_detail').html(html)
+     // 其他信息
+    html=''
+     //包装清单
+    for(var list=0;list<data.packings.length;list++){
+        html+='<span>'+data.packings[list].packingsName+"X"+data.packings[list].value+'</span>'
+     }
+     $('.bgList li ').html(html)
+     html=''
+    //配件清单
+    for(var list=0;list<data.parts.length;list++){
+        html+='<span>'+data.parts[list].partsName+"X"+data.parts[list].value+'</span>'
+    }
+    $('.pjListFr').html(html)
+    // 购买说明
+    $('.mailSmFr').html(data.buyInstructions)
+       // 在售商品详情
+    $.ajax({
+        url:"http://172.16.40.153:8009/goods/sku/findDetailPublisher",  //商品详情
+        type:"post",
+        dataType:"json",
+        data:{
+            id:dataId,//452113557006454800
+            publisherId:192,
+        },
+        success:function (data) {
+            // console.log(res);
+        }
+    });
+    // 库存信息
+
+</script>
+</body>
+</html>

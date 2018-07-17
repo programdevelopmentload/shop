@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+        <link rel="stylesheet" href="js/css/layui.css">
+		<title>修改密码</title>
+	</head>
+
+	<body>
+	<div class="header clearfix">
+		<a href="javascript:;">
+			<img src="image/xbxm.png"/>
+		</a>
+
+		<a href="javascript:;">
+			<img src="image/store.png"/>
+		</a>
+
+
+	</div>
+		<div class="mess_cont_lists">
+			<p>设置新密码</p>
+			<span>若您已经忘记密码，此操作流程能帮助您重新设置密码。</span>
+			<div class="mess_cont__circle">
+				<ul class="clearfix">
+					<li>
+						<div class="mess_circle">1</div>
+						<p>账号验证</p>
+					</li>
+					<li>
+						<div class="mess_circle">2</div>
+						<p>修改密码</p>
+					</li>
+					<li>
+						<div class="mess_circle">3</div>
+						<p>设置成功</p>
+					</li>
+				</ul>
+			</div>
+			<div class="mess_cont__circle"></div>
+			<div class="mess_con_form ">
+				<form class="form-horizontal mess_list_margin" role="form">
+					<div class="form-group">
+						<label for="" class="col-sm-2 control-label">新密码:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control password" placeholder="" id="password">
+							<span></span>
+						</div>
+
+					</div>
+					<div class="form-group">
+						<label for="" class="col-sm-2 control-label">确认密码:</label>
+						<div class="col-sm-10">
+							<input type="password" class="form-control passwords" id="passwords">
+							<span class='pwErr' style='display:none'>请保持两次输入密码一致</span>
+						</div>
+					</div>
+				</form>
+			</div>
+			<button type="button" class="btn  btn-lg mess_con_btn" style="margin-bottom: 80px;">确认并提交</button>
+		</div>
+		<div class="footer">
+			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+		</div>
+		<script src="js/jquery-1.12.4.min.js"></script>
+	    <script src="js/common.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+        <script src="js/layui.js"></script>
+		<script>
+            $(".header li").click(function () {
+                if($(this).html()==localStorage.getItem("username")){
+                    sessionStorage.clear();
+                    localStorage.clear();
+                    window.location.href="basis_setting/account_msg.html"
+
+                }else if($(this).html()=="基础设置"){
+                    window.location.href="basis_setting/basis_msg.html"
+
+                }
+            });
+		      (function($) {
+                  var url = getBaseUrl('yy')
+                  pullUrl = url +'/user/seller/updatePassword';
+
+				$.getUrlParam = function(name) {
+					var reg = new RegExp("(^|&)" +
+						name + "=([^&]*)(&|$)");
+					var r = window.location.search.substr(1).match(reg);
+					if (r != null) return unescape(r[2]);
+					return null;
+				}
+			})(jQuery);
+			var tel=$.getUrlParam("phone");
+              $(".mess_con_btn").click(function() {
+                  if ($("#password").val() != $("#passwords").val()) {
+                      $(".pwErr").show()
+                  } else {
+                      $(".pwErr").hide();
+                      console.log(localStorage.getItem("userId"));
+                      $.ajax({
+                          url: "http://172.16.40.134:8002/user/seller/updatePassword",
+                          data: {
+
+                              userId:localStorage.getItem("userId"),
+                              newPassword:$("#password").val() ,
+                              oldPassword:$("#oldpwd").val()
+                          },
+                          headers:{
+                              Authorization:localStorage.getItem("token")
+                          },
+                          timeout:5000,
+                          type:"post",
+                          dataType: "json",
+                          success: function(data) {
+                              if(data.errorCode==9999){
+                                  window.location.href="login.html";
+                              }
+                              console.log(data);
+                              if(data.success){
+                                  window.location.href="back_success.html"
+                              }else{
+                                  layui.use(['layer'], function(){
+                                      layer.msg(data.message,{
+                                          area:'300px'
+                                      });
+                                  });
+							  }
+
+                          },
+                          error:function(err){
+
+                          }
+                      })
+                  }
+              })
+
+
+              history.pushState({back: 1}, null, "?back=1");
+              window.onpopstate = function(event) {
+                  console.log(event);
+                  history.pushState({back: 1},null, "?back=1");
+              };
+		</script>
+	</body>
+
+</html>

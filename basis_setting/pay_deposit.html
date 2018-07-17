@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>状态选择</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+    .pay_deposit>p{
+        color:#337ab7;
+        margin: 15px 0;
+    }
+        .pay_deposit div p{
+            font-size:18px;
+            border-bottom: 1px solid #dedede;
+            padding:20px 0;
+        }
+    .pay_deposit div>span{
+        font-size:33px;
+       display: inline-block;
+        vertical-align: top;
+        margin-top: 20px;
+    }
+    .pay_deposit div>span span{
+        font-size: 16px;
+    }
+    .pay_deposit div .pay_way{
+        padding: 20px 0;
+    }
+    .pay_deposit div .pay_way label{
+        margin-right: 30px;
+    }
+    .pay_deposit div .form-control{
+        width:200px;
+    }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span  >首页</span></li>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span class="head_active" >基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li  class="first">保证金</li>
+
+                </ul>
+            </li>
+            <!--<li >-->
+            <!--<span>合同管理</span>-->
+            <!--<ul>-->
+            <!---->
+            <!--<li >我的合同</li>-->
+            <!--</ul>-->
+            <!--</li>-->
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li>经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="pay_deposit">
+            <p class="router">基础设置》认证资料》保证金</p>
+            <div>
+                <p>缴纳保证金</p>
+                <div>
+                    缴纳额度：<span class="money">3000.00 <span>元</span></span>
+                </div>
+                <p>付款方式</p>
+                <div class="pay_way">
+                    <label>
+                        <input type="radio" checked name="pay" value="0">微信
+                    </label>
+                    <label>
+                        <input type="radio" name="pay" value="1">支付宝
+                    </label>
+                </div>
+                <input type="button" class="form-control btn-primary" value="去支付">
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+
+
+<script>
+
+    $(".btn-primary").click(function () {
+        var payType=$("input:checked").val();
+        console.log(payType);
+        var money=sessionStorage.getItem("money");
+        console.log(money);
+        $.ajax({
+            url:"http://172.16.40.134:8003/pay/seller/payCautionMoney",
+            type:"post",
+            dataType:"json",
+            data:{companyId:8,payType:payType,cautionMoney:0.01},
+            success:function (res) {
+                console.log(res);
+                if(res.success){
+                    sessionStorage.setItem("pay",res.data);
+                    sessionStorage.setItem("payType",payType);
+                    window.location.href="payFor.html";
+
+                }
+
+            },
+            error:function (err) {
+                console.log(err);
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

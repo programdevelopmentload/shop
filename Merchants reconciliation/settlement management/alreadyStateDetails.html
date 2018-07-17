@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已结算详情（不开发票）</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../js/layer/css/layui.css">
+    <style>
+        .btns{padding:20px 0 30px;}
+        .btns .excelBtn{background: #333333; border:none;}
+        .orderNumber{width: 23%;}
+        .amount{width: 9.3333%;}
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">z
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span >商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span class="head_active">对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>订单管理</span>
+                <ul>
+                    <li class="first">订单管理</li>
+                    <li>采购单管理</li>
+                    <li>验证取货码</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="crumbs">1》2》3</p>
+        <div class="orderInfor">
+            <p class="title">订单信息</p>
+            <div class="orderDetailsBox">
+                <ul>
+                    <li>
+                        <label for="">订单号:</label>
+                        <span>212313123213332323</span>
+                    </li>
+                    <li>
+                        <label for="">下单时间:</label>
+                        <span>2018-06-23 14:23:34 </span>
+                    </li>
+                    <li>
+                        <label for="">结算金额:</label>
+                        <span>￥224.00</span>
+                    </li>
+                    <li>
+                        <label for="">是否开票:</label>
+                        <span>否</span>
+                    </li>
+                    <li>
+                        <label for="">结算单号:</label>
+                        <span>132435436</span>
+                    </li>
+                    <li>
+                        <label for="">结算时间:</label>
+                        <span>2018-07-23 14:23:34</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--列表-->
+        <div class="list">
+            <ul class="list_head">
+                <li class="col-sm-3 orderNumber">商品名称</li>
+                <li class="col-sm-1 amount">商品编码</li>
+                <li class="col-sm-2 ">销售价</li>
+                <li class="col-sm-2 ">技术服务费</li>
+                <li class="col-sm-2">结算价</li>
+                <li class="col-sm-1">数量</li>
+                <li class="col-sm-1">结算金额</li>
+            </ul>
+            <div class="list_bottom">
+                <ul class=" clearfix">
+                    <li class="col-sm-3 orderNumber ">213243254366</li>
+                    <li class="col-sm-1 amount">￥24234</li>
+                    <li class="col-sm-3 orderNumber">213243254366</li>
+                    <li class="col-sm-1 amount">￥24234</li>
+                    <li class="col-sm-2">213243254366</li>
+                    <li class="col-sm-1">￥24234</li>
+                    <li class="col-sm-1"><a href="javascript:;">详情</a></li>
+                </ul>
+                <ul class=" clearfix">
+                    <li class="col-sm-3 orderNumber ">213243254366</li>
+                    <li class="col-sm-1 amount">￥24234</li>
+                    <li class="col-sm-3 orderNumber">213243254366</li>
+                    <li class="col-sm-1 amount">￥24234</li>
+                    <li class="col-sm-2">213243254366</li>
+                    <li class="col-sm-1">￥24234</li>
+                    <li class="col-sm-1"><a href="javascript:;">详情</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/common.js"></script>
+</body>
+</html>

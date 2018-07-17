@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待开发票(发票详情(待开/已开/发票))</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <style>
+        ol, ul{margin-bottom: 0;}
+        .invoicePadding{padding:10px 0;}
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{padding:0;}
+        .invoiceRights{ padding-right: 200px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span >商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span class="head_active">对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>订单管理</span>
+                <ul>
+                    <li class="first">订单管理</li>
+                    <li>采购单管理</li>
+                    <li>验证取货码</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="crumbs router">1》2》3</p>
+        <div class="orderInfor">
+            <p class="title">开票信息</p>
+            <div class="orderDetailsBox clearfix">
+                <ul class="clearfix ">
+                    <li>
+                        <label for="">结算单号:</label>
+                        <span>212313123213332323</span>
+                    </li>
+                    <li>
+                        <label for="">结算时间:</label>
+                        <span>2018-06-23 14:23:34 </span>
+                    </li>
+                    <li>
+                        <label for="">结算周期:</label>
+                        <span>￥224.00</span>
+                    </li>
+                    <li>
+                        <label for="">结算金额:</label>
+                        <span>￥224.00</span>
+                    </li>
+                    <li>
+                        <label for="">结算笔数:</label>
+                        <span>￥224.00</span>
+                    </li>
+                    <li>
+                        <label for="">结算类型:</label>
+                        <span>￥224.00</span>
+                    </li>
+                    <button type="button" class="btn btn-primary fr">确认开票</button>
+                </ul>
+            </div>
+        </div>
+        <!--列表-->
+        <div class="clearfix invoicePadding">
+            <p>开票商品明细</p>
+        </div>
+        <div class="list">
+            <ul class="list_head">
+                <li class="col-sm-1">序号</li>
+                <li class="col-sm-3">名称</li>
+                <li class="col-sm-1">商品编号</li>
+                <li class="col-sm-1 ">销售价</li>
+                <li class="col-sm-1 ">采购价</li>
+                <li class="col-sm-2">技术服务费占比</li>
+                <li class="col-sm-1">结算价</li>
+                <li class="col-sm-1">数量</li>
+                <li class="col-sm-1">结算金额</li>
+            </ul>
+            <div class="list_bottom clearfix">
+                <ul class="clearfix">
+                    <li class="col-sm-1">1</li>
+                    <li class="col-sm-3">北欧餐桌椅组合小户型现代简约家用饭桌LS003（200.40.45长宽高）</li>
+                    <li class="col-sm-1">2300045090</li>
+                    <li class="col-sm-1 ">¥ 1000.00</li>
+                    <li class="col-sm-1 ">¥ 1000.00</li>
+                    <li class="col-sm-2">¥ 1000.00</li>
+                    <li class="col-sm-1">¥ 1000.00</li>
+                    <li class="col-sm-1">1</li>
+                    <li class="col-sm-1">¥ 1000.00</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/common.js"></script>
+<script>
+    // 左右表格相等
+    var listBottomRight=$('.listBottomRight').height();
+    var listBottomLeft=$('.istBottomLeft').height();
+    $('.listBottomRight').each(function () {
+        $(this).css("height",$(this).parent().height())
+    })
+
+</script>
+</body>
+</html>

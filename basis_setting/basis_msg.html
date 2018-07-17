@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        #box .account_cont .company_msg p{
+            margin: 20px 0;
+            border-bottom:1px solid #dedede;
+            line-height: 45px;
+        }
+        .service_msg p{
+            margin: 20px 0;
+            border-bottom:1px solid #dedede;
+            line-height: 45px;
+        }
+        #box .account_cont li{
+            line-height: 35px;
+            height:35px;
+        }
+        #box .account_cont li span{
+            margin: 0;
+        }
+             .account_cont  .company_msg>div{
+                 overflow: hidden;
+             }
+        .account_cont  .company_msg>div>div{
+            width:50%;
+        }
+        .account_cont  .service_msg>div{
+            overflow: hidden;
+        }
+        .account_cont  .service_msg>div>div{
+            width:50%;
+        }
+        .account_cont ol{
+                overflow: hidden;
+            border:1px solid #000;
+            border-left:none;
+            width:352px;
+
+            }
+        #box  .account_cont ol li{
+           float: left;
+            padding:5px 30px;
+            line-height: 28px;
+            border-left:1px solid #000;
+            cursor: pointer;
+        }
+        #box  .account_cont ol li:first-child{
+            background:#000;
+            color:#fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span>订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+
+
+
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li  class="first">基本信息</li>
+                    <li>认证资料</li>
+                    <li >保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">基础设置》账户信息》基本信息</p>
+
+
+            <div class="company_msg">
+                <p>基本信息</p>
+                <div>
+                    <div class="fl">
+                        <ul class="">
+                            <li>公司名称：<span></span></li>
+                            <li>公司类型：<span></span></li>
+                            <li>成立日期：<span></span></li>
+                            <li>公司人数：<span></span></li>
+                        </ul>
+
+                    </div>
+                    <div class="fr">
+                        <ul>
+                            <li>公司地址：<span></span></li>
+                            <li>联系电话：<span></span></li>
+                            <li>传真号码：<span></span></li>
+
+                        </ul>
+                    </div>
+                </div>
+
+                <p>法人信息</p>
+                <ul>
+                    <li>法人代表：<span></span></li>
+                    <li>手机号码：<span></span></li>
+                    <li>E-mail：<span></span></li>
+                </ul>
+            </div>
+
+            <div class="service_msg">
+                <p>经营信息</p>
+                <ul class="manage">
+                    <li>经营类型：<span></span></li>
+                    <li>企业规模：<span></span></li>
+                    <li>纳税规模：<span></span></li>
+                </ul>
+                <p>服务信息</p>
+                <div>
+                    <div class="fl">
+                        <ul class="">
+                            <li>经营区域：<span></span></li>
+                            <li>配送人数：<span></span></li>
+                            <li>测量人数：<span></span></li>
+                            <li>设计人数：<span></span></li>
+                        </ul>
+
+                    </div>
+                    <div class="fr">
+                        <ul>
+                            <li>主要客户销售范围：<span></span></li>
+                            <li>主营品牌：<span></span></li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <p>联系信息</p>
+                <ul class="contact_msg">
+                    <li>业务对接人：<span></span></li>
+                    <li>手机号码：<span></span></li>
+                    <li>E-mail：<span></span></li>
+                    <li>服务负责人：<span></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    $(".header li").click(function () {
+        if($(this).html()==localStorage.getItem("username")){
+
+            window.location.href="account_msg.html";
+
+        }else if($(this).html()=="基础设置"){
+            window.location.href="basis_msg.html";
+
+        }
+    });
+    var url = getBaseUrl('yy')
+    pullUrl = url +'/user/seller/companyExamineAndVerify';
+
+    function edit() {
+        window.location.href="../demo/password.html";
+    }
+    function phone(){
+        window.location.href="../cellphon.html";
+    }
+    $.ajax({
+        url:pullUrl,
+        type:"post",
+        dataType:"json",
+        data:{
+            companyId:localStorage.getItem("companyId"),
+        },
+        headers:{
+            Authorization:localStorage.getItem("token")
+        },
+        success:function (res) {
+            if(res.errorCode==9999){
+                window.location.href="../login.html";
+            }
+            console.log(res);
+            if(res.success){
+                var json=res.data.sellerCompany;
+                for(var k in json){
+                    if(json[k]==null){
+                        json[k]="";
+                    }
+                }
+                $(".userName").html(res.data.userName);
+                $(".email").html(res.data.email);
+                $(".phone").html(res.data.phoneNumber);
+
+                $(".company_msg .fl ul").html('<li>公司名称：<span>'+res.data.sellerCompany.companyName+'</span></li>\n' +
+                    '<li>公司类型：<span>'+res.data.sellerCompany.companyType+'</span></li>\n' +
+                    '<li>成立日期：<span>'+res.data.sellerCompany.foundingTime+'</span></li>\n' +
+                    '<li>公司人数：<span>'+res.data.sellerCompany.peopleNum+'</span></li>');
+                $(".company_msg .fr ul").html('<li>公司地址：<span>'+res.data.sellerCompany.companyAddress+'</span></li>\n' +
+                    '<li>联系电话：<span>'+res.data.sellerCompany.telephone+'</span></li>\n' +
+                    '<li>传真号码：<span>'+res.data.sellerCompany.fax+'</span></li>');
+                $('.company_msg>ul').html('   <li>法人代表：<span>'+res.data.sellerCompany.legalRep+'</span></li>\n' +
+                    '<li>手机号码：<span>'+res.data.sellerCompany.legalRepPhone+'</span></li>\n' +
+                    '<li>E-mail：<span>'+res.data.sellerCompany.legalRepEmail+'</span></li');
+                $(".manage").html('<li>经营类型：<span>'+res.data.sellerCompany.managementType+'</span></li>' +
+                    '<li>企业规模：<span>'+res.data.sellerCompany.enterpriseScale+'</span></li>' +
+                    '<li>纳税规模：<span>'+res.data.sellerCompany.taxScale+'</span></li>');
+                $(".service_msg .fl ul").html('<li>经营区域：<span>'+res.data.sellerCompany.operatingArea+'</span></li>' +
+                    '<li>配送人数：<span>'+res.data.sellerCompany.distributionNum+'</span></li>' +
+                    '<li>测量人数：<span>'+res.data.sellerCompany.measureNum+'</span></li>' +
+                    '<li>设计人数：<span>'+res.data.sellerCompany.designNum+'</span></li>');
+                var str="";
+                for(var i=0;i<res.data.sellerCompany.brand.length;i++){
+                    str+=res.data.sellerCompany.brand[i].name+",";
+                }
+                str=str.substr(0,str.length-1);
+                $(".service_msg .fr ul").html('<li>主要客户销售范围：<span>'+res.data.sellerCompany.saleScope+'</span></li>' +
+                    '<li>主营品牌：<span>'+str+'</span></li>');
+                $(".contact_msg").html('<li>业务对接人：<span>'+res.data.sellerCompany.abutmentPerson+'</span></li>\n' +
+                    '<li>手机号码：<span>'+res.data.sellerCompany.abutmentPhone+'</span></li>' +
+                    '<li>E-mail：<span>'+res.data.sellerCompany.abutmentEmail+'</span></li>' +
+                    '<li>服务负责人：<span>'+res.data.sellerCompany.servicePerson+'</span></li>')
+            }
+
+        }
+    });
+
+</script>
+</body>
+</html>

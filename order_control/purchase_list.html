@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style>
+        ol, ul{margin-bottom: 0;}
+        .search .gjc{width: 200px; display: inline-block; margin-right: 20px;
+            margin-left: 10px;}
+        .purch_tables{margin-top:20px;}
+        .purch_tables .purch_head{width: 100%; }
+        .purch_tables .purch_head li{float: left; text-align: center; }
+        .purch_table .purch_title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 0;
+            border-left: 1px solid #ddd;
+            border-right:1px solid  #ddd;
+        }
+
+        .purch_cont ul >li:first-child{border-left:1px solid #ddd; }
+        .purch_left{ padding:0 ;}
+        .purch_cont{border-bottom: 1px solid #ddd;}
+        .purch_left .clearfix .col-sm-2{
+            width: 22%;
+        }
+        .purch_left .clearfix li{
+            text-align: center;
+            height: 80px;align-items: center;justify-content: center;
+        }
+        .purch_left .clearfix .col-sm-1{
+            width: 11%;
+        }
+        .purch_left img{
+            width: 70px;
+            height: 70px;
+        }
+        .purch_left li{
+            word-wrap:break-word;
+        }
+        .price{
+            position: relative;
+
+        }
+        .price span{
+            position: absolute;
+            color: red;font-size: 13px;width: 117px;top: 25px;left: -10px;
+        }
+
+        .purch_right .col-sm-8{
+            line-height: 37px;
+            text-align: center;
+        }
+        .modal-body label{
+            font-weight: 100;
+            color: #000;
+        }
+        .modal-body span{
+            display: inline-block;
+        }
+        .modal-body p{
+            margin-top: 10px;
+        }
+        .modal-body input{
+            vertical-align: middle;
+        }
+        #myModalLabel{
+            text-align: center;
+        }
+        .modal-body span{
+            color:#337ab7
+        }
+        .purch_left {
+            border-right: 1px solid #dedede;
+            /*border-bottom: 1px solid #dedede;*/
+        }
+        .purch_left:nth-child(1){
+            border-bottom: none;
+        }
+        .purch_left .clearfix .col-sm-1{
+            word-break: break-word;
+        }
+        .col-sm-1.pici{
+            border-right: 1px solid #dedede;
+            border-left: 1px solid #dedede;
+        }
+        .caigou{
+            position: fixed;
+            bottom: 30%;
+            z-index: 9999;
+            border:1px solid #dedede;
+            display: none;
+            border-radius: 10px;
+            width: 47%;
+            left:26%;
+            background: #fff;
+            padding:10px ;
+
+        }
+        .caigou li{
+            line-height: 30px;
+            border-bottom: 1px solid #dedede;
+        }
+        .caigou span{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span class="head_active">订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>订单</span>
+                <ul>
+                    <li>订单管理</li>
+                    <li>待备货</li>
+                    <li>待取货</li>
+                    <li>已取货</li>
+                    <li>已完成</li>
+                </ul>
+            </li>
+            <li >
+                <span>采购单</span>
+                <ul>
+                    <li>采购单管理</li>
+                    <li>待确认</li>
+                    <li>待备货</li>
+                    <li>待取货</li>
+                    <li>已取货</li>
+                    <li>已完成</li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+    </div>
+    <div class="right">
+        <p class="router"></p>
+        <div class="search">
+            查订单:<input type="text" class="form-control gjc" placeholder="请输入关键字" id="Dd_Number">
+            查商品:<input type="text" class="form-control gjc" placeholder="请输入关键字" id="Dd_shopName">
+            <button class="btn btn-primary order_btn">查询</button>
+        </div>
+        <div class="purch_tables">
+            <div class="purch_head">
+                <ul class="clearfix list_head">
+                    <li class="col-sm-2">商品信息</li>
+                    <li class="col-sm-1">商品型号</li>
+                    <li class="col-sm-1">商品编码</li>
+                    <li class="col-sm-1">采购数量</li>
+                    <li class="col-sm-1 ">采购单价</li>
+                    <li class="col-sm-1 ">小计</li>
+                    <li class="col-sm-1">批次号</li>
+                    <li class="col-sm-1">商品类型</li>
+                    <li class="col-sm-1">订单状态</li>
+                    <li class="col-sm-2">操作</li>
+                </ul>
+
+            </div>
+            <div class="purch_table">
+               <p class="purch_title clearfix">
+                   <span class="fl">订单编号:13123  &nbsp; &nbsp; &nbsp; &nbsp;2018-02-19  &nbsp; &nbsp;
+                       11:20:32
+                   </span>
+               </p>
+                <div class="purch_cont  clearfix">
+                    <div class="purch_left fl col-sm-9">
+                      <ul class="clearfix liCenter" >
+                          <li class="col-sm-2 msg">商品信息</li>
+                          <li class="col-sm-1 model">商品型号</li>
+                          <li class="col-sm-1 code">商品编码</li>
+                          <li class="col-sm-1 num">采购数量</li>
+                          <li class="col-sm-1 price">采购单价</li>
+                          <li class="col-sm-1 price">小计</li>
+                          <li class="col-sm-1 pici">批次号</li>
+                          <li class="col-sm-1 type">商品类型</li>
+                      </ul>
+                    </div>
+                    <div class="purch_right fl col-sm-3" >
+                        <span class="col-sm-4" style="line-height: 80px">待备货</span>
+                        <p class="col-sm-8" >
+                            <span >订单详情</span>
+                            <input  type="button" class="form-control btn-primary" data-toggle="modal" data-target="#myModal" value="已备货，确认出库">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="leftBottom clearfix">
+            <div class="page pageBar" id="page">
+                <p>共0条记录</p >
+                <div class="pageLft clearfix">
+                    <a href=" #" class="prev"></a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                </div>
+                <div class="pageRht">共<span id="totalPage"></span>页</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">采购单确认</h4>
+            </div>
+            <div class="modal-body">
+               接单后，亲您按照供货时间备货，合作愉快
+                <p><label><input type="checkbox" checked>我同意针对此订单提供</label><span>《采购服务》</span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="caigou">
+    <ul>
+        <li>订单编号：<span>11111</span></li>
+        <li>商品名称：</li>
+        <li></li>
+    </ul>
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../layer/layer.js"></script>
+<script>
+    $(".router").html("订单管理》采购单》"+sessionStorage.getItem("orderName"))
+    console.log(sessionStorage.getItem("orderIndex"));
+    console.log(sessionStorage.getItem("orderName"))
+    if(sessionStorage.getItem("orderIndex")!=3){
+        var orderName=  $(".left>ul>li").eq(sessionStorage.getItem("orderIndex")).find("li");
+        orderName.each(function () {
+            if($(this).html()==sessionStorage.getItem("orderName")){
+                console.log($(this).html())
+                $(this).attr("class","first")
+            }
+        })
+    }else{
+        $(".left span").each(function () {
+            if($(this).html()==sessionStorage.getItem("orderName")){
+                $(this).attr("class","first")
+
+            }
+        })
+    }
+    var keyWord='',
+        orderNum='';
+    // 点击查询获取数据
+    $('.purchBtn').click(function () {
+        orderNum= $('#Dd_Number').val();
+        keyWord= $('#Dd_shopName').val();
+        searchPage();
+        searchPage(_nowPage);
+    });
+    $(function () {
+        searchPage();   //初始化函数
+    });
+
+    /**
+     * 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.38.97:8009/purchase/order/supplier/list', "page", function (data) {
+        fillTableData(data);
+    });
+
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+
+    }
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        var params = {
+            'currentPage':1,
+            'pageSize':10,
+            orderNum:orderNum,
+            goodsName:keyWord,
+            userId:localStorage.getItem("userId"),
+            status:sessionStorage.getItem("orderStatus")
+
+        };
+        return params;
+    };
+   function fillTableData(data){
+        console.log(data);
+        var str='';
+        // var data=res.order;
+        // var stock=res.stocks;
+
+       for(var i=0;i<data.length;i++){
+           var enough=true;//库存够
+           str+='<p class="purch_title clearfix">采购单号：<span>'+data[i]. orderNum+'</span>';
+           str+='<span class="time">'+data[i].createTime+'</span></p>';
+           str+='<div class="purch_cont  clearfix"><div class="purch_left fl col-sm-9">';
+           for(var j=0;j<data[i]. supplierPurchaseGoods.length;j++){
+               str+='<ul class="clearfix liCenter"><li class="col-sm-2 msg"><img src="'+data[i].supplierPurchaseGoods[j].picture+'" alt="">'+data[i].supplierPurchaseGoods[j].attribute+'</li>';
+               str+='<li class="col-sm-1 model"><span>'+data[i].supplierPurchaseGoods[j].goodsName+'</span></li>'
+               str+='<li class="col-sm-1 code">'+data[i].supplierPurchaseGoods[j].goodsCode+'</li>'
+               str+='<li class="col-sm-1 num">'+data[i].supplierPurchaseGoods[j].count+'</li>'
+               str+='<li class="col-sm-1 price">￥'+data[i].supplierPurchaseGoods[j].price+'';
+               if(enough){
+                   if(data[i].supplierPurchaseGoods[j].count>data[i].supplierPurchaseGoods[j].stock){
+                       enough=false;
+                   }
+               }
+               if(!enough){
+                   str+='<span>库存不足,无法备货</span>'
+               }
+               str+='</li>' +
+                   '<li class="col-sm-1 pici">'+data[i].supplierPurchaseGoods[j].totalPrice+'</li>' +
+                   '<li class="col-sm-1 pici">'+data[i].supplierPurchaseGoods[j].skuId+'</li>'
+               str+='<li class="col-sm-1 type">'+data[i].supplierPurchaseGoods[j].type+'</li>'
+               str+=' </ul>'
+           }
+           str+='</div>'
+           var state="";
+           var btn="";
+           switch (data[i]. supplierOrderStatus){
+               case "0":
+                   state="待确认";
+                   btn='<input onclick="confirm(this)" data-toggle="modal" data-target="#myModal" type="button" class="form-control btn-primary" value="确认采购单">';
+                   break;
+               case "1":
+                   state="待备货";
+                   if(enough){
+                       btn='<input onclick="ok(this)"  type="button" class="form-control btn-primary" value="已备货，确认出库">';
+                   }else{
+                       btn='<input  onclick="add(this)"  type="button" class="form-control btn-primary" value="增加库存">';
+                   }
+                   break;
+               case "2":
+                   state="待取货";
+                   break;
+               case "3":
+                   state="已取货";
+                   break;
+               case "4":
+                   state="已完成";
+                   break;
+           }
+           str+='<div class="purch_right fl col-sm-3" ><span class="col-sm-4" style="line-height: 80px">'+state+'</span>';
+           str+='<p class="col-sm-8" orderid="'+data[i].orderNum+'" createTime="'+data[i].createTime+'"><span onclick="goDetail(this)">订单详情</span>'+btn+'</p></div></div>';
+
+       }
+       $(".purch_table").html(str);
+   }
+    var orderId="";
+   var createTime="";
+    var name="";
+function confirm(a) {//点击确认
+ orderId=$(a).parent().attr("orderid");
+    createTime=$(a).parent().attr("createTime");
+   name =$(a).parent().parent().prev().find(".modal");
+}
+function  goDetail(a) {
+    sessionStorage.setItem("PurchaseOrderId",$(a).parent().attr("orderid"));
+    window.location.href="purchase_details.html";
+}
+//可备货
+function ok(a){
+    var orderId=$(a).parent().attr("orderid");
+    $.ajax({
+        url:"http://172.16.38.97:8009/purchase/order/supplier/confirm",
+        data:{orderNum:orderId},
+        dataType:"json",
+        type:"post",
+        success:function (res) {
+            if(res.success){
+                layer.msg("已出库")
+            }
+        }
+    })
+}
+//++
+function add(a){
+    window.location.href=""
+}
+
+$(".modal-content .modal-body p span").click(function () {
+    $.ajax({
+        url:"http://172.16.44.200:8002/user/agreement/technical/service",
+        dataType:"json",
+        type:"post",
+        success:function (res) {
+            if(res.success){
+
+                $(".caigou").show();
+                var str="";
+                str+='<ul><li>订单编号：'+orderId+'<span>'+createTime+'</span></li>';
+
+                $(name).each(function () {
+                    str+='<li>'+$(this).html()+'</li>'
+                })
+                for(var i=0;i<arr.length;i++){
+
+                }
+                str+='<li>'+res.data.comment+'</li>';
+                str+='</ul>' ;
+                $(".caigou").html(str);
+            }
+        }
+    })
+});
+    $(document).click(function () {
+
+        $(".caigou").hide();
+
+    });
+$(".modal-footer .btn-primary").click(function () {
+    if($(".modal-body input").prop("checked")){
+        $.ajax({
+            url:"http://172.16.38.97:8009//purchase/order/supplier/makeSure",
+            data:{orderNum:orderId},
+            dataType:"json",
+            type:"post",
+            success:function (res) {
+              if(res.success){
+                  layer.msg("采购单确认成功");
+              }
+            }
+        })
+    }
+
+
+})
+</script>
+</body>
+</html>

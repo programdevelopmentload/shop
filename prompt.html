@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>申请提示</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+	</head>
+
+	<body>
+	<div class="header clearfix">
+		<a href="javascript:;">
+			<img src="image/xbxm.png"/>
+		</a>
+
+		<a href="javascript:;">
+			<img src="image/store.png"/>
+		</a>
+
+
+	</div>
+		<div class="mess_cont">
+			<div class="mess_cont_title">
+				<ul>
+					<li class="clearfix">
+						<span class="mess_left fl">供应商入驻</span>
+						<a href="login.html" class="mess_right mess-padding">立即登录</a>
+						<span class="mess_right fr">已有账户,</span>
+					</li>
+				</ul>
+			</div>
+			<div class="mess_con_bottom clearfix">
+				<div class="mess_bot_center">
+					<img src="image/icon.png" alt=""  class="fl"/>
+					<div class="mess_con_submit fl">
+						<p>您的入驻资料已提交，请等待平台审核</p>
+						<span>温馨提示：审核时间周期为3-7个工作日</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--table-->
+		<table id="table"></table>
+		<div class="footer">
+			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+		</div>
+		<script src="js/jquery-1.12.4.min.js"></script>
+	    <script src="js/common.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/bootstrap-table.js"></script>
+		<script src="js/bootstrap-table-zh-CN.js"></script>
+		<script type="text/javascript">
+            $(".header li").click(function () {
+                if($(this).html()==localStorage.getItem("username")){
+                    sessionStorage.clear();
+                    localStorage.clear();
+                    window.location.href=".basis_setting/account_msg.html"
+
+                }else if($(this).html()=="基础设置"){
+                    window.location.href="basis_setting/basis_msg.html"
+
+                }
+            });
+            var url=getBaseUrl('yy');
+            var messUrl =url+'/user/seller/sellerApplyState';
+
+			function getQueryString(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+				var r = window.location.search.substr(1).match(reg);
+				if (r != null) return decodeURI(r[2]);
+				return null;
+			}
+
+            $.ajax({
+                url:messUrl,
+                type:"post",
+                data:{
+                    userId:localStorage.getItem("userId"),
+                },
+                headers:{
+                    Authorization:localStorage.getItem("token")
+                },
+                dataType:"json",
+                success:function (res) {
+                    if(res.errorCode==9999){
+                        window.location.href="login.html";
+                    }
+                    if (res.success){
+                        var arr=[];
+                        var obj={};
+                        var  arr2=[];
+                        arr.push({
+                            field: 'comp_name',
+                            title: "公司名称"
+                        }, {
+                            field: 'gslx',
+                            title: '公司类型'
+                        }, {
+                            field: 'jylx',
+                            title: '经营类型'
+                        }, {
+                            field: 'zypp',
+                            title: '主营品牌'
+                        }, {
+                            field: 'tel',
+                            title: '手机号'
+                        }, {
+                            field: 'sqsj',
+                            title: '申请时间'
+                        },{
+                            field: 'status',
+                            title: '状态'
+                        });
+
+                        obj.comp_name=res.data.companyName;
+                        obj.gslx=res.data.companyType;
+                        obj.jylx=res.data.managementType;
+                        obj.zypp=sessionStorage.getItem('selected');
+                        obj.tel= res.data.phoneNumber;
+                        obj.sqsj=res.data.applyTime;
+
+                        if(res.data.companyState==3){
+                            arr.push({
+                                field: 'caozuo',
+                                title: '操作',
+                                formatter:caozuo
+                            });
+                            obj.status="未通过"
+                            ;
+
+                        }else if(res.data.companyState==1){
+
+                            obj.status="待审核"
+
+                        }else if(res.data.companyState==0){
+                            obj.status="已保存"
+						}else if(res.data.companyState==2){
+                            obj.status="已通过"
+                        }
+
+                        arr2.push(obj);
+                        $("#table").bootstrapTable({columns:arr,data:arr2});
+                        // console.log(res);//0 待审核 1审核未通过  2通过
+					}
+
+                }
+            });
+            function caozuo() {
+				return "<span onclick='edit()' style='color:#3540d3'>编辑</span>"
+            }
+
+			function edit(e) {
+                sessionStorage.setItem("edit","need")
+			window.location.href="com_mess.html"
+
+            }
+            // function qq() {
+            //
+            // }
+            history.pushState({back: 1}, null, "?back=1");
+            window.onpopstate = function(event) {
+                console.log(event);
+                history.pushState({back: 1},null, "?back=1");
+            };
+		</script>
+	</body>
+
+</html>

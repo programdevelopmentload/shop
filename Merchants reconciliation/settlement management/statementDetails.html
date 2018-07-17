@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结算单详情（开/不开发票）</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <style>
+        ol, ul{margin-bottom: 0;}
+        .NoList{text-align: left !important; padding-left: 20px; }
+        .orderNumberBox{border-top: 1px solid #ddd; background: #F2F2F2; border:none;}
+        .servers{display: none;}
+        .stateDetails{border-bottom: 1px dashed #ddd; margin-bottom: 20px; padding:10px 0;}
+        .stateDetails li>span{padding-left:10px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span >商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span class="head_active">对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>结算管理</span>
+                <ul>
+                    <li >订单查询</li>
+                    <li>结算单查询</li>
+                </ul>
+            </li>
+            <li >
+                <span>发票管理</span>
+                <ul>
+                    <li >代开发票</li>
+                    <li>全部发票</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="router">1》2》3</p>
+        <p class="borderBottom">结算单</p>
+        <div class="orderDetailState">待确认</div>
+        <div class="stateDetails clearfix">
+            <ul class="clearfix">
+                <li>
+                    <label for="">商家名称:</label>
+                    <span>354565768</span>
+                </li>
+                <li>
+                    <label for="">结算单号:</label>
+                    <span>354565768</span>
+                </li>
+                <li>
+                    <label for="">结算时间:</label>
+                    <span>354565768</span>
+                </li>
+                <li>
+                    <label for="">结算周期:</label>
+                    <span>354565768</span>
+                </li>
+                <li>
+                    <label for="">结算金额:</label>
+                    <span>354565768</span>
+                </li>
+                <li>
+                    <label for="">结算订单笔数:</label>
+                    <span>354565768</span>
+                </li>
+            </ul>
+            <div class="btns fr">
+                <button type="button" class="btn btn-primary">确认</button>
+                <button type="button"class="btn btn-default">查看明细</button>
+            </div>
+        </div>
+        <!--列表-->
+        <div class="list">
+            <p>结算商品明细</p>
+            <ul class="list_head ">
+                <li class="col-sm-1">序号</li>
+                <li class="col-sm-2">名称</li>
+                <li class="col-sm-2">商品编号</li>
+                <li class="col-sm-1">销售价</li>
+                <li class="col-sm-1">采购价</li>
+                <li class="col-sm-2">技术服务费</li>
+                <li class="col-sm-1">结算价</li>
+                <li class="col-sm-1">数量</li>
+                <li class="col-sm-1">结算金额</li>
+            </ul>
+            <div class="list_bottom clearfix">
+                <ul class="clearfix ">
+                    <li class="col-sm-1">1</li>
+                    <li class="col-sm-2">名称名称名称名称名称名称名称名称名称名称</li>
+                    <li class="col-sm-2">243546546656</li>
+                    <li class="col-sm-1">销售价</li>
+                    <li class="col-sm-1">采购价</li>
+                    <li class="col-sm-2">技术服务费</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">数量</li>
+                    <li class="col-sm-1">￥1000.00</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../../js/jquery-1.12.4.min.js"></script>
+    <script src="../../js/common.js"></script>
+
+</body>
+</html>

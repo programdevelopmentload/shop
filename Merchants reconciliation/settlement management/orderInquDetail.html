@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单查询(详情-待结算，已结算)</title>
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../js/layer/css/layui.css">
+    <style>
+        .btns{padding:20px 0 30px;}
+        .btns .excelBtn{background: #333333; border:none;}
+        .orderDetailsBox{margin-bottom: 10px;}
+        .orderDetailsBox li label{width: 74px;}
+        .orderDetailsBox li.None{display: none;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span >商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span class="head_active">对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>订单管理</span>
+                <ul>
+                    <li class="first">订单管理</li>
+                    <li>采购单管理</li>
+                    <li>验证取货码</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="crumbs router">1》2》3</p>
+        <div class="orderInfor">
+            <p class="title">结算详情</p>
+            <div class="orderDetailsBox">
+                <ul>
+                    <li>
+                        <label for="">订单号:</label>
+                        <span>212313123213332323</span>
+                    </li>
+                    <li>
+                        <label for="">下单时间:</label>
+                        <span>2018-06-23 14:23:34 </span>
+                    </li>
+                    <li>
+                        <label for="">发货时间:</label>
+                        <span>2018-06-23 14:23:34 </span>
+                    </li>
+                    <li>
+                        <label for="">关联订单号:</label>
+                        <span>2018-06-23 14:23:34 </span>
+                    </li>
+                    <li>
+                        <label for="">结算金额:</label>
+                        <span>￥224.00</span>
+                    </li>
+                    <li>
+                        <label for="">状态:</label>
+                        <span>待结算</span>
+                    </li>
+                    <li class="None">
+                        <label for="">结算单号:</label>
+                        <span>待结算</span>
+                    </li>
+                    <li class="None">
+                        <label for="">结算时间:</label>
+                        <span>待结算</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--列表-->
+        <div class="list">
+            <ul class="list_head">
+                <li class="col-sm-3 orderNumber">商品名称</li>
+                <li class="col-sm-1 amount">商品编号</li>
+                <li class="col-sm-2 ">销售价</li>
+                <li class="col-sm-2 ">采购价</li>
+                <li class="col-sm-2">结算价</li>
+                <li class="col-sm-1">数量</li>
+                <li class="col-sm-1">结算金额</li>
+            </ul>
+            <div class="list_bottom">
+                <ul class="clearfix">
+                    <li class="col-sm-3 orderNumber">商品名称</li>
+                    <li class="col-sm-1 amount">商品编号</li>
+                    <li class="col-sm-2 ">销售价</li>
+                    <li class="col-sm-2 ">采购价</li>
+                    <li class="col-sm-2">结算价</li>
+                    <li class="col-sm-1">数量</li>
+                    <li class="col-sm-1">结算金额</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/layer/layer.js"></script>
+<script src="../../js/layer/layui.js"></script>
+<script>
+    // 日期插件
+    layui.use('laydate', function(){
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '.dates', //指定元素
+            time:"yyyy-MM-dd hh-mm-ss"
+        });
+        laydate.render({
+            elem: '.datesEnd', //指定元素
+            time:"yyyy-MM-dd hh-mm-ss"
+        });
+    });
+
+
+</script>
+</body>
+</html>
