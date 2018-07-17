@@ -133,6 +133,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <!--<li>首页</li>-->
+        <li><span class="head_active">基础设置</span></li>
+
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -142,18 +147,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span class="head_active">基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span>订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
 
-
-    </ul>
-</div>
 <div id="box">
     <div class="left">
         <ul>
@@ -162,7 +156,7 @@
                 <ul>
                     <li>基本信息</li>
                     <li class="first">认证资料</li>
-                    <li >保证金</li>
+
                 </ul>
             </li>
             <li >
@@ -171,12 +165,7 @@
                     <li >经营区域</li>
                 </ul>
             </li>
-            <li>
-                <span>收款账户</span>
-                <ul>
-                    <li>账户管理</li>
-                </ul>
-            </li>
+
         </ul>
 
 
@@ -277,9 +266,6 @@
                         </label>
                         <label>
                             <input type="checkbox" name="check" select="2">普通发票
-                        </label>
-                        <label>
-                            <input type="checkbox" name="check" select="3">专业发票
                         </label>
                         <label>
                             <input type="checkbox" name="check" select="0" checked>暂无法开票
@@ -398,11 +384,11 @@
      
     </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
-
+</div>
     <script src="../js/jquery-1.12.4.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/common.js"></script>
-    <script src="../js/layui.js"></script>
+    <script src="../layer/layer.js"></script>
     <script>
         $(".header li").click(function () {
 
@@ -415,7 +401,7 @@
 
             }
         });
-        var ip="http://img.jxjia.net";
+        var ip="";
         // var ip='http://172.16.10.162:8888/';
         var url = getBaseUrl('img');
         var urls=getBaseUrl('yy');
@@ -470,47 +456,25 @@
             var obj={};
 
             if($(".legName").val()==""){
-                layui.use(['layer'], function(){
-                    layer.msg('请填写法人姓名',{
-                        // offset:["100px","300px"],
-                        area:'500px',
-                        time:2000
-                    });
-
-                });
+              layer.msg("请输入法人姓名")
                 return;
             }
             if($(".legId").val()==""){
-                layui.use(['layer'], function(){
-                    layer.msg('请填写法人身份证号',{
-                        // offset:["100px","300px"],
-                        area:'500px',
-                        time:2000
-                    });
-
-                });
+               layer.msg("请输入身份证号")
                 return;
             }
+            var reg = /(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            if(reg.test($(".legId").val()) === false)
+            {
+                layer.msg("身份证号格式不正确");
+                return false;
+            }
             if($(".fa_zheng").attr("src")==""){
-                layui.use(['layer'], function(){
-                    layer.msg('请上传法人身份证正面',{
-                        // offset:["100px","300px"],
-                        area:'500px',
-                        time:2000
-                    });
-
-                });
+            layer.msg("请上传图片")
                 return;
             }
             if($(".fa_fan").attr("src")==""){
-                layui.use(['layer'], function(){
-                    layer.msg('请上传法人身份证反面',{
-                        // offset:["100px","300px"],
-                        area:'500px',
-                        time:2000
-                    });
-
-                });
+             layer.msg("请上传图片");
                 return;
             }
             obj.imageIdFront=$(".fa_zheng").attr("src");
@@ -522,35 +486,15 @@
 
             if($('.shui input:checked').attr("select")!=0){
                 if(!$(".kaihu").attr("src"))   {
-                    layui.use(['layer'], function(){
-                        layer.msg('请上传开户许可证',{
-                            // offset:["100px","300px"],
-                            area:'500px',
-                            time:2000
-                        });
-                    });
+                 layer.msg("请上传开票类型")
                     return;
                 }
                 if($(".zige").attr("src")=="")   {
-                    layui.use(['layer'], function(){
-                        layer.msg('请上传纳税人资格证书',{
-                            // offset:["100px","300px"],
-                            area:'500px',
-                            time:2000
-                        });
-
-                    });
+                layer.msg("请上传开票类型")
                     return;
                 }
                 if($(".shuiwu").attr("src")=="")   {
-                    layui.use(['layer'], function(){
-                        layer.msg('请上传税务登记证书',{
-                            // offset:["100px","300px"],
-                            area:'500px',
-                            time:2000
-                        });
-
-                    });
+                    layer.msg("请上传开票类型");
                     return;
                 }
             }
@@ -576,27 +520,15 @@
                 }catch(err){
                 }
             }
-            $.ajax({
+            rewriteAjax({
                 url:pullUrl,
-                type:"post",
-                dataType:"json",
                 data:obj,
-                headers:{
-                    Authorization:localStorage.getItem("token")
-                },
-                success:function (res) {
-                    console.log(res);
-                    if(res.errorCode==9999){
-                        window.location.href="../login.html";
-                    }
-                    if(res.success){
-                        window.location.href="cer-infor-submit.html";
-                    }
-                },
-                error:function (err) {
-                    // console.log(err);
+            },function (res) {
+                if(res.success){
+                    window.location.href="cer-infor-submit.html";
                 }
             })
+
 
         });
 
@@ -604,8 +536,13 @@
             var that=this;
             var formData = new FormData();
             formData.append('uploadFile', img.files[0]);
+
+            if(img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPEG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="PNG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPG"){
+                layer.msg("图片格式错误，请重新上传");
+                return;
+            }
             if(img.files[0].size>1024*1024*3){
-                alert("图片大小不能大于3M");
+                layer.msg("图片大小错误，请重新上传");
                 return;
             }
             console.log();
@@ -621,7 +558,7 @@
                     Authorization:localStorage.getItem("token")
                 },
                 success: function (res) {
-                    if(res.errorCode==9999){
+                    if(res.errorCode==9527){
                         window.location.href="../login.html";
                     }
                     console.log(res);
@@ -641,8 +578,12 @@
         function change(img) {
             var formData = new FormData();
             formData.append('uploadFile', img.files[0]);
-            if(img.files[0].size>1024*1024*3){
-                alert("图片大小不能大于3M");
+            if(img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPEG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="PNG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPG"){
+                layer.msg("图片格式错误，请重新上传");
+                return;
+            }
+                if(img.files[0].size>1024*1024*3){
+                layer.msg("图片大小错误，请重新上传");
                 return;
             }
             $.ajax({
@@ -657,7 +598,7 @@
                 },
                 data: formData,
                 success: function (res) {
-                    if(res.errorCode==9999){
+                    if(res.errorCode==9527){
                         window.location.href="../login.html";
                     }
                   console.log(res);
@@ -671,169 +612,162 @@
             })
         }
         //回显
-        $.ajax({
+        var res=rewriteAjax({
             url:pullUrll,
-            type:"post",
             data:{
                 companyId:localStorage.getItem("companyId")
-            },
-            headers:{
-                Authorization:localStorage.getItem("token")
-            },
-            dataType:"json",
-            success:function (res) {
-                if(res.errorCode==9999){
-                    window.location.href="../login.html";
-                }
-                console.log(ip);
-                console.log(res)
-                // console.log(res);
-                if(res.success){
-                    console.log(res);
-
-                    if(res.data.applyTime!=""){
-                        $(".account_p1").html('申请时间：<span class="applyTime"></span>审核时间：<span class="audit_time"></span>审核状态：<span class="audit_status"></span><span class="reason"></span>')
-                    }
-                    $(".applyTime").html(res.data.applyTime);
-                    $(".audit_time").html(res.data.evaTime);
-                    $(".audit_status").html(res.data.evaResult);
-                    if(res.data.imageState==3){
-                        $(".audit_status").html("未通过");
-                        $(".audit_status").css("color","red");
-                        $(".reason").html(res.data.dismissReason);
-                        $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text"  value="'+res.data.legname+'" class="form-control legName">')
-                        $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text"  value="'+res.data.legIdcard+'" class="form-control legId">');
-
-                    }else if(res.data.imageState==2){
-                        $(".audit_status").html("已通过");
-                        $(".cer-infor-btn").hide();
-
-
-                        $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text" disabled value="'+res.data.legname+'" class="form-control legName">')
-                        $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text" disabled value="'+res.data.legIdcard+'" class="form-control legId">');
-
-                    }else if(res.data.imageState==1){
-                        $(".audit_status").html("待审核");
-                        $(".cer-infor-btn").hide();
-
-                        $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text" disabled  value="'+res.data.legname+'" class="form-control legName">')
-                        $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text" disabled  value="'+res.data.legIdcard+'" class="form-control legId">');
-
-
-                    }
-                    $(".shui input").each(function () {
-
-                        var arr=res.data.invoiceType.split(",");
-                        for(var i=0;i<arr.length;i++){
-                            console.log($(this).attr("select"))
-                           if($(this).attr("select")== arr[i]){
-                               $(this).attr("checked","checked");
-                           }
-                        }
-                        if(res.data.invoiceType!=0){
-                            $(".shui input[select=0]").attr("checked",false);
-                            $(".fapiao").show()
-                        }
-
-                    })
-                    /*
-                    *
-                    obj.imageTaxpayer=$(".shuiwu").attr("src");
-                    obj.imageTaxRegistration=$(".zige").attr("src");
-
-                    obj.imageProductQualification=$(".imageProductQualification").attr("src");
-                    obj.imageProxyCertificate=$(".shouqan").attr("src");*/
-                    if(res.data.imageIdFront!=""){
-                        // $(".fa_zheng").prepend('<img src="'+res.data.imageIdFront+'"/>')
-                        $(".fa_zheng").attr("src",ip+res.data.imageIdFront);
-                        $(".fa_zheng").parent() .next().next().css("display","none");
-                        if(res.data.imageState!=2) {
-                            $(".fa_zheng").next().css("display", "block");
-                        }
-                        $(".fa_zheng").parent().next().css("display","block");
-                        $(".fa_zheng").find("span").css("display","block")
-                    }
-                    if(res.data.imageIdAfter!=""){
-                        $(".fa_fan").parent() .next().next().css("display","none");
-                        if(res.data.imageState!=2) {
-                            $(".fa_fan").next().css("display", "block");
-                        }
-                        $(".fa_fan").parent().next().css("display","block");
-                        $(".fa_fan").attr("src",ip+res.data.imageIdAfter)
-
-                        $(".fa_fan").find("span").css("display","block")
-                    }
-                    if(res.data.imageBusiness!=""){
-                        $(".yingye").parent() .next().next().css("display","none")
-                        if(res.data.imageState!=2) {
-                            $(".yingye").next().css("display", "block")
-                        }
-                        $(".yingye").parent().next().css("display","block")
-                        $(".yingye").attr("src",ip+res.data.imageBusiness)
-
-                        $(".yingye").find("span").css("display","block")
-                    }
-
-                    if(res.data.imageLicense!=""){
-                        $(".kaihu") .parent().next().next().css("display","none")
-                        if(res.data.imageState!=2) {
-                            $(".kaihu").next().css("display", "block");
-                        }
-                        $(".kaihu").parent().next().css("display","block");
-                        $(".kaihu").attr("src",ip+res.data.imageLicense)
-
-                        $(".kaihu").find("span").css("display","block")
-                    }
-
-                    if(res.data.imageTaxpayer!=""){
-                        $(".shuiwu").parent() .next().next().css("display","none")
-                        if(res.data.imageState!=2) {
-                            $(".shuiwu").next().css("display", "block")
-                        }
-                        $(".shuiwu").parent().next().css("display","block")
-                        $(".shuiwu").prepend('<img src="'+ip+res.data.imageTaxpayer+'"/>')
-                        $(".shuiwu").attr("src",ip+res.data.imageTaxpayer)
-
-                        $(".shuiwu").find("span").css("display","block")
-                    }
-                    if(res.data.imageTaxRegistration!=""){
-                        $(".zige").parent() .next().next().css("display","none")
-                        if(res.data.imageState!=2) {
-                            $(".zige").next().css("display", "block")
-                        }
-                        $(".zige").parent().next().css("display","block")
-                        $(".zige").attr("src",ip+res.data.imageTaxRegistration)
-
-                        $(".zige").find("span").css("display","block")
-                    }
-                    if(res.data.imageProductQualification!=""){
-                        $(".jingying").parent() .next().next().css("display","none")
-                        if(res.data.imageState!=2) {
-                            $(".jingying").next().css("display", "block");
-                        }
-                        $(".jingying").parent().next().css("display","block");
-                        $(".jingying").attr("src",ip+res.data.imageProductQualification)
-
-                        $(".jingying").find("span").css("display","block")
-                    }
-                    if(res.data.imageProxyCertificate!=""){
-                        $(".shouqan") .parent().next().next().css("display","none")
-                        $(".shouqan").parent().next().css("display","block")
-                        if(res.data.imageState!=2) {
-                            $(".shouqan").next().css("display", "block")
-                        }
-                        $(".shouqan").attr("src",ip+res.data.imageProxyCertificate)
-
-                        $(".shouqan").find("span").css("display","block")
-                    }
-                    if(res.data.imageState==2){
-
-                        $(".upimg input").css("display","none");
-                    }
-                }
-
             }
-        })
+        },function (res) {
+            if(res.success){
+                console.log(res);
+
+                if(res.data.applyTime!=""){
+                    $(".account_p1").html('申请时间：<span class="applyTime"></span>审核时间：<span class="audit_time"></span>审核状态：<span class="audit_status"></span><span class="reason"></span>')
+                }
+                $(".applyTime").html(res.data.applyTime);
+                $(".audit_time").html(res.data.evaTime);
+                $(".audit_status").html(res.data.evaResult);
+                if(res.data.imageState==3){
+                    $(".audit_status").html("未通过");
+                    $(".audit_status").css("color","red");
+                    $(".reason").html(res.data.dismissReason);
+                    $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text"  value="'+res.data.legname+'" class="form-control legName">')
+                    $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text"  value="'+res.data.legIdcard+'" class="form-control legId">');
+
+                }else if(res.data.imageState==2){
+                    $(".audit_status").html("已通过");
+                    $(".cer-infor-btn").hide();
+
+                    $(".upimg span").hide();
+                    $(".upimg input").hide();
+                    $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text" disabled value="'+res.data.legname+'" class="form-control legName">')
+                    $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text" disabled value="'+res.data.legIdcard+'" class="form-control legId">');
+
+                }else if(res.data.imageState==1){
+                    $(".audit_status").html("待审核");
+                    $(".cer-infor-btn").hide();
+                    $(".upimg span").hide();
+                    $(".upimg input").hide();
+                    $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text" disabled  value="'+res.data.legname+'" class="form-control legName">')
+                    $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text" disabled  value="'+res.data.legIdcard+'" class="form-control legId">');
+
+
+                }
+                $(".shui input").each(function () {
+
+                    var arr=res.data.invoiceType.split(",");
+                    for(var i=0;i<arr.length;i++){
+                        console.log($(this).attr("select"))
+                        if($(this).attr("select")== arr[i]){
+                            $(this).attr("checked","checked");
+                        }
+                    }
+                    if(res.data.invoiceType!=0){
+                        $(".shui input[select=0]").attr("checked",false);
+                        $(".fapiao").show()
+                    }
+                    if(res.data.imageState!=3) {
+                        $(this).attr("disabled", true).css("background", "#fff");
+                    }
+                })
+                /*
+                *
+                obj.imageTaxpayer=$(".shuiwu").attr("src");
+                obj.imageTaxRegistration=$(".zige").attr("src");
+
+                obj.imageProductQualification=$(".imageProductQualification").attr("src");
+                obj.imageProxyCertificate=$(".shouqan").attr("src");*/
+                if(res.data.imageIdFront!=""){
+                    // $(".fa_zheng").prepend('<img src="'+res.data.imageIdFront+'"/>')
+                    $(".fa_zheng").attr("src",ip+res.data.imageIdFront);
+                    $(".fa_zheng").parent() .next().next().css("display","none");
+                    if(res.data.imageState!=2) {
+                        $(".fa_zheng").next().css("display", "block");
+                    }
+                    $(".fa_zheng").parent().next().css("display","block");
+                    $(".fa_zheng").find("span").css("display","block")
+                }
+                if(res.data.imageIdAfter!=""){
+                    $(".fa_fan").parent() .next().next().css("display","none");
+                    if(res.data.imageState!=2) {
+                        $(".fa_fan").next().css("display", "block");
+                    }
+                    $(".fa_fan").parent().next().css("display","block");
+                    $(".fa_fan").attr("src",ip+res.data.imageIdAfter)
+
+                    $(".fa_fan").find("span").css("display","block")
+                }
+                if(res.data.imageBusiness!=""){
+                    $(".yingye").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".yingye").next().css("display", "block")
+                    }
+                    $(".yingye").parent().next().css("display","block")
+                    $(".yingye").attr("src",ip+res.data.imageBusiness)
+
+                    $(".yingye").find("span").css("display","block")
+                }
+
+                if(res.data.imageLicense!=""){
+                    $(".kaihu") .parent().next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".kaihu").next().css("display", "block");
+                    }
+                    $(".kaihu").parent().next().css("display","block");
+                    $(".kaihu").attr("src",ip+res.data.imageLicense)
+
+                    $(".kaihu").find("span").css("display","block")
+                }
+
+                if(res.data.imageTaxpayer!=""){
+                    $(".shuiwu").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".shuiwu").next().css("display", "block")
+                    }
+                    $(".shuiwu").parent().next().css("display","block")
+                    $(".shuiwu").prepend('<img src="'+ip+res.data.imageTaxpayer+'"/>')
+                    $(".shuiwu").attr("src",ip+res.data.imageTaxpayer)
+
+                    $(".shuiwu").find("span").css("display","block")
+                }
+                if(res.data.imageTaxRegistration!=""){
+                    $(".zige").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".zige").next().css("display", "block")
+                    }
+                    $(".zige").parent().next().css("display","block")
+                    $(".zige").attr("src",ip+res.data.imageTaxRegistration)
+
+                    $(".zige").find("span").css("display","block")
+                }
+                if(res.data.imageProductQualification!=""){
+                    $(".jingying").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".jingying").next().css("display", "block");
+                    }
+                    $(".jingying").parent().next().css("display","block");
+                    $(".jingying").attr("src",ip+res.data.imageProductQualification)
+
+                    $(".jingying").find("span").css("display","block")
+                }
+                if(res.data.imageProxyCertificate!=""){
+                    $(".shouqan") .parent().next().next().css("display","none")
+                    $(".shouqan").parent().next().css("display","block")
+                    if(res.data.imageState!=2) {
+                        $(".shouqan").next().css("display", "block")
+                    }
+                    $(".shouqan").attr("src",ip+res.data.imageProxyCertificate)
+
+                    $(".shouqan").find("span").css("display","block")
+                }
+                if(res.data.imageState==2){
+
+                    $(".upimg input").css("display","none");
+                }
+            }
+        });
+
+
     </script>
 </body>
 </html>

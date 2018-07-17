@@ -8,6 +8,23 @@
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 		<link rel="stylesheet" type="text/css" href="css/common.css"/>
 		<title>找回成功</title>
+		<style>
+			.mess_cont_lists .com{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont_lists .yewu{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont_lists .user{		background: #fff
+			}
+			.clearfix .com .mess_circle{background: #6DABC7}
+			.clearfix .user .mess_circle{background: #6DABC7}
+			.clearfix .yewu .mess_circle{background: #6DABC7}
+		</style>
 	</head>
 	<body>
 	<div class="header clearfix">
@@ -26,15 +43,15 @@
 			  <span>若您已经忘记密码，此操作流程能帮助您重新设置密码。</span>
 		   	  <div class="mess_cont__circle">
 		   	  	 <ul class="clearfix">
-		   	  	 	<li>
+		   	  	 	<li class="user">
 		   	  	 		<div class="mess_circle">1</div>
 		   	  	 		<p>账号验证</p>
 		   	  	 	</li>
-		   	  	 	<li>
+		   	  	 	<li class="com">
 		   	  	 		<div class="mess_circle">2</div>
 		   	  	 		<p>修改密码</p>
 		   	  	 	</li>
-		   	  	 	<li>
+		   	  	 	<li class="yewu">
 		   	  	 		<div class="mess_circle">3</div>
 		   	  	 		<p>设置成功</p>
 		   	  	 	</li>
@@ -65,8 +82,6 @@
 		<script>
             $(".header li").click(function () {
                 if($(this).html()==localStorage.getItem("username")){
-                    sessionStorage.clear();
-                    localStorage.clear();
                     window.location.href="basis_setting/account_msg.html"
 
                 }else if($(this).html()=="基础设置"){

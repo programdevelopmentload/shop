@@ -97,6 +97,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <!--<li>首页</li>-->
+        <li><span class="head_active">基础设置</span></li>
+
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -106,18 +111,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span class="head_active">基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span>订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
 
-
-    </ul>
-</div>
 <div id="box">
     <div class="left">
         <ul>
@@ -126,7 +120,7 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-                    <li >保证金</li>
+
                 </ul>
             </li>
             <li >
@@ -135,12 +129,7 @@
                     <li >经营区域</li>
                 </ul>
             </li>
-            <li>
-                <span>收款账户</span>
-                <ul>
-                    <li>账户管理</li>
-                </ul>
-            </li>
+
         </ul>
 
 
@@ -219,6 +208,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/common.js"></script>
+<script src="../layer/layer.js"></script>
 <script>
     $(".header li").click(function () {
         if($(this).html()==localStorage.getItem("username")){
@@ -233,7 +223,7 @@
     var url = getBaseUrl('yy');
     var url1= getBaseUrl('yyy');
     pullUrl = url1 +'/imageCode/getImageCode/';
-    pullUrls = url +'/auth/sendsms';
+    pullUrls = url +'/auth/auth/sendsms';
     pullUrlll=url1 +'/imageCode/getImageCode/';
 
     var str="Image"+parseInt(Math.random()*100000000);
@@ -280,34 +270,21 @@
 
     });
     function  img() {
-        $.ajax({
-            url:pullUrls,
-            dataType:"json",
-            type:"post",
+        var res=rewriteAjax({
             data:{verifyCodeKey:str,verifyCode:$("#imgCode").val(),phoneNum:$("#phone").val()},
-            headers:{
-                Authorization:localStorage.getItem("token")
-            },
-            success:function (res) {
-                if(res.errorCode==9999){
-                    window.location.href="../login.html";
-                }
-                console.log(res);
-                console.log($("#imgCode").val());
-                if(res.success){
-                    $(".imagecode").hide();
-                    $(".imgVerify").hide();
+            url:pullUrls,
+        },function (res) {
+            if(res.success){
+                $(".imagecode").hide();
+                $(".imgVerify").hide();
 
-                    new  Countdown($("#yzmBtn")[0],60);
+                new  Countdown($("#yzmBtn")[0],60);
 
-                }else{
-                    $(".imagecode").show()
-                }
-
-            },error:function (err) {
-                console.log(err);
+            }else{
+                $(".imagecode").show()
             }
         })
+
     }
     $("#c1").click(function () {
         str="Image"+parseInt(Math.random()*100000000);

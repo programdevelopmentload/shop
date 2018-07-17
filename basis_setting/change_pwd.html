@@ -61,6 +61,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <!--<li>首页</li>-->
+        <li><span class="head_active">基础设置</span></li>
+
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -70,18 +75,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span >首页</span></li>
 
-        <li><span class="head_active">基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span>订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
-
-
-    </ul>
-</div>
 <div id="box">
     <div class="left">
         <ul>
@@ -90,7 +84,7 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-                    <li >保证金</li>
+
                 </ul>
             </li>
             <li >
@@ -99,12 +93,7 @@
                     <li >经营区域</li>
                 </ul>
             </li>
-            <li>
-                <span>收款账户</span>
-                <ul>
-                    <li>账户管理</li>
-                </ul>
-            </li>
+
         </ul>
 
 
@@ -144,8 +133,9 @@
                     <li>
                         <label for="">确认密码:</label>
                         <input type="password" class="form-control new2">
-                        <span class="pwdErr" style="color:red;font-size: 13px;display: none"></span>
+
                     </li>
+                    <span class="pwdErr" style="color:red;font-size: 13px;display: none"></span>
 
 
                 </ul>
@@ -166,6 +156,7 @@
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/common.js"></script>
+<script src="../layer/layer.js"></script>
 <script>
     $(".header li").click(function () {
         if($(this).html()==localStorage.getItem("username")){
@@ -178,39 +169,40 @@
         }
     });
     var url = getBaseUrl('yy')
-    pullUrl = url +'/seller/updatePassword';
+    pullUrl = url +'/user/seller/updatePassword';
 
     var boo=false;
     $(".new2").blur(function () {
         if($(".new1").val()!==$(".new2").val()){
-            $(".pwdErr").show()
+            $(".pwdErr").show().html("密码不一致");
             boo=false;
+        }else if($(".new1").val()==""){
+            $(".pwdErr").show().html("密码不能为空");
         }else{
             boo=true;
             $(".pwdErr").hide()
         }
     });
     $(".btn-primary").click(function () {
-
+        if($(".new1").val()!==$(".new2").val()){
+            $(".pwdErr").show().html("密码不一致");
+            boo=false;
+        }else if($(".new1").val()==""||$(".new2").val()==""){
+            $(".pwdErr").show().html("密码不能为空");
+        }else{
+            boo=true;
+            $(".pwdErr").hide()
+        }
         if(boo){
-            $.ajax({
+            var res=rewriteAjax({
                 url:pullUrl,
-                type:"post",
-                data:{oldPassword:$(".old").val(),newPasswprd:$(".new1").val(),userId:localStorage.getItem("userId")},
-                dataType:"json",
-                headers:{
-                    Authorization:localStorage.getItem("token")
-                },
-                success:function (res) {
-                    if(res.errorCode==9999){
-                        window.location.href="../login.html";
-                    }
-                    console.log(res);
-                    if(res.success){
-                        alert_html("修改成功");
-                    }
+                data:{oldPassword:$(".old").val(),newPassword:$(".new1").val(),userId:localStorage.getItem("userId")},
+            },function (res) {
+                if(res.success){
+                    layer.msg("修改成功");
                 }
             })
+
 
         }
     })

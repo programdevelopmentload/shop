@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/base.css" />
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/common.css" />
-<link rel="stylesheet" href="js/css/layui.css">
+
 <title>账号信息</title>
 <style type="text/css">
 	.imgVerify{
@@ -37,6 +37,19 @@
 		left: 244px;
 
 	}
+	.mess_cont_lists .com{
+
+
+		background: url(image/line-hover.png) no-repeat 10px 20px;
+	}
+	.mess_cont_lists .user{		background: #fff
+	}
+	.clearfix .user .mess_circle{background: #6DABC7}
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+		-webkit-appearance: none !important;
+		margin: 0;
+	}
 </style>
 </head>
 <body>
@@ -63,16 +76,16 @@
 		<div class="mess_cont_lists">
 			<div class="mess_cont__circle">
 				<ul class="clearfix">
-					<li>
+					<li class="user">
 						<div class="mess_circle">1</div>
 						<p>账号信息</p>
 					</li>
-					<li>
-						<div class="mess_circle">2</div>
+					<li class="com">
+						<div class="mess_circle ">2</div>
 						<p>公司信息</p>
 					</li>
 					<li>
-						<div class="mess_circle">3</div>
+						<div class="mess_circle yewu">3</div>
 						<p>业务信息</p>
 					</li>
 				</ul>
@@ -97,7 +110,7 @@
 					<div class="form-group">
 						<label for="" class="col-sm-2 control-label">手机号:</label>
 						<div class="col-sm-10">
-							<input type="tel" class="form-control phone" id="phone">
+							<input type="number" class="form-control phone" id="phone">
 							<span></span>
 						</div>
 					</div>
@@ -150,27 +163,26 @@
 	<div class="footer">
 		<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
 		<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
-	</div>>
+	</div>
 	<script src="js/jquery-1.12.4.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/common.js"></script>
-	<script src="js/layui.js"></script>
+
+	<script src="layer/layer.js"></script>
 	<script type="text/javascript">
         $(".header li").click(function () {
             if($(this).html()==localStorage.getItem("username")){
-                sessionStorage.clear();
-                localStorage.clear();
                 window.location.href="basis_setting/account_msg.html"
 
             }else if($(this).html()=="基础设置"){
                 window.location.href="basis_setting/basis_msg.html"
-
             }
         });
         var url = getBaseUrl('yy');
         var url1=getBaseUrl('yyy');
         pullUrl = url1 +'/imageCode/getImageCode/';
         pullUrls = url +'/auth/auth/sendsms';
+
         pullUrlsl = url +'/auth/auth/register';
 		var str="Image"+parseInt(Math.random()*100000000);
 		// console.log(str);
@@ -213,10 +225,13 @@
 		code();
 		$("#yzmBtn").click(function () {
 		    if(!$("#phone").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)){
-                $("#phone").next().show().html("手机号码格式不正确");
+                $("#phone").next().show().html("手机格式错误");
                 $("#phone").next().show().css('color','red');
 		        return;
-            }else{
+            }else if($("#phone").val()==""){
+                $("#phone").next().show().html("请输入手机号");
+                $("#phone").next().show().css('color','red');
+			}else{
                 $("#phone").next().hide()
 			}
             str="Image"+parseInt(Math.random()*100000000);
@@ -225,32 +240,20 @@
 
         });
 		function img(){
-			$.ajax({
-				url:pullUrls,
-                dataType:"json",
-                type:"post",
-				data:{verifyCodeKey:str,verifyCode:$("#imgCode").val(),phoneNum:$("#phone").val()},
-                headers:{
-                    Authorization:localStorage.getItem("token")
-                },
-				success:function (res) {
-                    // console.log(res);
-                    if(res.errorCode==9999){
-                        window.location.href="login.html";
-                    }
-				    console.log($("#imgCode").val());
-                        if(res.success){
-                            $(".imgVerify").hide();
-                            $(".imagecode").hide();
-                            new  Countdown($("#yzmBtn")[0],60);
-					}else{
-                            $(".imagecode").show()
-					}
-
-                },error:function (err) {
-                    // console.log(err);
+		    var obj={};
+			obj.data={verifyCodeKey:str,verifyCode:$("#imgCode").val(),phoneNum:$("#phone").val()};
+		    obj.url=pullUrls;
+		    var res=rewriteAjax(obj,function (res) {
+                if(res.success){
+                    $(".imgVerify").hide();
+                    $(".imagecode").hide();
+                    new  Countdown($("#yzmBtn")[0],60);
+                }else{
+                    $(".imagecode").show()
                 }
-			})
+            });
+
+
         }
 		$("#c1").click(function () {
             str="Image"+parseInt(Math.random()*100000000);
@@ -260,17 +263,21 @@
             str="Image"+parseInt(Math.random()*100000000);
 		    $("#c1").attr("src",pullUrl+str);
         }
+		$("#verify").blur(function () {
+            if($("#verify").val()==""){
+                $(".errorNum").show().html("请输入验证码");
+                return;
+            }else{
+                $(".errorNum").hide()
 
+            }
+        })
 
 		//提交保存注册
 		function save() {
-		    if($("#password").val()!==$("#passwords").val()){
-		        $("#pwdErr").show();
-		        return;
 
-			}else{
-                $("#pwdErr").hide();
-			}
+
+
 			var param = {
 				"username" : $('#userName').val(),
 				"password" : $('#password').val(),
@@ -278,63 +285,102 @@
 				"phoneNumber" : $('#phone').val(),
 				verifyCode:$("#verify").val(),
 			};
+            if($("#userName").val()==""){
+                $("#userName").next().show().html('请输入用户名');
+                $("#userName").next().show().css('color','red');
+                return false;
+            }else if(($("#userName").val()).length < 4|| ($("#userName").val()).length > 32){
+                $("#userName").next().show().html('格式错误');
+                $("#userName").next().show().css('color','red');
+                return false;
+            }
+            if($("#email").val()==""){
+                $("#email").next().show().html('请输入邮箱地址');
+                $("#email").next().show().css('color','red');
+                return false;
+            }else if(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test($("#email").val()) == false){
+                $("#email").next().show().html('邮箱格式错误');
+                $("#email").next().show().css('color','red');
+                return false;
+            }
+            if($("#phone").val() == ""){
+                $("#phone").next().show().html("请输入手机号");
+                $("#phone").next().show().css('color','red');
+                return false;
+            }else if(($("#phone").val()).length != 11){
+                $("#phone").next().show().html("手机号格式错误");
+                $("#phone").next().show().css('color','red');
+                return false;
+            }else if (!$("#phone").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)) {
+                $("#phone").next().show().html("手机号格式错误");
+                $("#phone").next().show().css('color','red');
+                return false;
+            }
+            if($("#verify").val()==""){
+                $(".errorNum").show().html("请输入验证码");
+                return;
+            }else{
+                $(".errorNum").hide()
 
-					// console.log(param)
-				   $(".errorNum").css("display","none");
-					$.ajax({
-						url : pullUrlsl,
-						data : param,
-						dataType : "json",
-                        headers:{
-                            Authorization:localStorage.getItem("token")
-                        },
-						type : "POST",
-						success : function(data) {
-							// console.log(data);
-							if(data.success){
-							    localStorage.setItem("username",$('#userName').val());
-							    localStorage.setItem("phoneNumber",$('#phone').val());
-                                localStorage.setItem("companyId","");
-							    localStorage.setItem("userId",data.data.user.id);
-							    localStorage.setItem("token","bearer "+data.data.token);
-                                $.ajax({
-                                    url:getBaseUrl("jl")+"/user/agreement/record/create",
-                                    data:{code:localStorage.getItem("code"), username:localStorage.getItem("username"), phoneNum:localStorage.getItem("phoneNumber")},
-                                    type:"post",
-                                    headers: {
-                                        token:localStorage.getItem("token"),
-                                    },
-                                    success:function (res) {
-                                        window.location.href="com_mess.html";
-                                    }
-                                })
+            }
+            // $(".errorNum").css("display","none");
+            if($(".password").val() == ""){
+                $(".password").next().show().html("密码不能为空");
+                $(".password").next().show().css('color','red');
+                return false;
+            }else if(($(".password").val()).length < 6 || ($(".passwords").val()).length > 18 ){
+                $(".password").next().show().html("密码长度不符合要求");
+                $(".password").next().show().css('color','red');
+                return false;
+            }
+            if($(".passwords").val() == ""){
+                $(".passwords").next().show().html("密码不能为空");
+                $(".passwords").next().show().css('color','red');
+                return false;
+            }else if(($(".password").val()).length < 6 || ($(".passwords").val()).length > 18 ){
+                $(".passwords").next().show().html("密码长度不符合要求");
+                $(".passwords").next().show().css('color','red');
+                return false;
+            }
+            if($(".password").val() != $(".passwords").val()){
+
+                $(".passwords").next().show().html("两次密码不一致，请重新输入");
+                $(".passwords").next().show().css('color','red');
+                return false;
+            }
+				var data=rewriteAjax({
+                    url : pullUrlsl,
+                    data : param,
+				},function (data) {
+                    if(data.success){
+                        localStorage.setItem("username",$('#userName').val());
+                        localStorage.setItem("phoneNumber",$('#phone').val());
+                        localStorage.setItem("companyId","");
+                        localStorage.setItem("userId",data.data.user.id);
+                        localStorage.setItem("token","bearer "+data.data.token);
+                        $.ajax({
+                            url:getBaseUrl("jl")+"/user/agreement/record/create",
+                            data:{code:localStorage.getItem("code"), username:localStorage.getItem("username"), phoneNum:localStorage.getItem("phoneNumber")},
+                            type:"post",
+                            headers: {
+                                Authorization:localStorage.getItem("token"),
+                            },
+                            success:function (res) {
+                                if(res.success){
+                                    window.location.href="com_mess.html";
+                                }
 
 
-							}else{
-                                layui.use(['layer'], function(){
-                                    // var laydate = layui.laydate //日期
-                                    //     ,laypage = layui.laypage //分页
-                                    // layer = layui.layer //弹层
-                                    //     ,table = layui.table //表格
-                                    //     ,carousel = layui.carousel //轮播
-                                    //     ,upload = layui.upload //上传
-                                    //     ,element = layui.element; //元素操作
+                            }
+                        })
 
-                                    //向世界问个好
-                                    layer.msg(data.message,{
-                                        area:'300px'
-                                    });
+                    }else{
+                        layer.msg(data.message);
 
-                                });
-							}
-						},
-						error:function(error){
+                    }
+                });
 
-						}
-			        });
-			//}else{=======
-			//   $(".errorNum").css("display","block")
-		//	}
+
 		}
 		//获取是注册 、还是上一步类型
         history.pushState({back: 1}, null, "?back=1");

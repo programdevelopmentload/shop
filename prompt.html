@@ -59,8 +59,6 @@
 		<script type="text/javascript">
             $(".header li").click(function () {
                 if($(this).html()==localStorage.getItem("username")){
-                    sessionStorage.clear();
-                    localStorage.clear();
                     window.location.href=".basis_setting/account_msg.html"
 
                 }else if($(this).html()=="基础设置"){
@@ -77,81 +75,74 @@
 				if (r != null) return decodeURI(r[2]);
 				return null;
 			}
-
-            $.ajax({
+			rewriteAjax({
                 url:messUrl,
-                type:"post",
                 data:{
                     userId:localStorage.getItem("userId"),
                 },
-                headers:{
-                    Authorization:localStorage.getItem("token")
-                },
-                dataType:"json",
-                success:function (res) {
-                    if(res.errorCode==9999){
-                        window.location.href="login.html";
-                    }
-                    if (res.success){
-                        var arr=[];
-                        var obj={};
-                        var  arr2=[];
+			},function (res) {
+                if (res.success){
+                    var arr=[];
+                    var obj={};
+                    var  arr2=[];
+                    arr.push({
+                        field: 'comp_name',
+                        title: "公司名称"
+                    }, {
+                        field: 'gslx',
+                        title: '公司类型'
+                    }, {
+                        field: 'jylx',
+                        title: '经营类型'
+                    }, {
+                        field: 'zypp',
+                        title: '主营品牌'
+                    }, {
+                        field: 'tel',
+                        title: '手机号'
+                    }, {
+                        field: 'sqsj',
+                        title: '申请时间'
+                    },{
+                        field: 'status',
+                        title: '状态'
+                    });
+
+                    obj.comp_name=res.data.companyName;
+                    obj.gslx=res.data.companyType;
+                    obj.jylx=res.data.managementType;
+                    obj.zypp=sessionStorage.getItem('selected');
+                    obj.tel= res.data.phoneNumber;
+                    obj.sqsj=res.data.applyTime;
+
+                    if(res.data.companyState==3){
                         arr.push({
-                            field: 'comp_name',
-                            title: "公司名称"
-                        }, {
-                            field: 'gslx',
-                            title: '公司类型'
-                        }, {
-                            field: 'jylx',
-                            title: '经营类型'
-                        }, {
-                            field: 'zypp',
-                            title: '主营品牌'
-                        }, {
-                            field: 'tel',
-                            title: '手机号'
-                        }, {
-                            field: 'sqsj',
-                            title: '申请时间'
-                        },{
-                            field: 'status',
-                            title: '状态'
+                            field: 'caozuo',
+                            title: '操作',
+                            formatter:caozuo
                         });
+                        obj.status="未通过";
+                        $(".mess_bot_center img").attr("src","image/error.png")
+                        $(".mess_con_submit p").html("很抱歉：您的资质申请未通过审核");
+                        $(".mess_con_submit span").html("原因:"+res.data.companyDismissReason);
+                        ;
 
-                        obj.comp_name=res.data.companyName;
-                        obj.gslx=res.data.companyType;
-                        obj.jylx=res.data.managementType;
-                        obj.zypp=sessionStorage.getItem('selected');
-                        obj.tel= res.data.phoneNumber;
-                        obj.sqsj=res.data.applyTime;
+                    }else if(res.data.companyState==1){
 
-                        if(res.data.companyState==3){
-                            arr.push({
-                                field: 'caozuo',
-                                title: '操作',
-                                formatter:caozuo
-                            });
-                            obj.status="未通过"
-                            ;
+                        obj.status="待审核"
 
-                        }else if(res.data.companyState==1){
+                    }else if(res.data.companyState==0){
+                        obj.status="已保存"
+                    }else if(res.data.companyState==2){
+                        obj.status="已通过"
+                    }
 
-                            obj.status="待审核"
-
-                        }else if(res.data.companyState==0){
-                            obj.status="已保存"
-						}else if(res.data.companyState==2){
-                            obj.status="已通过"
-                        }
-
-                        arr2.push(obj);
-                        $("#table").bootstrapTable({columns:arr,data:arr2});
-                        // console.log(res);//0 待审核 1审核未通过  2通过
-					}
-
+                    arr2.push(obj);
+                    $("#table").bootstrapTable({columns:arr,data:arr2});
+                    // console.log(res);//0 待审核 1审核未通过  2通过
                 }
-            });
+            })
+
             function caozuo() {
 				return "<span onclick='edit()' style='color:#3540d3'>编辑</span>"
             }

@@ -62,7 +62,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <!--<li><span>首页</span></li>-->
+        <li><span>基础设置</span></li>
 
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -72,16 +76,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span class="head_active" >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span >基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span >订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
-    </ul>
-</div>
+
 <div id="box">
     <div class="left">
         <ul>
@@ -91,7 +86,6 @@
                     <li class="first">我的资料</li>
                 </ul>
             </li>
-
         </ul>
     </div>
     <div class="right">
@@ -107,7 +101,7 @@
                     </li>
                     <li>
                         <label for="">邮箱:</label>
-                        <span class="emali"></span>
+                        <span class="email"></span>
                     </li>
                     <li>
                         <label for="">手机号:</label>
@@ -135,8 +129,7 @@
     $(".header li").click(function () {
 
         if($(this).html()==localStorage.getItem("username")){
-            sessionStorage.clear();
-            localStorage.clear();
+
             window.location.href="account_msg.html";
 
         }else if($(this).html()=="基础设置"){
@@ -151,7 +144,7 @@
         window.location.href="change_phone.html";
     }
     $.ajax({
-        url:getBaseUrl("yy")+"/seller/userInformation",
+        url:getBaseUrl("yy")+"/user/seller/userInformation",
         type:"post",
         dataType:"json",
         data:{

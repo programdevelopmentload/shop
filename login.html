@@ -13,7 +13,7 @@
 	    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
          <![endif]-->
 	</head>
-	<body >
+	<body style="overflow: hidden;">
 		<div class="header clearfix">
 			<a href="javascript:;">
 				<img src="image/xbxm.png"/>
@@ -48,10 +48,6 @@
 				</ul>
 			</div>
 		</div>
-		<div class="footer">
-			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
-			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
-		</div>
 		<script src="js/jquery-1.12.4.min.js"></script>
 	    <script src="js/common.js" ></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -62,7 +58,7 @@
             pullUrls = url +'/user/seller/sellerApplyState';
 		    $('input:text').focus(); //焦点聚集在第一个input上
 			  //点击登录按钮
-                $("#btn").click(function(){
+			$("#btn").click(function(){
 				var hash = $("#password").val();
 				var param={
 					"username":$('#userName').val(),
@@ -78,85 +74,60 @@
     				return false;
     			}
     			var userId;
-    		    $.ajax({
-                    url:pullUrl,
-    				type:"post",
-					data:param,
-					dataType:'json',	
-					success:function(data,status,header){
-                        console.log(header.getResponseHeader("Date"))
-    				    console.log(data);
-						if(data.success){
-							$(".upErr").css("display","none");
-							localStorage.setItem("username",data.data.user.username);
-							localStorage.setItem("userId",data.data.user.id);
-							localStorage.setItem("token","bearer "+data.data.token);
-							userId=data.data.user.id;
-						$.ajax({
-							url:pullUrls,
-							type:"post",
-							headers:{
-                                Authorization:localStorage.getItem("token")
-							},
-							data:{
-							    userId:userId,
-							},
-							complete:function(a,b){
-							    // console.log(a.getResponseHeader("Authorization"));
-							    // console.log(a.getResponseHeader());
-							    // console.log(b);
-                                // debugger;
-							},
-							dataType:"json",
-							success:function (res,a,xhr) {
+    			rewriteAjax({
+                    url:pullUrl,data:param,
+				},function (data) {
+                    if(data.success){
+                        $(".upErr").css("display","none");
+                        localStorage.setItem("username",data.data.user.username);
+                        localStorage.setItem("userId",data.data.user.id);
+                        localStorage.setItem("token","bearer "+data.data.token);
+                        userId=data.data.user.id;
+                        rewriteAjax({
+                            url:pullUrls,
+                            data:{userId:userId},
+						},function (res) {
+                            localStorage.setItem("imagesState",res.data.imagesState);
 
-								debugger;
-								if(res.errorCode==9999){
-									window.location.href="login.html";
-								}
-                                localStorage.setItem("imagesState",res.data.imagesState);
-
-                                localStorage.setItem("companyId",res.data.companyId);
-                                if(res.AccountType==2){
-                                    window.location.href="登录首页页面";
-								}
-								if(res.data.companyState==0){
-                                    window.location.href="com_mess.html";
-								}
-								if(res.data.companyState==1||res.data.companyState==3){
-                                    window.location.href="prompt.html";
-								}
-                                if(res.data.imagesState==2){//保证金
-                                    // window.location.href="Application supplier/application_pass.html";
-									window.location.href="basis_setting/account_msg.html"
-                                }
-								if(res.data.imagesState==0||res.data.imagesState==1||res.data.imagesState==3){
-                                    sessionStorage.setItem("imagesState",res.data.imagesState);
-                                    window.location.href="Application supplier/pending application.html";
-								}
-
-							    if(res.data.managementType=="-1"){
-							         window.location.href="supplier-mess.html";
-
-								}else if(res.data.companyId=="0"){//0  公司信息页面；
-                                    // window.location.href=""
-									window.location.href="com_mess.html";
-								}
-                                // console.log(res);//1 待审核 2审核未通过  3通过  0保存未提交
+                            localStorage.setItem("companyId",res.data.companyId);
+                            if(res.AccountType==2){
+                                window.location.href="登录首页页面";
                             }
-						})
-						}else{
-							$(".upErr").css("display","block");
-						}
+                            if(res.data.companyState==0){
+                                window.location.href="com_mess.html";
+                            }
+                            if(res.data.companyState==1||res.data.companyState==3){
+                                window.location.href="prompt.html";
+                            }
+                            if(res.data.imagesState==2){//保证金
+                                // window.location.href="Application supplier/application_pass.html";
+                                window.location.href="basis_setting/account_msg.html"
+                            }
+                            if(res.data.imagesState==0||res.data.imagesState==1||res.data.imagesState==3){
+                                sessionStorage.setItem("imagesState",res.data.imagesState);
+                                window.location.href="Application supplier/pending application.html";
+                            }
 
-				       
-			       },
-                    error:function (err) {
+                            if(res.data.managementType=="-1"){
+                                window.location.href="supplier-mess.html";
 
+                            }else if(res.data.companyId=="0"){//0  公司信息页面；
+                                // window.location.href=""
+                                window.location.href="com_mess.html";
+                            }
+                        })
+
+
+                    }else{
+                        $(".upErr").css("display","block");
                     }
-			    })	
+                })
+
     			
     		})
+			
+			 
+
 		</script>
 	</body>
 </html>

@@ -28,6 +28,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span>基础设置</span></li>
+
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -36,15 +41,6 @@
         <li>admin</li>
     </ol>
 
-</div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span class="head_active">基础设置</span></li>
-
-
-    </ul>
 </div>
     <div id="box">
         <div class="left">
@@ -121,42 +117,32 @@
         var url = getBaseUrl('yy');
         pullUrl = url +'/auth/auth/partner';
         pullUrls = url +'/user/seller/sellerApplyState';
-
-        $.ajax({
+        var res=rewriteAjax({
             url:pullUrls,
-            type:"post",
             data:{
                 userId:localStorage.getItem("userId"),
             },
-            headers: {
-                Authorization:localStorage.getItem("token"),
-            },
-            dataType:"json",
-            success:function (res) {
-                if(res.errorCode==9999){
-                    window.location.href="../login.html";
-                }
-                console.log(res);
-                localStorage.setItem("imagesState",res.data.imagesState);
-                localStorage.setItem("companyId",res.data.companyId);
-                imagesState=res.data.imagesState
-                if(imagesState==0){
-                    $("#complete").click(function () {
-                        window.location.href="../basis_setting/cert-already.html";
-                    })
-                }else if(imagesState==1){
-                    $(".status").html("待审核");
-                }else if(imagesState==3){
-                    $(".status button").html("去查看");
-                    $("#complete").click(function () {
-                        window.location.href="../basis_setting/cert-already.html";
-                    });
-                    $(".pend_application_ul li span").css("opacity",1);
-
-                }
+        },function (res) {
+            localStorage.setItem("imagesState",res.data.imagesState);
+            localStorage.setItem("companyId",res.data.companyId);
+            imagesState=res.data.imagesState
+            if(imagesState==0){
+                $("#complete").click(function () {
+                    window.location.href="../basis_setting/cert-already.html";
+                })
+            }else if(imagesState==1){
+                $(".status").html("待审核");
+            }else if(imagesState==3){
+                $(".status button").html("去查看");
+                $("#complete").click(function () {
+                    window.location.href="../basis_setting/cert-already.html";
+                });
+                $(".pend_application_ul li span").css("opacity",1);
 
             }
+
         })
+
 
 
     </script>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>缴纳保证金</title>
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
@@ -43,6 +43,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <li><span class="head_active">基础设置</span></li>
+        <li><span>商品管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -52,16 +57,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span  >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span class="head_active" >基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span >订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
-    </ul>
-</div>
+
 <div id="box">
     <div class="left">
         <ul>
@@ -70,44 +66,56 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-                    <li  class="first">保证金</li>
+
                 </ul>
             </li>
-            <!--<li >-->
-                <!--<span>合同管理</span>-->
-                <!--<ul>-->
-                  <!---->
-                    <!--<li >我的合同</li>-->
-                <!--</ul>-->
-            <!--</li>-->
+            <li >
+                <span>合同管理</span>
+                <ul>
+                    <li class="first">保证金</li>
+                    <li>我的合同</li>
+
+                </ul>
+            </li>
             <li >
                 <span>经营管理</span>
                 <ul>
                     <li>经营区域</li>
                 </ul>
             </li>
-            <li>
-                <span>收款账户</span>
-                <ul>
-                    <li>账户管理</li>
-                </ul>
-            </li>
         </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
     </div>
     <div class="right">
         <div class="deposit">
-            <p class="router">基础设置》认证资料》保证金</p>
+            <p class="router">1>2>3</p>
             <p class="understand">  缴纳服务保障金，有助于提高自身的竞争力。点击了解 <span>《保证金说明》</span></p>
             <p class="money">保证金额度：</p>
             <p class="money"><span>0.00</span>&nbsp;&nbsp;元</p>
             <input type="button" class="form-control btn-primary" value="缴纳保证金">
         </div>
+
     </div>
+
 </div>
-<div class="footer">
-    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
-    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
-</div>
+
 
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
@@ -115,6 +123,10 @@
 
 <script>
     var money=0;
+    var res=rewriteAjax({
+
+
+    });
     $.ajax({
         url:"http://172.16.40.134:8003/pay/seller/cautionMoney",
         type:"post",

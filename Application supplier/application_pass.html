@@ -26,15 +26,19 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
-</div>
-<div id="header" class="header clearfix">
     <ul>
-        <li><span class="head_active" >首页</span></li>
         <!--<li><span class="head_active">首页</span></li>-->
         <li><span >基础设置</span></li>
 
-
     </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
 </div>
     <div id="box">
         <div class="left">
@@ -91,6 +95,8 @@
     <script src="../js/common.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script>
+
+
         $(".header li").click(function () {
             if($(this).html()==localStorage.getItem("username")){
 
@@ -101,22 +107,17 @@
 
             }
         });
-        $.ajax({
-            url:"http://172.16.40.134:8002/user/seller/sellerApplyState",
-            type:"post",
+        var res=rewriteAjax({
+            url:getBaseUrl("yy")+"/user/seller/sellerApplyState",
             data:{
                 userId:localStorage.getItem("userId"),
-            },
-            headers: {
-                Authorization:localStorage.getItem("token"),
-            },
-            dataType:"json",
-            success:function (res) {
-               if(res.data.coutionMoneyState==-1){
-                     //显示待评审
-               }else if(res.data.coutionMoneyState==2){
-                   //去缴纳
-               }
+            }
+
+        },function(res){
+            if(res.data.coutionMoneyState==-1){
+                //显示待评审
+            }else if(res.data.coutionMoneyState==2){
+                //去缴纳
             }
         })
         $(".btn-primary").click(function () {

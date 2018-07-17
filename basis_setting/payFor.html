@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>支付</title>
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="../css/base.css"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
@@ -26,6 +26,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <li><span class="head_active">基础设置</span></li>
+        <li><span>商品管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -35,16 +40,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span  >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span class="head_active" >基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span >订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
-    </ul>
-</div>
+
 <div id="box">
     <div class="left">
         <ul>
@@ -53,33 +49,44 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-                    <li  class="first">保证金</li>
+
                 </ul>
             </li>
-            <!--<li >-->
-            <!--<span>合同管理</span>-->
-            <!--<ul>-->
-            <!---->
-            <!--<li >我的合同</li>-->
-            <!--</ul>-->
-            <!--</li>-->
             <li >
-                <span>经营管理</span>
+                <span>合同管理</span>
                 <ul>
-                    <li>经营区域</li>
+                    <li class="first">保证金</li>
+                    <li>我的合同</li>
+
                 </ul>
             </li>
-            <li>
-                <span>收款账户</span>
+            <li >
+                <span>业务信息</span>
                 <ul>
-                    <li>账户管理</li>
+                    <li>业务范围</li>
                 </ul>
             </li>
         </ul>
 
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
     </div>
     <div class="right">
-        <p class="router">基础设置》认证资料》保证金</p>
         <div id="qrcode" style="width:200px; height:200px; margin-top:15px;overflow: hidden"></div>
         <input type="button" value="刷新" class="form-control btn-primary sx">
         <input type="button" value="支付完成" class="form-control btn-primary already">
@@ -90,7 +97,8 @@
 
 <script src="../js/jquery-1.12.4.min.js"></script>
 <script src="../js/bootstrap.min.js"></script>
-<script src="../js/common.js"></script>
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
 <script src="../js/qrcode.js"></script>
 
 <script>

@@ -47,6 +47,11 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
+    <ul>
+        <!--<li>首页</li>-->
+        <li><span class="head_active">基础设置</span></li>
+
+    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -56,18 +61,7 @@
     </ol>
 
 </div>
-<div id="header" class="header clearfix">
-    <ul>
-        <li><span >首页</span></li>
-        <!--<li><span class="head_active">首页</span></li>-->
-        <li><span class="head_active">基础设置</span></li>
-        <li class="finishMoney"><span>商品管理</span></li>
-        <li class="finishMoney"><span>订单管理</span></li>
-        <li class="finishMoney"><span>对账管理</span></li>
 
-
-    </ul>
-</div>
 <div id="box">
     <div class="left">
         <ul>
@@ -76,7 +70,7 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-                    <li >保证金</li>
+
                 </ul>
             </li>
             <li >
@@ -85,12 +79,7 @@
                     <li class="first">经营区域</li>
                 </ul>
             </li>
-            <li>
-                <span>收款账户</span>
-                <ul>
-                    <li>账户管理</li>
-                </ul>
-            </li>
+
         </ul>
 
 
@@ -145,8 +134,9 @@
             window.location.href="basis_msg.html";
         }
     });
-    var url = getBaseUrl('ys')
-    pullUrl = url +'/area/supplier/findAreaSupplierInfoById';
+    var url = getBaseUrl('ys');
+    pullUrl = url +'/area/area/supplier/findAreaSupplierInfoById';
+
     var arr2= [{
         field: 'shop_mess',
         title: '仓库名称',
@@ -168,55 +158,37 @@
         valign: "middle"
 
     }];
-    $.ajax({
-        type: "POST",
+    var res=rewriteAjax({
         url: pullUrl,
         data:{
             supplierId: localStorage.getItem("companyId"),
 
         },
-        headers:{
-            Authorization:localStorage.getItem("token")
-        },
-        dataType:'json',
-        success:function (res){
-            if(res.errorCode==9999){
-                window.location.href="../login.html";
+    },function (res) {
+        $(".contract_list span").html(res.data.totalCount);
+        var arr =[];
+        // console.log(res);
+        var data=res.data.items;
+
+        for(var i=0;i<data.length;i++){
+            var obj={};
+            obj.shop_mess=data[0].storeName;
+            obj.shop_number=data[i].storePosition;
+            var str="";
+            for(var j=0;j<data[i].storeServerDetails.length;j++){
+                str+=data[i].storeServerDetails[j]+","
             }
-            console.log(res)
-            $(".contract_list span").html(res.data.totalCount);
-
-            var arr =[];
-            // console.log(res);
-             var data=res.data.items;
-
-             for(var i=0;i<data.length;i++){
-                 var obj={};
-                 obj.shop_mess=data[0].storeName;
-                 obj.shop_number=data[i].storePosition;
-                 var str="";
-                 for(var j=0;j<data[i].storeServerDetails.length;j++){
-                     str+=data[i].storeServerDetails[j]+","
-                 }
-                 str= str.substr(0,str.length-1);
-                 obj.start_time=str;
-                 arr.push(obj);
-                 console.log(arr)
-             }
-            table(arr2,arr);
+            str= str.substr(0,str.length-1);
+            obj.start_time=str;
+            arr.push(obj);
+            console.log(arr)
         }
-    });
+        table(arr2,arr);
+    })
 
-    //1.初始化Table
-
-    //操作栏的格式化
-    // function drafts(value, row, index) {
-    //     var result = "";
-    //     result += "<a href='javascript:;'>编辑</a>";
-    //     result += '&nbsp;&nbsp;';
-    //     result += "<a href='javascript:;'>删除</a>";
-    //     return result;
-    // }
+    $(".btn-primary").click(function () {
+        window.location.href="add_region.html";
+    })
 </script>
 </body>
 </html>
