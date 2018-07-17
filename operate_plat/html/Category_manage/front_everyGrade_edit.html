@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>类目管理-分类- 编辑</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/cate_manag_oneGrade_add.css"/>-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .selectTip {
+            padding: 0px 0 60px 62px;
+            color: red;
+        }
+
+        .everyGradeTip {
+            color: red;
+        }
+
+        .relation_box {
+            padding: 60px 0px;
+        }
+
+        .multiselect {
+            display: inline-block;
+            width: 200px !important;
+        }
+
+        .multiselect .multiselect-selected-text {
+            color: #7a85a2 !important;
+        }
+
+        .multiselect-native-select .dropdown-toggle {
+            padding: 5px 12px;
+            border-color: rgb(233, 233, 233);
+        }
+
+        .multiselect-native-select label {
+            min-width: 198px;
+        }
+
+        .skuListDetail_con input[type=radio] {
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+
+        #selectbox1 .selectbox_list {
+            width: 180px;
+        }
+
+        .dropdown-menu > .active > a, .dropdown-menu > .active > a:focus, .dropdown-menu > .active > a:hover {
+            background-color: #e2e2e2;
+            color: #333;
+        }
+
+        .dropdown-menu > .active > a, .dropdown-menu > .active {
+            color: #333;
+        }
+
+        .account_card li .upimg {
+            display: inline-block;
+            position: relative;
+        }
+
+        .account_file {
+            position: relative;
+            overflow: hidden;
+            display: inline-block !important;
+            margin-left: -200px;
+            vertical-align: top;
+        }
+
+        .account_card img {
+            padding-left: 20px;
+            vertical-align: middle;
+            border: 0;
+        }
+
+        .account_file input {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 48px;
+            width: 100%;
+            top: 0;
+        }
+
+        .upimg {
+            width: 220px;
+            height: 140px;
+        }
+
+        .upimg img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .upimg span {
+            display: block;
+            /*display: none;*/
+        }
+
+        .up_img_box {
+            padding-bottom: 20px;
+        }
+        .up_img_box img {
+            display: block;
+            float: left;
+            padding: 1px;
+            width: 86px;
+            height: 86px;
+            border: 1px solid #d3dbde;
+        }
+        .up_img_ope {
+            float: left;
+            width: 500px;
+            padding-top: 60px;
+            /*color: #fc8c82;*/
+            height: 40px;
+            line-height: 40px;
+        }
+        .data_upCtrl {
+            background-color: #7a85a2;
+            position: relative;
+            display: inline-block;
+            width: 88px;
+            height: 30px;
+            color: #ffffff;
+            border-radius: 3px;
+            margin-left: 16px;
+            line-height: 30px;
+            text-align: center;
+        }
+        i{
+            font-style: normal;
+        }
+        #data_upHeadImg {
+            display: inline-block;
+            width: 88px;
+            height: 30px;
+            opacity: 0;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .data_up_talk {
+            padding-left: 11px;
+        }
+        /*.img_con{*/
+            /*display: block;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+<div class="cate_everyAdd_con_right yycon_right yyconOrder_right col-xs-12">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <h4 class="conRight_h4">编辑分类</h4>
+    <form class="form-horizontal mess_list_margin clearfix" role="form">
+        <div class="col-sm-12 form-group">
+            <div class="col-sm-2 text-right">
+                分类等级：
+            </div>
+            <div class="col-sm-3 everyGrade_level">
+                二级分类
+            </div>
+        </div>
+        <div class="col-sm-12 form-group blongFlag">
+            <div class="col-sm-2 text-right">
+                所属分类：
+            </div>
+            <div class="col-sm-3 blong_faherName">
+                家具
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-2 control-label">分类名称：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control everyAdd_input" id="clrs">
+            </div>
+            <div class="col-sm-5 everyGradeTip name_input_tip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+        <!--<div class="account_file_box clearfix col-sm-12 form-group">-->
+        <!--<label for="" class="col-sm-2 control-label">分类图片：</label>-->
+        <!--<div class="upimg col-sm-3  clearfix hide_ctr">-->
+        <!--<img src="../../images/logo_img.png" alt="" class="yingye">-->
+        <!--<span>更换图片</span>-->
+        <!--<input type="file" onchange="change(this)">-->
+        <!--</div>-->
+        <!--<div class="col-sm-3 upimg account_file">-->
+        <!--<img src="../../images/img_add.png" alt="">-->
+        <!--<input type="file" onchange="upImg(this)">-->
+        <!--</div>-->
+        <!--<div class="col-sm-5 everyGradeTip img_input_tip hide_ctr">-->
+        <!--未上传图片-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="clearfix up_img_box clearfix col-sm-12 form-group">
+            <label class="personData_list_left col-sm-2 control-label">个人头像：</label>
+            <div class="col-sm-6">
+                <img class="img_con hide_ctr_absolute" src="" alt="">
+                <div class="clearfix up_img_ope">
+                    <div class="data_upCtrl fl">
+                        <i>上传图片</i>
+                        <input type="file" id="data_upHeadImg" onchange="upImg(this)">
+                    </div>
+                    <span class="fl data_up_talk">支持jpg/jpeg/png格式的图片，文件小于300k</span>
+                </div>
+            </div>
+            <div class="col-sm-4 selectTip _upImg_tip hide_ctr">
+                未添加图片
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-2 control-label">分类状态：</label>
+            <input checked="checked" name="addSwitch" value="0" class="mess_con_radio1" type="radio">开启
+            <input name="addSwitch" value="1" class="mess_con_radio1" type="radio">关闭
+        </div>
+    </form>
+    <div class="relation_con hide_ctr">
+        <h4 class="conRight_h4">关联后台分类</h4>
+        <div class="clearfix relation_box">
+            <div class="fl selectbox selebar selectbox_width160" id="selectbox1">
+                <input name="" value="" type="hidden">
+                <div class="selectbox_arraw">
+                    <span class="selectbox_down"></span>
+                    <span class="selectbox_up"></span>
+                </div>
+                <div class="selectbox_value_box">
+                    <div class="selectbox_value">请选择一级分类</div>
+                </div>
+                <div class="selectbox_list selectbox_width160">
+                    <div class="selectbox_scroll_body">
+                        <div class="selectbox_scroll">
+                            <div></div>
+                        </div>
+                    </div>
+                    <ul class="selectbox_body">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="fl selectbox selebar selectbox_width160" id="selectbox2">
+                <input name="" value="" type="hidden">
+                <div class="selectbox_arraw">
+                    <span class="selectbox_down"></span>
+                    <span class="selectbox_up"></span>
+                </div>
+                <div class="selectbox_value_box">
+                    <div class="selectbox_value">请选择二级分类</div>
+                </div>
+                <div class="selectbox_list selectbox_width160">
+                    <div class="selectbox_scroll_body">
+                        <div class="selectbox_scroll">
+                            <div></div>
+                        </div>
+                    </div>
+                    <ul class="selectbox_body">
+
+                    </ul>
+                </div>
+            </div>
+            <!--<div class="fl selectbox selebar selectbox_width160" id="selectbox3">-->
+            <!--<input name="" value="" type="hidden">-->
+            <!--<div class="selectbox_arraw">-->
+            <!--<span class="selectbox_down"></span>-->
+            <!--<span class="selectbox_up"></span>-->
+            <!--</div>-->
+            <!--<div class="selectbox_value_box">-->
+            <!--<div class="selectbox_value">请选择三级分类</div>-->
+            <!--</div>-->
+            <!--<div class="selectbox_list selectbox_width160">-->
+            <!--<div class="selectbox_scroll_body">-->
+            <!--<div class="selectbox_scroll">-->
+            <!--<div></div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<ul class="selectbox_body">-->
+
+            <!--</ul>-->
+            <!--</div>-->
+            <!--</div>-->
+            <select name="" class="form-control multiselect" multiple="multiple" id="multiselect">
+                <!--<option value="林氏木业">沙发</option>-->
+                <!--<option value="TAT木门">桌子</option>-->
+                <!--<option value="帝王">椅子</option>-->
+            </select>
+        </div>
+        <div class="col-sm-12 selectTip _backLeafClassIds_tip hide_ctr">
+            请将三级关联分类勾选完全
+        </div>
+    </div>
+    <!--<h4 class="conRight_h4">其它操作</h4>-->
+    <!--<div class="form-group col-sm-12 form-horizontal">-->
+    <!--<label for="" class="col-sm-2 control-label">分类状态：</label>-->
+    <!--<div class="col-sm-8">-->
+    <!--<input checked="checked" name="addSwitch" value="0" class="mess_con_radio3" type="radio">开启-->
+    <!--<input name="addSwitch" value="1" class="mess_con_radio3" type="radio">关闭-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="clearfix cate_bottom_operate">
+        <p class="fl conRightBottom_btn_sm btn_sure">确认</p>
+        <a class="fl conRightBottom_btn_sm btn_cancle" href="javascript:history.go(-1);">取消</a>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+
+
+
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/front_everyGrade_edit.js"></script>
+</body>
+</html>

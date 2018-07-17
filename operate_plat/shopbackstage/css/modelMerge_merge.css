@@ -1,0 +1,30 @@
+.modelClass,.modelClass_brand{
+	padding: 0 0 10px 0;
+	border-bottom: 1px #ccc dashed
+}
+.modelClass span{
+	display: inline-block; 
+	width:  6%;
+
+}
+.modelClass_brand {
+	height: 30px;
+	overflow: hidden;
+	line-height: 30px
+}
+.modelClass_brand span{
+	width: 11%;
+	display: inline-block;
+}
+.modelClass span.modelClass_spc, .modelClass_brand span.modelClass_spc{
+	color: #333;
+	width: 7%;
+}
+.modelClass_brand span img{
+	display: inline-block;
+	width: 16px;
+	height: 8px
+}
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 20%;
+}

@@ -1,0 +1,23 @@
+.shoplist,.shopstyle{
+    width: 100%;
+    border-bottom: 1px #ccc dashed;
+
+}
+.shoplist p span,.shopstyle p span  {
+	display: inline-block;
+	padding: 0 20px;
+	color: #000
+}
+.shoplist p span:nth-of-type(1) ,.shopstyle p span:nth-of-type(1){
+	 padding:  0;
+}
+.shoplist p span.active,.shopstyle p span.active{
+	color: #f1761f
+}
+.goods_check{
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px
+}
+.shopins{
+	margin-top: 20px
+}

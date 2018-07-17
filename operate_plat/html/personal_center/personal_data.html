@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的资料</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/audit.css">
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/user_mangement.css">
+</head>
+<style type="text/css">
+    .tit{
+        width: 44px;
+        height: 44px;
+        border-radius: 44px;
+    }
+    .person_data div{
+        display: inline-block;
+    }
+    .person_data p{
+        height: 60px;
+        line-height: 60px;
+    }
+    .person_data p span:nth-of-type(1){
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+    }
+</style>
+<body>
+ 
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <!--  <ol class="breadcrumb breadcrumb_selfDefined">
+                     <li><a href="#">商品管理 > </a> </li>
+                     <li><a href="#">商品审核 > </a> </li>
+                     <li><a href="#">待审核 > </a> </li>
+                     <li class="active"><a href="#">审核详情  </a> </li>
+                 </ol> -->
+                <h4 class="conRight_h4">账户信息</h4>
+
+                <div class="person_data">
+                    <!-- <div class="sky">测试</div> -->
+                </div>
+
+
+
+
+            </div>
+        </div>
+<script type="text/html" id="uManage_uwb_acounts">
+<div class="w30">
+    <p>
+        <span>头像:</span>
+        <img src="{{data.userInfo.headPic}}" class="tit">
+    </p>
+    <p>
+        <span>昵称:</span>
+        <span>{{data.userInfo.nickName}}</span>
+    </p>
+</div>
+<div class="w30">
+    <p>
+        <span>注册方式:</span>
+        {{if data.userInfo.userSrc == 1 }}
+        <span>App</span>
+        {{else if data.userInfo.userSrc == 2}}
+        <span>微信</span>
+        {{else if data.userInfo.userSrc == 3}}
+        <span>实体铺</span>
+        {{/if}}
+
+    </p>
+    <p>
+        <span>邮箱地址:</span>
+        <span>{{data.userInfo.email}}</span>
+    </p>
+</div>
+<h4 class="conRight_h4 clearfix">员工信息</h4>
+<p><span>姓名:</span>{{data.userInfo.realName}}</p>
+<p><span>手机号:</span>{{data.userInfo.phoneNumber}}</p>
+<p><span>身份类型:</span>{{each data.UserRoles as val}} <span>{{val.roleName}}</span> {{/each}}</p>
+<p><span>所属店铺:</span>{{each data.Shop as val}} <span>{{val.shopName}}</span> {{/each}}</p>
+<p><span>账户状态:</span>{{if data.userInfo.isFrozen == 0 }} <span>正常</span>{{else if data.userInfo.isFrozen == 1}} <span>冻结</span>{{/if}}</p>
+
+
+</script>
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<!--<script src="../../js/user_manage/user_mangement.js"></script>-->
+<script>
+//var localhost = 'http://172.16.41.184:8002/user';
+var localhost = getBaseUrl('lh')
+var user_management= localhost + '/user/platForm/selectAllInfo';
+
+function uManage_uwb_acount() {
+var id = userId_getIem();
+$.ajax({
+    type:"post",
+    catch: false,
+    url: user_management,
+    dataType: "json",
+    data:{id:id},
+    success: function (data) {
+        console.log(data);
+         var html = template("uManage_uwb_acounts",data);
+         $(".person_data").html(html);
+    },
+    error: function () {
+    }
+})
+}
+uManage_uwb_acount();
+
+// function setIframeHeight(height){
+//  height = height+20;
+//  $("#iframemainbox").css("height",height);
+//  $("#iframemain").css("height",height);
+// }
+// setIframeHeight(document.body.scrollHeight);
+
+
+    // var tokenStr = "";
+    // $(function () {
+    //     $(".sky").on("click",function () {
+    //         debugger;
+    //         $.ajax({
+    //             type: 'post',
+    //             catch: false,
+    //             sync: false,
+    //             data: {
+    //                 "oldToken": TOKEN_getIem()
+    //             },
+    //             url: upDateToken,
+    //             success: function (data) {
+    //                 debugger;
+    //                 var tokenStr = resData.data;
+    //                 TOKEN_setIem(tokenStr);
+    //             },
+    //             error: function () {
+    //                 debugger;
+    //             },
+    //             complete: function () {
+    //                 debugger;
+    //             }
+    //         });
+    //     })
+    //     TOKEN_getIem();
+    //     debugger;
+    //     var _id = $.getUrlParam("id");//本行数据id
+    //     var selfHostPath = getHostPath();
+    //     var top_navHttp = getBaseUrl('lh')
+    //     var top_navUrl = top_navHttp + '/user/permission/getUserLevelOneMenu';
+    //     var top_navUrl = '../huoqu_navMenuList.json';
+    //     var usrParms = {
+    //         userId: '12321312312312131'
+    //     }
+    //     $.ajax({
+    //         type: "post",
+    //         catch: false,
+    //         sync: false,
+    //         url: top_navUrl,
+    //         dataType: "json",
+    //         data: usrParms,
+    //         success: function (res) {
+    //             debugger;
+    //             if (res.success == true) {
+    //                 var data = res.data;
+    //                 var str = "";
+    //                 $(data).each(function (i, v) {
+    //                     if (i == 0) {
+    //                         str += "<li onclick='nav_jump(this)' class='active' data-ref='" + selfHostPath + data[i].menuUrl + "?&navId=" + data[i].id + "'><a href='#'>" + data[i].menuName + "</a></li>";
+    //                     }else {
+    //                         str += "<li onclick='nav_jump(this)' class='' data-ref='" + selfHostPath + data[i].menuUrl + "?&navId=" + data[i].id + "'><a href='#'>" + data[i].menuName + "</a></li>";
+    //                     }
+    //                   });
+    //                 $(".navbar-nav").html(str);
+    //                 // nav_Common_fun("我的资料");
+    //             }
+    //         },
+    //         error: function () {
+    //
+    //         }
+    //     });
+    //     nav_Common_fun("我的资料")
+    // });
+    // //侧边栏dom注入
+    // function nav_left_first(usrId, left_activeId,left_activeFlag,edit_LeftNav) {
+    //     debugger;
+    //
+    //     var top_navHttp = getBaseUrl('lh')
+    //     var top_navUrl = top_navHttp + '/user/menu/getAllSonMenu';
+    //     // var top_navUrl = '../huoqu_navLeftList.json';
+    //     if (left_activeId == undefined) {
+    //         left_activeId = 1;
+    //     }
+    //     var usrParms = {
+    //         userId: usrId,
+    //         id: navId
+    //     }
+    //     debugger;
+    //     $.ajax({
+    //         type: "post",
+    //         catch: false,
+    //         sync: false,
+    //         url: top_navUrl,
+    //         dataType: "json",
+    //         data: usrParms,
+    //         success: function (res) {
+    //             debugger;
+    //             if (res.success == true) {
+    //                 var left_str = buildMenu_first(res.data);
+    //                 $(".left").html(left_str);
+    //                 $(".leaf").each(function (i,v) {
+    //                     debugger;
+    //                     if($(v).hasClass(left_activeFlag)){
+    //                         if(edit_LeftNav){
+    //                             $(v).html(edit_LeftNav)
+    //                         }
+    //                         $(v).addClass("leftNav_active");
+    //                         $(v).parent().show();
+    //                     }
+    //                 })
+    //                 $(".left ul li").click(function () {
+    //                     $(this).siblings().find("ul").css("display", "none"); //找到同一级的ul将其隐藏
+    //                     if ($(this).has("ul").length > 0) {
+    //                         $(this).children("ul").css("display", "block");   //如果是ul将其子项显示出来
+    //                     }
+    //                 });
+    //
+    //             }
+    //         },
+    //         error: function () {
+    //
+    //         }
+    //     });
+    //
+    // }
+    // //
+    // //渲染左侧导航菜单逻辑
+    // function buildMenu_first(obj) {
+    //     var str = "<ul>";
+    //     $.each(obj, function (index, item) {
+    //         if (typeof (obj[index].childMenu) == "object") {
+    //             str += "<li><span class='leaf' data-id='"+ obj[index].id+"'>" + obj[index].menuName + "</span>";
+    //             str += buildMenu(obj[index].childMenu); //递归判断是不是object,直到不是li
+    //             str += "</li>";
+    //         }
+    //         else {
+    //             //  alert(index + "--" + obj[index]);  //item == obj[index]
+    //             str += "<li data-id='"+ obj[index].id+"' onclick='navLeft_jump(this)' class='leaf "+ obj[index].menuName +"' data-ref='" + selfHostPath + obj[index].menuUrl + "?&leftId=" + obj[index].id + "'>" + obj[index].menuName + "</li>"
+    //         }
+    //     });
+    //     str += "</ul>";
+    //     return str;
+    // }
+    // //
+    // function nav_Common_fun_first(left_activeFlag,edit_LeftNav) {
+    //     if (navId == null || navId == undefined) {
+    //         debugger;
+    //         navId = navTopMenu_getIem();
+    //     } else {
+    //         navTopMenu_setIem(navId);
+    //     }
+    //     nav_top('12321312312312131', navId);
+    //     nav_left('12321312312312131', navId,left_activeFlag,edit_LeftNav)
+    // }
+
+</script>
+</html>

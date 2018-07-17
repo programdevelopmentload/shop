@@ -1,0 +1,86 @@
+{
+  "success":true,
+  "errorCode":0,
+  "data":[
+    {
+      "id":9,
+      "menuName":"首页",
+      "menuUrl":"/operate_plat/html/personal_center/personal_data.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":1,
+      "leaf":false,
+      "createTime":"2018-06-27 16:02:37"
+    },
+    {
+      "id":10,
+      "menuName":"账户管理",
+      "menuUrl":"/operate_plat/html/user_manage/user_mangement.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":2,
+      "leaf":true,
+      "createTime":"2018-06-29 17:26:38"
+    },
+    {
+      "id":11,
+      "menuName":"商家审核",
+      "menuUrl":"/operate_plat/html/seller_verify/qualifications_verify.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":3,
+      "leaf":true,
+      "createTime":"2018-06-29 10:35:00"
+    },
+    {
+      "id":12,
+      "menuName":"类目管理",
+      "menuUrl":"/operate_plat/html/Category_manage/backstage_oneGradeDivide.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":4,
+      "leaf":true,
+      "createTime":"2018-06-29 10:38:13"
+    },
+    {
+      "id":13,
+      "menuName":"商品管理",
+      "menuUrl":"/operate_plat/html/product_manage/onSale_list.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":5,
+      "leaf":true,
+      "createTime":"2018-06-29 17:26:26"
+    },
+    {
+      "id":14,
+      "menuName":"采购管理",
+      "menuUrl":"/operate_plat/html/purchase_manage/price_new_makeprice_tuiguang.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":6,
+      "leaf":true,
+      "createTime":"2018-06-29 10:36:53"
+    },
+    {
+      "id":15,
+      "menuName":"促销管理",
+      "menuUrl":"/operate_plat/html/promotion_manage/coupon_list.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":7,
+      "leaf":false,
+      "createTime":"2018-06-27 16:05:23"
+    },
+    {
+      "id":16,
+      "menuName":"其它",
+      "menuUrl":"/operate_plat/html/other_manage/businessArea.html",
+      "parentId":0,
+      "menuLevel":1,
+      "orderNum":8,
+      "leaf":true,
+      "createTime":"2018-06-29 17:26:31"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/sidebar-menu.css">
+    <link rel="stylesheet" href="../css/pagination.css">
+    <link rel="stylesheet" href="../css/jquery.datetimepicker.css">
+    <link rel="stylesheet" href="../css/scheduled_audit.css">
+    <title>店铺-订单管理-服务订单</title>
+</head>
+<body>
+<!--模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑</h4>
+            </div>
+            <div class="modal-body">
+                <p>请与客户沟通确认后更改服务时间</p>
+                <p>预约上门时间：2016-06-16 13:00-14:00</p>
+                <div class="form-inline form-group vwatiTime_start">
+                    <label for="dates_start1">更改时间：</label>
+                    <input type="text" id="dates_start1" name="dates_start1" value="" class="form-control">
+                    <img src="../images/calendar.png" alt="" class="dates_start1"/>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="yynav">
+    <div class="container">
+        <div class="row">
+            <div class="navbar navbar-default nav_selfDefined" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">店铺管理</a></li>
+                    <li><a href="#">商品管理</a></li>
+                    <li><a href="#">仓储管理</a></li>
+                    <li class="active"><a href="#">订单管理</a></li>
+                    <li><a href="#">财务对账</a></li>
+                    <li><a href="#">角色权限</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">订单管理 > </a> </li>
+                    <li><a href="#">服务订单 > </a> </li>
+                    <li class="active"><a href="#">预定审核  </a> </li>
+                </ol>
+                <div class="order_Num">
+                    <div class="form-inline form-group">
+                        <label for="orderNums">查订单:</label>
+                        <input type="text" name="" placeholder="请输入订单编号" id="orderNums" class='form-control'>
+                        <label for="goodsPeo">查商品:</label>
+                        <input type="text" name="" placeholder="请输入关键字" id="goodsPeo" class='form-control'>
+                        <button type="button" class="btn btn-primary search_btn">查询</button>
+                    </div>
+                </div>
+                <div class="order_result">
+                    <p class="search_result">
+                        审核列表
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../js/lib/bootstrap.min.js"></script>
+<script src="../js/lib/art_template.js"></script>
+<script src="../js/lib/pagination.js"></script>
+<script src="../js/lib/sidebar-menu.js"></script>
+<script src="../js/lib/setDateTime.js"></script>
+<script src="../js/scheduled_audit.js"></script>
+</body>
+</html>

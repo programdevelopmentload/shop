@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>员工管理-员工列表</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/audit.css">
+	<link rel="stylesheet" type="text/css" href="../../css/user_mangement/user_mangement.css">
+</head>
+<style type="text/css">
+    .public_con #test .table thead tr th:nth-child(2){
+        width: 12%
+    }
+    .public_con #test .table thead tr th:nth-child(3) {
+        width: 10%;
+    }
+    .public_con #test .table thead tr th:nth-child(4){
+        width: 10%;
+    }
+    .table a{
+        color: #337ab7
+    }
+    .table th, .table td{
+        padding: 0
+    }
+    .table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+        padding: 0
+    }
+    .table tbody tr td:nth-child(4) p,.table tbody tr td:nth-child(5) p{
+        border-bottom: 1px solid #ccc
+    }
+    .table tbody tr td:nth-child(4) p:last-of-type,.table tbody tr td:nth-child(5) p:last-of-type{
+        border-bottom: 0
+    }
+</style>
+<body>
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <div class="user_management_info form-inline" >
+		<div class="form-group user_management_keyword" >
+		    <label class="control-label" for="staff_key">关键字</label>
+		      <input class="form-control " type="text" id="staff_key" placeholder="请输入手机号或者邮箱">
+              <select class="form-control identity_type" >
+                
+              </select>
+		</div>
+        
+		<button type="button" class="btn btn-primary" id="staff_sub">查找</button>
+	</div>
+	<div class="bussiness_info pagination_box_ctr">
+		<div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+            <div id="pic_no" class="default-prompt">
+                <img src="../../images/nothing.png">
+                <br>
+                <span>查询无结果</span>
+            </div>
+            <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                <thead>
+                <tr>
+                    <th>邮箱账号</th>
+                    <th>手机号</th>
+                    <th>姓名</th>
+                    <th>身份类型</th>
+                    <th>所属店铺</th>
+                    <th>添加时间</th>
+                    <th>账户状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="leftBottom clearfix">
+                <!--<button type="button" class="outBack">批量退回</button>-->
+                <div class="page pageBar" id="page">
+                    <p>共0条记录</p>
+                    <div class="pageLft clearfix">
+                        <!--<a class="noprev"></a>-->
+                        <a href="#" class="prev"></a>
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <span>...</span>
+                        <a href="#" class="next"></a>
+                        <!--<a class="nonext"></a>-->
+                    </div>
+                    <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                </div>
+            </div>
+        </div>
+	</div>
+    <div class="m-pagination">
+
+   </div>
+</div>
+	
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/user_manage/staff_detail.js"></script>
+
+</html>

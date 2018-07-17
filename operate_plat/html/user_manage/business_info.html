@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>商家信息</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/audit.css">
+	<link rel="stylesheet" type="text/css" href="../../css/user_mangement/user_mangement.css">
+</head>
+<style type="text/css">
+    .pageSize_switch_con{
+        padding: 0;
+    }
+    .public_con #test .table thead tr th:nth-child(1){
+        width: 16%
+    }
+    .public_con #test .table thead tr th:nth-child(4) {
+         width: 18%;
+    }
+    .public_con #test .table thead tr th{
+        line-height: 47px;
+        height:47px;
+    }
+    /*.public_con #test .table thead tr th:nth-child(4) {*/
+        /*width: 18%;*/
+    /*}*/
+    .form-control.isFrozen,.form-control.area{
+        width: 182px;
+    }
+    #btnSearch{
+        margin-top: 10px;
+    }
+</style>
+<body>
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <div class="user_management_info form-inline" >
+			<div class="form-group form-group-lg user_management_keyword" >
+			    <label class="control-label" for="formGroupInputLarge">按账户:</label>
+			      <input class="form-control user_management_keyword" type="text" id="formGroupInputLarge" placeholder="商家账户/手机号">
+			</div>
+      <div class="form-group form-group-lg user_management_keyword" >
+          <label class="control-label">按公司:</label>
+            <input class="form-control  companyName" type="text"  placeholder="请输入公司名">
+      </div>
+      <div class="form-group">
+          <label class="control-label" >所在区域:</label>                        
+          <select class="form-control area"> 
+          </select>
+      </div> 
+      <div class="form-group"  style="margin-left: 10px">
+          <label class="control-label">商家状态:</label>                        
+          <select class="form-control isFrozen">
+              <option data-id='all'>全部</option>
+              <option data-id="0">正常</option>
+              <option data-id ="1">已冻结</option>
+          </select>
+      </div>  
+      <div class="form-group" style="margin-top: 10px;margin-left: 0">
+        <label class="control-label fl" style="line-height: 34px;">按时间:</label>
+        <div class="vwatiTime_start fl">
+              <input type="text" id="dates_start1" class="form-control" name="dates_start1" value="">
+              <img src="../../images/calendar.png" alt="" class="dates_start1">
+          </div>
+          <div class="fl zhi">
+              至
+          </div>
+          <div class="vwatiTime_end fl">
+              <input type="text" id="dates_end1"  class="form-control" name="dates_end1" value="">
+              <img src="../../images/calendar.png" alt="" class="dates_end1">
+          </div>
+      </div>
+      <button type="button" class="btn btn-primary" id="btnSearch">查找</button>
+    </div>
+    <h4>商家列表</h4>
+    <div class="clearfix pageSize_switch_con form-group form-inline">
+        <label >每页显示</label>
+        <select class="pageSize_switch form-control">
+            <option value="20" class="">20</option>
+            <option value="30" class="">30</option>
+            <option value="40" class="">40</option>
+            <option value="50" class="">50</option>
+            <option value="100" class="">100</option>
+        </select>
+    </div>
+	  <div class="bussiness_info pagination_box_ctr">
+			<div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+          <div class="clearfix pageSize_switch_con form-group form-inline">
+              <div id="pic_no" class="default-prompt">
+                  <img src="../../images/nothing.png">
+                  <br>
+                  <span>查询无结果</span>
+              </div>
+              <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                  <thead>
+                  <tr>
+                      <th>商家名称</th>
+                      <th>手机号</th>
+                      <th>公司名称</th>
+                      <!-- <th>商家类型</th>
+                      <th>经营类型</th> -->
+                      <th>所在地区</th>
+                      <th>商家身份</th>
+                      <th>注册时间</th>
+                      <th>商家状态</th>
+                      <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
+              <div class="leftBottom clearfix">
+                  <!--<button type="button" class="outBack">批量退回</button>-->
+                  <div class="page pageBar" id="page">
+                      <p>共0条记录</p>
+                      <div class="pageLft clearfix">
+                          <!--<a class="noprev"></a>-->
+                          <a href="#" class="prev"></a>
+                          <a href="#" class="active">1</a>
+                          <a href="#">2</a>
+                          <a href="#">3</a>
+                          <a href="#">4</a>
+                          <a href="#">5</a>
+                          <span>...</span>
+                          <a href="#" class="next"></a>
+                          <!--<a class="nonext"></a>-->
+                      </div>
+                      <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                  </div>
+              </div>
+          </div>
+	    </div>
+    </div>
+    <div class="m-pagination">
+
+  </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+        <div class="maskBtn_operate">
+            <span class="maskBtn mask_ok">是</span>
+            <span class="maskBtn mask_false" onclick="clickFalse()">否</span>
+            <!--<span href="" class="maskBtn mask_else">取消</span>-->
+        </div>
+    </div>
+</template> 
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/user_manage/business_info.js"></script>
+<script type="text/javascript">
+//      //设置iframe高度
+// function setIframeHeight(height){
+//  height = height+20;
+//  $("#iframemainbox").css("height",height);
+//  $("#iframemain").css("height",height);
+// }
+//
+// window.parent.setIframeHeight(document.body.scrollHeight);
+</script>
+
+</html>

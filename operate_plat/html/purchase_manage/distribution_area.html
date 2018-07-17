@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>新品分销-选择区域</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/product_manage/skuNewMerge_logo_mao.css">
+    <style>
+        .click_check_box {
+            padding: 10px 30px;
+        }
+
+        .click_check_items {
+            /*min-height: 120px;*/
+            position: relative;
+        }
+
+        .click_check_box .province_letter {
+            width: 35px;
+            background-color: red;
+            color: #fff;
+            padding: 3px 5px;
+            text-align: center;
+        }
+
+        .click_check_box .province_dom {
+            /*width: 20%;*/
+            min-width: 50px;
+            /*padding: 3px 0;*/
+            line-height: 20px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+        }
+
+        .person_account_tip {
+            padding: 8px 2px;
+            position: absolute;
+            width: 250px;
+            min-height: 30px;
+            /*border-radius: 15px;*/
+            background: #ffffff;
+            z-index: 100;
+            position: absolute;
+            left: 110%;
+            /*right: -20px;*/
+            margin-top: -36px;
+            /*margin-left: 20px;*/
+            line-height: 30px;
+            -webkit-box-shadow: 0 4px 10px #999999;
+            -moz-box-shadow: 4px 4px 10px #999999;
+            box-shadow: 4px 4px 10px #999999;
+        }
+
+        .province_name {
+            margin: 8px 0;
+            padding: 5px 15px;
+            cursor: pointer;
+            display: block;
+        }
+
+        .city_name {
+            width: 30%;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        /*.person_account_tip div:nth-child(2) {*/
+        /*width: 76px;*/
+        /*height: 30px;*/
+        /*text-align: center;*/
+        /*background-color: #fff;*/
+        /*color: #fff;*/
+        /*}*/
+        /*.pac_tip_left {*/
+        /*width: 76px;*/
+        /*background: #fff;*/
+        /*height: 30px;*/
+        /*text-align: center;*/
+        /*!*border-radius: 15px 0 0 15px;*!*/
+        /*color: #ffffff;*/
+        /*}*/
+        /*.person_account_tip div:nth-child(3) {*/
+        /*width: 117px;*/
+        /*height: 30px;*/
+        /*text-align: center;*/
+        /*}*/
+        /*.person_account_tip div:nth-child(4) {*/
+        /*width: 57px;*/
+        /*height: 30px;*/
+        /*text-align: center;*/
+        /*}*/
+        .pac_tip_jiantou {
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+            border-right: 10px solid #fff;
+            position: absolute;
+            top: 5px;
+            left: -5px;
+            margin-left: -5px;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a></li>
+                    <li><a href="#">商品审核 > </a></li>
+                    <li><a href="#">待审核 > </a></li>
+                    <li class="active"><a href="#">审核详情 </a></li>
+                </ol>
+                <form class="filter_area clearfix form-horizontal">
+                    <div class="form-group col-sm-4">
+                        <label for="" class="col-sm-5 control-label">快捷选择：</label>
+                        <div class="col-sm-7">
+                            <input type="text" class="form-control quick_check_input">
+                        </div>
+                    </div>
+                    <div class="btn-primary btn cityId_query">
+                        查询
+                    </div>
+                </form>
+                <h4 class="conRight_h4 ">分销区域选择</h4>
+                <!--<div class="sky">-->
+                <!--测试区域-->
+                <!--</div>-->
+                <div class="click_check_box">
+                    <div class="click_check_items A_items clearfix">
+                        <h4 class="province_letter ">A</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items B_items clearfix">
+                        <h4 class="province_letter ">B</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items C_items clearfix">
+                        <h4 class="province_letter ">C</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items F_items clearfix">
+                        <h4 class="province_letter ">F</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items G_items clearfix">
+                        <h4 class="province_letter ">G</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items H_items clearfix">
+                        <h4 class="province_letter ">H</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items J_items clearfix">
+                        <h4 class="province_letter ">J</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items L_items clearfix">
+                        <h4 class="province_letter ">L</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items N_items clearfix">
+                        <h4 class="province_letter ">N</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items Q_items clearfix">
+                        <h4 class="province_letter ">Q</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items S_items clearfix">
+                        <h4 class="province_letter ">S</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items T_items clearfix">
+                        <h4 class="province_letter ">T</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items X_items clearfix">
+                        <h4 class="province_letter ">X</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items Y_items clearfix">
+                        <h4 class="province_letter ">Y</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+                    <div class="click_check_items Z_items clearfix">
+                        <h4 class="province_letter ">Z</h4>
+                        <div class="province_dom  fl">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前属性名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<!--<script id="rig_con_ajax" type="text/html">-->
+<!--<div class="click_check_box">-->
+<!--{{each data as value i}}-->
+<!--<div class="click_check_items clearfix">-->
+<!--{{if data[i].id== 340000 || data[i].id== 820000}}-->
+<!--<h4 class="province_letter A_letter">A</h4>-->
+<!--<div class="province_dom fl">-->
+<!--<span class="province_name ">{{data[i].name}}</span>-->
+<!--</div>-->
+<!--{{/if}}-->
+<!--</div>-->
+<!--{{/each}}-->
+<!--</div>-->
+<!--</script>-->
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/purchase_manage/distribution_area.js"></script>
+</body>
+</html>

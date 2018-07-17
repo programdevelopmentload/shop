@@ -1,0 +1,86 @@
+.verifyLog_queryCtr {
+    height: 50px;
+    line-height: 50px;
+    background-color: #d3d9e5;
+    color: #7a85a2;
+}
+.verifyLog_queryCtr div{
+    margin-left:20px;
+}
+.verifyLog_queryCtr div:last-child{
+    margin-left: 0;
+}
+.verifyLog_queryCtr input{
+    width: 120px;
+    height: 25px;
+    line-height: 25px;
+    margin-top: 9px;
+    padding-left: 10px;
+    border: none;
+    background-color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #7a852a;
+}
+.verifyLog_queryCtr div:nth-child(2) input{
+    width:160px;
+}
+.vwatiTime_start, .vwatiTime_end {
+    position: relative;
+}
+.vwatiTime_start img, .vwatiTime_end img {
+    position: absolute;
+    top: 15px;
+    right: 12px;
+}
+.conRight_btn2{
+    display: block;
+    width: 90px;
+    height: 40px;
+    background: #4fc2b9;
+    color: #fff;
+    line-height: 40px;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 14px;
+    margin-left: 110px;
+    cursor: pointer;
+    font-family: "Microsoft YaHei";
+}
+.verifyLog_queryBtn{
+    margin: 10px 20px 0 0;
+    width: 88px;
+    height: 32px;
+    line-height: 32px;
+}
+.verifyLog_queryRes_tip{
+    margin-top: 30px;
+}
+.verifyLog_queryRes_tip h4{
+    padding-right: 30px;
+}
+.verifyLog_queryRes_tip >div >div{
+    padding: 10px 0;
+}
+.verifyLog_queryNum{
+    color: #4fc2b9;
+}
+/*分页数据table区域样式*/
+/*右下角区域*/
+.uManage_service_acount .row div{
+    margin-bottom: 10px;
+}
+.uManage_service_acount .row >div>div:first-child{
+    height: 70px;
+}
+.uManage_service_acount .row >div>div>p{
+    width: 80px;
+    text-align: left;
+    margin-right: 15px;
+}
+.uManage_service_acount .row >div:nth-child(2)>div>p{
+    width: 110px;
+    text-align: right;
+    margin-right: 15px;
+}

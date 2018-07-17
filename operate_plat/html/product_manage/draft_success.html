@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>发布成功</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/product_manage/publish_product.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        .oragin{
+            color: #e46f22
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+           
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+               <div class="publish_success">
+                    <p class="publish_img">
+                        <img src="../../images/green_ok.png">
+                        <span>发布申请已提交，请等待审核</span>
+                    </p>
+                    <div class="publish_btn">
+                        <button type="btn" class="btn btn-default" id="goOn">继续发布</button>
+                       <!--  <button type="btn" class="btn btn-default" id="goBack">查看商品信息</button> -->
+                    </div>
+                   <!--  <p class="oragin">温馨提示：草稿保存时间为60天，请尽快修改发布。</p> -->
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+    //获取url信息 
+    function getUrlParam(name){ 
+        //构造一个含有目标参数的正则表达式对象 
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+        //匹配目标参数 
+        var r = window.location.search.substr(1).match(reg); 
+        //alert(r); 
+        //返回参数值 
+        if (r!=null) return decodeURI(r[2]); 
+            return null; 
+    } 
+    var id =getUrlParam("id");
+    console.log(id)
+    $('#goOn').click(function(){
+        window.location.href='./chose_classify.html';
+    })
+    // $('#goBack').click(function(){
+    //     window.location.href='./view_detail.html?id='+id;
+    // })
+</script>
+    
+</body>
+</html>

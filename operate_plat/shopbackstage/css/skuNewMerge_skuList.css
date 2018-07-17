@@ -1,0 +1,87 @@
+.skuNew_skuList  h2{
+	font-weight: normal;
+	font-size:20px;
+	color: #000;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 8px 10px;
+}
+.skuNew_skuList_p{
+	color: #757070;
+	font-size: 14px;
+	line-height: 25px;
+}
+.skuNew_skuList_p span{
+	 display: inline-block;
+	 margin-right: 20px
+}
+
+.skulist{
+	margin-top: 20px;
+	color: #000;
+	font-size: 20px
+}
+
+.sku_tab{
+	float: left;
+	width: 95%;
+}
+.skuTab_Merge_List{
+	float: right;
+	width: 30%;
+	border: 1px solid #ccc;
+	padding-bottom: 10px
+}
+.skuTab_Merge_List p{
+	line-height: 35px;
+	color: #000;
+	border-bottom: 1px solid #ccc;
+	text-indent: 20px
+}
+#sku_tab>tbody>tr>td:last-child{
+	cursor: pointer;
+}
+.skuTab_Merge_List ul li{
+	border-bottom: 1px solid #ccc;
+	padding: 5px 20px
+}
+.skuTab_Merge_List ul li img{
+	display: inline-table;
+	width:30px;
+	height: 35px
+}
+
+.go_skuManage{
+	width: 40%;
+	color: #fff;
+ 	background: #4fc2b9;
+ 	display: block;
+ 	text-align: center;
+ 	padding: 10px 0;
+ 	border-radius: 4px;
+ 	margin: 0 auto;
+ 	cursor: pointer;
+}
+
+.public_con #test .table thead tr th:nth-child(1) {
+	width: 6%;
+}
+
+.public_con #test .table thead tr th:nth-child(2) {
+	width: 22%;
+}
+
+.public_con #test .table thead tr th:nth-child(3) {
+	width: 16%;
+}
+
+.public_con #test .table thead tr th:nth-child(4) {
+	width: 12%;
+}
+
+.public_con #test .table thead tr th:nth-child(5) {
+width: 25%;
+}
+
+
+

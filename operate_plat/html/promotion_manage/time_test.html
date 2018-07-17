@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>优惠券添加</title>
+    <link rel="stylesheet" href="../../css/zTreeStyle/demo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../js/lib/layer/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/uMverify_wait.css"/>
+
+    <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+        .coupon_con_right .wrap_table .logo_img{
+            display: inline-block;
+            width: 80px;
+            height: 45px;
+        }
+        .coupon_con_right input[type=radio] {
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+        .vwatiTime_start img, .vwatiTime_end img {
+            position: absolute;
+            top: 15px;
+            right: -7px;
+        }
+        .vwait_queryCtr input {
+            height: 34px;
+            line-height: 34px;
+            margin-top: 9px;
+            padding-left: 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .vwait_queryCtr{
+            background-color:#f0f2f3 ;
+        }
+        .zhi{
+            padding: 0 0 0 12px;
+        }
+        .time_box{
+            padding-top: 8px;
+        }
+        .sure_smBtn{
+            margin: 40px auto;
+        }
+        .checkTip{
+            color: red;
+        }
+        .relation_cate_tip{
+            padding: 6px 2px;
+        }
+        .relation_table{
+            margin: 25px 160px 10px 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .relation_tip1,.relation_tip2,.relation_tip3{
+            padding:10px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        .relation_tip1{
+            padding-left: 5px;
+        }
+        .relation_tip2{
+            padding-left: 45px;
+        }
+        .relation_tip3{
+            padding-left: 85px;
+        }
+        .relation_arrow{
+            background: url(../../images/drop_arrow.png) no-repeat center;
+            width: 10px;
+            height:10px;
+            display: inline-block;
+        }
+        .manag_class_state input[type=radio]{
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="coupon_con_right public_con yycon_right yyconOrder_right col-xs-12 ">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <div class="layui-inline">
+        <label class="layui-form-label">日期时间选择器</label>
+        <div class="layui-input-inline">
+            <input type="text" class="layui-input" id="test5" placeholder="yyyy-MM-dd HH:mm:ss">
+        </div>
+    </div>
+    <form class="form-horizontal mess_list_margin clearfix" role="form">
+        <div class="col-sm-12 form-group clearfix">
+            <label for="" class="col-sm-2 control-label">优惠券名称：</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control cop_name_input" >
+            </div>
+            <div class="col-sm-4 cop_name_tip checkTip hide_ctr">
+                不可空置/支持中英文，最多32个字符
+            </div>
+        </div>
+        <div role="form" class="clearfix">
+            <label for="" class="col-sm-2 control-label">使用说明：</label>
+            <div class="form-group col-xs-6 clearfix">
+                <textarea class="form-control use_explain" rows="6" cols="30" placeholder="">请填写优惠券使用说明.</textarea>
+            </div>
+            <div class="use_explain_tip checkTip hide_ctr col-xs-4">
+                拒绝理由不可以空置。
+            </div>
+        </div>
+        <div class="form-group col-sm-12 clearfix">
+            <label for="" class="col-sm-2 control-label">发放类型：</label>
+            <div class="col-sm-6">
+                <input checked="checked" name="sendType" value="1" class="sendType" type="radio">注册时发放&nbsp;&nbsp;&nbsp;
+            </div>
+        </div>
+        <div class="form-group col-sm-12 clearfix">
+            <label for="" class="col-sm-2 control-label">结算类型：</label>
+            <div class="col-sm-6">
+                <input checked="checked" name="accountType" value="1" class="accountType" type="radio">抵价券&nbsp;&nbsp;&nbsp;
+                <div class="hide_ctr">
+                    <input name="accountType" value="2" class="accountType" type="radio">满减券&nbsp;&nbsp;&nbsp;
+                    <input name="accountType" value="3" class="accountType" type="radio">折扣券&nbsp;&nbsp;&nbsp;
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 form-group clearfix">
+            <label for="" class="col-sm-2 control-label">优惠金额：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control cash_count_input">
+            </div>
+            <div class="col-sm-5 cash_count_tip checkTip hide_ctr">
+                <!--不可空置/支持中英文，最多32个字符-->
+            </div>
+        </div>
+        <div class="col-sm-12 form-group clearfix">
+            <label for="" class="col-sm-2 control-label">发放数量：</label>
+            <div class="col-sm-3">
+                <input placeholder="不填写时发放数量不限制" type="text" class="form-control grant_num_input">
+            </div>
+            <div class="col-sm-5 grant_num_tip checkTip hide_ctr">
+                <!--不可空置/支持中英文，最多32个字符-->
+            </div>
+        </div>
+        <div class="col-sm-12 form-group vwait_queryCtr form-horizontal clearfix">
+            <label for="" class="col-sm-2 control-label">发放时间：</label>
+            <div class="time_box clearfix col-sm-7">
+                <div class="row">
+                    <div class="vwatiTime_start col-sm-5">
+                        <input class="form-control" type="text" id="dates_start1" name="dates_start1" value="">
+                        <img src="../../images/calendar.png" alt="" class="dates_start1">
+                    </div>
+                    <div class="fl zhi">
+                        至
+                    </div>
+                    <div class="vwatiTime_end col-sm-5">
+                        <input class="form-control" type="text" id="dates_end1" name="dates_end1" value="">
+                        <img src="../../images/calendar.png" alt="" class="dates_end1">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 send_time_tip checkTip hide_ctr">
+                未完全选择发放时间
+            </div>
+        </div>
+        <div class="col-sm-12 form-group vwait_queryCtr form-horizontal clearfix">
+            <label for="" class="col-sm-2 control-label">有效期：</label>
+            <div class="time_box clearfix col-sm-7 ">
+                <div class="row">
+                    <div class="vwatiTime_start col-sm-5">
+                        <input class="form-control" type="text" id="dates_start2" name="dates_start2" value="">
+                        <img src="../../images/calendar.png" alt="" class="dates_start2">
+                    </div>
+                    <div class="fl zhi">
+                        至
+                    </div>
+                    <div class="vwatiTime_end col-sm-5">
+                        <input class="form-control" type="text" id="dates_end2" name="dates_end2" value="">
+                        <img src="../../images/calendar.png" alt="" class="dates_end2">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 effective_time_tip checkTip hide_ctr">
+                未完全选择有效期时间
+            </div>
+        </div>
+
+    </form>
+    <h4 class="conRight_h4">关联分类</h4>
+    <div class="hide_ctr relation_cate_tip checkTip text-left">
+        请勾选添加属性的关联分类
+    </div>
+    <div class="relation_table clearfix" id="leaf_arr">
+        <div class="clearfix ">
+            <input class="all-check" type="checkbox" name="testManage"> 全选
+            <div class="relation_tip1">
+                <!--<input type="checkbox">-->
+                家具
+                <span class="relation_arrow">
+                            </span>
+            </div>
+            <div class=" ">
+                <div class="relation_tip2">
+                    <!--<input type="checkbox">-->
+                    客厅家具
+                    <span class="relation_arrow">
+                                </span>
+                </div>
+                <div class="relation_tip3">
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </div>
+            <div class=" ">
+                <div class="relation_tip2">
+                    <input type="checkbox">
+                    客厅家具
+                    <span class="relation_arrow">
+                                </span>
+                </div>
+                <div class="relation_tip3">
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input name="testManage" class="item-check" type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-xs-12 saveBtn_box">
+        <span class="sure_smBtn coupon_addBtn">保存</span>
+    </div>
+</div>
+
+<dd>
+    <div id="categoryTree" class="ztree"></div>
+</dd>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script id="belong_box" type="text/html">
+    <input type="checkbox" class="all-check" name="testManage">全选
+    {{each options as value i}}
+    <div class=" ">
+        <div class="relation_tip1">
+            {{value.name}}
+            <span class="relation_arrow">
+            </span>
+        </div>
+        {{each value.child as value1 i}}
+        <div class=" ">
+            <div class="relation_tip2">
+                {{value1.name}}
+                <span class="relation_arrow">
+                </span>
+            </div>
+            <div class="relation_tip3">
+                {{each value1.child as value2 i}}
+                <span><input name="testManage" class="item-check" type="checkbox" value="{{value2.id}}">
+                    {{value2.name}}&nbsp;&nbsp;&nbsp;
+                </span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+<!--<script src="../../js/lib/validate/validator-min.js"></script>-->
+
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+
+<script type="text/javascript" src="../../js/lib/zTree/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="../../js/lib/zTree/jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="../../js/lib/zTree/jquery.ztree.exedit.js"></script>
+<!--<script type="text/javascript" src="../../js/lib/iztree.js"></script>-->
+<script type="text/javascript" src="../../js/lib/index-iztree.js"></script>
+<script type="text/javascript" src="../../js/lib/searchTree.js"></script>
+<script type="text/javascript" src="../../js/lib/layer/layer.js"></script>
+<script type="text/javascript" src="../../js/lib/layer/layui.js"></script>
+
+<script src="../../js/promotion_manage/coupon_add.js"></script>
+
+
+</body>
+</html>

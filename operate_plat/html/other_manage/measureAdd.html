@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>模板管理-测量费用</title>
+  	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.addBtn{
+		margin-top: 30px;
+	}
+  input[type=file]{
+    display: inline-block;
+  }
+</style>
+<body>
+
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-10">
+    <div class="measuringCost">
+      <h4 class="conRight_h4">添加模板</h4>
+      <div class="measuringlist form-inline">
+          <p class="form-inline">模板名称:<input type="text" class="form-control modelName" name=""></p>
+          <p>模板类型:<select class="form-control selected"><option>橱柜</option></select></p>
+           <p>选择文件:  <input id="fileSelect" type="file" accept=" application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  multiple="multiple" /></p>
+           <button type="button" class="btn btn-primary sureAdd"> 确认</button>
+         <!--  <input id="fileSelect" type="file" accept=" application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  multiple="multiple" />
+          <a href="">文件预览</a> -->
+      </div>
+    </div>
+</div>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<!--<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script> -->
+
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+ //渲染模版类型
+ //http://172.16.39.168:8005/measuretemplet/gettype
+ var localHttp = 'http://172.16.38.185:8002';
+ var typeUrl= localHttp +'/order/measuretemplet/gettype';
+ var insertUrl= localHttp+'/order/measuretemplet/insert';
+
+function  modelType() {
+     $.ajax({
+        type:'post',
+        dataType:'json',
+        url:typeUrl,
+        success:function(data){
+            console.log(data);
+            var data = data.data;
+            console.log(data);
+            var html='';
+            for(var i=0;i<data.length;i++){
+                 html+='<option data-id="'+data[i].key+' ">'+data[i].value+'</option>'
+            }
+            $('.selected').html(html)
+        }
+     })
+}
+modelType();
+
+$('.sureAdd').click(function(){
+    var name = $('.modelName').val();
+
+    var type = $('.selected option:selected').attr('data-id');
+    console.log(type + name);
+    if (name !='' &&type!='') {
+        $.ajax({
+            url:insertUrl,
+            data:{name:name,type:1},
+            dataType:'json',
+            type:'post',
+            success:function(data){
+                alert(data.message);
+                window.location.href='./modelMeasure.html'
+                console.log(data)
+            }
+        })
+    }else{
+        alert('数据填写错误');
+    }
+})
+</script>
+</body>
+</html>

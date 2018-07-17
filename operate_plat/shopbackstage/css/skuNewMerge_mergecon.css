@@ -1,0 +1,110 @@
+p{
+	margin:0;
+}
+h4,h5{
+	margin: 0;
+}
+.skuInte_conten{
+	width: 100%;
+	border: 1px solid #ccc;
+	margin-top: 15px
+}
+.skuInte_conten_h4{
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+	background: #eee;
+	margin:0;
+	padding: 10px 0;
+	color: #000 
+}
+.skuInte_conten_release,.skuInte_conten_release_h70,.skuInte_conten_release_h90{
+	border-bottom: 1px solid #ccc;
+	color: #000;
+
+}
+.skuInte_conten_release span,.skuInte_conten_release_h70 span,.skuInte_conten_release_h90 span{
+    width: 27%;
+    display: inline-table;
+	border-right:1px solid #ccc;
+	min-height: 80px;
+	line-height: 40px;
+	text-align: center;
+
+}
+.skuInte_conten_release span:first-child,.skuInte_conten_release_h70 span:first-child,.skuInte_conten_release_h90 span:first-child{
+	 width: 15%;
+	 text-align: left;
+	 padding-left: 10px
+}
+.skuInte_conten_release span:last-child,.skuInte_conten_release_h70 span:last-child,.skuInte_conten_release_h90 span:last-child{
+	border-right:0;
+}
+.skuInte_conten_h5{
+	border-bottom: 1px solid #ccc;
+	line-height: 40px;
+	color: #000;
+	padding-left: 10px;
+	font-size: 16px
+}
+.skuInte_conten_img{
+	display: inline-block;
+	width: 40px;
+	height:60px;
+	margin-right:10px 
+}
+.skuInte_conten_release_h70 span{
+	height: 70px;
+	line-height: 70px;
+}
+.skuInte_conten_release_h90 span{
+	height: 90px;
+	line-height: 90px
+}
+.skuInte_conten_release_h100{
+	color: #000;
+	border-bottom: 1px solid #ccc
+}
+
+.skuInte_conten_release_h100 span{
+	 width: 27%;
+    display:inline-table;
+	border-right:1px solid #ccc;
+	line-height: 25px;
+    min-height: 200px;
+	text-align: center;
+	padding:10px 0;
+}
+
+
+.skuInte_conten_release_h100 span:last-child{
+	border-right:0;
+}
+
+.skuInte_conten_release_h100 span:first-child{
+	 width: 15%;
+	 text-align: left;
+	 padding-left: 10px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

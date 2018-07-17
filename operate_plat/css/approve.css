@@ -1,0 +1,321 @@
+ul{
+	margin-bottom: 0
+}
+i{
+	font-style: normal;
+}
+.approve_detail_search{
+	height: 50px;
+	line-height: 50px
+}
+
+.approve_detail_search select{
+	height: 34px;
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 100px 
+}
+.approve_detail_count_ul{
+	border: 1px solid #ccc;
+	color: #000;
+	margin-top: 10px;
+    line-height:40px;
+    display: flex;
+    display: -webkit-flex
+}
+.approve_detail_count_ul li{
+	flex: 1;
+	text-align: center;
+	-webkit-flex:1;
+}
+.approve_detail_count_ul li:nth-of-type(1){
+	flex: 2;
+	-webkit-flex:2;
+
+}
+.approve_detail_count_ul li:nth-of-type(2){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_ul li:nth-of-type(6){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_ul li:nth-of-type(7){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_ul li:nth-of-type(8){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count p{
+	line-height: 25px;
+	color: #000;
+	margin-top:20px;
+}
+.approve_detail_count_tab{
+	border: 1px solid #ccc
+}
+.approve_detail_count_tab ul{
+	border-bottom: 1px solid #ccc;
+	display: flex;
+	display: -webkit-flex;
+}
+.approve_detail_count_tab ul li{
+	flex: 1;
+	-webkit-flex:1;
+	text-align: center;
+	color: #000;
+	border-right: 1px solid #ccc;
+	line-height: 20px
+}
+
+.approve_detail_count_tab li:nth-of-type(1){
+	flex: 2;
+	-webkit-flex:2;
+
+}
+.approve_detail_count_tab li:nth-of-type(2){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_tab li:nth-of-type(6){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_tab li:nth-of-type(7){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_tab li:nth-of-type(8){
+	flex: 2;
+	-webkit-flex:2;
+}
+.approve_detail_count_tab li:nth-of-type(1) img{
+	display:block; 
+	height: 50px;
+ 	margin-top: 20px;
+ 	float: left;
+}
+.approve_detail_count_tab li:nth-of-type(1) span{
+    display: inherit;
+    margin-top: 20px
+}
+.approve_detail_count_tab li:nth-of-type(2) p{
+	border-bottom: 1px solid #ccc
+}
+.approve_detail_count_tab li:nth-of-type(2) p:last-child{
+	border-bottom: 0
+}
+.approve_detail_count_tab li:last-child{
+	border-right: 0
+}
+.approve_detail_count_tab ul:last-child{
+	border-bottom: 0
+}
+.approve_success{
+	color: red;
+	cursor: pointer;
+}
+.approve_false{
+	color: green;
+	cursor: pointer;
+}
+.mask_two{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.mask_false_input{
+   width: 300px;
+   height: 200px;
+   background: #fff;
+   border-radius: 4px;
+   margin: 0 auto;
+   margin-left: -150px;
+   margin-top: -100px;
+   position: relative;
+   left: 50%;
+   top: 50%;
+   overflow: hidden;
+}
+.mask_false_input input{
+	width: 80%;
+	margin:10px auto;
+    display: block;	
+    height: 50px;
+    line-height: 50px;
+}
+.approve_decision{
+	position: absolute;
+    bottom: 0;
+    display: flex;
+    display: -webkit-flex;
+    width: 100%;
+    cursor: pointer;
+
+}
+.approve_decision span{
+	flex: 1;
+	-webkit-flex:1;
+	text-align: center;
+	color: #000;
+	font-size: 14px;
+	line-height: 40px;
+	background: #ccc;
+
+	
+}
+.approve_decision span:nth-of-type(2){
+	background: #2e6da4;
+	color: #fff;
+}
+.mask_false_input i{
+	position: absolute;
+	right: 0;
+	top:0;
+	width: 20px;
+	height: 20px;
+	color: #000;
+	border-radius: 20px;
+	border:1px solid #ccc;
+	font-style: normal;
+	text-align: center;
+	cursor: pointer;
+}
+.error{
+	color: red;
+	line-height: 30px;
+	text-indent: 20px;
+	position: absolute;
+	bottom: 25px
+}
+
+.approve_single input,.approve_unit input{
+	width: 40px
+}
+
+.public_con #test .table thead tr th:nth-child(3) {
+    width: 9%;
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 18%;
+}
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 9%;
+}
+
+.public_con #test .table thead tr th:nth-child(8) {
+    width: 9%;
+}
+
+.public_con #test .table tbody tr td{
+	border: 1px solid #ccc;
+	border-right:1px solid #ccc;
+}
+.public_con #test .table tbody tr td img{
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	/*margin-right: 5px;*/
+
+}
+.public_con #test .table tbody tr td span{
+	display: inline-block;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+	clear: both;
+}
+
+.public_con #test .table tbody tr td span:last-child{
+	border-bottom: 0
+}
+.table th, .table td{
+	padding: 0;
+	
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding:0;
+	vertical-align:center;
+}
+.table a.approve_agree{
+	color: #0bad0b;
+	cursor: pointer;
+	display: block;
+}
+.table a.approve_refuse{
+	color: #f31717;
+	cursor: pointer;
+	display: block;
+}
+
+
+/*附*/
+/*测试遮罩框样式进入*/
+.mask_control .popwin_bar{
+    background: #ffffff;
+    padding: 0 20px;
+    border-bottom: 0;
+    position: relative;
+    top: 15px;
+    height: 65px;
+    overflow: hidden;
+    height: 42px;
+}
+.mask_control h4{
+    height: 30px;
+    padding: 10px 0!important;
+    font-size: 20px!important;
+    line-height: 20px!important;
+    color: #7a85a2!important;
+    text-align: center!important;
+    font-weight:normal!important;
+}
+.test_mask_con{
+    padding:0px 36px 0 36px;
+    width: 408px;
+}
+.test_mask_con .maskBtn_operate{
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+.maskBtn{
+    display: inline-block;
+    width: 97px;
+    height: 38px;
+    background: #4fc2b9;
+    color: #ffffff;
+    border-radius: 3px;
+    margin: 15px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.table a.approve_agree_detail{
+	display: none;
+	font-size: 12px;
+	color: #000;
+	cursor: pointer;
+}
+
+
+
+.public_con #test .table thead tr th{
+	font-size: 12px
+}
+/*.float_layer{
+	width: 250px;
+	height: 100px;
+	line-height: 30px;
+	border: 1px solid #ccc;
+	display: none
+}*/

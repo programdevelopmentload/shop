@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>角色管理-分配权限</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <!-- <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/> -->
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/role_based/role_group_manage.css">
+    <style>
+        .assign_ul {
+            padding: 20px;
+        }
+        .assign_ul >li {
+            border-top: 1px dotted #ccc;
+        }
+        .assign_ul >li:nth-of-type(1) {
+            border-top: none;
+        }
+        .check_tip{
+            color: red;
+        }
+        .roleName{
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理 > </a></li>
+        <li><a href="#">商品审核 > </a></li>
+        <li><a href="#">待审核 > </a></li>
+        <li class="active"><a href="#">审核详情 </a></li>
+    </ol>
+    <div class="assign">
+        <div class="conRight_h4">
+            <span class="roleName">店长</span>
+            <span class="roleGroup">采购部</span>
+        </div>
+        <ul class="assign_ul clearfix">
+            <li id="m1">
+                <p><input class="all-check1 oneLevelCheck" type="checkbox" name="item-check1">账户管理</p>
+                <ul class="clearfix hide_ctr">
+                    <li class="col-xs-3"><input class="item-check1" type="checkbox" name="item-check1">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check1" type="checkbox" name="item-check1">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check1" type="checkbox" name="item-check1">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check1" type="checkbox" name="item-check1">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check1" type="checkbox" name="item-check1">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check1" type="checkbox" name="item-check1">账户管理</li>
+                </ul>
+                <div class="check_tip hide_ctr">
+                    此处勾选了一级菜单，请选择二级菜单
+                </div>
+            </li>
+            <li id="m2">
+                <p><input class="all-check2 oneLevelCheck" type="checkbox" name="2">账户管理</p>
+                <ul class="clearfix hide_ctr">
+                    <li class="col-xs-3"><input class="item-check2" type="checkbox" name="2">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check2" type="checkbox" name="2">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check2" type="checkbox" name="2">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check2" type="checkbox" name="2">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check2" type="checkbox" name="2">账户管理</li>
+                    <li class="col-xs-3"><input class="item-check2" type="checkbox" name="2">账户管理</li>
+                </ul>
+                <div class="check_tip hide_ctr">
+                    此处勾选了一级菜单，请选择二级菜单
+                </div>
+            </li>
+        </ul>
+        <span type="btn" class=" sure_smBtn "> 保存</span>
+    </div>
+</div>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<!--<script src="../../js/Category_manage/front_oneGradeDivide.js"></script>-->
+<script type="text/javascript" src="../../js/role_manage/role_operate_distribution.js"></script>
+
+</body>
+</html>

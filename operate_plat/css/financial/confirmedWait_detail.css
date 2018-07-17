@@ -1,0 +1,32 @@
+.confirme{
+    background:#ceeaf3 ;
+}
+.confirme span{
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.confirmeSpan span{
+    display: block;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+.transactionList{
+    border-bottom: 1px dashed #ccc;
+    position: relative;
+}
+.confimeBtn{
+    position: absolute;
+    bottom:0;
+    right: 0;
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 10%;
+}
+.public_con #test .table thead tr th:nth-child(2) {
+    width: 25%;
+}
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 12%;
+}

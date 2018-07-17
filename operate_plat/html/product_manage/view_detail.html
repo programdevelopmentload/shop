@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>查看</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/product_manage/view_detail.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+
+<div class="vfyDetail_con_right yycon_right col-xs-12">
+
+    <div class="viewport_detail">
+        <div class="vfyDetail_basicInfo">
+            <h4 class="conRight_h4">基本信息</h4>
+        </div>
+    </div>
+    <div class="view_second"></div>
+    <div class="view_path" style="clear: both"></div>
+</div>
+
+
+<script type="text/html" id="view_detai">
+<div class="vfyDetail_basicInfo_left clearfix fl">
+    <div class="clearfix">
+        <p class="fl">所属分类：{{data.leafClassName}}</p>
+
+    </div>
+    <div class="clearfix">
+        <p class="fl">所属品牌：{{data.brandName}}</p>
+
+    </div>
+    <div class="clearfix">
+        <p class="fl">型号：{{data.model}}</p>
+
+    </div>
+    <div class="clearfix">
+        <p>
+        {{each data.attributes as val}}
+        {{if val.type==2}}
+            <span> {{val.name}}:</span>
+            <span>{{val.value}}</span></br>
+        {{/if}}
+
+        {{/each}}
+        </p>
+    </div>
+</div>
+</script>
+<script id="view_detail" type="text/html">
+    <div class="vfyDetail_basicInfo_right fl ">
+        <div class="clearfix">
+            <p class="fl">商品类型：{{data.server.goodsType}}</p>
+        </div>
+        <div class="clearfix">
+            {{each data.service as val }}
+            <p class="fl">
+                测量服务：
+                {{if val.type==0}}
+                <span>{{val.serviceDetailsName}}</span>
+            </p>
+        </div>
+        <div class="clearfix">
+            <p class="fl">
+                安装服务：
+                {{else if val.type==1}}
+                <span>{{ val.serviceDetailsName}}</span>
+            </p>
+            {{/if}}
+        </div>
+        {{/each}}
+    </div>
+</script>
+<script type="text/html" id="view_pics">
+    <div class="vfyDetail_standard">
+        <h4 class=" conRight_h4">商品信息</h4>
+        <div class="clearfix vfyDetail_bg vfyDetail_standard_title">
+            <p class="fl">规格信息</p>
+            <p class="fl">商品编码</p>
+            <p class="fl" style="width: 300px">图片</p>
+            <p class="fl">销售价</p>
+           <!--  <p class="fl">在售信息</p> -->
+        </div>
+
+        <div class="vfyDetail_color">
+            <div class="fl" style="width:150px">
+             {{each data.attributes as val}}
+             {{if val.type!==2 }}
+              {{val.value}}
+             {{/if}}
+             {{/each}}
+             </div>
+             <div class="fl" style="width: 160px">{{data.number}}</div>
+             <div class="fl pics" style="width: 310px">
+                {{each data.pics as val}}
+                    <img src="{{val.pic}}">
+                {{/each}}
+             </div>
+             <div class="fl" style="width: 160px">{{data.price}}</div>
+             <!-- <div class="fl" style="width: 160px"><a href="javascript:void(0);" onclick="hrefLocal()">查看</a></div> -->
+        </div>
+    </div>
+    <div class="vfyDetail_goodDetail">
+        <h4 class="conRight_h4">
+            商品详情
+        </h4>
+        <div id="vwaitDetail_paramImg" class="vwaitDetail_paramImg">
+             <img src="{{data.goodsDetails}}">
+             <div class="conRight_lookImg" onclick="Button_Click(this)">
+                查看完整图片
+
+            </div>
+             <div class="conRight_look "  style="display: none" onclick="Button_Click_show(this)">
+                 大图已展示
+                
+            </div>
+        </div>      
+    </div>
+     <div class="vfyDetail_otherInfo">
+        <h4 class="vfyDetail_h4 conRight_h4">
+            其他信息
+        </h4>
+        <div class="vfyOther_packing clearfix">
+            <div class="fl">包装清单</div>
+            <div id="vwaitOther_packin">
+                {{each data.parts as index}}
+                    <p class="fl">{{index.partsName}} * {{index.value}}</p>
+                {{/each}}
+            </div>    
+        </div>
+        <div class="vfyOther_parts clearfix">
+            <div class="fl">配件清单</div>
+            <div id="vwaitOther_part">
+                 {{each data.packings as index}}
+                    <p class="fl">{{index.partsName}} * {{index.value}}</p>
+                {{/each}}
+            </div>    
+        </div>
+        <div class="vfyOther_explain clearfix">
+            <div class="fl">购买说明</div>
+            <div id="vwaitOther_explain">
+                <p>{{data.buyInstructions}}</p>
+            </div>    
+        </div>
+    </div>
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script type="text/javascript" src="../../js/lib/getTime.js"></script>
+<script type="text/javascript">
+
+    function getUrlParam(name){ 
+        //构造一个含有目标参数的正则表达式对象 
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+        //匹配目标参数 
+        var r = window.location.search.substr(1).match(reg); 
+        //alert(r); 
+        //返回参数值 
+        if (r!=null) return decodeURI(r[2]); 
+            return null; 
+    } 
+    var city=getUrlParam("city")
+    //console.log(city);
+    //渲染页面
+    var localhost = 'http://172.16.44.85:8007';
+    //var  localhost=getBaseUrl('t');
+    var localUrl = getBaseUrl('w');
+    var findclass_url=localUrl+'/goods/service/showServiceAndDetailsByleafClassId' //商品类型
+    var listSp_url = localhost +'/goods/sku/operator/findDetail';
+    var _id
+    var leafClassId
+    function verify_wait_detail(){
+        _id = getUrlParam('id');
+        console.log(_id);
+        $.ajax({
+            type: "post",
+            url:listSp_url,
+            data:{id:_id},
+            dataType: "json",
+            success:function(data){
+                console.log(data);
+                if (data.success==false){
+                    $('.viewport_detail').append('暂无数据');
+                }else{
+                    leafClassId = data.data.leafClassId;
+
+                    var html = template("view_detai",data);
+                    $('.viewport_detail').append(html);
+
+                    console.log(leafClassId)
+                    view_second();
+                }
+
+
+            },
+            error:function(){
+                alert("数据没获取到")
+            }
+
+
+        })
+    }
+    verify_wait_detail()
+    function view_second(){
+        $.ajax({
+            type: "post",
+            url:findclass_url,
+            data:{leafClassId:leafClassId},
+            dataType: "json",
+            success:function(data){
+                console.log(data);
+                var html = template("view_detail",data);
+                $('.view_second').append(html);
+            },
+            error:function(){
+                alert("数据没获取到")
+            }
+
+
+        })
+    }
+    // view_second()
+
+    function verify_wait_pics(){
+        _id = getUrlParam('id');
+        console.log(_id);
+        $.ajax({
+            type: "post",
+            url:listSp_url,
+            data:{id:_id},
+            dataType: "json",
+            success:function(data){
+                if (data.success==false){
+                    $('.view_path').append('暂无数据');
+                }else{
+
+                    var html = template("view_pics",data);
+                    $('.view_path').append(html);
+                }
+
+
+            },
+            error:function(){
+                alert("数据没获取到")
+            }
+
+
+        })
+    }
+    verify_wait_pics()
+
+    function Button_Click(obj){
+        if ($(".vwaitDetail_paramImg img").css("overflow","hidden")) {
+            $(".vwaitDetail_paramImg").css("height","auto").css("overflow","auto");
+            $(".conRight_look").show()
+            $(obj).hide();
+        }
+   }
+    function Button_Click_show(obj){
+            if ($(".vwaitDetail_paramImg img").css("overflow","auto")) {
+                $(".vwaitDetail_paramImg").css("height","300px").css("overflow","hidden");
+                $(".conRight_lookImg").show()
+                $(obj).hide();
+            }
+       }
+    // //点击查看 跳转
+    // function hrefLocal(){
+    //     window.location.href="./onSale_info.html?id="+_id+"&city="+city;
+    // }
+</script>
+
+</body>
+</html>

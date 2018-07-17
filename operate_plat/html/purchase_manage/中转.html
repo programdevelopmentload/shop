@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script id="rig_con_ajax" type="text/html">
+<div class="click_check_box">
+    {{each res as value i}}
+    <div class="click_check_items clearfix">
+        {{if res[i]=="安徽省"}}
+        <h4 class="province_letter ">A</h4>
+        <div class="province_dom fl">
+            <span class="province_name ">{{res[i].name}}</span>
+        </div>
+    </div>
+    {{/each}}
+</div>
+</script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+.orderNumber p{
+	display: inline-block;
+	width: 45%;
+}
+.orderNumber .control-label{
+	margin-right: 10px;
+}
+.vwatiTime_start,.vwatiTime_end{
+	position: relative;
+}
+.dates_start1,.dates_end1{
+	position: absolute;
+    left: 150px;
+    top: 8px;
+}
+.zhi{
+	line-height: 34px;
+	width: 30px;
+	text-align: center;
+}
+.btnright{
+	float: right;
+}
+.public_con #test{
+	clear: both;
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width:25%;
+}
+.public_con #test .table thead tr th:nth-child(2) {
+    width: 20%;
+}
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 9%;
+}
+.pps{
+	border-bottom: 1px solid #ccc;
+
+}
+.pps:last-of-type{
+	border-bottom: 0
+}
+.pps span{
+	display: inline-block;
+	text-align: center;
+}
+.pps span:nth-of-type(1){
+	width: 37%;
+}
+.pps span:nth-of-type(2){
+	 width: 27%;
+}
+.pps span:nth-of-type(3){
+	 width: 18%;
+}
+.pps span:nth-of-type(4){
+	 width: 15%;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	vertical-align: inherit;
+}
+
+.transactionTab{
+	clear: both;
+}
+
+
+/*对账详情*/
+.yizhifu{
+	width: 100%;
+	padding: 20px;
+	background: #ceeaf3;
+	color: #000;
+}
+.dd{
+	 width: 100%;
+	 border: 1px solid #ccc;
+	 padding: 10px ;
+	 background: #eee;
+	 color:#000;
+	 margin:0;
+}
+
+.uls{
+	border:1px solid #ccc;
+	border-top: 0
+}
+.uls p{
+	line-height: 35px;
+	display: flex;
+	display: -webkit-flex;
+
+}
+.uls p span{
+	flex: 1;
+	-webkit-flex:1;
+}
+
+.tab{
+	margin-top: 10px;
+}
+.tab table{
+	width: 100%;
+	border:1px solid #ccc;
+}
+
+.tab table th{
+	padding: 10px;
+	background:#ccc;
+	font-weight: normal;
+}
+.tab table tr{
+	border-bottom: 1px solid #ccc;
+}
+
+.tab table td{
+	padding: 10px;
+	
+}
+.tab table tr:last-of-type{
+	border-bottom: 0
+}
+.detail_right{
+	float: right;
+	margin-top: 20px
+}
+.table a{
+	color: #337ab7
+}

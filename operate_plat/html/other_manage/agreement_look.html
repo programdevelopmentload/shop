@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>其他条款 - 查看</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/agreement_list.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    .public_con{
+        position: relative;
+    }
+    .dataRecords{
+        position: absolute;
+        top: 
+
+    }
+
+</style>
+<body>
+
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-12">
+
+    <div class="areaInfo">
+       
+    </div>
+    <p id="dataComment"></p>
+
+   
+</div>
+
+<script type="text/html" id="agreement_look">
+    <h4 class="conRight_h4">协议详情</h4>
+    <p>协议名称:{{data.name}}</p>
+    <p>协议类型:{{data.type}}</p>
+    <p>上传时间:{{data.createTime}}</p>
+    <p>协议内容:</p>
+    
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+    // $(function () {
+    //     nav_Common_fun("协议条款列表","查看协议");
+    // })
+//获取路径 
+//var localHttp = 'http://172.16.41.184:8002/user';
+var localHttp=getBaseUrl('y_jl');
+var listUrl =localHttp +'/agreement/info';
+function getUrlParam(name){ 
+    //构造一个含有目标参数的正则表达式对象 
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+    //匹配目标参数 
+    var r = window.location.search.substr(1).match(reg); 
+    //alert(r); 
+    //返回参数值 
+    if (r!=null) return decodeURI(r[2]); 
+        return null; 
+} 
+var code =getUrlParam("id");
+function aLook(){
+    $.ajax({
+        type:'post',
+        url:listUrl,
+        dataType:'json',
+        data:{code: code},
+        success:function(data){
+            console.log(data.data.comment);
+            var dataComment="<font>"+data.data.comment +"</font>";//带有html标签的测试数据
+            $('#dataComment').html(dataComment);//通过html()方法将数据输出到div中
+             var html = template("agreement_look",data);
+             $(".areaInfo").html(html);    
+        }
+    })
+}
+aLook()
+</script>
+
+</body>
+</html>

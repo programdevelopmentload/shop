@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>模板管理-测量模板</title>
+  	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.addBtn{
+		margin-top: 30px;
+	}
+  .measuringCost{
+      position: relative;
+  }
+  #addAgreement{
+      position: absolute;
+      top: 0;
+      right: 0
+  }
+  .public_con #test .table thead tr th:nth-child(1),.public_con #test .table thead tr th:nth-child(3){
+    width: 30%;
+  }
+  .table a{
+    color: #337ab7;
+  }
+</style>
+<body>
+
+
+
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-12">
+    <div class="measuringCost">
+      <h4 class="conRight_h4">测量模板</h4>
+      <a href="./measureAdd.html" class="btn btn-primary" id="addAgreement">添加模板</a>
+      <div class="measuringlist form-inline">
+          <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+              <div id="pic_no" class="default-prompt">
+                  <img src="../../images/nothing.png">
+                  <br>
+                  <span>查询无结果</span>
+              </div>
+              <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                  <thead>
+                  <tr>
+                      <th>模板信息</th>
+                      <th>模板类型</th>
+                      <th>上传时间</th>
+                      <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody class="counts">
+                  </tbody>
+              </table>
+
+          </div>
+      </div>
+    </div>
+</div>
+
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/wangeditor.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/other_manage/modelMeasure.js"></script>
+</body>
+</html>

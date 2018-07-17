@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>协议记录 --查看 </title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+<body>
+<style type="text/css">
+  .channel{
+     display: inline-block;
+     width: 80px;
+     font-style: normal;
+     line-height: 45px;
+  }
+</style>
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-10">
+    <div class="areaInfo form-inline">
+      
+    </div> 
+   
+</div>	
+</body>
+<script type="text/html" id="records">
+  <h4 class="conRight_h4">协议详情</h4>
+  <div class="versionDetail">
+    <p>协议名称：{{data.agreementName}}</p>
+    <p>协议类型：{{data.type}}</p>
+    <p>用户名称：{{data.username}}</p>
+    <p>手机号：{{data.phoneNum}}</p>
+    <p>签订时间：{{data.createTime}}</p>
+    <p id='dataComment'>协议内容：</p>
+ 
+    {{if data.isSign != false}}
+    <p>用户签名：
+     <img src="{{data.sign}}" style="width: 100px;height: 80px;">
+    </p>
+    {{else}}
+    <p></p>
+    {{/if}}
+
+  </div>
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript">
+    //获取路径 
+//var localHttp = 'http://172.16.39.70:8003';
+var localHttp=getBaseUrl('y_jl');
+var listUrl =localHttp +'/agreement/record/info';
+function getUrlParam(name){ 
+    //构造一个含有目标参数的正则表达式对象 
+    var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+    //匹配目标参数 
+    var r = window.location.search.substr(1).match(reg); 
+    //alert(r); 
+    //返回参数值 
+    if (r!=null) return decodeURI(r[2]); 
+        return null; 
+} 
+var id =getUrlParam("id");
+console.log(id);
+function records(){
+    $.ajax({
+        url:listUrl,
+        type:'post',
+        dataType:'json',
+        data:{id:id},
+        success:function(data){
+            console.log(data);
+            //console.log(data.data.comment);
+            if (data.errorCode==9527) {
+                window.location.href='../../login.html'
+            }else{
+                var html = template("records",data);
+                $(".areaInfo").html(html);
+                var dataComment="<font>协议内容:"+data.data.comment +"</font>";//带有html标签的测试数据
+                $('#dataComment').html(dataComment);//通过html()方法将数据输出到div中
+            }
+        },
+        error:function(){
+            console.log(3435)
+        }
+    })
+}
+records()
+</script>
+</html>

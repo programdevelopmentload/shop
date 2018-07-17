@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>业务信息</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <style>
+        .right .contract .router{
+            color:#337ab7;
+            margin: 15px 0;
+        }
+        .right .contract>.address{
+            background:#F2F2F2;
+            border:1px solid #337ab7;
+            margin-right: 10px;
+            padding: 5px;
+        }
+        .right .contract>.address p{
+            margin: 5px 0;
+        }
+        .right .contract>span{
+            display: block;
+            margin-top: 20px;
+        }
+        .right .contract p{
+            margin:10px 0;
+            padding-bottom: 20px;
+        }
+        .right .contract p span{
+            color:#337ab7;
+        }
+        .right .contract p .form-control{
+            width: 100px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="head">
+    <ul>
+        <li> 首页</li>
+        <li> 商品管理</li>
+        <li> 首页</li>
+        <li>首页</li>
+    </ul>
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li class="first">
+                <i></i>订单管理
+            </li>
+            <li>代发货</li>
+            <li>代发货</li>
+            <li>代发货</li>
+            <li>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="contract">
+            <p class="router">1>2>3</p>
+            <p class="contract_list">
+                <span>服务区域信息</span>
+                <input type="button" class="form-control btn-primary" value="新增区域">
+            </p>
+            <table id="storage"></table>
+        </div>
+    </div>
+</div>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script>
+    // var arr=[];
+    // $.ajax({
+    //     type: "POST",
+    //     // url: 'http://172.16.40.215:8008/area/supplier/findAreaSupplierInfoById',
+    //     // url: './wpy.json',
+    //     url: 'http://172.16.41.23:8007/goods/attribute/show',
+    //     data:{
+    //         supplierId: 12,
+    //         currentPage:1,
+    //         pageSize:5
+    //     },
+    //     dataType:'json',
+    //     success:function (res){
+    //         debugger;
+    //        console.log(res)
+    //         var data=res.data.items;
+    //         // console.log(data)
+    //         for(var i=0;i<data.length;i++){
+    //             var obj={};
+    //             obj.ckmc=data[i].name;//仓库//【ckmc：field】
+    //             obj.ck_address=data[i].id;//两个区【ck_address：field】
+    //               //从start指定的下标开始的指定数目的字符
+    //             obj.server_adress=data[i].updateTime;//第二个td【server_adress：field】
+    //             arr.push(obj);//
+    //             console.log(arr)
+    //              table(arr);
+    //         };
+    //         debugger;
+    //     }
+    // });
+    var arr2= [{
+        field: 'shop_mess',
+        title: '仓库名称',
+        width: '15%',
+        valign: "middle",
+        align: "center",
+        formatter: function (value, row, index){ // 单元格格式化函数
+            var text = '<span value="'+value+'">索尼</span>';
+            return text;
+            // var text = "";
+            // if(value){
+            //     return 1;
+            // }
+        }
+    }, {
+        field: 'shop_number',
+        title: '仓库地址',
+        width: '15%',
+        valign: "middle",
+        align: "center"
+    }, {
+        field: 'start_time',
+        title: '服务区域',
+        width: '30%',
+        align: "center",
+        valign: "middle"
+
+    }];
+    $.ajax({
+        type: "POST",
+        url: 'http://172.16.41.23:8007/goods/attribute/show',
+        data:{
+            supplierId: 12,
+            currentPage:1,
+            pageSize:4
+        },
+        dataType:'json',
+        success:function (res){
+            // console.log(res)
+            var arr =[];
+            // console.log(res);
+            var data=res.data.items;
+            for(var i=0;i<data.length;i++){
+                var obj={};
+                obj.shop_mess=data[i].id;
+                obj.shop_number=data[i].name;
+                obj.start_time=data[i].updateTime;
+                arr.push(obj);
+                console.log(arr)
+            };
+            debugger;
+            table(arr2,arr);
+
+        }
+    });
+    function table(str,arr){
+        $('#storage').bootstrapTable({
+            url: '',
+            method: 'post',
+            contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+            striped: true, //是否显示各行变色
+            /* pageSize: "5",*/
+            pagination: true, // 是否分页
+            pageNumber: 1,  //如果设置了分页，首页页码
+            paginationPreText: '上一页',
+            paginationNextText: '下一页',
+            showPaginationSwitch: false,//是否显示数据条数选择框
+            queryParams: '',//请求服务器时所传的参数
+            clickToSelect: true,//是否启用点击选中行
+            pageSize: 1,///如果设置了分页，页面数据条数
+            pageList: [5, 15, 20, 25],//如果设置了分页，设置可供选择的页面数据条数。设置为All 则显示所有记录 ,这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+            paginationHAlign: 'right',// //设置分页条的位置
+            sidePagination: "client",
+            sortName: 'start_time', // 要排序的字段
+            sortOrder: 'asc',
+            cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+            columns:str,
+            data:arr
+        });
+    }
+</script>
+</body>
+</html>

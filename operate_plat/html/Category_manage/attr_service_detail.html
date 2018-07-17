@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务属性详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/attr_manag.css"/>-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        .ope_btn_box {
+            text-align: center;
+        }
+
+        .service_box {
+            padding-top: 30px;
+        }
+
+        .itmesTip {
+            color: red;
+        }
+
+        .relation_table {
+            margin: 25px 160px 10px 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .relation_tip1, .relation_tip2, .relation_tip3 {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+
+        .relation_tip1 {
+            padding-left: 5px;
+        }
+
+        .relation_tip2 {
+            padding-left: 45px;
+        }
+
+        .relation_tip3 {
+            padding-left: 85px;
+        }
+
+        .relation_arrow {
+            background: url(../../images/drop_arrow.png) no-repeat center;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+        }
+
+        .yyconOrder_right > div > div > div:nth-child(1) {
+            padding-right: 0px;
+        }
+        .measure_checkbox,.install_checbox{
+            margin-left: 8px!important;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="attr_manag_con_right public_con yycon_right yyconOrder_right col-xs-12 ">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <h4 class="conRight_h4">服务设置</h4>
+    <form class="form-horizontal service_box clearfix" role="form">
+        <div class="col-sm-12 form-group">
+            <label for="" class="col-sm-2 control-label">商品类型：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control goodsType_input" id="clrs">
+            </div>
+            <div class="col-sm-7 type_input_tip itmesTip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+        <div class="col-sm-12 form-group">
+            <label for="" class="col-sm-2 control-label">配送服务：</label>
+            <div class="col-sm-3">
+                <div class="" data-sendvalue="1">有</div>
+                <!--<select name="" class="send form-control">-->
+                <!--<option value="1">有</option>-->
+                <!--<option value="0" selected = "selected">无</option>-->
+                <!--</select>-->
+            </div>
+            <div class="col-sm-5 send_tip itmesTip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+        <!--<div class="col-sm-12 form-group">-->
+        <!--<label for="" class="col-sm-2 control-label">自提服务：</label>-->
+        <!--<div class="col-sm-3">-->
+        <!--<select name="" class="self form-control">-->
+        <!--<option value="1">有</option>-->
+        <!--<option value="0" selected = "selected">无</option>-->
+        <!--</select>-->
+        <!--</div>-->
+        <!--<div class="col-sm-5 self_tip itmesTip hide_ctr">-->
+        <!--支持中英文，最多32个字符-->
+        <!--</div>-->
+        <!--</div>-->
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-2 control-label">测量服务：</label>
+            <div class="col-sm-3">
+                <select name="" class="messure form-control">
+                    <option value="1">无</option>
+                    <option value="0" selected="selected">有</option>
+                </select>
+            </div>
+            <div class="col-sm-5 messure_tip itmesTip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10 measure_checkbox_box">
+
+            </div>
+            <!--<div class="col-sm-5 messure_tip itmesTip hide_ctr text-right">-->
+            <!--支持中英文，最多32个字符-->
+            <!--</div>-->
+        </div>
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-2 control-label">安装服务：</label>
+            <div class="col-sm-3">
+                <select name="" id="" class="install form-control">
+                    <option value="1">无</option>
+                    <option value="0" selected="selected">有</option>
+                </select>
+            </div>
+            <div class="col-sm-5 install_tip itmesTip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-10 install_checbox_box">
+                <!--<span><input class="install_checbox" type="checkbox" value="1">示例复选框</span>-->
+            </div>
+            <!--<div class="col-sm-5 messure_tip itmesTip hide_ctr text-right">-->
+            <!--支持中英文，最多32个字符-->
+            <!--</div>-->
+        </div>
+    </form>
+    <!--<h4 class="conRight_h4">关联分类</h4>-->
+    <!--<div class="clearfix">-->
+    <!--<div class="col-sm-12 relation_cate_tip checkTip text-left">-->
+    <!--&lt;!&ndash;不可空置/支持中英文，最多32个字符&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="relation_table">-->
+
+    <!--</div>-->
+    <!--</div>-->
+    <div class="ope_btn_box hide_ctr">
+        <span class="sure_xsBtn">确认并提交</span>
+        <span class="cancle_xsBtn">取消</span>
+    </div>
+</div>
+
+
+<script id="belong_box" type="text/html">
+    {{each options as value i}}
+    <div class=" ">
+        <div class="relation_tip1">
+            {{value.name}}
+            <span class="relation_arrow">
+            </span>
+        </div>
+        {{each value.child as value1 i}}
+        <div class=" ">
+            <div class="relation_tip2">
+                {{value1.name}}
+                <span class="relation_arrow">
+                </span>
+            </div>
+            <div class="relation_tip3">
+                {{each value1.child as value2 i}}
+                <span><input type="checkbox" value="{{value2.id}}">
+                    {{value2.name}}&nbsp;&nbsp;&nbsp;
+                </span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+
+
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/attr_service_detail.js"></script>
+</body>
+</html>

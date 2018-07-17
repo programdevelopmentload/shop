@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>协议记录</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/audit.css">
+</head>
+<style type="text/css">
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 20%;
+}
+.public_con #test .table thead tr th:nth-child(4){
+   width: 15%
+}
+.table a{ 
+  color:#337ab7;
+ }
+ .pageSize_switch_con{
+    padding:0;
+ }
+ .public_con #test{
+    margin-top: 0
+ }
+ .public_con #test .table thead tr th{
+    height: 47px;
+    line-height: 47px
+ }
+</style>
+<body>
+
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <div class="user_management_info form-inline" >
+		<div class="form-group  user_management_keyword" >
+		    <label class="control-label" for="">用户名称:</label>
+		    <input class="form-control user_management_keyword" type="text" placeholder="请输入用户名">
+            <span style="margin-left: 10px;">
+                 <label class="control-label" for="">手机号:</label>
+                 <input class="form-control" type="text" id="telNum" placeholder="请输入手机号">
+            </span>
+
+		</div>
+		<button type="button" class="btn btn-primary" id="searchBtn">查找</button>
+	</div>
+    <h4>协议记录</h4>
+    <div class="clearfix pageSize_switch_con form-group form-inline">
+        <label >每页显示</label>
+        <select class="pageSize_switch form-control" style=" width: 174px;">
+            <option value="20" class="">20</option>
+            <option value="30" class="">30</option>
+            <option value="40" class="">40</option>
+            <option value="50" class="">50</option>
+        </select>
+    </div>
+	<div class="audit_count  pagination_box_ctr">
+		<div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+        <div id="pic_no" class="default-prompt">
+            <img src="../../images/nothing.png">
+            <br>
+            <span>查询无结果</span>
+        </div>
+        <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+            <thead>
+            <tr>
+                <th>协议名称</th>
+                <th>协议类型</th>
+                <th>协议编号</th>
+                <th>用户名称</th>
+                <th>手机号</th>
+                <th>签订时间</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="leftBottom clearfix">
+            <!--<button type="button" class="outBack">批量退回</button>-->
+            <div class="page pageBar" id="page">
+                <p>共0条记录</p>
+                <div class="pageLft clearfix">
+                    <!--<a class="noprev"></a>-->
+                    <a href="#" class="prev"></a>
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                    <!--<a class="nonext"></a>-->
+                </div>
+                <div class="pageRht">共<span id="totalPage">100</span>页</div>
+            </div>
+        </div>
+        </div>
+	</div>
+    <div class="m-pagination">
+
+    </div>
+</div>
+
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/other_manage/agreement_records.js"></script>
+</html>

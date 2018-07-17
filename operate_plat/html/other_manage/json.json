@@ -1,0 +1,43 @@
+{
+  "data":{
+    "cityCode":[140200,141100,140600,130638],
+    "cityName":null,
+    "serviceDetailsId":24,
+    "serviceDetailsName":"士大夫",
+    "vos":[
+      {
+        "iden":null,
+        "leafClassIdAndPrice":[
+          {
+            "leafClassId":271,
+            "leafClassName":"努曼mp3",
+            "price":3499
+          },
+          {
+            "leafClassId":292,
+            "leafClassName":"魅族mp3",
+            "price":34199
+          },
+          {
+            "leafClassId":271,
+            "leafClassName":"努曼mp3",
+            "price":3499
+          },
+          {
+            "leafClassId":291,
+            "leafClassName":"连衣裙",
+            "price":34199
+          }
+        ],
+        "secondClassId":270,
+        "secondClassName":"随身听",
+        "unit":"cm99"
+      }
+    ]
+  },
+  "errorCode":0,
+  "line":null,
+  "message":"成功",
+  "success":true
+}
+

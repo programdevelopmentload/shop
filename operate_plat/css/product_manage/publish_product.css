@@ -1,0 +1,325 @@
+ img{
+    vertical-align:inherit;
+}
+ .select_classify .form-control {
+    width: 250px;
+    margin: 0 auto;
+}
+
+#ss_brand {
+    width: 100px;
+}
+
+.account_title span span {
+    margin: 0;
+    padding: 0;
+}
+.seletion_uls{
+    width: 100%;
+    border:1px solid #ccc;
+    background: #eee;
+}
+.product_sku .seletion_uls div .checkbox label span {
+    margin: 0;
+    padding: 0;
+}
+
+.add_product_img,.add_reat {
+    /*width: 64px;
+    height: 64px;
+    overflow: hidden;*/
+    position: relative;
+}
+.add_reat{
+    width: 70%;
+}
+
+.imgUpLoad,#imgUpLoad{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    width: 80px;
+    height: 100%;
+}
+#imgUpLoad{
+    width: 100%;
+}
+
+.detail_img {
+    width: 400px;
+    height: 300px;
+    position: relative;
+}
+
+.detail_img img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.detail_img span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 35px;
+    background: #151515;
+    color: #fff;
+}
+
+.seletion_uls i {
+    display: none
+}
+.account_title li span{margin:0}
+.all_sku i,.all_sku samll{
+    display: none;
+}
+.server_setting{overflow: hidden}
+.account_title .server_setting label{width: 300px;text-align: left}
+.server_setting span{float: left;}
+.server_setting div{float: left;margin-left: 20px}
+/*.main,.assistant,.key{overflow: hidden}*/
+.account_title .checkbox{
+    float: left;
+    margin-top: 0;
+}
+.account_title .checkbox select{
+    width: 80px;
+}
+.account_title .checkbox  span{
+    margin: 0;
+    padding: 0;
+}
+.product_sku .fl{
+    margin-top: 15px;
+}
+/*.product_sku .fl div{
+    overflow: hidden;
+    float: left;
+}*/
+.addimg img{
+    width: 30px; height: 30px;
+    margin-left: 10px;
+}
+.fl{
+float: none;
+overflow: hidden;
+}
+#xh{
+margin-left: 76px;
+margin-top: 5px;
+display: none;
+}
+#box .type{
+    width: 100px;
+}
+#box  .product_sku label{
+    text-align: left;
+}
+/* .main,.assistant,.key{
+    display: none;
+}*/
+.seletion_li_left{
+    float: left;
+    display: block;
+    width: 32%;
+    margin-top: 10px;
+    margin-left: 8px
+}
+.seletion_li_left li label{
+    width: 70px;
+    text-align: right;
+}
+.seletion_li_right{
+    margin-top: 10px;
+    float: left;
+    width: 30%;
+    padding-left: 32px
+}
+.seletion_li_right li label{
+    height: 45px;
+    line-height: 45px;
+
+}
+
+.product_sku .goodsType{
+    width: 100%;
+    border-bottom: 2px solid #ccc;
+    margin-top: 20px;
+}
+.attr_product,.attr_assistant{
+    width: 100%;
+    border:1px solid #ccc;
+    padding: 10px 5px
+}
+
+.attr_product p,.attr_assistant p{
+    display:inline-block;
+    margin-left: 10px
+}
+.product_type{
+    line-height: 30px
+}
+.product_type span{
+    color: red
+}
+.sales_settings{
+    margin-top: 20px
+}
+.sales_tit{
+    border:1px solid #ccc;
+    padding: 10px 5px;
+}
+ .sales_tit span{
+    display: inline-block;
+    width: 200px
+ }
+ .sales_tit span:nth-of-type(2){
+    width: 400px
+ }
+ .sales_uls li{
+    border-bottom: 1px solid #ccc;
+    padding: 5px 5px
+ }
+ .sales_uls li i{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: red;
+    color:#FFF;
+    display: inline-block;
+    border-radius: 30px;
+    font-style: normal;
+    cursor: pointer;
+ }
+ .sales_uls li span{
+    display: inline-block;
+ }
+ .sales_uls li span:nth-of-type(1){
+    width: 200px
+ }
+ .imgUp{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+ }
+ #text{
+    width: 80%;
+    margin-top: 10px;
+ }
+ #goods_btn{
+    margin: 20px auto;
+    width: 250px;
+    
+ }
+ .main p,.assistant p{
+    margin:10px 10px 10px;
+ }
+ .explain span{
+    display: block;
+ }
+ .jia img{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+ }
+
+ .add_attr_product,.add_attr_assistant{
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    text-align: center;
+ }
+
+.sales_setting{
+    margin-top: 20px
+}
+.sales_tit{
+    border:1px solid #ccc;
+    padding: 10px 5px;
+}
+ .sales_tit span{
+    display: inline-block;
+    width: 200px
+ }
+ .sales_tit span:nth-of-type(2){
+    width: 400px
+ }
+ .sales_uls li{
+    border-bottom: 1px solid #ccc;
+    padding: 5px 5px
+ }
+ .sales_uls li i{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: red;
+    color:#FFF;
+    display: inline-block;
+    border-radius: 30px;
+    font-style: normal;
+    cursor: pointer;
+ }
+ .sales_uls li span{
+    display: inline-block;
+ }
+ .sales_uls li span:nth-of-type(1){
+    width: 200px
+ }
+ .imgUp{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+ }
+.delete{
+  width: 50px;
+}
+
+
+.draft{
+    cursor: pointer;
+}
+.sales_uls li span.imgFiles{
+    width: 80px;
+    height: 80px;
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+}
+
+.imgFiles img{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+
+}
+.sales_uls li span.delete{
+    text-align: center;
+    width: 80px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    cursor: pointer;
+
+}
+.publish_success{
+    width: 34%;
+    margin: 10% auto;
+}
+.publish_img img{
+    display:inline-block;
+    width: 45px;
+    height: 45px;
+}
+.publish_btn{
+     height: 80px;
+     line-height: 80px;
+     margin: 0 auto;
+}

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店铺管理-店铺详情</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+<link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+<link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	i{
+		font-style: normal;
+		margin-left: 10px;
+		display: inline-block;
+	}
+	.store_select{
+	 	display: inline-block;
+	 	width: 60%;
+</style>
+<body>
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container" id="box">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <div class="left" style="min-height: 951px;">
+                <ul>
+                    <li>
+                        <span>用户管理</span>
+                        <ul>
+                            <li ><a href="./user_mangement.html">用户列表</a></li>
+
+                        </ul>
+                         <span>商家管理</span>
+                         <ul>
+                              <li><a href="./business_info.html">商家列表</a></li>
+                         </ul>
+                         <span>员工管理</span>
+                         <ul>
+                             <li><a href="./staff_add.html">员工分配</a></li>
+                             <li><a href="./staff_detail.html">员工列表</a></li>
+                         </ul>
+                    </li>
+                    <li>
+                        <span>商品管理</span>
+                        <span>在售商品</span>
+                        <ul>
+                            <li><a href="../../product_manage/onSale_list.html">商品列表</a></li>
+                           <!--  <li class=""><a href="./front_oneGradeDivide.html">查看</a></li> -->
+                        </ul>
+                         <span>发布商品</span>
+                         <ul>
+                              <li><a href="../../product_manage/chose_classify.html">发布商品</a></li>
+                              <li><a href="../product_manage/draft_box.html">草稿箱</a></li>
+                         </ul>
+                         <span>经营区域</span>
+                         <ul>
+                              <li><a href="../../other_manage/businessArea.html">添加区域</a></li>
+                              <li><a href="../../other_manage/region_area.html">业务区域</a></li>
+                         </ul>
+                         <span>协议条款</span>
+                         <ul>
+                              <li><a href="../../other_manage/agreement_list.html">协议条款</a></li>
+                         </ul>
+                         <span>个人中心</span>
+                         <ul>
+                              <li><a href="../../personal_center/agreement_list.html">我的资料</a></li>
+                         </ul>
+                    </li>
+                </ul>    
+               
+            </div>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+				<div class="staff_management clearfix">
+		  			
+				</div>            
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+
+<script type="text/html" id="staff_managements">
+<h4 class="conRight_h4">店铺详情</h4>
+<div class="staff_info lh">
+    <p>
+        <span>店铺名称:</span>
+        <span>{{data.shopName}}</span>
+    </p>
+    <p>
+        <span>所在区域:</span>
+        <span>{{data.shopArea}}--{{data.shopCity}}</span>
+    </p>
+    <p>
+        <span>店铺地址:</span>
+        <span>{{data.shopAddress}}</span>
+    </p>
+    <p>
+        <span>创建时间:</span>
+        <span>{{data.shopCreatetime}}</span>
+    </p>
+    <p>
+        <span>营业时间:</span>
+        <span>{{data.shopStartWorkTime}}--{{data.shopEndWorkTime}}</span>
+    </p>
+    <p>
+        <span>联系电话:</span>
+        <span>{{data.shopTelAreaCode}}-{{data.shopTelephone}}</span>
+    </p>
+    <p>
+        <span style="vertical-align: top;">经营区域:</span>
+        <span class="store_select">
+            {{data.shopServiceArea}}
+        </span>
+    </p>
+    <p>
+        <span>店铺状态:</span>
+        {{if data.shopState == 0}}
+        <span>锁定</span>
+        {{else}}
+        <span>正常经营</span>
+        {{/if}}
+    </p>
+</div>
+<h4 class="conRight_h4">操作详情</h4>
+<div class="staff_btn">
+    {{if data.shopState == 0}}
+    <button type="button" class="btn btn-primary " id="btn_starShop" onclick="startShop()">解锁店铺</button>
+    {{else}}
+    <button type="button" class="btn btn-primary btn_closeShop" onclick="stopShop()">锁定店铺</button>
+    {{/if}}
+</div>
+</script>
+
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/user_manage/store_info_detail.js"></script>
+</body>
+</html>

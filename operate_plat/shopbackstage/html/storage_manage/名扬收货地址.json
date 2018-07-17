@@ -1,0 +1,15 @@
+{
+  "data":{
+    "defaultAddressState":1,
+    "id":3,
+    "receiverName":"46346",
+    "receiverTelephone":"6436546",
+    "shopAddress":"53254",
+    "shopAreaId":110101,
+    "shopId":11010104,
+    "shopName":"4324"
+  },
+  "errorCode":0,
+  "message":"成功",
+  "success":true
+}

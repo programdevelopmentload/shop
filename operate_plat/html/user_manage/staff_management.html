@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>员工管理-分配</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+<link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+<link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+	.staff_duty{
+		height: 50px
+	}
+	.staff_btn{
+		width: 45%;
+		margin-left:45%;
+        margin-top: 20px
+	}
+    .staff_store{
+        height: 45px;
+    }
+    .staff_store span{
+        display: inline-block;
+    }
+    .ass_store {
+        display: inline-block;
+    }
+    .ass_store li{
+        margin-left:20px;
+        display: inline-block;
+    }
+    .staff_type{
+        display: flex;
+        display: -webkit-flex;
+        justify-content:space-between;
+        -webkit-justify-content:space-between;
+
+    }
+    .staff_type .identity_type,.staff_type .identity_clone{
+        flex:2;
+        -webkit-flex:2;
+        height: 450px;
+        border:1px solid #ccc;
+        margin-right: 20px;
+    }
+    .staff_type .identity_clone{
+         margin-left: 20px;
+         margin-right: 0
+    }
+    .identity_type span{
+        display: block;
+        line-height: 35px;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+    .identity_center p{
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+        margin-top: 110px;
+    }
+    .activite{
+        background: #337ab7;
+        color: #fff;
+    }
+    .activited{
+        background: #9ba4ad;
+        color: #fff;
+    }
+    .identity_ul li{
+        line-height: 35px;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+/*测试遮罩框样式进入*/
+.mask_control .popwin_bar{
+    background: #ffffff;
+    padding: 0 20px;
+    border-bottom: 0;
+    position: relative;
+    top: 15px;
+    height: 65px;
+    overflow: hidden;
+    height: 42px;
+}
+.mask_control h4{
+    height: 30px;
+    padding: 10px 0!important;
+    font-size: 20px!important;
+    line-height: 20px!important;
+    color: #7a85a2!important;
+    text-align: center!important;
+    font-weight:normal!important;
+}
+.test_mask_con{
+    padding:0px 36px 0 36px;
+    width: 408px;
+}
+ .maskBtn_operate{
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 21%;
+}
+.maskBtn{
+    display: inline-block;
+    width: 97px;
+    height: 38px;
+    background: #4fc2b9;
+    color: #ffffff;
+    border-radius: 3px;
+    margin: 15px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+.attr_manag_add h4{
+  font-size: 18px!important;
+}
+.attr_manag_add .attrAdd_container{
+    width: 520px;
+    height: 400px
+}
+
+</style>
+</head>
+<body>
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-10">
+	<div class="staff_management clearfix">
+			<h4 class="conRight_h4">账户信息</h4>
+        <div class="staff_allot"></div>
+			
+			<h4 class="conRight_h4">职责分配</h4>
+			<div class="staff_duty form-group form-inline">
+            <span>所在区域:</span>
+            <select class="form-control area_province">
+               
+            </select>
+             <select class="form-control area_city">
+                
+            </select>
+			</div>
+        <div class="staff_store">
+            <span>关联店铺:</span>
+            <ul class="ass_store">
+            </ul>
+        </div>
+			<div class="staff_jobs ">
+				<h4  class="conRight_h4">身份类型:</h4>
+            <div class="staff_type">
+                <div class="identity_type" ></div>
+                <div class="identity_center">
+                    <p id="addRight" > >></p>
+                    <p id="removeRight"> << </p>
+                </div>
+                <div class="identity_clone">
+                    <ul class="identity_ul">
+                        
+                    </ul>
+                </div>
+            </div>
+            
+				<!-- <select class="form-control identity_type">
+					
+				</select> -->
+			</div>
+	</div>
+	<div class="staff_btn">
+		<button type="button" class="btn btn-primary">确认并提交</button>
+	</div>
+</div>
+<!-- <template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+        <div class="col-sm-12 mask_tip">
+        </div>
+        <div class="maskBtn_operate">
+            <span class="maskBtn mask_ok">是</span>
+            <span class="maskBtn mask_false" onclick="clickFalse()">否</span>
+        </div>
+    </div>
+</template>  -->
+<script type="text/html" id="staff_manage">
+    <div class="staff_info w30 lh">
+        <p>
+            <span>邮箱账号:</span>
+            <span>{{data.userInfo.email}}</span>
+        </p>
+        <p>
+            <span>姓名:</span>
+            <span>{{data.userInfo.realName}}</span>
+        </p>
+    </div>
+    <div class="staff_info w30 lh ">
+        <p>
+            <span>账户状态:</span>
+            {{if data.userInfo.isFrozen == 1}}
+            <span>冻结</span>
+            {{else}}
+            <span>正常</span>
+            {{/if}}
+        </p>
+    </div>
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/user_manage/staff_management.js"></script>
+
+</body>
+</html>

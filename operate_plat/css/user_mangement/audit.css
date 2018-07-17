@@ -1,0 +1,153 @@
+i{
+	font-style:normal;
+	font-size: 14px;
+	font-family: "微软雅黑"
+}
+.audit{
+	float: right;
+	width: 80%;
+	margin-top: 10px
+}
+
+.audit_tit_info{
+	clear: both;
+	margin-top: 20px;
+	margin-bottom: 20px
+}
+
+.control-label{
+	margin-right: 10px
+}
+.input-group .form-control:last-child{
+	border-radius: 4px
+}
+.audit_keyword .form-control{
+	 width:200px;
+	 height: 34px
+}
+.form-inline .form-group, .btn{
+	margin-left: 10px
+}
+
+.audit_management_keyword{
+    display: inline-block;
+	margin-left: 0px
+}
+
+.user_management_idcard{
+	margin-left: 10px;
+	width:  100px;
+	height: 34px
+}
+.form-inline .form-group:nth-of-type(1),.user_management_view p:nth-of-type(1){
+	margin: 0
+}
+.audit_tit_info .btn{
+	padding: 6px 60px;
+}
+
+
+.audit_view{
+	display: flex;
+	display: -webkit-flex;
+	margin-top: 40px
+}
+.audit_view p{
+     margin-left:20px
+}
+
+.audit_view select{
+	margin-left: 0
+}
+.audit_view{
+	height: 44px;
+	line-height: 44px
+}
+.audit_web select{
+	height: 34px;
+	width:100px;
+}
+.audit_btn{
+	padding: 6px 60px; 
+}
+
+
+.audit_table{
+	margin-top: 20px;
+	width: 90%;
+}
+.audit_table td{
+	color: #000
+}
+.audit_table_img{
+	width: 50px;
+	height: 50px;
+	border-radius: 100%;
+	border: 1px solid #ccc;
+}
+
+.audit_table thead tr th{
+	height: 50px;
+	line-height: 50px;
+	background: #999;
+	color: #fff
+}
+
+.audit_table tbody tr td{
+	vertical-align: middle;
+}
+
+.user_management_nav{
+	float: right;
+	margin-right: 10%
+}
+
+/*用户信息*/
+.user_mangement_user_count{
+	width:100%;
+	margin-top: 20px
+}
+.user_mangement_user_coun_p{
+	width: 100%;
+	border-bottom: 1px solid #999;
+	font-size: 16px;
+	line-height: 35px
+}
+.user_management_info{
+	margin-bottom: 20px
+}
+.user_mangement_user_info{
+	width: 100%;
+	margin-bottom: 20px
+
+}
+.user_mangement_user_info p{
+	margin: 20px 0;
+}
+
+
+
+.user_mangement_user_info p img{
+	display: inline-block;
+	margin-left: 15px
+}
+
+.user_mangement_user_uls{
+	margin-top: 20px;
+}
+.user_mangement_oneul{
+	display: inline-table;
+	margin-left: 12%
+}
+
+.user_mangement_oneul:nth-of-type(1){
+	  margin-left: 0
+}
+.user_mangement_oneul li{
+	line-height: 30px
+}
+.freeze{
+	padding: 6px 60px;
+	margin-left: 0;
+	margin-top: 20px
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>版本详情 -- 版本列表</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+<body>
+<style type="text/css">
+  p {
+      margin: 10px 0 10px;
+  }
+  .versionTer{
+    height: 45px;
+    line-height: 45px;
+  }
+  .tips{
+    color: #b5b5b5;
+    font-weight: normal;
+  }
+  textarea{
+    width: 60%;
+    height: 200px;
+  }
+  .mt{
+    margin-top: 10px
+  }
+  .mt label{
+     width: 100px;
+     text-align: right;
+  }
+  .form-control.url{
+    width: 500px;
+  } 
+  .addUrl img{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+  }
+  #sureAdd{
+    margin-top: 20px;
+    padding: 12px;
+    margin-left: 45%;
+  }
+  .tipsred{
+    color: red;
+    display: none;
+  }
+  .red{
+    color: red;
+  }
+</style>
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <div class="areaInfo form-inline">
+       <h4 class="conRight_h4">发布新版</h4>
+       <div class="newVersion" class="form-group ">
+           <p>
+               <label class="control-label">版本ID：</label>
+               <input type="text" class="form-control versionID" placeholder="请输入版本号ID" name="">
+           </p>
+          <label class="control-label">版本号：</label>
+          <input type="text" class="form-control version" placeholder="请输入版本号" name="">
+          <div class="versionTer">
+             <label class="control-label">版本终端：</label>
+             <input type="radio" name="ios" data-id="2" value="1"> 客户端（ios）
+             <input type="radio" name="ios" data-id="2" value="2"> 客户端（Android）
+             <input type="radio" name="ios" data-id="2" value="2"> 导购端（PAD）
+             <input type="radio" name="ios" data-id="1" value="1"> 服务端（ios）
+             <input type="radio" name="ios" data-id="1" value="2"> 服务端（Android）
+          </div>
+          <div class="update">
+              <p>更新说明：<label class="tips">如果段行请用 ; 隔开。</label></p>
+              <textarea class="remarks"></textarea>
+          </div>
+          <label class="control-label">版本维护：</label>
+          <input type="radio" name="update" value="0">推荐更新
+          <input type="radio" name="update" value="1">强制更新
+          <p class="tipsred">启动强制更新后，已有版本将停止维护</p>
+          <p >更新渠道： <span class="red">* 渠道为必填</span></p>
+          <div class="qd">
+              <div class="mt tx">
+
+              </div>
+          </div>
+      </div>
+      <button class="btn btn-primary" type="button" id="sureAdd" onclick="addBtn()">确认并提交</button>
+    </div>
+</div>
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/other_manage/newVersion.js"></script>
+</html>

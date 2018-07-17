@@ -1,0 +1,274 @@
+h4{
+	margin-top: 0;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-style: normal;
+}
+i{
+	font-style: normal;
+}
+.shoplist,.shopstyle{
+    width: 100%;
+    border-bottom: 1px #ccc dashed;
+
+}
+.shoplist p span,.shopstyle p span  {
+	display: inline-block;
+	padding: 0 20px;
+	color: #000
+}
+.shoplist p span:nth-of-type(1) ,.shopstyle p span:nth-of-type(1){
+	 padding:  0;
+}
+.shoplist p span.active,.shopstyle p span.active{
+	color: #f1761f
+}
+.goods_check{
+	border-bottom: 1px solid #ccc;
+	margin-top: 10px
+}
+.shopins{
+	margin-top: 20px
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 28%;
+}
+
+.public_con #test .table thead tr th:nth-child(2){
+	width: 10%;
+}
+.public_con #test .table thead tr th:nth-child(3) {
+    width: 10%;
+}
+.public_con #test .table thead tr th:nth-child(4){
+	width: 9%;
+}
+.public_con #test .table thead tr th:nth-child(5){
+	width: 16%;
+}
+.public_con #test .table thead tr th:nth-child(6){
+	width: 8%;
+}
+.public_con #test .table thead tr th:nth-child(7){
+	width: 13%;
+}
+.table a{
+	color: #337ab7
+}
+.fonze{
+	display: flex;
+	display: -webkit-flex;
+}
+.fonze a{
+	flex:1;
+	-webkit-flex:1;
+}
+.pics{
+	/*width: 30px;*/
+	/*height: 30px;*/
+	/*display: inline-block;*/
+	width: 50px;
+	height: 50px;
+	display: block;
+	float: left;
+}
+.pics span{
+	display: inline-block;
+}
+.onSale_area{
+	line-height: 30px;
+
+}
+.form-inline .pageSize_switch{
+	width: 120px;
+}
+
+/*.public_con #test{*/
+	/*padding-top: 16px*/
+/*}*/
+
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	vertical-align: inherit;
+}
+
+
+/*在售信息*/
+
+.info_store ul,.onSale_goods .onSale_ul{
+	width: 100%;
+    line-height: 40px;
+    height: 40px;
+    border:1px solid #ccc;
+    display: flex;
+    display: -webkit-flex;
+}
+.info_store ul li,.onSale_goods .onSale_ul li{
+	flex: 1;
+	-webkit-flex:1;
+}
+.store_info p{
+	display: flex;
+	display: -webkit-flex;
+}
+.store_info p span{
+	border-bottom: 1px solid #ccc;
+	flex: 1;
+	-webkit-flex:1;
+	line-height: 40px
+}
+.onSale_goods .onSale_ul li{
+	text-align: center;
+
+}
+.goods_info ul li{
+	display: flex;
+	display: -webkit-flex;
+	border-bottom: 1px solid #ccc;
+}
+
+.goods_info ul li div{
+    display: block;
+    float: left;
+    width: 20%;
+    border-right: 1px solid #ccc;
+    text-align: center;
+}
+.goods_info ul li div.goods_right{
+	float: left;
+	width: 80%;
+	border-right: none
+
+
+}
+.goods_right p{
+	border-bottom: 1px solid #ccc;
+	display: flex;
+	display: -webkit-flex;
+	line-height: 40px
+}
+.goods_right p:last-of-type{
+	border-bottom: none
+}
+.goods_right p span{
+   flex: 1;
+   -webkit-flex:1;
+
+}
+.mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background: rgba(0,0,0,0.4);
+	left: 0;
+	top:0;
+	z-index: 10001;
+	display: none
+}
+.mask_tab{
+	width: 400px;
+	height: 450px;
+	background: #fff;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -200px;
+	margin-top: -225px;
+
+}
+.mask_tit h4{
+	line-height: 45px;
+	border-bottom: 1px solid #ccc;
+	width: 100%;
+	height: 45px;
+
+}
+.mask_tit h4 span{
+	cursor: pointer;
+	display:block;
+	float: left;
+}
+
+.mask_tit h4 span:nth-of-type(2){
+	float: right;
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	border:1px solid #ccc;
+	border-radius: 20px;
+	line-height: 20px;
+	text-align: center;
+	margin-right: 5px
+}
+
+.mask_count{
+	height: 400px;
+	overflow: auto;
+}
+.mask_count .mask_ul li{
+	padding: 30px 0;
+	cursor: pointer;
+}
+.mask_left{
+	float: left;
+	width: 15%;
+	overflow-y:auto; 
+
+}
+.mask_right{
+	float: left;
+	width:20%;
+	text-align: center;
+}
+/*.mask_count ul li{
+	cursor: pointer;
+	padding: 30px 0;
+	text-align: center;
+    
+}*/
+
+.tab_list{
+	height: 400px;
+	float: right;
+	width: 80%;
+}
+.tab_list span{
+	display: inline-block;
+	width: 25%;
+	line-height: 45px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.actived{
+	background: #fff;
+}
+.tab_list_active{
+	background: #337ab7;
+	color: #fff;
+}
+.tab_i_active{
+	background: #363a4cc7;
+	color: #fff;
+}
+.public_con #test .table tbody tr td span{
+	display: inline;
+}
+
+.public_con #test .table tbody tr td{
+	height: 80px
+}
+.public_con #test .table tbody tr td span{
+	width: 50%;
+	cursor: pointer;
+}
+.public_con #test .table tbody tr td{
+	line-height:26px;
+}
+.fonze a,.fonze span{
+	line-height: 63px
+}

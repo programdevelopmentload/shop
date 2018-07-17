@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务管理-测量详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .yycon .brandManag_relation_area{
+            background-color: #e9ecf2;
+            height: 80px;
+            padding: 10px 0 0 10px;
+            margin-top: 10px;
+        }
+        .brandManag_relation_area > div{
+            padding-right: 20px;
+        }
+        .table_border{
+            border: 1px solid #d3dbde;
+            border-bottom: none;
+            padding:10px;
+        }
+        .manag_con_tip1,.manag_con_tip2{
+            margin-left: -12px;
+            padding: 10px 0 10px 0;
+        }
+        .nanag_con1>div:last-child,
+        .nanag_con2>div:last-child
+        {
+            border-bottom: 1px solid #d3dbde;
+        }
+        .brand_log{
+            display: inline-block;
+            width: 108px;
+            height: 35px;
+        }
+    </style>
+</head>
+<body>
+<div class="cate_threeDetail_con_right yycon_right  col-xs-12 mess_con_form">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <h4 class="conRight_h4">测量类型</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="clearfix">
+                    <p class="fl">测量类型：</p>
+                    <div class="fl everyGrade_name">林氏木业</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="conRight_h4">关联分类</h4>
+    <div >
+        <div class=" container">
+            <div class="row belong_box_con">
+                <!--<div class="col-xs-9 clearfix brandManag_relation_area">-->
+                <!--<div class="fl brandManag_relation_lable col-xs-2">-->
+                <!--分类信息-->
+                <!--</div>-->
+                <!--<div class="fl brandManag_relation_level col-xs-6">-->
+                <!--叶子分类-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="nanag_con1">-->
+                <!--<div class="col-xs-9">-->
+                <!--<div class="col-xs-3 manag_con_tip1">-->
+                <!--家具-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-9 table_border">-->
+                <!--<div class="col-xs-2">-->
+                <!--餐厅家具-->
+                <!--</div>-->
+                <!--<div class="col-xs-6">-->
+                <!--沙发、咖啡桌、电视柜/塔柜、边几、边桌、休闲、休闲椅/休闲凳/备用套、软包休闲椅、门厅/玄关、玄关柜、玄关凳、边桌、床尾凳、沙发、所有沙发、三人沙发、双人沙发、单人沙发、脚台、沙发床、组合沙发、皮沙发-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-9 table_border">-->
+                <!--<div class="col-xs-2">-->
+                <!--客厅家具-->
+                <!--</div>-->
+                <!--<div class="col-xs-6">-->
+                <!--餐桌、餐椅、餐边柜/酒柜、吧台/吧椅-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="nanag_con2">-->
+                <!--<div class="col-xs-9 ">-->
+                <!--<div class="col-xs-3 manag_con_tip2">-->
+                <!--"灯具墙饰"-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-9 table_border ">-->
+                <!--<div class="col-xs-2 ">-->
+                <!--灯具-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 ">-->
+                <!--吊顶灯、壁灯/浴室灯、台灯、落地灯、书桌灯、儿童灯具、墙画/挂钟/墙镜、墙画、墙镜、挂钟-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script id="belong_box" type="text/html">
+    {{each options as value i}}
+    <div class="nanag_con1">
+        <div class="col-xs-9">
+            <div class="col-xs-3 attrDetail_con_tip">
+                {{value.name}}
+            </div>
+        </div>
+        {{each value.child as value1 i}}
+        <div class="col-xs-9 table_border">
+            <div class="col-xs-2 attrDetail_con_left">
+                {{value1.name}}
+            </div>
+            <div class="col-xs-6 attrDetail_con_right">
+                {{each value1.child as value2 i}}
+                <span>{{value2.name}}</span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+
+
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/attr_set_measureDetail.js"></script>
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>类目管理-各级详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/cate_manag_oneGrade_add.css"/>-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .cate_everyDetail_con_right .everyGrade_operate {
+            margin-bottom: 0px;
+        }
+
+        .cate_everyDetail_con_right .everyGrade_operate p {
+            text-align: center;
+        }
+
+        .cate_everyDetail_con_right .everyGrade_operate .conRightBottom_btn_sm {
+            margin: 20px 0px 0px 10px;
+        }
+
+        .pageSize_switch_con {
+            padding: 5px 0;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        .switch_brand_page, .switch_attr_page {
+            cursor: pointer;
+            margin: 15px 15px 15px 2px;
+            background: #d3d9e5;
+            width: 90px;
+            height: 35px;
+            text-align: center;
+            line-height: 35px;
+            color: #7a85a2;
+            font-size: 16px;
+        }
+
+        .switch_active {
+            color: #fff;
+            background: #4fc2b9;
+        }
+        .brand_img{
+            width: 128px;
+            height: 32px;
+            margin: auto 0;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="cate_everyDetail_con_right public_con yycon_right col-xs-10 mess_con_form">
+
+                <h4 class="conRight_h4 sky">测试回退</h4>
+                <h4 class="conRight_h4">分类信息</h4>
+                <div class="">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="clearfix">
+                                <p class="fl">分类名称：</p>
+                                <div class="fl everyGrade_name">皮艺沙发</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">分类等级：</p>
+                                <div class="fl everyGrade_level">叶子分类</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 evg_msg_middle">
+                            <div class="clearfix">
+                                <p class="fl">所属分类：</p>
+                                <div class="fl everyGrade_oneFatherName">家具</div>
+                            </div>
+                            <!--<div class="clearfix isHave_twoFather">-->
+                                <!--<p class="fl">所属二级分类：</p>-->
+                                <!--<div class="fl everyGrade_twoFatherName">客厅沙发</div>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="clearfix">
+                                <p class="fl">分类状态：</p>
+                                <div class="fl everyGrade_state">正常</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">创建时间：</p>
+                                <div class="fl">
+                                    <span class="everyGrade_ymd">
+                                        2017-02-13
+                                    </span>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span class="everyGrade_hms">
+                                        13:33:67
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix cate_bottom_operate col-xs-12 everyGrade_operate">
+                        <p class="fl conRightBottom_btn_sm everyGrade_switch">关闭</p>
+                        <p class="fl conRightBottom_btn_sm everyGrade_rename">更改名称</p>
+                        <p class="fl conRightBottom_btn_sm everyGrade_dele">删除</p>
+                    </div>
+                </div>
+                <h4 class="conRight_h4 guide_content">关联信息</h4>
+                <div>
+                    <!--分页我自己尝试-->
+                    <div class="wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                        <div class="clearfix switch_page_con">
+                            <ul>
+                                <li class="switch_brand_page fl switch_active" data-id="detail_brand">
+                                    关联品牌
+                                </li>
+                                <li class="switch_attr_page fl" data-id="detail_attr">
+                                    关联品牌
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="pic_no" class="default-prompt">
+                            <img src="../../images/nothing.png">
+                            <br>
+                            <span>查询无结果</span>
+                        </div>
+                        <div class="clearfix pageSize_switch_con">
+                            <div class="fl">每页显示</div>
+                            <select class="pageSize_switch form-control fl">
+                                <option value="5" class="">5</option>
+                                <option value="10" class="">10</option>
+                                <option value="15" class="">15</option>
+                            </select>
+                            <button type="button" class="btn btn-success fl btn-sm">确定</button>
+                            <a href="./backstage_everyGrade_add.html?parentId=0&isLeaf=0" type="button"
+                               class="btn btn-success fr btn-sm everyGradeAdd ">添加二级分类</a>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                            <thead>
+                            <tr class="th_table_con">
+                                <th class="th_table1">分类名称</th>
+                                <th class="th_table2">分类等级</th>
+                                <th class="th_table3">分类状态</th>
+                                <!--<th class="th_table4">操作</th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--<tr>-->
+                                <!--<td>01</td>-->
+                                <!--<td>颜色</td>-->
+                                <!--<td>-->
+                                    <!--<img class="brand_img" src="../../images/tatadoor.png" alt="">-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+                        <div class="leftBottom clearfix">
+                            <button type="button" class="outPut" style="display: none">批量删除</button>
+                            <!--<button type="button" class="outBack">批量退回</button>-->
+                            <div class="page pageBar" id="page">
+                                <p>共0条记录</p>
+                                <div class="pageLft clearfix">
+                                    <!--<a class="noprev"></a>-->
+                                    <a href="#" class="prev"></a>
+                                    <a href="#" class="active">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <span>...</span>
+                                    <a href="#" class="next"></a>
+                                    <!--<a class="nonext"></a>-->
+                                </div>
+                                <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-pagination">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/operate_oneGrade_detail.js"></script>
+</body>
+</html>

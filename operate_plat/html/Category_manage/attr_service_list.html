@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务属性列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/cate_manage/attr_service_list.css"/>
+
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        .self_table tbody tr td {
+            line-height: 35px;
+        }
+
+        .self_table tbody .right_con {
+            border-right: 1px solid red !important;
+            text-align: center !important;
+            padding: 0px 0px;
+            height: 70px;
+            line-height: 70px;
+        }
+
+        .self_table tbody .right_con:nth-child(1) {
+            width: 29.33%;
+        }
+
+        .self_table tbody .right_con:nth-child(2) {
+            width: 27%;
+        }
+
+        .self_table tbody .right_con:nth-child(3) {
+            width: 43%;
+        }
+
+        .self_table tbody .right_con_son1, .self_table tbody .right_con_son1 {
+            width: 45%;
+        }
+
+        .self_table tbody img {
+            margin: 6px 0 0 6px;
+            width: 45px;
+            height: 30px;
+        }
+
+        .right_box > div {
+            border-bottom: 1px dotted #d3d9e5;
+        }
+
+        .right_box > div > div:first-child > div {
+            height: 30px;
+            line-height: 30px;
+        }
+        .operate_con a{
+            margin: 5px;
+        }
+        .public_con #show1 #pic_no {
+            text-align: center;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="attr_manag_con_right public_con yycon_right yyconOrder_right col-xs-12 mess_con_form">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <h4 class="conRight_h4 clearfix">
+        <div class="col-xs-10 text-left">
+            商品服务
+        </div>
+        <a class="hide_ctr_absolute sure_xsBtn col-xs-1" href="./attr_service_add.html?&edit=0">
+            添加类型
+        </a>
+    </h4>
+
+    <div class="self_table_box selfTable_box_ctr" id="show1">
+        <div id="pic_no" class="default-prompt hide_ctr">
+            <img src="../../images/nothing.png">
+            <br>
+            <span>查询无结果</span>
+        </div>
+        <table class="detail_table self_table">
+            <thead>
+            <tr>
+                <th>
+                    商品类型
+                </th>
+                <th>配送服务</th>
+                <!--<th>自提服务</th>-->
+                <th>测量服务</th>
+                <th>安装服务</th>
+                <!--<th>关联分类</th>-->
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前属性名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+
+
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/attr_service_list.js"></script>
+</body>
+</html>

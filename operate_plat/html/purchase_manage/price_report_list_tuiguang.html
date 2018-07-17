@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>供货管理-报价清单</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/skuNewMerge_skuList.css"/>
+    <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .choice_box {
+            text-align: center;
+            margin: 66px auto 0 auto;
+        }
+
+        .choice_box .sure_supsBtn {
+            margin: 5px;
+        }
+
+        .popwin_out {
+            margin-bottom: 30px !important;
+        }
+
+        .class_bubble_items {
+            margin-top: 50px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        .class_bubble_items img {
+            display: block;
+            width: 40px;
+            height: 40px;
+        }
+
+        .class_bubble_items_title {
+            padding: 15px 6px;
+        }
+
+        .class_bubble_items li {
+            border: 1px solid #929fbe;
+            border-top: none;
+            width: 70%;
+        }
+
+        .class_bubble_items li:first-child {
+            border-top: 1px solid #929fbe;
+        }
+
+        .merge_look, .merge_class {
+            cursor: pointer;
+            color: red;
+        }
+
+        .sub_btn_box {
+            padding-top: 40px;
+        }
+
+        .sub_btn_box span {
+            margin: 0 30px;
+        }
+
+        .merge_num {
+            line-height: 65px;
+        }
+
+        .type_num_box {
+            padding: 30px 0;
+        }
+
+        .merge_num span, .type_num_box span {
+            color: red;
+        }
+
+        .total_num {
+            /*padding: 0 8px;*/
+            color: red;
+        }
+
+        #self_table tbody tr td {
+            line-height: 65px;
+        }
+
+        #self_table tbody .right_con {
+            border-right: 1px solid red !important;
+            text-align: center !important;
+            padding: 0px 0px;
+            height: 70px;
+            line-height: 70px;
+        }
+
+        #self_table tbody .right_con:nth-child(1) {
+            width: 35%;
+        }
+
+        #self_table tbody .right_con:nth-child(2) {
+            width: 65%;
+        }
+
+        /*#self_table tbody .right_con:nth-child(3){*/
+        /*width: 43%;*/
+        /*}*/
+        #self_table tbody .right_con_son1, #self_table tbody .right_con_son1 {
+            width: 45%;
+        }
+
+        #self_table tbody img {
+            margin: 6px 0 0 6px;
+            width: 45px;
+            height: 30px;
+        }
+
+        .right_box > div {
+            border-bottom: 1px dotted #d3d9e5;
+        }
+
+        .right_box > div > div:first-child > div {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #self_table thead tr th:nth-child(1) {
+            width: 33%;
+        }
+
+        #self_table thead tr th:nth-child(2) {
+            width: 33%;
+        }
+
+        #self_table thead tr th:nth-child(3) {
+            width: 33%;
+        }
+
+
+        /*.go_merge_btn{*/
+        /*margin-right: 20px;*/
+        /*}*/
+        .order_num_tr{
+            line-height: 35px !important;
+            padding-left: 10px;
+        }
+
+        #self_table tbody tr .ope_report_box {
+            border: none;
+            border-bottom: 1px dotted #d3d9e5;
+            min-height: 50px !important;
+            line-height: 35px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        #self_table tbody tr .ope_report_box .sure_supsBtn {
+            margin-left: 15px;
+        }
+        .everySku_input_con{
+            margin-left: 25%;
+        }
+        #self_table tbody tr .order_num_tr{
+            border: none;
+            border-bottom: 1px dotted #d3d9e5;
+            min-height: 80px!important;
+            line-height: 35px;
+            text-align: left!important;
+        }
+        .td1 .goods_img_box {
+            position: absolute;
+            /*top: 2px;*/
+            left: 6px;
+        }
+        #self_table tbody tr .goods_info_box {
+            position: absolute;
+            top: 3px;
+            right: 26px;
+            height: 25px;
+            line-height: 25px;
+        }
+        #self_table tbody img {
+            margin: 0px 0 0 6px;
+            width: 45px;
+            height: 30px;
+        }
+        #self_table tbody tr .goods_info_box {
+            position: absolute;
+            top: 3px;
+            right: 26px;
+            height: 14px;
+            line-height: 14px;
+            font-size: 14px;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div class="skuListDetail_con_right public_con yycon_right col-xs-12">
+    <ol class="hide_ctr skuListDetail_Bread breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理 > </a></li>
+        <li><a href="#">商品审核 > </a></li>
+        <li><a href="#">待审核 > </a></li>
+        <li class="active"><a href="#">审核详情</a></li>
+    </ol>
+    <h4 class="conRight_h4 two_common">定价清单</h4>
+    <div class="self_table_box clearfix selfTable_box_ctr" id="show">
+        <table class="detail_table self_table" id="self_table">
+            <thead>
+            <tr>
+                <th>商品信息</th>
+                <th>商品编号</th>
+                <th>销售定价</th>
+                <!--<th>商品编号</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <!--<tr class="">-->
+            <!--<td class="order_num_tip" colspan="2" style="">-->
+            <!--李宁广告&nbsp;&nbsp;实木桌子&nbsp;&nbsp;CK-300-->
+            <!--</td>-->
+            <!--<td class="clearfix ope_report_box">-->
+            <!--<div class="row clearfix">-->
+            <!--<div class="col-xs-4">-->
+            <!--<div class="row">-->
+            <!--批量定价：-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-4">-->
+            <!--<div class="row">-->
+            <!--<input type="text" class="form-control everySku_input_ctr" placeholder="销售价">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<span class="sure_supsBtn col-xs-3">确认</span>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr class="cler_fl_abs">-->
+            <!--<td class="td1 cler_fl_abs">-->
+            <!--<div class="goods_img_box ">-->
+            <!--<img class="goods_img" src="../../images/orderIssiue_img.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="goods_info_box ">-->
+            <!--<div>松下 家用开关 0392</div>-->
+            <!--<div>白色 两关</div>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--<td>喜梦宝 儿童书柜 A109</td>-->
+            <!--<td>-->
+            <!--<div class="col-xs-6 text-center everySku_input_con">-->
+            <!--<input name="id" type="text" class="form-control everySku_input col-xs-3" placeholder="￥0.00">-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--&lt;!&ndash;<td>蓝翔家居</td>&ndash;&gt;-->
+            <!--</tr>-->
+            <!--<tr class="">-->
+            <!--<td class="order_num_tip" colspan="2">-->
+            <!--李宁广告&nbsp;&nbsp;实木桌子&nbsp;&nbsp;CK-300-->
+            <!--</td>-->
+            <!--<td class="clearfix ope_report_box">-->
+            <!--<div class="row clearfix">-->
+            <!--<div class="col-xs-4">-->
+            <!--<div class="row">-->
+            <!--批量定价：-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-xs-4">-->
+            <!--<div class="row">-->
+            <!--<input type="text" class="form-control everySku_input_ctr" placeholder="销售价">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<span class="sure_supsBtn col-xs-3">确认</span>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--</tr>-->
+            <!--<tr class="cler_fl_abs">-->
+            <!--<td class="td1 cler_fl_abs">-->
+            <!--<div class="goods_img_box ">-->
+            <!--<img class="goods_img" src="../../images/orderIssiue_img.png" alt="">-->
+            <!--</div>-->
+            <!--<div class="goods_info_box ">-->
+            <!--<div>松下 家用开关 0392</div>-->
+            <!--<div>白色 两关</div>-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--<td>喜梦宝 儿童书柜 A109</td>-->
+            <!--<td>-->
+            <!--<div class="col-xs-6 text-center everySku_input_con">-->
+            <!--<input name="id" type="text" class="form-control everySku_input col-xs-3" placeholder="￥0.00">-->
+            <!--</div>-->
+            <!--</td>-->
+            <!--&lt;!&ndash;<td>蓝翔家居</td>&ndash;&gt;-->
+            <!--</tr>-->
+            </tbody>
+        </table>
+
+        <!--<div class="skuTab_Merge_List">-->
+        <!--<p>整合清单</p>-->
+        <!--<ul class="skuTab_Merge_ul">-->
+        <!--<li>-->
+        <!--<img src="../../images/standard_img.jpg">-->
+        <!--<span>喜梦宝  儿童书柜 A109 四格书架</span>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--<span  class="go_skuManage">-->
+        <!--去整合-->
+        <!--</span>-->
+        <!--</div>-->
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-9">
+
+        </div>
+        <div class="col-xs-1">
+            <span class="sure_smBtn go_merge_btn">确认并提交</span>
+        </div>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="mask_tip col-sm-12">
+            请确保所有输入是两位小数点数字
+        </div>
+
+    </div>
+</template>
+<!-- 详情遮罩弹窗 -->
+<template type="text/html" id="detail_bubble">
+    <div class="mergeBubble_container">
+        <h4 class="conRight_h4 text-left">基本信息</h4>
+        <div class="bubble_basic_info">
+            <div class="col-xs-6">
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">所属分类：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">客厅-书架-儿童书柜</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">所属品牌：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">喜梦宝</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">型号：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">A109</div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">商品类型：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">标准产品</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">产地：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">澳大利亚</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">风格：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">飞舞轻扬</div>
+                </div>
+            </div>
+        </div>
+        <h4 class="conRight_h4 text-left">产品规格</h4>
+        <div class="bubble_standard_info clearfix">
+            <div class="col-xs-3">
+                <img src="../../images/standard_img.jpg" alt="">
+            </div>
+            <div class="col-xs-9 text-left">
+                <div class="bubble_color">
+                    颜色
+                </div>
+                <div class="bubble_size">
+                    尺寸
+                </div>
+            </div>
+        </div>
+        <h4 class="conRight_h4 text-left">商品详情</h4>
+        <div class="bubble_goodsdetail">
+            <img src="../../images/vwaitDetail_img.jpg" alt="">
+        </div>
+    </div>
+</template>
+<!-- 归档遮罩弹窗 -->
+<template type="text/html" id="class_bubble">
+    <div class="mergeBubble_container">
+        <h4 class="conRight_h4 text-left">归档设置</h4>
+        <div class="bubble_basic_info clearfix">
+            <div class="col-xs-6">
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">所属SPU：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">客厅-书架-儿童书柜</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">规格信息：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">喜梦宝</div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">所属品牌：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">标准产品</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">分类：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">澳大利亚</div>
+                </div>
+            </div>
+        </div>
+        <div class="class_bubble_items">
+            <div class="text-left class_bubble_items_title">
+                选择需要挂靠的规格：
+            </div>
+            <ul>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="clearfix">
+                    <div class="col-xs-1">
+                        <input type="radio" name="class_radio">
+                    </div>
+                    <div class="col-xs-5">
+                        <div class="col-xs-3">
+                            <img src="../../images/orderIssiue_img.png" alt="">
+                        </div>
+                        <div class="col-xs-5">
+                            <span>四格</span>
+                            <span>矮书架</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="sub_btn_box">
+            <span class="sure_xsBtn">确认</span>
+            <span class="cancle_xsBtn">取消</span>
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/purchase_manage/price_report_list_tuiguang.js"></script>
+</body>
+</html>

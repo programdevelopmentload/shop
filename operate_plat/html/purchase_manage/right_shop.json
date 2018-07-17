@@ -1,0 +1,63 @@
+{
+  "data":[
+    {
+      "shopAddress":"朝阳",
+      "shopArea":"朝阳区",
+      "shopAreaId":1001,
+      "shopCity":"北京市",
+      "shopCreatetime":"2018-05-15 21:09:11",
+      "shopId":100105,
+      "shopName":"哈哈哈店",
+      "shopProvince":"北京市",
+      "shopServiceArea":"",
+      "shopState":1
+    },
+    {
+      "shopAddress":"绿地中心",
+      "shopArea":"朝阳区",
+      "shopAreaId":1001,
+      "shopCity":"北京市",
+      "shopCreatetime":"2018-05-19 17:33:17",
+      "shopId":100106,
+      "shopName":"新开的店",
+      "shopProvince":"北京市",
+      "shopServiceArea":"",
+      "shopStartWorkTime":"9：00-23：00",
+      "shopState":1,
+      "shopTelephone":"12223333"
+    },
+    {
+      "shopAddress":"绿地中心",
+      "shopArea":"东城区",
+      "shopAreaId":110101,
+      "shopCity":"北京市",
+      "shopCreatetime":"2018-05-23 14:16:46",
+      "shopId":11010103,
+      "shopName":"又新开一个店",
+      "shopProvince":"北京市",
+      "shopServiceArea":"",
+      "shopStartWorkTime":"9：00-23：00",
+      "shopState":1,
+      "shopTelephone":"1243557"
+    },
+    {
+      "shopAddress":"海淀区最牛逼的地儿",
+      "shopArea":"海淀区",
+      "shopAreaId":110101,
+      "shopCity":"北京市",
+      "shopCreatetime":"2018-05-29 16:56:19",
+      "shopEndWorkTime":"20：00",
+      "shopId":11010104,
+      "shopName":"我就爱开店",
+      "shopProvince":"北京市",
+      "shopServiceArea":"东城区,西城区,朝阳区",
+      "shopStartWorkTime":"09：00",
+      "shopState":1,
+      "shopTelAreaCode":"010",
+      "shopTelephone":"88888888"
+    }
+  ],
+  "errorCode":0,
+  "message":"成功",
+  "success":true
+}

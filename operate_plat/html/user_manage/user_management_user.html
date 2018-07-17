@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>用户</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+	<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+	<!--<link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>-->
+	<link rel="stylesheet" type="text/css" href="../../css/user_mangement/us_manag_user_waiter_bus.css">
+	<link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+	<!--[if lt IE 9]>
+	<script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+
+
+<div class=" uManage_user_con_right yycon_right pagination_box_ctr col-xs-10">
+	<h4 class="conRight_h4">账户信息</h4>
+	<div class="uManage_uwb_acount_one">
+	</div>
+	<div class="m-pagination">
+
+	</div>
+</div>
+<script type="text/html" id="uManage_uwb_acounts">
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-xs-12">
+				<p class="fl">头像：</p>
+				<div class="fl">
+					<!-- <img src="../../images/user_head.png" alt=""> -->
+					<img src=" {{data.headPic}}">
+				</div>
+			</div>
+			<div class="fl w30">
+				<div class="clearfix">
+					<p class="fl">昵称：</p>
+					<div class="fl">{{data.userInfo.nickName}}</div>
+				</div>
+				<div class="clearfix">
+					<p class="fl">手机号:</p>
+					<div class="fl">{{data.userInfo.phoneNumber}}</div>
+				</div>
+				<div class="clearfix">
+					<p class="fl">身份证：</p>
+					<div class="fl">{{data.userInfo.identification}}</div>
+				</div>
+				<div class="clearfix">
+					<p class="fl">身份类型：</p>
+					<div class="fl">用户</div>
+				</div>
+			</div>
+			<div class="fl w30">
+	
+				<div class="clearfix">
+					<p class="fl">微信Open ID:</p>
+					<div class="fl">{{data.userInfo.wechatOpenid}}</div>
+				</div>
+				<div class="clearfix">
+					<p class="fl">邮箱:</p>
+					<div class="fl">{{data.userInfo.email}}</div>
+				</div>
+				<div class="clearfix">
+					<p class="fl">生日</p>
+					<div class="fl">{{data.userInfo.birthday}}</div>
+				</div>
+			</div>
+			<div class="fl w30" >
+				<div class="clearfix">
+					<p class="fl">注册时间:</p>
+					<div class="fl">{{data.userInfo.regTime}}</div>
+				</div>
+				<div class="clearfix">
+					<p class="fl">注册方式:</p>
+					{{if data.userInfo.regRef == '0'}}
+					  <div class="fl regRef">手机</div>
+					{{/if}}
+					{{if data.userInfo.regRef == '1'}}
+					  <div class="fl regRef">导购</div>
+					{{/if}}
+					{{if data.userInfo.regRef == '2'}}
+					  <div class="fl regRef">邮箱</div>
+					{{/if}}
+					{{if data.userInfo.regRef == '3'}}
+					  <div class="fl regRef">分配</div>
+					{{/if}}
+
+	
+				</div>
+				<div class="clearfix">
+					<p class="fl">性别:</p>
+					<div class="fl">{{data.userInfo.sex}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h4 class="conRight_h4">操作详情</h4>
+	{{if data.userInfo.isFrozen=='0'}}
+	<button class="conRightBottom_btn_sm" onclick="isFrozen(this)">
+		冻结账户
+	</button>
+	{{else if data.userInfo.isFrozen=='1'}}
+	<button class="conRightBottom_btn_sm" onclick="frozen(this)">
+		解冻账户
+	</button>
+	{{/if}}
+ 
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../js/lib/bootstrap-table.js"></script>
+<script type="text/javascript" src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script>
+      //获取id 和state
+    function GetRequest() {   
+     var url = location.search; //获取url中"?"符后的字串   
+     var theRequest = new Object();   
+        if (url.indexOf("?") != -1) {   
+          var str = url.substr(1);   
+          strs = str.split("&");   
+          for(var i = 0; i < strs.length; i ++) {   
+             theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+          }   
+       }   
+    return theRequest;   
+    }
+
+
+//渲染数据
+// 0 为正常。1为解冻
+// http://172.16.41.184:8003/platForm/freezeAccount
+// 
+// 
+// http://172.16.41.184:8003/platForm/freeAccount
+//var localHost = 'http://172.16.40.134:8002/user';
+//var localHost ='http://172.16.41.184:8002/user';
+var localHost = getBaseUrl('lh');
+var selectAllUrl=localHost+'/user/platForm/selectAllInfo';
+
+var freezeAccountUrl = localHost +'/user/platForm/freezeAccount';
+
+var freeAccountUrl = localHost +'/user/platForm/freeAccount';
+
+function uManage_uwb_acount() {
+var Request = new Object();
+ Request = GetRequest();
+ var id = Request['id'];
+ var isFrozen =  Request['isFrozen'];
+	console.log(isFrozen)
+	console.log(id)
+$.ajax({
+	type:"post",
+	catch: false,
+    url: selectAllUrl,
+    dataType: "json",
+    data:{id:id} ,
+    success: function (data) {
+        console.log(data);
+        if (data && data.success == true) {
+        	 var html = template("uManage_uwb_acounts",data);
+       	    $(".uManage_uwb_acount_one").html(html);
+        }else{
+        	$(".uManage_uwb_acount_one").html('暂无');
+        }
+       
+        
+    },
+    error: function () {
+    }
+})
+}
+uManage_uwb_acount();
+
+//点击冻结账户 
+ 
+// $(".conRightBottom_btn_sm").click(function(){
+// 	var Request = new Object();
+//  	Request = GetRequest();
+// 	var id = Request['id'];
+// 	var isFrozen =  Request['isFrozen'];
+// 	console.log(isFrozen)
+//  	console.log(id)
+// 	$.ajax({
+// 		type:"post",
+// 		catch: false,
+// 	    url: "http://172.16.41.184:8003/platForm/freezeAccount",
+// 	    dataType: "json",
+// 	    data:{id:id} ,
+// 	    //success: function (data) {
+// 	        //console.log(data);
+// 	        // if (data.success == true) {
+// 	        // 	 alert("账户冻结成功！")
+
+// 	        // 	}else{
+// 	        // 		 alert(data.message)
+// 	        // 	}
+	       
+// 	   // },
+// 	    error: function () {
+// 	    }
+// 	})
+// })
+// 
+function isFrozen(obj){
+	var Request = new Object();
+ 	Request = GetRequest();
+	var id = Request['id'];
+	var isFrozen =  Request['isFrozen'];
+	console.log(isFrozen)
+ 	console.log(id);
+ 	$.ajax({
+		type:"post",
+		catch: false,
+	    url: freezeAccountUrl,
+	    dataType: "json",
+	    data:{id:id} ,
+	    success: function (data) {
+	        console.log(data);
+	        if (data.success == true) {
+	        	 alert("账户冻结成功！")
+	        	window.location.href='./user_mangement.html';
+	        	}else{
+	        		 alert(data.message)
+	        	}
+	   },
+	    error: function () {
+	    }
+	})
+}
+function frozen(obj){
+	var Request = new Object();
+ 	Request = GetRequest();
+	var id = Request['id'];
+	var isFrozen =  Request['isFrozen'];
+	console.log(isFrozen)
+ 	console.log(id);
+ 	$.ajax({
+		type:"post",
+		catch: false,
+	    url: freeAccountUrl,
+	    dataType: "json",
+	    data:{id:id} ,
+	    success: function (data) {
+	        console.log(data);
+	        if (data.success == true) {
+	        	 alert("账户解冻成功！")
+	        	window.location.href='./user_mangement.html';
+	        	}else{
+	        		 alert(data.message)
+	        	}
+	   },
+	    error: function () {
+	    }
+	})
+}
+
+
+</script>
+</body>
+</html>

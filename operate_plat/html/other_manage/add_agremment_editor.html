@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <title>编辑模板</title>
+	  <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.addBtn{
+		margin-top: 30px;
+	}
+</style>
+<body>
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-12">
+    <div class="areaInfo pagination_box_ctr">
+        <h4 class="conRight_h4">编辑协议</h4>
+        <div class="agreementModel"></div>
+      	<p>编辑协议内容:</p>
+        <div id="editor"></div>
+        <div class="addBtn btn btn-primary" id="btnSure">确认并提交</div>
+    </div>
+</div>
+
+<script type="text/html" id="upData">
+<div class="agreeModel">
+    <div class="form-group form-inline">
+      <label for="" class="control-label" >协议名称:</label>
+      <input type="text" placeholder="{{data.name}}" class="form-control agreement" name=""  value="{{data.name}}" >
+    </div>
+    <div class="form-group form-inline">
+      <label for="" class="control-label" >类型标示:</label>
+      <input type="text" placeholder="" class="form-control" name=""  id="code" readonly="readonly" value="{{data.code}}"  >
+    </div>
+    <div class='echartTab'>
+      <label>插入数据:</label>
+      <p>
+        <input type="checkbox"  name="checkNum"  value="订单编号" onclick="inputCheck(this)"> 订单编号
+        <input type="checkbox"  name="checkNum"  value="下单时间" onclick="inputCheck(this)"> 下单时间
+        <input type="checkbox"  name="checkNum"  value="商品名称" onclick="inputCheck(this)"> 商品名称
+      </p>
+    </div>
+    <div class="form-group form-inline">
+      <label for="" class="control-label">协议类型:</label>
+      <select class="form-control agreementSelect">
+        {{if data.type =="商家协议"}}
+            <option value="{{data.type}}">{{data.type}}</option>
+            <option value="用户协议">用户协议</option>
+            <option value="工人协议">工人协议</option>
+        {{else if data.type=="用户协议"}}
+            <option value="{{data.type}}">{{data.type}}</option>
+            <option value="商家协议">商家协议</option>
+            <option value="工人协议">工人协议</option>
+        {{else if data.type=="工人协议"}}
+          <option value="{{data.type}}">{{data.type}}</option>
+          <option value="商家协议">商家协议</option>
+          <option value="用户协议">用户协议</option>
+        {{/if}}
+
+      </select>
+    </div>
+</div>
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+<script type="text/javascript" src="../../js/lib/wangeditor.js"></script>
+
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+    //var localHttp = 'http://172.16.41.184:8002/user';
+    var localHttp=getBaseUrl('y_jl');
+    var listUrl =localHttp +'/agreement/update';
+    var info =localHttp +'/agreement/info';
+    var E = window.wangEditor
+    var editor = new E('#editor');
+    editor.create()
+    var textAdd=editor.txt.html();; 
+    function getUrlParam(name){ 
+        //构造一个含有目标参数的正则表达式对象 
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+        //匹配目标参数 
+        var r = window.location.search.substr(1).match(reg); 
+        //alert(r); 
+        //返回参数值 
+        if (r!=null) return decodeURI(r[2]); 
+            return null; 
+    } 
+
+    var code =getUrlParam("id");
+        // 或者 var editor = new E( document.getElementById('editor') )
+        
+     //点击checkbox  数据插入富文本编辑器中
+      var idx = 0;
+      function inputCheck(obj){
+          var $obj = $(obj);
+          var v= $obj.val();
+           console.log(v);
+           $obj.attr('checked',true);
+           if ($obj.is(":checked")) {
+              idx++;
+              editor.txt.append('<p id="'+idx+'">'+v+':</p>')
+           }else{
+               //editor.txt.clear('<p>');
+                $("#"+idx).remove();
+                textAdd;
+           }
+      }
+    
+        //var codeId = $('#code').val(code);
+        function editorInfo(){
+            $.ajax({
+              type:"post",
+              url:info,
+              data:{code:code},
+              dataType:'json',
+              success:function (data) {
+                console.log(data);
+                 var content = data.data.comment;
+                editor.txt.html(content)
+                var html = template("upData",data);
+                 $(".agreementModel").html(html);   
+              }
+            })
+           
+        }
+        editorInfo();
+
+
+
+
+        $('#btnSure').click(function(){
+         	textAdd=editor.txt.html(); //获取文本内容
+          var name =$.trim($('.agreement').val())//获取条款名称
+          var type =$('.agreementSelect option:selected').val();
+	        console.log(textAdd);
+          if (name !='' && type !='' && textAdd !='') {
+            $.ajax({
+              type:"post",
+              url:listUrl,
+              data:{name:name,type:type, comment:textAdd,code:code},
+              dataType:'json',
+              success:function(data){
+                console.log(data);
+                if (data.success==true) {
+
+                  window.location.href='./agreement_list.html';
+                }
+              }
+            })
+          }else{
+                alert('请填写完整的数据！')
+                return false;
+
+          }
+	        
+	        
+        })
+</script>
+</body>
+</html>

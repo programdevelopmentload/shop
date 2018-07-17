@@ -1,0 +1,120 @@
+.areaInfo{
+    position: relative;
+}
+#addAgreement{
+    position: absolute;
+    top: 0;
+    right: 0
+}
+.measuringlist{
+	width: 100%;
+	border:1px solid #ccc;
+}
+#table_data thead tr{
+	border-bottom: 1px solid #ccc;
+}
+#table_data thead tr td{
+	width:18%;
+	line-height: 45px;
+}
+#table_data tbody tr{
+	border-bottom: 1px solid #ccc;
+}
+#table_data tbody tr td{
+	border-right: 1px solid #ccc;
+}
+#table_data tbody tr td:nth-of-type(5) p{
+	border-bottom: 1px solid #ccc;
+}
+#table_data tbody tr td:nth-of-type(5) p:last-of-type{
+	border-bottom: 0
+}
+/*#table_data tbody td:nth-of-type(2) p:last-of-type{
+	border-bottom: 0
+}
+#table_data tbody td:nth-of-type(2) p span{
+	display:inline-block;
+	width: 32%;
+	text-align: center;
+}*/
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding: 0;
+	vertical-align: inherit;
+}
+
+
+
+/**/
+ .areaServe{ 
+	border: 1px solid #999999; 
+	padding:30px 10px
+	margin-top:10px
+}
+.area_right>.clearfix li{
+  width: 30%;
+  height: 50px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+.area_right>.clearfix li .trigger{
+	width: 0;
+	height: 0;
+	border-width: 5px;
+	border-style: solid;
+	border-color: red transparent transparent transparent;
+	position: absolute;
+	top: 8px;
+	left: 145px
+}
+.area_right>.clearfix li  .trigger_click{
+	padding:10px;
+	border:1px solid #999999; 
+	width: 180px;
+	height: 150px; 
+	background: #ffffff;
+	z-index: 10000;
+	overflow-y: scroll;   
+	display: none; 
+	position: absolute;
+	top: 30px;
+	left: 0px;
+}
+.area_right> .trigger_click ul li{
+	margin:0 10px;
+}
+.close1{
+	float: right;
+	margin-top:-12px;
+}
+.area_right .fl li>span{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+#addBtn{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	margin-left: 50%;
+}
+.costSet{
+	margin-top: 20px
+}
+.uls{
+	border: 1px solid #ccc;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+	padding: 10px
+}
+
+.table th{
+  background:  #ccc;
+  color: #333
+}
+.table tbody tr p{
+	border-bottom: 1px solid #ccc;
+	padding: 10px
+}
+.table tbody tr p:last-of-type{
+	border-bottom: 0
+}

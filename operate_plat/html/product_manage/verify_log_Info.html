@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商家审核-审核信息</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log_Info.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="vfyLog_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar vfyDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="vfyDetail_con_right yycon_right col-xs-10">
+                <ol class="vfyDetail_Bread breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理》</a></li>
+                    <li><a href="#">商品审核》</a></li>
+                    <li><a href="#">待审核》</a></li>
+                    <li class="active"><a href="#">审核详情》</a></li>
+                </ol>
+                <div class="vfyDetail_list conRight1 clearfix">
+                    <div class="clearfix fl">
+                        <p class="fl">商家账号:</p>
+                        <div id="s"></div>
+                        <script type="text/html" id="main">
+                            <div class="fl">{{data.publisher}}</div>
+                        </script>
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">审核阶段:</p>
+                        <div class="fl">商品审核</div>
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">审核状态:</p>
+                        <div id="wait"></div>
+                        <script type="text/html" id="waitDetail">
+                            <div class="fl">{{data.state}}</div>
+                        </script>
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">手机号:</p>
+                        <div class="fl" id="phone"></div>
+                        <script type="text/html" id="telphone">
+                            <div class="fl">{{data.tel}}</div>
+                        </script>
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">申请时间:</p>
+                        <div id="uptime"></div>
+                        <script type="text/html" id="times">
+                             <div class="fl">{{data.time}}</div>
+                        </script>
+                    </div>
+                </div>
+    
+                <div class="vfyDetail_basicInfo">
+                    <h4 class="conRight_h4">基本信息</h4>
+                    <div class="clearfix">
+                        <div class="vfyDetail_basicInfo_left clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">所属分类：</p>
+                                <span id="category"></span>
+                                <script type="text/html" id="categories">
+                                    <span class="fl">{{data.leafClassName}}</span>
+                                </script>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">所属品牌：</p>
+                                <span id="brands"></span>
+                                <script type="text/html" id="brand">
+                                    <span class="fl">{{data.brandName}}</span>
+                                </script>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">型号：</p>
+                                <div id="model"></div>
+                                <script type="text/html" id="models">
+                                    <div class="fl">{{data.model}}</div>
+                                </script>
+                            </div>
+                        </div>
+                        <div class="vfyDetail_basicInfo_right clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">商品类型：</p>
+                                <span id="shopstyle"></span>
+                                <script type="text/html" id="shopstyles">
+                                    <span class="fl">{{data.model}}</span>
+                                </script>
+                            </div>
+                            <div id="origin"></div>
+                            <script type="text/html" id="origins">
+                                <ul style="line-height: 30px">
+                                    {{each data.parameters as value }}
+                                     <li>
+                                         <span>{{value.parameterName}}:</span>
+                                         <span>{{value.value}}</span>
+                                     </li>
+                                    {{/each}}
+                                </ul>
+                            </script>
+                        </div>
+                    </div>
+                    <!-- h4 class=" conRight_h4">审核信息</h4>
+                    <div class="clearfix vfyFag1">
+                        <div class="fl">
+                            <div class=" clearfix">
+                                <p class="fl">审核人：</p>
+                                <div id="auditor"> </div>
+                                <script type="text/html" id="auditors">
+                                    <span class="fl">{{data.auditor}}</span>
+                                </script>
+                            </div>
+                            <div class=" clearfix">
+                                <p class="fl">审核时间：</p>
+                                <div id="result_time"  class="fl"></div>
+                                <script type="text/html" id="result_times">
+                                     <div class="fl">{{data.time}}</div>
+                                </script>
+                            </div>
+                        </div>
+                        <div class="fl clearfix">
+                            <p class="fl">审核结果：</p>
+                            <div id="result" class="vfy_ok vfy_false fl"></div>
+                            <script type="text/html" id="results">
+                                <div class="fl">{{data.state}}</div>
+                            </script>
+                        </div>
+                    </div> -->
+                </div>
+                
+
+                <div class="vfyDetail_standard">
+                    <h4 class=" conRight_h4">产品规格</h4>
+                    <div class="clearfix vfyDetail_bg vfyDetail_standard_title">
+                        <p class="fl">规格信息</p>
+                        <p class="fl">成本价</p>
+                        <p class="fl">虚拟库存</p>
+                        <p class="fl">实体库存</p>
+                        <p class="fl">规格图片</p>
+                    </div>
+                   <!--  <div></div> -->
+                    <div class="vfyDetail_standard_body">
+                        <div id="attribute"></div>
+                        <script type="text/html" id="attributes">
+                        {{each data.baseChecks as val i}}
+                            <div class="vfyDetail_color">
+                                <div class="fl">
+                                {{each val as cont}}
+                                    <div style="width: 150px">
+                                        {{each cont as cc}}
+                                            {{cc.value}}
+                                        {{/each}}
+                                    </div> 
+                                {{/each}}
+                             </div>
+                             <div class="fl" style="width: 160px">成本价{{val.facotryPrice}}</div>
+                             <div class="fl" style="width: 160px"> 库存{{val.factoryStock}}</div>
+                             <div class="fl" style="width: 160px"> {{val.factoryStock}}</div>
+                             <div class="fl" style="width: 160px"> 
+                                   <img src="{{val.pics[0]}}"  style="width: 40px;height: 60px;margin-left: 10px">
+                                   <img src="{{val.pics[1]}}" style="width: 40px;height: 60px;margin-left: 10px">
+                             </div>
+                        </div>                        
+                         
+                        {{/each}}
+                        </script>
+                    </div>
+                </div>
+               <!--  <h4 class=" conRight_h4">审核信息</h4> -->
+                <!-- <div class="clearfix vfyFag1">
+                    <div class="fl">
+                        <div class=" clearfix">
+                            <p class="fl">审核人：</p>
+                            <div id="auditor_two"> </div>
+                                <script type="text/html" id="auditors_two">
+                                    <span class="fl">{{data.auditor}}</span>
+                                </script>
+                        </div>
+                        <div class=" clearfix">
+                            <p class="fl">审核时间：</p>
+                            <div id="result_time_two"  class="fl"></div>
+                                <script type="text/html" id="result_times_two">
+                                     <div class="fl">{{data.time}}</div>
+                                </script>
+                        </div>
+                    </div>
+                </div> -->
+
+
+                <div class="vfyDetail_goodDetail">
+                    <h4 class="conRight_h4">
+                        商品详情
+                    </h4>
+                    <div id="vwaitDetail_paramImg" class="vwaitDetail_paramImg"></div>
+                    <script type="text/html" id="vwaitDetail_paramImgs">
+                        <img src="{{data.goodsDetails}}">
+                    </script>
+                    <div class="conRight_lookImg">
+                        查看完整图片
+                    </div>
+                </div>
+                <div class="vfyDetail_otherInfo">
+                    <h4 class="vfyDetail_h4 conRight_h4">
+                        其他信息
+                    </h4>
+                    <div class="vfyOther_packing clearfix">
+                        <div class="fl">包装清单</div>
+                        <div id="vwaitOther_packin"></div>
+                        <script type="text/html" id="vwaitOther_packins">
+                            {{each data.parts as index}}
+                                <p class="fl">{{index.partsName}} * {{index.value}}</p>
+                            {{/each}}
+                        </script>
+                    </div>
+                    <div class="vfyOther_parts clearfix">
+                        <div class="fl">配件清单</div>
+                        <div id="vwaitOther_part"></div>
+                        <script type="text/html" id="vwaitOther_parts">
+                             {{each data.packings as index}}
+                                <p class="fl">{{index.partsName}} * {{index.value}}</p>
+                            {{/each}}
+                        </script>
+                    </div>
+                    <div class="vfyOther_explain clearfix">
+                        <div class="fl">购买说明</div>
+                        <div id="vwaitOther_explain"></div>
+                        <script type="text/html" id="vwaitOther_explains">
+                            <p>{{data.buyInstructions}}</p>
+                        </script>
+                    </div>
+                    <!-- <h4 class="conRight_h4">审核信息</h4>
+                    <div class="clearfix vfyFag1 container">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <div class=" clearfix">
+                                    <p class="fl">审核人：</p>
+                                    <div id="auditor_three"> </div>
+                                    <script type="text/html" id="auditors_three">
+                                        <span class="fl">{{data.auditor}}</span>
+                                    </script>
+                                </div>
+                                <div class=" clearfix">
+                                    <p class="fl">审核时间：</p>
+                                    <div id="result_time_three"  class="fl"></div>
+                                    <script type="text/html" id="result_times_three">
+                                         <div class="fl">{{data.time}}</div>
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <p class="fl">审核结果：</p>
+                                <div id="result_three" class="vfy_ok vfy_false fl"></div>
+                                <script type="text/html" id="results_three">
+                                    <div class="fl">{{data.state}}</div>
+                                </script>
+                                <!-- <span class="fl compass_res_ok"> -->
+                           <!--  </span>
+                            </div>
+                        </div>
+                    </div> --> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script type="text/javascript" src="../../js/lib/getTime.js"></script>
+<script type="text/javascript">
+    $.sidebarMenu($('.sidebar-menu'));
+    
+    //渲染页面
+    function verify_wait_detail(){
+        var verify_wait_url = "http://172.16.41.23:8007/goods/check/showOne";
+        var _id = "5afd2f74a296605fb4d316be"
+        $.ajax({
+            type: "post",
+            url:verify_wait_url,
+            data:{id:_id},
+            dataType: "json",
+            success:function(data){
+                console.log(data)
+                var html = template("main", data);
+                $('#s').append(html)                
+               
+                //审核状态
+                if (data.state = 0 ) {
+                    var html = template("waitDetail", data);
+                     $("#wait").html("草稿")
+                }else if (data.state = 1) {
+                    var html = template("waitDetail", data);
+                    $("#wait").html("待审核")
+                }else if(data.state = 2){
+                    var html = template("waitDetail", data);
+                    $("#wait").html("审核未通过")
+                }else if(data.state = 3){
+                    var html = template("waitDetail", data);
+                    $("#wait").html("审核通过")
+                }else if(data.state = 4){
+                    var html = template("waitDetail", data);
+                    $("#wait").html("已整合")  
+                }    
+                // 手机号
+                var html = template("telphone", data);
+                $('#phone').append(html)
+                // 申请时间
+                var createTime = getNowFormatDate(data.createTime)
+                var html = template("times", data);
+                $('#uptime').html(createTime)
+                //基本信息
+                var html = template("categories", data);
+                $('#category').html(html)
+                //所属品牌
+                var html = template("brand", data);
+                $('#brands').html(html)
+                //所属型号
+                var html = template("models", data);
+                $('#model').html(html)
+                //商品类型
+                if (data.type = 1) {
+                    var html = template("shopstyles", data);;
+                     $('#shopstyle').html("完成品（标品)")
+                }else{
+                    var html = template("shopstyles", data);
+                     $('#shopstyle').html("订制品（非标品）")
+                }
+               
+                //厂地
+                var html = template("origins", data);
+                $('#origin').html(html)
+                //审核人
+                // var html = template("auditors", data);
+                // $('#auditor').html(html)
+                //审核结果
+                // if (data.state = 0 ) {
+                //     var html = template("results", data);
+                //      $("#result").html("草稿")
+                // }else if (data.state = 1) {
+                //     var html = template("results", data);
+                //     $("#result").html("待审核")
+                // }else if(data.state = 2){
+                //     var html = template("results", data);
+                //     $("#result").html("审核未通过")
+                // }else if(data.state = 3){
+                //     var html = template("results", data);
+                //     $("#result").html("审核通过")
+                // }else if(data.state = 4){
+                //     var html = template("results", data);
+                //     $("#result").html("已整合")  
+                // } 
+                //审核时间
+                // 申请时间
+                // var createTime = getNowFormatDate(data.releaseTime)
+                // var html = template("result_times", data);
+                // $('#result_time').html(createTime)
+
+                // var html = template("auditors_two", data);
+                // $('#auditor_two').html(html)
+                //审核时间
+                // var createTime = getNowFormatDate(data.releaseTime)
+                // var html = template("result_times_two", data);
+                // $('#result_time_two').html(createTime)
+                //产品规格
+                var html = template("attributes", data);
+                $('#attribute').html(html)
+                //商品详情
+                var html = template("vwaitDetail_paramImgs", data);
+                $('#vwaitDetail_paramImg').html(html)
+
+                //包装清单
+                var html = template("vwaitOther_packins", data);
+                $('#vwaitOther_packin').html(html) 
+                //配件清单
+                var html = template("vwaitOther_parts", data);
+                $('#vwaitOther_part').html(html) 
+                 //购买说明
+                var html = template("vwaitOther_explains", data);
+                $('#vwaitOther_explain').html(html)
+
+                //  var createTime = getNowFormatDate(data.releaseTime)
+                // var html = template("result_times_three", data);
+                // $('#result_time_three').html(createTime)
+                //审核人
+                // var html = template("auditors_three", data);
+                // $('#auditor_three').html(html)
+
+                //审核结果
+                // if (data.state = 0 ) {
+                //     var html = template("results_three", data);
+                //      $("#result_three").html("草稿")
+                // }else if (data.state = 1) {
+                //     var html = template("results_three", data);
+                //     $("#result_three").html("待审核")
+                // }else if(data.state = 2){
+                //     var html = template("results_three", data);
+                //     $("#result_three").html("审核未通过")
+                // }else if(data.state = 3){
+                //     var html = template("results_three", data);
+                //     $("#result_three").html("审核通过")
+                // }else if(data.state = 4){
+                //     var html = template("results_three", data);
+                //     $("#result_three").html("已整合")  
+                // } 
+
+
+
+
+
+
+            },
+            error:function(){
+                alert("数据没获取到")
+            }
+
+
+        })
+    }
+    verify_wait_detail()
+
+
+
+
+    //点击小图显示大图
+    $(".conRight_lookImg").click(function(){
+        if ($(".vwaitDetail_paramImg img").css("overflow","hidden")) {
+            $(".vwaitDetail_paramImg").css("height","auto").css("overflow","auto");
+            $(".conRight_lookImg").text("大图已展示")
+        }else{
+            $(".vwaitDetail_paramImg").css("height","300px").css("overflow","hidden");
+            $(".conRight_lookImg").text("查看完整图片")
+        }
+    })
+
+</script>
+</body>
+</html>

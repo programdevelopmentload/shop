@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>账户管理-添加菜单</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/attr_manag.css"/>-->
+    <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        .ope_btn_box {
+            text-align: center;
+        }
+
+        .service_box {
+            padding-top: 30px;
+        }
+
+        .itmesTip {
+            color: red;
+        }
+
+        .relation_table {
+            margin: 25px 160px 10px 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .relation_tip1, .relation_tip2, .relation_tip3 {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+
+        .relation_tip1 {
+            padding-left: 5px;
+        }
+
+        .relation_tip2 {
+            padding-left: 45px;
+        }
+
+        .relation_tip3 {
+            padding-left: 85px;
+        }
+
+        .relation_arrow {
+            background: url(../../images/drop_arrow.png) no-repeat center;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+        }
+
+        .yyconOrder_right > div > div > div:nth-child(1) {
+            padding-right: 0px;
+        }
+
+        .model_name_con .model_name {
+            padding: 8px 8px 0px 0px;
+        }
+        .checkTip{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="attr_manag_con_right public_con yycon_right yyconOrder_right col-xs-12 ">
+    <!--<ol class=" breadcrumb breadcrumb_selfDefined">-->
+    <!--<li><a href="#">商品管理》</a></li>-->
+    <!--<li><a href="#">商品审核》</a></li>-->
+    <!--<li><a href="#">待审核》</a></li>-->
+    <!--<li class="active"><a href="#">审核详情》</a></li>-->
+    <!--</ol>-->
+    <h4 class="conRight_h4">添加菜单</h4>
+    <form class="form-horizontal service_box clearfix" role="form">
+        <div class="form-group col-sm-12 clearfix">
+            <label for="" class="col-sm-2 control-label">请输入菜单名称：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control roleMenu_Add_input" id="">
+            </div>
+            <div class="col-sm-5 roleMenu_input_tip hide_ctr checkTip">
+                不可空置/支持中英文，最多32个字符
+            </div>
+        </div>
+        <div class="col-sm-12 form-group">
+            <label for="" class="col-sm-2 control-label">请选择菜单等级：</label>
+            <div class="col-sm-3">
+                <select name="" class="roleMenu_level form-control">
+                    <option value="1">一级</option>
+                    <option value="2">二级</option>
+                    <option value="3">三级</option>
+                </select>
+            </div>
+            <div class="col-sm-7 roleMenu_level_tip itmesTip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+        <div class="hide_ctr col-sm-12 form-group roleMenu_father_level_con ">
+            <label for="" class="col-sm-2 control-label">请选择上级菜单：</label>
+            <div class="col-sm-3">
+                <select name="" class="roleMenu_father_level form-control">
+                    <option value="0">一级</option>
+                    <option value="1">二级</option>
+                </select>
+            </div>
+            <div class="col-sm-7 roleMenu_father_tip itmesTip hide_ctr">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+
+        <div class="form-group col-sm-12 clearfix">
+            <label for="" class="col-sm-2 control-label">请输入菜单链接：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control role_Menu_href" id="">
+            </div>
+            <div class="col-sm-5 menu_href_tip hide_ctr checkTip">
+                不可空置，最多32个字符
+            </div>
+        </div>
+    </form>
+    <div class="clearfix cate_bottom_operate">
+        <p class="fl conRightBottom_btn_sm btn_sure">确认</p>
+        <a class="fl conRightBottom_btn_sm btn_cancle" href="javascript:history.go(-1);">取消</a>
+    </div>
+</div>
+
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/role_manage/role_Menu_add.js"></script>
+</body>
+</html>

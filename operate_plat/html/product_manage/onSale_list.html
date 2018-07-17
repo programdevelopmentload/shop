@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>在售商品-商品列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+     <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/onSale_list.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style>
+    .public_con #test .table thead tr th{
+        line-height: 47px;
+        height: 47px;
+    }
+    .moldBrand_click, .moldKind_click, .moldType_click{
+        font-size: 14px;
+        width: 64px;
+    }
+    .iconfont{
+        font-size: 14px;
+    }
+    .attr_manag_add .attrAdd_container {
+        width: inherit;
+        height: inherit;
+
+    }
+    .attr_manag_add .popwin_close a{
+        right: 0;
+        top: 0;
+    }
+</style>
+<body>
+ <div class="verifyLog_con_right yycon_right public_con col-xs-12">
+ <!--分配清单-->
+    <div class="distribution_list">
+        <div class="clearfix linkage">
+        <!-- <div class="moldClass moldKind_switch_box clearfix col-xs-12">
+
+            <p class="fl onSale_area">
+                <span class="area">区域：</span>
+                <span class="province"></span>
+                <span class="city"></span>
+            </p>
+
+        </div>   -->
+        <div class="moldMerge clearfix">
+            <div class="moldClass moldKind_switch_box clearfix col-xs-12">
+                <div class="col-xs-1">
+                    <div class="row">
+                        <strong class="moldClass_spc">分类:</strong>
+                    </div>
+                </div>
+                <div class="col-xs-10 clearfix moldKind_switch">
+                    <div class="clearfix claaMold">
+                    </div>
+                </div>
+                <div class="col-xs-1 moldKind_click">
+                    <span class="moldKind_more">
+                        <i>更多</i>
+                        <i class="icon iconfont open_arrow"></i>
+                    </span>
+                    <span class="moldKind_less hide_ctr">
+                        <i>收起</i>
+                        <i class="icon iconfont close_arrow"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="moldBrand_switch_box col-xs-12 clearfix">
+                <div class="col-xs-1">
+                    <div class="row">
+                        <strong class="moldClass_spc">品牌:</strong>
+                    </div>
+                </div>
+                <div class="col-xs-10 moldBrand_switch clearfix">
+                    <div class="clearfix brandClass">
+
+                    </div>
+                </div>
+                <div class="col-xs-1 moldBrand_click">
+                    <span class="moldBrand_more">
+                        <i>更多</i>
+                        <i class="icon iconfont open_arrow"></i>
+                    </span>
+                    <span class="moldBrand_less hide_ctr">
+                        <i>收起</i>
+                        <i class="icon iconfont close_arrow"></i>
+                    </span>
+                </div>
+            </div>
+            <div class=" moldClass moldClass_cates_box  clearfix col-xs-12">
+                <div class="col-xs-1">
+                    <div class="row">
+                        <strong class="moldClass_spc">商品类型:</strong>
+                    </div>
+                </div>
+                <div class="col-xs-10 moldClass_types_con ">
+                    <div class="clearfix TypeClass">
+
+                    </div>
+                </div>
+                <div class="col-xs-1 moldType_click">
+                    <span class="moldType_more">
+                        <i>更多</i>
+                        <i class="icon iconfont open_arrow"></i>
+                    </span>
+                    <span class="moldType_less hide_ctr">
+                        <i>收起</i>
+                        <i class="icon iconfont close_arrow"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="moldClass clearfix col-xs-12 form-group form-inline" style="padding-bottom: 10px">
+                <label class="moldClass_search">商品查找:</label>
+                <input type="text" class="form-control number" placeholder="商品名称/商品编码" name="" style="margin-top: 5px">
+                <button type="button" class="btn btn-primary addBtn"  style="margin-top: 5px;margin-left: 30px;">确认</button>
+            </div>
+        </div>
+
+
+        <!--商品信息 -->
+        <p class="conRight_h4_title">商品列表</p>
+        <div class="shopins pagination_box_ctr">
+
+            <div class="clearfix pageSize_switch_con form-group form-inline">
+                <label >每页显示</label>
+                <select class="pageSize_switch form-control">
+                    <option value="20" class="">20</option>
+                    <option value="30" class="">30</option>
+                    <option value="40" class="">40</option>
+                    <option value="50" class="">50</option>
+                    <option value="100" class="">100</option>
+                </select>
+            </div>
+            <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                <div id="pic_no" class="default-prompt">
+                    <img src="../../images/nothing.png">
+                    <br>
+                    <span>查询无结果</span>
+                </div>
+
+                <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                    <thead>
+                        <tr>
+                            <th>商品信息</th>
+                            <th>商品编码</th>
+                            <th>商品类型</th>
+                            <th>售卖价</th>
+                            <th>上新时间</th>
+                            <th>商品状态</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <div class="leftBottom clearfix">
+                    <div class="page pageBar" id="page">
+                        <p>共231条记录</p>
+                        <div class="pageLft clearfix">
+                            <!--<a class="noprev"></a>-->
+                            <a href="#" class="prev"></a>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>...</span>
+                            <a href="#" class="next"></a>
+                            <!--<a class="nonext"></a>-->
+                        </div>
+                        <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="m-pagination">
+
+        </div>
+        </div>
+    </div>
+ </div>
+
+<!-- 弹框 -->
+<div class="mask">
+    <div class="mask_tab">
+        <div class="mask_tit">
+            <h4>
+                <span>选择在售区域</span>
+                <span class="btn-close">x</span>
+            </h4>
+            <div class="mask_count">
+                <ul class="mask_ul">
+                </ul>
+                <!-- <div class="tab_list"></div> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- 测试遮罩弹窗 -->
+ <template type="text/html" id="ajax_alert">
+     <div class="attrAdd_container ">
+         <div class="maskBtn_operate">
+             <span type="button" class=" mask_ok btn btn-primary">确认</span>
+             <span type="button" class=" mask_false btn  btn-default" onclick="clickFalse()">取消</span>
+             <!--<span href="" class="maskBtn mask_else">取消</span>-->
+         </div>
+     </div>
+ </template>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+ <script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script type="text/javascript" src="../../js/product_manage/onSale_list.js"></script>
+<script type="text/javascript">
+    // sessionStorage.setItem("height",$(".verifyLog_con_right").height());
+    // console.log(sessionStorage.getItem("height"));
+</script>
+</body>
+</html>

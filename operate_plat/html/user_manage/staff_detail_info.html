@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>员工管理-员工列表</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+<link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+<link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+    .headPic{
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        border-radius: 45px;
+
+    }
+</style>
+
+<body>
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <div class="staff_management pagination_box_ctr clearfix">
+        <div class="staff_detail_info"></div>
+    </div> 
+    <div class="m-pagination">
+
+   </div>
+</div>
+
+<script type="text/html" id="staff_detail">
+<h4 class="conRight_h4">账户信息</h4>
+<div class="staff_info w30 lh fl">
+    <p>
+        <span>头像:</span>
+        <img src="{{data.userInfo.headPic}}" class="headPic">
+    </p>
+    <p>
+        <span>昵称:</span>
+        <span>{{data.userInfo.nickName}}</span>
+    </p>
+</div>
+<div class="staff_info w30 lh fl">
+    <p>
+        <span>注册方式:</span>
+        {{if data.userInfo.regRef == '0'}}
+          <span>手机</span>
+        {{/if}}
+        {{if data.userInfo.regRef == '1'}}
+          <span>导购</span>
+        {{/if}}
+        {{if data.userInfo.regRef == '2'}}
+          <span>邮箱</span>
+        {{/if}}
+        {{if data.userInfo.regRef == '3'}}
+          <span>分配</span>
+        {{/if}}
+    </p>
+    <p>
+        <span>邮箱地址:</span>
+        <span>{{data.userInfo.email}}</span>
+    </p>
+</div>
+<h4 class="conRight_h4" style="clear: both">员工信息</h4>
+<div class="staff_duty form-group form-inline">
+     <p>
+        <span>姓名:</span>
+        <span>{{data.userInfo.realName}}</span>                
+     </p>
+     <p>
+        <span>手机号:</span>
+        <span>{{data.userInfo.phoneNumber}}</span>                
+     </p>
+     <p>
+        <span>身份类型:</span>
+        {{if data.UserRoles == '' }}
+        <span>暂无</span>
+        {{else}}
+        {{each data.UserRoles as roleName}}
+        <span>{{roleName.roleName}}</span>
+        {{/each}}
+        {{/if}}          
+     </p>
+     <p>
+        <span>所属店铺:</span>
+        {{if data.Shop == ''}} 
+        <span>暂无</span> 
+        {{else}}
+        {{each data.Shop as val}}
+        <span>{{val.shopName}}</span>
+        {{/each}}
+        {{/if}}               
+     </p>
+     <p>
+        <span>账户状态:</span>
+        {{if data.userInfo.isFrozen == 0}}
+        <span>正常</span>   
+        {{else}}
+        <span>冻结</span>
+        {{/if}}             
+     </p>
+</div>
+    
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+    //$.sidebarMenu($('.sidebar-menu'));
+    //获取id 和state
+function getUrlParam(name){ 
+        //构造一个含有目标参数的正则表达式对象 
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+        //匹配目标参数 
+        var r = window.location.search.substr(1).match(reg); 
+        //alert(r); 
+        //返回参数值 
+        if (r!=null) return decodeURI(r[2]); 
+            return null; 
+    } 
+ 
+
+var localHttp ='http://172.16.44.200:8002/user';
+
+var selectAllInfo = localHttp +'/platForm/selectAllInfo'
+
+function staff_detail_info(){
+    var id =getUrlParam("id");
+    //console.log(typeof(id))
+    console.log(id);
+    $.ajax({
+        type:"post",
+        url: selectAllInfo,        
+        dataType: "json",
+        data:{id:id},
+        success: function (data) {
+            console.log(data);
+            if (data.success == true) {
+                var html = template("staff_detail", data);
+                $('.staff_detail_info').append(html);
+            }
+            
+            
+        },
+        error: function (){
+            console.log(3435)
+        }
+    })
+
+}
+staff_detail_info();
+</script>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>订单管理-处理记录-详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/order_manage/oD_businessIssue_logDetail.css"/>
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="oDlog_detail_con_right yycon_right yyconOrder_right col-xs-10">
+
+                <div class="">
+                    <h4 class="conRight_h4">订单信息</h4>
+                    <div class="clearfix">
+                        <div class="clearfix">
+                            <p class="fl">订单状态：</p>
+                            <div class="fl">已完成</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">订单编号：</p>
+                            <div class="fl">2142342342  </div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">下单时间：</p>
+                            <div class="fl">
+                                <span>2015-01-06</span>
+                                <span>10:20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="conRight_h4">收货信息</h4>
+                    <div class="clearfix">
+                        <div class="clearfix">
+                            <p class="fl">收货人：</p>
+                            <div class="fl">张三疯</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">联系电话：</p>
+                            <div class="fl">15112223487</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">收货地址：</p>
+                            <div class="fl">
+                                北京市朝阳区四惠甘露园
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="conRight_h4">商品信息</h4>
+                    <div class="clearfix">
+                        分页
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="conRight_h4">付款信息</h4>
+                    <div class="clearfix">
+                        <div class="clearfix">
+                            <p class="fl">支付方式：</p>
+                            <div class="fl">在线支付</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">商品总价：</p>
+                            <div class="fl">
+                                <span>￥</span>
+                                <span>1600.00</span>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">运费：</p>
+                            <div class="fl">
+                                <span>￥</span>
+                                <span>10.0</span>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">优惠：</p>
+                            <div class="fl">
+                                <span>￥</span>
+                                <span>10.0</span>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">实付款：</p>
+                            <div class="fl">
+                                <span>￥</span>
+                                <span>10.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="conRight_h4">退款信息</h4>
+                    <div class="clearfix">
+                        <div class="clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">退款类型：</p>
+                                <div class="fl">退货退款</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">退款金额：</p>
+                                <div class="fl">
+                                    <span>￥</span>
+                                    <span>1600.00</span>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">申请时间：</p>
+                                <div class="fl">
+                                    <span>2015-01-07</span>
+                                    <span>10:20</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">申请理由：</p>
+                                <div class="fl">商品有磨损</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">凭证：</p>
+                                <div class="fl orderIssiue_img">
+                                    <img src="../../images/orderIssiue_img.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="conRight_h4">物流信息</h4>
+                    <div class="clearfix">
+                        <div class="clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">物流方式：</p>
+                                <div class="fl">快递</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">物流公司：</p>
+                                <div class="fl">
+                                    申通快递
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">快递单号：</p>
+                                <div class="fl">
+                                    1039302838309
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix fl state_flag_small_father">
+                            <div>
+                                <p></p>
+                                <div>
+                                    最新物流动态
+                                </div>
+                            </div>
+                            <div class="">
+                                <p>
+
+                                </p>
+                                <div class="state_flag_small">
+                                    <span>2018-02-02</span>
+                                    <span>/</span>
+                                    <span>19:33:33</span>
+                                    <span>[无锡市]</span>
+                                    <span>离开无锡市</span>
+                                    <span>发往成都市</span>
+                                    <span>（经转）</span>
+                                </div>
+                            </div>
+                            <div class="">
+
+                                <div class="state_flag_small">
+                                    <span>2018-02-02</span>
+                                    <span>/</span>
+                                    <span>19:33:33</span>
+                                    <span>[无锡市]</span>
+                                    <span>离开无锡市</span>
+                                    <span>发往成都市</span>
+                                    <span>（经转）</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="conRight_h4">商家处理</h4>
+                    <div class="clearfix">
+                        <div class="clearfix">
+                            <p class="fl">处理时间：</p>
+                            <div class="fl">
+                                <span>2015-01-06</span>
+                                <span>10:20</span>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">处理结果：</p>
+                            <div class="fl">不同意用户退款申请</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">原因：</p>
+                            <div class="fl">此为正常的快递发货磨损，非商品质量问题，不予退款  </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="">
+                    <h4 class="conRight_h4">审核信息</h4>
+                    <div class="clearfix">
+                        <div class="clearfix">
+                            <p class="fl">审核时间：</p>
+                            <div class="fl">
+                                <span>2015-01-06</span>
+                                <span>10:20</span>
+                            </div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">审核人：</p>
+                            <div class="fl">王大拿</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">审核结果：</p>
+                            <div class="fl">同意用户退款</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script type="text/javascript">
+    $.sidebarMenu($('.sidebar-menu'));
+</script>
+</body>
+</html>

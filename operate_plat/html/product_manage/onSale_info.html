@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>再售商品-在售信息</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+     <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>   
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/onSale_list.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right yycon_right public_con col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+                <!-- 再售信息 -->
+                <div class="onSale_info">
+                 <div class="info_store">
+                    <p>在售店铺：</p>
+                     <ul>
+                         <li>店铺名称</li>
+                         <li>店铺地址</li>
+                         <li>店铺库存</li>
+                     </ul>
+                     <div class="store_info">
+                         <p>
+                             <span>郫县区-精选004店</span>
+                             <span>高新区天府大道阿拉蕾37号</span>
+                             <span>35</span>
+                         </p>
+                         <p>
+                             <span>郫县区-精选004店</span>
+                             <span>高新区天府大道阿拉蕾37号</span>
+                             <span>35</span>
+                         </p>
+                         <p>
+                             <span>郫县区-精选004店</span>
+                             <span>高新区天府大道阿拉蕾37号</span>
+                             <span>35</span>
+                         </p>
+                         <p>
+                             <span>郫县区-精选004店</span>
+                             <span>高新区天府大道阿拉蕾37号</span>
+                             <span>35</span>
+                         </p>
+                         <p>
+                             <span>郫县区-精选004店</span>
+                             <span>高新区天府大道阿拉蕾37号</span>
+                             <span>35</span>
+                         </p>
+                         <p>
+                             <span>郫县区-精选004店</span>
+                             <span>高新区天府大道阿拉蕾37号</span>
+                             <span>35</span>
+                         </p>
+                     </div>
+
+                 </div>
+                 <div class="onSale_goods">
+                     <p>在售商家：</p>
+                     <ul class="onSale_ul">
+                         <li>供应商</li>
+                         <li>仓库</li>
+                         <li>成本价</li>
+                         <li>虚拟库存</li>
+                         <li>销售库存</li>
+                     </ul>
+                     <div class="goods_info">
+                         <ul>
+                             <li>
+                                <div class="goods_left">蓝精灵家具</div>
+                                <div class="goods_right">
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                </div>
+                             </li>
+                             <li>
+                                <div class="goods_left">蓝精灵家具</div>
+                                <div class="goods_right">
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                    <p>
+                                        <span>武侯仓</span>
+                                        <span>￥35.00</span>
+                                        <span>1000</span>
+                                        <span>200</span>
+                                    </p>
+                                </div>
+                             </li>
+                         </ul>
+                     </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script type="text/javascript" src="../../js/product_manage/onSale_info.js"></script>
+</body>
+</html>

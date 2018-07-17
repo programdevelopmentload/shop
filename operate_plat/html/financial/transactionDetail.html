@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>订单管理 - 订单详情 </title>
+  	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/financial/transactionList.css">
+</head>
+<body>
+
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-12">
+
+    <div class="transactionList">
+      <p class="conRight_h4">交易详情</p>
+      <p class="yizhifu">已支付</p>
+      <div class="ordernum">
+         <p class="dd">订单</p>
+        <div class="uls">
+           <p>
+             <span>订单编号：CO180512092321</span>
+             <span>流水号：32423432432432</span>
+             <span>订单类型：预订单</span>
+           </p>
+           <p>
+             <span>创建时间：2018-05-12 15:20:23</span>
+             <span>支付时间：2018-05-12 15:20:23</span>
+             <span>完成时间：2018-05-12 15:20:23</span>
+           </p>
+           <p>
+             <span>订单金额：￥500.00</span>
+             <span>支付方式：支付宝</span>
+             <span>支付账号：123456@qq.com</span>
+           </p>
+         </div>
+         <div class="tab">
+           <table>
+             <thead>
+               <tr>
+                 <th>商品信息</th>
+                 <th>商品编码</th>
+                 <th>商品批次号</th>
+                 <th>销售价</th>
+                 <th>成本价</th>
+               </tr>
+             </thead>
+             <tbody>
+               <tr>
+                 <td>圣象地板</td>
+                 <td>2300045090</td>
+                 <td>450055</td>
+                 <td>¥2000.00</td>
+                 <td>1500.00</td>
+               </tr>
+               <tr>
+                 <td>圣象地板</td>
+                 <td>2300045090</td>
+                 <td>450055</td>
+                 <td>¥2000.00</td>
+                 <td>1500.00</td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+          <p class="h4">报价单</p>
+          <div class="tab">
+              <table>
+                  <thead>
+                  <tr>
+                      <th>名称</th>
+                      <th>数量</th>
+                      <th>价格</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                      <td>圣象地板</td>
+                      <td>30 条</td>
+                      <td>¥2000.00</td>
+                  </tr>
+                  <tr>
+                      <td>圣象地板</td>
+                      <td>33条</td>
+                      <td>¥2000.00</td>
+                  </tr>
+                  </tbody>
+              </table>
+              <div>
+                  <table>
+                      <tbody>
+                      <tr>
+                          <td>圣象地板</td>
+                          <td style="width: 332px;"></td>
+                          <td>¥2000.00</td>
+                      </tr>
+                      <tr>
+                          <td>圣象地板</td>
+                          <td style="width: 332px;"></td>
+                          <td>¥2000.00</td>
+                      </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+         <div class="detail_right">
+           <p>配送费:¥0</p>
+           <p>安装费:¥0</p>
+           <p>测量费:¥0</p>
+           <p>设计费:¥0</p>
+           <p class="h4">定金:¥500</p>
+         </div>
+      </div>
+    </div>
+</div>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script type="text/javascript" src="../../js/lib/wangeditor.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/financial/transactionList.js"></script>
+<script type="text/javascript">
+$(function () {
+    nav_Common_fun("协议条款列表","添加协议");
+})
+setDateTime();
+
+</script>
+</body>
+</html>

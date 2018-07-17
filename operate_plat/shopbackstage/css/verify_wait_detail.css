@@ -1,0 +1,84 @@
+.vwaitDetail_h4{
+    border-bottom: 2px solid #999 ;
+    padding: 15px 0 10px 0;
+}
+.vwaitDetail_basicInfo_left{
+    padding-right: 80px;
+}
+.vwaitDetail_standard_title p{
+    width: 150px;
+    padding: 0 30px 0 10px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+}
+.vwaitDetail_standard_body > div{
+    height: 88px;
+    border-bottom:1px solid rgba(215, 215, 215, 1);
+}
+.vwaitDetail_standard_body > div > div{
+    width: 150px;
+    padding: 20px 30px 0 10px;
+    height: 50px;
+    line-height: 26px;
+    margin: 0;
+}
+.vwaitDetail_standard_body img{
+    width: 37px;
+    height: 38px;
+}
+.vwaitDetail_paramImg{
+    width: 655px;
+    height: 300px;
+    overflow: hidden;
+}
+.vwaitDetail_otherInfo > div > div:nth-child(1){
+    padding-right: 40px;
+    height: 80px;
+}
+.vwaitDetail_otherInfo > div > div:nth-child(2){
+    width: 740px;
+}
+.vwaitDetail_otherInfo > div > div:nth-child(2)>p{
+    padding-right: 30px;
+}
+.vwaitDetail_form{
+    padding: 20px 0;
+}
+.vwaitDetail_form input{
+    padding:10px 30px 0 0;
+    margin-right: 10px;
+}
+textarea{
+    padding: 0;
+    text-align: left;
+}
+.vwaitDetail_list,
+.vwaitDetail_basicInfo,
+.vwaitDetail_standard,
+.vwaitDetail_goodDetail,
+.vwaitDetail_otherInfo{
+    margin-top: 15px;
+}
+.vwaitDetail_list{
+    padding: 20px 10px;
+}
+.vwaitDetail_list >div{
+    width: 270px;
+}
+.vwaitDetail_list >div:last-child >div> span{
+    padding-right: 10px;
+}
+.vwaitDetail_list >div>p{
+    width: 90px;
+}
+.vwait_reason{
+    color: #BABABA;
+}
+
+.vwaitDetail_color{
+    width: 100%;
+    line-height: 70px;
+    height: 70px;
+    border-bottom: 1px solid #ccc
+}
