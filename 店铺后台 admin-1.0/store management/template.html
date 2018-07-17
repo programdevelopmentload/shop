@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>测量模板</title>
+    <style>
+        ol, ul{margin-bottom: 0 }
+        .measure_title{margin-top: 10px;}
+        .measure_title >p{display: inline-block; }
+        .measure_title>p:last-child{margin-left:40px;}
+        .measureTable ul{border:1px solid #dedede; margin-top:20px; border-bottom: none;}
+        .measureTable ul >li{text-align: center; padding:10px 0; }
+        .measure_bottom ul{border:1px solid #dedede; border-bottom: none;}
+        .measure_bottom ul:last-child{border-bottom: 1px solid #dedede; }
+        .measure_bottom ul li{text-align: center; padding:15px 0;border-top: none;}
+        .measure_bottom ul li a{margin-right: 15px;}
+        iframe{display: none;  position: fixed; left: 0; top: 0;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png" />
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/login.png" />
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span>店铺管理</span></li>
+        <li><span>商品管理</span></li>
+        <li ><span>仓储管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li>
+                <span>店铺信息</span>
+                <ul>
+                    <li>店铺资料</li>
+                </ul>
+            </li>
+            <li>
+                <span >模板管理</span>
+                <ul>
+                    <li class="first">测量模板</li>
+                </ul>
+            </li>
+            <li>
+                <span >地址管理</span>
+                <ul>
+                    <li>收货地址</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="container ">
+            <p class="right_p router">1》2》3</p>
+            <h5>测量模板</h5>
+            <!--<div class="measure_title">-->
+                <!--<p>-->
+                    <!--<label for="">当前区域:</label>-->
+                    <!--<span>成都</span>-->
+                <!--</p>-->
+                <!--<p class="measure_titleP">-->
+                    <!--<label for="">测量费用:</label>-->
+                    <!--<span>￥12211</span>-->
+                <!--</p>-->
+            <!--</div>-->
+            <div class="measureTable">
+                <ul class="clearfix">
+                    <li class="col-sm-3">模板信息</li>
+                    <li class="col-sm-2">模板类型</li>
+                    <li class="col-sm-2">上传时间</li>
+                    <li class="col-sm-5">操作</li>
+                </ul>
+            </div>
+            <div class="measure_bottom">
+                <!--<ul class="clearfix">-->
+                    <!--<li class="col-sm-3">wrveyvtruytu</li>-->
+                    <!--<li class="col-sm-2">tuytu</li>-->
+                    <!--<li  class="col-sm-2">urtuytkju</li>-->
+                    <!--<li class="col-sm-5">-->
+                        <!--&lt;!&ndash;<a href="javascript:;">删除</a>&ndash;&gt;-->
+                        <!--<a href="javascript:;" id="preview">预览</a>-->
+                        <!--<a href="javascript:;" id="downLoad" onclick="exportExcel('tableExcel')">下载</a>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p> CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+
+    <p> 西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+
+    <p> ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+</div>
+<iframe src='https://view.officeapps.live.com/op/view.aspx?src=http://storage.xuetangx.com/public_assets/xuetangx/PDF/1.xls' width='100%' height='100%' frameborder='1'>
+</iframe>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    rewriteAjax({
+        url:'http://172.16.38.185:8002/order/measuretemplet/select',
+
+    },function (res) {
+        var data=res.data;
+        var html=''
+        if (res.success){
+            for (var i=0;i<data.length;i++){
+                html+='<ul class="clearfix">'+
+                    '<li class="col-sm-3">'+data[i].name+'</li>'+
+                    '<li class="col-sm-2">'+data[i].type+'</li>'+
+                    '<li  class="col-sm-2">'+data[i].updateTime+'</li>'+
+                    '<li class="col-sm-5">'+
+                    '<a href="javascript:;" class="preview">预览</a>'+
+                    '<a href="'+data[i].url+'" class="downLoad">下载</a>'+
+                    '</li>'+
+                    '</ul>'
+            }
+
+            $('.measure_bottom').html(html)
+        }
+    })
+
+    $('.measure_bottom').on('click','.preview',function () {
+        var src= $(this).attr('src')
+        $("iframe").attr("src","https://view.officeapps.live.com/op/view.aspx?src="+src)
+        $('iframe').show();
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新品陈列</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        .right .classify .fl, .right .brand .fl{
+            width: 10%;
+        }
+        .right .classify, .right .brand{
+            position: relative;
+        }
+        .right .classify .fr, .right .brand .fr{
+            width: 90%;
+            padding-right: 10%;
+        }
+        .right .classify .fr li,  .right .brand .fr li{
+            float: left;
+            margin-right: 30px;
+        }
+        .right .classify .fl>span, .right .brand .fl>span{
+            display: inline-block;
+            padding: 2px;
+            float: right;
+            margin-right: 10px;
+        }
+        .right .classify>span,  .right .brand>span{
+            display: inline-block;
+            position: absolute;
+            right:10px;
+            top: 0;
+        }
+        .right .classify,.right .brand{
+            overflow: hidden;
+            padding-bottom:10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #dedede;
+        }
+       .right select{
+            display: inline-block;
+            width: 100px;
+        }
+        .cargo_list{font-size: 18px;padding: 5px 0}
+        .list ol,.list ul{
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+        .list ol{
+            background: #f2f2f2;
+            border:1px solid #dedede;
+            border-bottom: none;
+        }
+        .list{
+            width: 90%;
+        }
+        .list ol li{
+            float: left;
+            padding:0px 30px;
+            margin-right: 70px;
+        }
+        .select_list .list_left{
+            width: 20%;
+            padding-left:2%;
+            border:1px solid #dedede;
+            border-right:none
+        }
+        .select_list>div>div{
+            float: left;
+        }
+        .fr>p{
+    margin-bottom: 0;
+}
+        .select_list .list_middle{
+            width: 16%;
+            padding-left: 3%;
+            border:1px solid #dedede;
+            border-right:none
+        }
+        .select_list .list_right{
+            border:1px solid #dedede;
+            border-bottom: none;
+            border-top: none;
+            width: 64%;
+        }
+        .select_list .list_right ul{
+            /*padding-left: 8%;*/
+            border-bottom: 1px solid #dedede;
+        }
+        .select_list .list_right li{
+            padding:15px 0;
+            float: left;
+            width: 29%;
+            padding-left: 30px;
+            margin-right: 15px;
+        }
+        .select_list div{
+            overflow: hidden;
+            max-height: 600px;
+        }
+        .select_list{
+            height: 300px;
+            overflow-y: scroll;
+        }
+       .classify ul,.brand ul{
+            overflow: hidden;
+            height: 20px;
+            padding-top: 2px;
+            margin-bottom: 0;
+        }
+       .classify ul li,.brand ul li{
+            margin-bottom: 10px;
+       }
+        .yixuan{
+            width: 90%;
+            overflow: hidden;
+            height: 50px;
+
+        }
+        .yixuan span{
+            float: right;
+            margin-top: 30px;
+
+        }
+        .yixuan input{
+            float: right;
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .more{
+            display: inline-block;
+            padding:2px;
+            border: 1px solid #eeeeee;
+        }
+        .biao_classify{
+            display: none;
+        }
+        .eng{
+            display: none;
+        }
+        .eng span{
+            padding-top: 2px;
+            margin-right: 12px;
+        }
+       #box .li2{
+            padding-left: 40px;
+        }
+        .list_right img{
+            width: 100%;
+
+        }
+        .list_right span{
+            width: 65%;
+            text-align: left;
+        }
+        .list_right .s1{
+            width: 30%;
+        }
+        .li3 i{display: inline-block;width: 25px;height: 25px;background: url("../image/none.png");background-size: 100% 100%;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/login.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >店铺管理</span></li>
+        <li><span class="head_active">商品管理</span></li>
+        <li><span>仓储管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span >陈列管理</span>
+                <ul>
+                    <li class="first">新品陈列</li>
+                    <li>陈列记录</li>
+                </ul>
+            </li>
+            <li >
+                <span>上架管理</span>
+                <ul>
+
+                    <li>商品上架</li>
+                    <li>上架记录</li>
+
+                </ul>
+            </li>
+            <li >
+                <span>在售管理</span>
+                <ul>
+                    <li>在售商品</li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="right">
+        <p class="router">商品管理》陈列管理》新品陈列</p>
+        <div class="classify">
+            <div class="fl">
+                分类
+                <span class="all">全部</span>
+            </div>
+            <div class="fr">
+                <ul>
+
+
+                </ul>
+            </div>
+            <span class="more">更多 <img src="../image/down.png" alt=""></span>
+        </div>
+        <div class="brand">
+            <div class="fl">
+                品牌
+                <span class="all">全部</span>
+
+            </div>
+            <div class="fr">
+                <p class="eng">
+                    <span>A</span>
+                    <span>B</span>
+                    <span>C</span>
+                    <span>D</span>
+                    <span>E</span>
+                    <span>F</span>
+                    <span>G</span>
+                    <span>H</span>
+                    <span>I</span>
+                    <span>G</span>
+                    <span>K</span>
+                    <span>L</span>
+                    <span>M</span>
+                    <span>N</span>
+                    <span>O</span>
+                    <span>P</span>
+                    <span>Q</span>
+                    <span>R</span>
+                    <span>S</span>
+                    <span>T</span>
+                    <span>U</span>
+                    <span>V</span>
+                    <span>W</span>
+                    <span>X</span>
+                    <span>Y</span>
+                    <span>Z</span>
+                </p>
+                <ul>
+                    <li>212</li>
+                    <li>ewqewq</li>
+                    <li>sdasd</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                    <li>dads</li>
+                </ul>
+            </div>
+            <span class="more">更多 <img src="../image/down.png" alt=""></span>
+        </div>
+        <div class="biao_classify">
+
+
+        </div>
+        <p class="cargo_list">选货列表</p>
+        <p>共 <span>1111</span>条  商品类型
+            <select name="" id="sel" class="form-control down">
+                <option value=" ">全部</option>
+
+            </select>
+        </p>
+        <div class="list">
+            <ol class="list_head">
+                <li>商品信息</li>
+                <li>商品类型</li>
+                <li>规格信息</li>
+                <li>商品编号</li>
+                <li>选择</li>
+            </ol>
+            <div class="select_list">
+                <div>
+                    <div class="list_left">
+                        松下 家用开关  0392
+                    </div>
+                    <div class="list_middle">标品</div>
+                    <div class="list_right">
+                        <ul ><li>
+                            <span class="s1">
+                          <img src="../image/icon.png" alt="">
+                    </span>
+
+                            <span class="s2">白色两关242412214121</span></li>
+
+
+                            <li >1212112</li>
+                            <li class="li3"><i class="no"></i></li></ul>
+
+                        <ul>
+                            <li>
+                                     <span class="s1">
+                          <img src="../image/icon.png" alt="">
+                    </span>
+
+                                <span class="s2">白色两关242412214121</span>
+                            </li>
+                            <li>1212112</li>
+                            <li  class="li3"><i class="no"></i></li>
+                        </ul>
+
+                    </div> </div>
+
+
+                </div>
+            </div>
+        <div class="yixuan">
+            <input type="button" value="去处理" class="form-control btn-primary  dispose"> <span>已选中：<i>35</i></span>
+        </div>
+        </div>
+
+    </div>
+<div class="footer">
+    <p> CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+
+    <p> 西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+
+    <p> ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    //点击去处理
+    $('.dispose').click(function () {
+        window.location.href='./chen_inventory.html'
+    })
+    var boo=true;
+    var brandId="";
+    var lcid="";
+    var type="";
+    var index=1;
+    $("#sel").on("change",function () {
+        type=$(this).val();
+        console.log(type);
+        $(".select_list").html("");
+        boo=true;
+        index=1;
+        fn();
+    });
+$(".classify .all").click(function () {
+    lcid="";
+    $(".select_list").html("");
+    boo=true;
+    index=1;
+    fn();
+})
+    $(".classify .fr ul").on("click","li",function () {
+        lcid=$(this).attr("lcid");
+        console.log(lcid);
+        $(".select_list").html("");
+        boo=true;
+        index=1;
+        fn();
+    });
+    $(".brand .fr ul").on("click","li",function () {
+        brandId=  $(this).attr("brandId");
+        console.log(brandId);
+        $(".select_list").html("");
+        boo=true;
+        index=1;
+        fn();
+    });
+    $(".brand .all").on("click","li",function () {
+        brandId= "";
+        $(".select_list").html("");
+        boo=true;
+        index=1;
+        fn();
+    });
+    //获取分类
+    rewriteAjax({
+        url:getBaseUrl("wx")+"/goods/GoodsClassification/showAllLeafClass"
+    },function (res) {
+        if(res.success){
+            var  data=res.data;
+            var str=""
+            for(var i=0;i<data.length;i++){
+                str+='<li lcid="'+data[i].id+'">'+data[i].name+'</li>'
+            }
+            $(".classify .fr ul").html(str)
+        }
+    })
+    //获取品牌
+    rewriteAjax({
+        url:getBaseUrl("wx")+"/goods/brand/showBrandLeafClassOpenClose"
+    },function (res) {
+        if(res.success){
+            var  data=res.data;
+            var str=""
+            for(var i=0;i<data.length;i++){
+                str+='<li fpy="'+data[i].fpy+'" brandId="'+data[i].id+'">'+data[i].nameCh+'</li>'
+            }
+            $(".brand .fr ul").html(str);
+        }
+    })
+    
+    //获取类型
+    rewriteAjax({
+        url:getBaseUrl("wx")+"/goods/service/showAll"
+    },function (res) {
+        var str="";
+        if(res.success){
+            for(var i=0;i<res.data.length;i++){
+                str+='<option typeId="'+res.data[i].id+'">'+res.data[i].goodsType+'</option>'
+            }
+        }
+        $("#sel").append(str)
+    })
+    //字母筛选
+    $(".eng span").click(function () {
+        var letter=$(this).html();
+        var brandLetter=$(".brand .fr ul li");
+        var str="";
+        for(var i=0;i<brandLetter.length;i++){
+            if(brandLetter.eq(i).attr("fpy")==letter){
+                str+='<li fpy="'+letter+'" brandId="'+brandLetter.eq(i).attr("brandId")+'">'+brandLetter.eq(i).html()+'</li>'
+            }
+        }
+        $(".brand .fr ul").html(str);
+    });
+    //去处理
+    $(".btn-primary").click(function () {
+        var goods="";
+        $(".list_right input:checked").each(function () {
+            goods+=$(this).attr("spuId")+","
+        });
+        goods=goods.substr(0,goods.length-1);
+        rewriteAjax({
+            url:getIp("zmy")+"/shop/joinDisplay",
+            data:{ shopId:11010101, goodsId:"33,14,55"}
+        },function (res) {
+            if(res.success){
+                window.location.href="detailed_list.html";
+            }
+        })
+    });
+    //滚动加载更多
+    $(".select_list").scroll(function () {
+        // console.log($(this).height);
+            var vh=$(this).height();
+            console.log(vh)
+            var ch=$(this).get(0).scrollHeight;
+            console.log(ch)
+            var st=$(this).scrollTop();
+            console.log(st)
+            if((st+vh)>ch-30){
+                fn();
+            }
+
+
+    });
+    //更多
+    $(".more").click(function () {
+        console.log($(this).prev().find("ul").css("height"));
+        if($(this).prev().find("ul").css("height")=="20px"){
+            $(this).prev().find("ul").css("height","100%");
+            $("biao_classify").css("disaply","block");
+            if($(this).parent().attr("class")=="brand"){
+                $(".eng").css("display","block");
+            }
+        }else{
+            $(this).prev().find("ul").css("height","20px")
+            $("biao_classify").css("disaply","none");
+            if($(this).parent().attr("class")=="brand"){
+                $(".eng").css("display","none");
+            }
+
+        }
+    });
+    var str="";
+    rewriteAjax({
+        url:getBaseUrl("zmy")+"/shop/findUndisplaySkuIdsByShopId",
+        data:{shopId:11010101}
+    },function (res) {
+        if(res.success){
+            var data=res.data;
+            for(var i=0;i<data.length;i++){
+                str+=data[i]+",";
+            }
+            str=str.substr(0,str.length-1);
+            fn();
+        }
+    })
+    // fn("11,22,33");
+    function fn() {
+        if(boo){
+          rewriteAjax({
+              url:getBaseUrl("t")+"/goods/sku/listGroupSplit",
+              data:{
+                  ids:"",
+                  state:2,
+                  currentPage:index,
+                  pageSize:10,
+                  brandId:brandId,
+                  type:"",
+                  lcid:lcid,
+              }
+          },function (res) {
+              var str="";
+              console.log(res);
+              if(res.data.currentPage<10){
+                  boo=false;
+              }
+              var data=res.data.items;
+              for(var i=0;i<data.length;i++){
+                  str+=' <div><div class="list_left">'+data[i].leafClassName +data[i].brandName+data[i].model+'</div>';
+                  var type="";
+                  if(data[i].type==1){
+                      type="标品"
+                  }else if(data[i].type==2){
+                      type="非标品"
+                  }else{
+                      type="定制品"
+                  }
+                  str+=' <div class="list_middle">'+type+'</div><div class="list_right" onload="getH(this)">';
+                  for (var j=0;j<data[i].goodsSkus.length;j++){
+                      str+=' <ul><li> <dl><dt><img src="'+data[i].goodsSkus[j].goodsDetails+'" alt=""></dt><dd>';
+                      for(var k=0;k<data[i].goodsSkus[j].attributes.length;k++){
+                          str+='<span>'+data[i].goodsSkus[j].attributes[k]+'</span>'
+                      }
+                      str+='</dd></dl> </li>';
+                      str+='<li>'+data[i].goodsSkus[j].number+'</li><li><input type="checkbox"' +
+                          ' spuId="'+data[i].goodsSkus[j].spuId+'"></li></ul>';
+
+                  }
+                  str+='</div> </div>'
+              }
+              $(".select_list").append(str);
+           })
+        }
+    }
+    function getH(a) {
+        $(a).prev().css("height",$(a).height());
+        $(a).prev().prev().css("height",$(a).height());
+    }
+    $("i").click(function () {
+        if($(this).attr("class")=="no"){
+            $(this).attr("class","yes").css({"background":"url('../image/check.png')","background-size":"100% 100%"})
+        }else{
+            $(this).attr("class","no").css({"background":"url('../image/none.png')","background-size":"100% 100%"})
+
+        }
+    })
+
+</script>
+</body>
+</html>

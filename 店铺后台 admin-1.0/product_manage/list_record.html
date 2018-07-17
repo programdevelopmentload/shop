@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>陈列记录</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+
+
+        dt,dd{
+            float: left;
+        }
+        dt img{
+            width: 50px;
+            height: 50px;
+        }
+        dd{
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        .list{
+            padding: 10px 0;
+            font-size: 18px;
+
+        }
+        .allList ol{
+            overflow: hidden;
+            line-height: 40px;
+            background: #f2f2f2;
+            border:1px solid #999;
+            margin-bottom: 0;
+        }
+        .allList ul{
+            overflow: hidden;
+            padding:15px 0;
+            border: 1px solid #dedede;
+            border-top: none;
+            margin-bottom: 0;
+        }
+        .allList ul .name{
+            padding-top: 15px;
+        }
+        #box .allList  li{
+            float: left;
+            padding-right: 0;
+        }
+        .right .col-sm-1{
+            width: 10%;
+
+        }
+        .right .col-sm-2{
+            width: 18%;
+        }
+        .right .col-sm-0{
+            width: 5%;
+            float: left;
+            padding-left: 10px;
+
+        }
+        .allList ul .col-sm-1{
+            padding-top: 15px;
+        }
+        .allList ul .col-sm-0{
+            padding-top: 15px;
+        }
+
+        .product_type li{
+            float: left;
+            margin-right: 40px;
+
+        }
+        .edit{
+            float: right;width: 6%;
+        }
+
+        .form-control{
+            display: inline-block;
+            width: 200px;
+        }
+        select.down{
+            width: 100px;
+        }
+        .btn-primary{
+            display: inline-block;
+            width: 200px;
+        }
+        .status{
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/login.png"/>
+    </a>
+    <ul>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span>基础设置</span></li>
+
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >店铺管理</span></li>
+        <li><span class="head_active">商品管理</span></li>
+        <li><span>仓储管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>陈列管理</span>
+                <ul>
+                    <li>新品陈列</li>
+                    <li class="first">陈列记录</li>
+                </ul>
+            </li>
+            <li >
+                <span>上架管理</span>
+                <ul>
+
+                    <li>商品上架</li>
+                    <li>上架记录</li>
+
+                </ul>
+            </li>
+            <li >
+                <span>在售管理</span>
+                <ul>
+
+                    <li>在售商品</li>
+
+
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="right">
+        <p class="router">商品管理》陈列管理》陈列记录</p>
+        <div>
+           关键字： <input type="text" class="form-control keyWord">
+            商品编号：<input type="text" class="form-control number">
+            <input type="button" class="form-control btn-primary order_btn find" value="查找"    >
+        </div>
+        <p class="list">陈列清单 </p>
+        <div>商品类型：
+            <select name="" id="" class="form-control down type">
+                <option value=" ">全部</option>
+
+            </select>
+            <span class="status">陈列状态：
+                <select name="" class="form-control down state">
+                    <option value=" ">全部</option>
+
+                    <option value="2">待上架</option>
+                    <option value="3">已上架</option>
+                    <option value="4">已下架</option>
+                </select>
+            </span>
+        </div>
+
+        <div class="allList">
+            <ol class="list_head">
+                <li class="col-sm-2">商品规格</li>
+                <li class="col-sm-2">商品型号</li>
+                <li class="col-sm-1">商品类型</li>
+
+                <li class="col-sm-2">商品编码</li>
+                <li class="col-sm-1">商品批次</li>
+                <li class="col-sm-1">发起时间</li>
+                <li class="col-sm-1">陈列状态</li>
+
+                <li class="">操作</li>
+
+            </ol>
+            <div>
+
+            </div>
+        </div>
+        <div>
+
+        </div>
+
+        <!--分页-->
+        <div class="leftBottom clearfix">
+            <div class="page pageBar" id="page">
+                <p></p >
+                <div class="pageLft clearfix">
+                    <a href="#" class="prev"></a>
+                    <a href="#" class="active">1</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                </div>
+                <div class="pageRht">共<span id="totalPage"></span>页</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    var state="";
+    var type="";
+    var number="";
+    var keyWord="";
+    var currentPage=1;
+    $(".find").click(function find(){
+        keyWord=$(".keyword").html();
+        number=$(".number").html();
+        currentPage=1;
+        searchNowPage();
+        searchPage(_nowPage);
+
+    })
+    $(".type").change(function () {
+        type=$(this).val();
+        currentPage=1
+        searchNowPage();
+        searchPage(_nowPage);
+    });
+    $(".state").change(function () {
+        state=$(this).val();
+        currentPage=1
+        searchNowPage();
+        searchPage(_nowPage);
+    });
+    //获取类型
+    rewriteAjax({
+        url:getIp("wx")+"/goods/service/showAll"
+    },function (res) {
+        var str="";
+        if(res.success){
+            for(var i=0;i<res.data.length;i++){
+                str+='<option typeId="'+res.data[i].id+'">'+res.data[i].goodsType+'</option>'
+            }
+        }
+        $(".type").append(str)
+    })
+    $(function () {
+        searchPage();   //初始化函数
+    });
+    /**
+     * 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.40.153:8009/shop/findDisplayRecord', "page", function (data) {
+        fillTableData(data);
+    });
+    function searchNowPage() {//首次两参进入
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+    };
+
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+    }
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        var params = {
+            'shopId':11010101,
+            'pageSize':10,
+             'pageNum':1,
+            type:"",
+            state:"",
+            number:"",
+            keyWord:"",
+
+        };
+        return params;
+    };
+    /** table数据 */
+    function fillTableData(data) {
+        console.log(data)
+            // var data=res.data.items;
+            var str="";
+            for(var i=0;i<data.length;i++){
+                str+=' <ul class="ul'+i+' liCenter"><li class="col-sm-2"><span class="s1">';
+                str+='<img src="'+data[i].pics[0].pic+'" alt=""><span class="s2"></span>';
+                for(var j=0;j<data[i].attributes.length;j++){
+                    str+=data[i].attributes[j].value+" ";
+                }
+                str+="</dd></dl></li>";
+                str+=' <li class="col-sm-2 name">'+data[i].brandName+" " +data[i].leafClassName+" "+data[i].model+'</li>';
+                str+=' <li class="col-sm-1">'+data[i].goodsService.goodsType+'</li>';
+                str+='<li class="col-sm-2">'+data[i].id+'</li>';
+                str+='<li class="col-sm-1">'+data[i].batchNumber+'</li>';
+                str+='<li class="col-sm-1">'+data[i].applyDisplayTime+'</li>';
+                switch (data[i]. state){
+                    case 1:
+                        str+='<li class="col-sm-1">已加入陈列 </li>';
+                        break;
+                    case 2:
+                        str+='<li class="col-sm-1">待上架  </li>';
+                        break;
+                    case 3:
+                        str+='<li class="col-sm-1">待上架  </li>';
+                        break;
+                    case 4:
+                        str+='<li class="col-sm-1">已下架</li>';
+                        break;
+                }
+                str+='<li class="edit"><span>查看</span></li>'
+            }
+            $(".allList div").html(str);
+    }
+
+    // 点击查询获取数据
+    $(".order_btn").click(function () {
+        searchNowPage();
+        searchPage(_nowPage);
+
+    })
+    
+    //点击查看
+    $('.allList div').on('click',function () {
+        // alert(1)
+        window.location.href='./look_details.html'
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <title>店铺资料</title>
+    <style>
+        .back_lists li{ margin-right: 60px; margin-top:15px;}
+        .back_lists li label{font-weight: normal;}
+        .back_lists li  .back_listsP{display: inline-block; margin-left:20px;}
+        .back_listsP span{margin-right: 20px;}
+        .back_width{width:280px;}
+        .sore_btn{margin-top:15px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png" />
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/login.png" />
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span class="head_active">店铺管理</span></li>
+        <li><span>商品管理</span></li>
+        <li><span>仓储管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li>
+                <span>店铺信息</span>
+                <ul>
+                    <li  class="first">店铺资料</li>
+                </ul>
+            </li>
+            <li >
+                <span >模板管理</span>
+                <ul>
+                    <li>测量模板</li>
+                </ul>
+            </li>
+            <li>
+                <span>地址管理</span>
+                <ul>
+                    <li>收货地址</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+            <p class="right_p router">1》2》3</p>
+            <h5>基本资料</h5>
+            <div class="back_lists">
+            </div>
+            <h5>操作</h5>
+            <button class="btn btn-default sore_btn">编辑店铺信息</button>
+    </div>
+
+</div>
+<div class="footer">
+    <p> CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+
+    <p> 西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+
+    <p> ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    rewriteAjax({
+        url : 'http://172.16.40.153:8009/shop/findShopByShopId',
+        data:{ "shopId" : "11010103"}
+    },function (result) {
+        if (result.success){
+            var data=result.data;
+            // console.log(data);
+            var html=''
+            html+='<ul>'
+            html+='<ul>'
+            html+='<li> '
+            html+='<label>店铺名称:</label> '
+            html+='<p class="back_listsP  ">'+data.shopName+'</p>'
+            html+='</li>'
+            html+='<li> '
+            html+='<label>所在区域:</label> '
+            html+='<p class="back_listsP">'+data.shopArea+'</p>'
+            html+='</li>'
+            html+='<li> '
+            html+='<label>店铺地址:</label> '
+            html+='<p class="back_listsP">'+data.shopAddress+'</p>'
+            html+='</li>'
+            html+='<li> '
+            html+='<label>创建时间</label>'
+            html+='<p class="back_listsP">'+data.shopCreatetime+'</p>'
+            html+='</li>'
+            html+='<li> '
+            html+='<label>营业时间:</label>'
+            html+='<p class="back_listsP">'+data.shopStartWorkTime+'</p>--'
+            html+='<p class="back_listsP">'+data.shopEndWorkTime+'</p>'
+            html+='</li>'
+            html+='<li>'
+            html+='<label>联系电话:</label>'
+            html+='<p class="back_listsP">'+data.shopTelAreaCode+'</p>'
+            html+='</li>'
+            html+='<li class="clearfix"> '
+            html+='<label class="fl">经营区域:</label>'
+            html+='<div class="fl back_listsP back_width">'
+            var area=data.shopServiceArea.split(",");
+            // console.log(data)
+            for (var i=0;i<area.length;i++){
+                html+=' <span>'+area[i]+'</span>'
+            }
+            html+=' </div>'
+            html+=' </li>'
+            html+=' <li> '
+            html+=' <label>店铺状态:</label>'
+            // html+='<p class="back_listsP">'+data.shopState+'</p> '
+            if (data.shopState=='0') {
+                html+='<p class="back_listsP">锁定</p>'
+            }else if(data.shopState=='1'){
+                html+='<p class="back_listsP">正常</p>'
+            }
+            html+='</li>'
+            html+=' </ul>'
+        }
+        $('.back_lists').append(html)
+    })
+
+    $('.sore_btn').click(function () {
+         window.location.href='store_inforEdit.html';
+    })
+</script>
+</body>
+</html>

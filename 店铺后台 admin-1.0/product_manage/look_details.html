@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <title>陈列详情</title>
+    <style>
+        .account_cont{padding-bottom: 30px;}
+        .account_cont>p{padding-top:10px;}
+        .account_cont .account_p1{padding:10px 0 10px 10px;border:1px solid #337ab7; background: #f2f2f2;}
+        .account_file{position: relative; overflow: hidden; display: inline-block;}
+        .account_file input{height: 48px; position: absolute;top:0;left:0;opacity: 0;}
+       .account_title .account_card >li{float: left; margin-right: 160px; padding:20px 0;}
+        .account_card img{padding-left: 20px;}
+        .account_card li{float: left;}
+        .cer-infor-btn{width: 300px; display: block;margin:0 auto;}
+        .click_img{display: none; background: url("../image/look.png") no-repeat 10px center;cursor: pointer;
+
+        }
+        .account_cont ol{
+            overflow: hidden;
+            background: #f2f2f2;
+            border:1px solid #337ab7;
+        }
+        .account_cont ol li{
+            float: left;
+            width:30%;
+            margin-left: 20px;
+            line-height: 35px;
+        }
+        .account_cont ol li .reason{
+            display: inherit;
+            margin-left: 60px;
+        }
+        .account_title label{min-width: 94px;}
+        .account_title a{padding-left: 40px;}
+        .account_title li div{
+            position: relative;
+        }
+        .account_title li div img{
+            margin: 0;
+            padding: 0;
+        }
+        .account_title li div input{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 30px;
+            width: 100%;
+        }
+        .account_title li span{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            background: #00000080;
+            line-height: 30px;
+            width: 100%;
+            text-align: center
+        }
+        .account_title label{width: 94px;}
+        .account_title a{padding-left: 40px;}
+        .upimg img{
+            width:220px;
+            height: 140px;
+        }
+        .look_nav{
+            padding: 15px 0;
+            border-bottom: 1px solid #dedede
+        }
+        .upimg span{
+            display: none;
+        }
+        .product_specification{
+            overflow: hidden;
+
+            width: 80%;
+
+
+        }
+        .specification_msg{
+            margin-top:20px;
+            border-top: 1px solid #dedede;
+            width: 80%;
+        }
+        .specification_msg li{
+            text-align: center;
+        }
+        .specification_msg img{
+            width: 50px;
+        }
+        .specification_msg ul{
+            overflow: hidden;
+            padding: 10px 0;
+            width: 100%;
+            border-bottom: 1px solid #dedede;
+        }
+        .basics_msg{
+            width: 80%;
+            overflow: hidden;
+        }
+        .basics_msg li{
+            float: left;
+            width: 25%;
+            padding: 8px 0;
+        }
+        #box .col-sm-3{
+            width: 170px;
+        }
+        #box .col-sm-2{
+            width: 120px;
+        }
+        .specification_msg ul span{
+            display: inherit;
+        }
+        .other_msg{
+            overflow: hidden;
+            width: 80%;
+        }
+        .other_msg ul{
+            overflow: hidden;margin: 13px 0;
+        }
+        .other_msg ul span{
+            margin-right: 30px;
+        }
+        .other_msg .fl{
+            width: 12%;
+        }
+        .other_msg .fr{
+            width: 88%;
+        }
+        #box  .product_img_detail{
+            border:none;
+            background: #fff;
+        }
+        .account_cont .type{
+            display: inherit;
+            margin-left: 74px;
+        }
+        .chenlie{
+            padding: 20px 30px;
+            background: #f2f2f2;
+            border:  1px solid #dedede;
+        }
+        .chenlie .fl{
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/login.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >店铺管理</span></li>
+        <li><span class="head_active">商品管理</span></li>
+        <li><span>仓储管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+                <ul>
+                    <li >
+                        <span>陈列管理</span>
+                        <ul>
+                            <li>新品陈列</li>
+                            <li class="first">陈列记录</li>
+                        </ul>
+                    </li>
+                    <li >
+                        <span>上架管理</span>
+                        <ul>
+
+                            <li>商品上架</li>
+                            <li>上架记录</li>
+
+                        </ul>
+                    </li>
+                    <li >
+                        <span>在售管理</span>
+                        <ul>
+
+                            <li>在售商品</li>
+
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+            </div>
+    <div class="right">
+
+                <div class="account_cont">
+                    <p>商品管理》陈列管理》陈列记录</p>
+                    <div class="chenlie">
+                        <div class="fl">
+                            <p>陈列商品： <span>212121</span></p>
+                            <p>陈列状态: <span style="color:red" class="status">111</span></p>
+                        </div>
+                        <div class="fl">
+                            <p>发起时间：<span class="time"></span></p>
+
+                        </div>
+                        <div class="clearbox"></div>
+                    </div>
+                    <p class="look_nav"> 基本信息</p>
+                    <ul class="basics_msg">
+
+                    </ul>
+                    <p class="look_nav">产品规格</p>
+                    <ul class="product_specification list_head">
+                        <li class="col-sm-2">规格信息</li>
+                        <li class="col-sm-2">商品编码</li>
+                        <li class="col-sm-2">商品批次</li>
+                        <li class="col-sm-2">销售价</li>
+                        <li class="col-sm-2">店铺库存</li>
+                        <li >规格图片</li>
+                    </ul>
+                    <div class="specification_msg">
+
+                        <ul>
+                            <li class="col-sm-2 attribute">
+
+                            </li>
+
+                            <li class="col-sm-2 code">222</li>
+                            <li class="col-sm-2 pici">222</li>
+                            <li class="col-sm-2 price">222</li>
+                            <li class="col-sm-2 stock">222</li>
+                            <li class="img">
+                                <img src="../image/icon.png" alt="">
+                                <img src="../image/icon.png" alt="">
+                                <img src="../image/icon.png" alt="">
+                                <img src="../image/icon.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                    <p class="look_nav">商品详情</p>
+                    <ul class="product_img_detail">
+                        <li>  <img src="" alt=""></li>
+                    </ul>
+
+
+                    <p class="look_nav">其他信息</p>
+                    <div class="other_msg">
+                        <ul>
+                            <li class="fl">包装清单：</li>
+                            <li class="fr"></li>
+                        </ul>
+                        <ul>
+                            <li class="fl">配件清单：</li>
+                            <li class="fr"></li>
+                        </ul>
+                        <ul>
+                            <li class="fl">购买说明：</li>
+                            <li class="fr">
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+</div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+     <script>
+         rewriteAjax({
+             url:"http://172.16.40.153:8009/shop/findDisplayDetailInfo",
+             data:{shopId:11010101,goodsId:453859287756836864}
+         },function (res) {
+             if(res.success){
+                 switch (res.data.displayState) {
+                     case 2:
+                         $(".status").html("待上架");
+                         break;
+                     case 3:
+                         $(".status").html("已上架");
+                         break;
+                     case 4:
+                         $(".status").html("已下架");
+                         break;
+
+                 }
+                 $(".time").html(res.data.time);
+                 var pcNum=res.data.batchNumber;
+                 $(".pici").html(res.data.batchNumber);
+
+             }
+         })
+
+         rewriteAjax({
+             url:"http://172.16.40.215:8010/shopGoodsStore/getGoodsCountByGoodsId",
+             data:{ ids:"1,2,3", shopId:1}
+         },function (res) {
+             if(res.success){
+                 $(".stock").html(res.data["2"]);
+
+             }
+         })
+         rewriteAjax({
+             url:"http://172.16.38.207:8007//goods/sku/findByIds",
+             data:{ids:[1111111]}
+         },function (res) {
+             var data=res.data;
+             if(res.success){
+                 $(".chenlie .fl p span").html(data[0].showName);
+                 $(".basics_msg").append('<li><span>所属分类：</span>'+data[0].leafClassName+'</li>');
+                 $(".basics_msg").append('<li><span>商品类型：</span>'+data[0].type+'</li>');
+                 $(".basics_msg").append('<li><span>所属品牌：</span>'+data[0].brandName+'</li>');
+                 $(".basics_msg").append('<li><span>型号：</span>'+data[0].model+'</li>');
+                 var str=""
+                 for(var i=0;i<data[0].attributes.length;i++){
+                     str+=data[0].attributes[i].value+" ";
+                     $(".basics_msg").append('<li><span>'+data[0].attributes[i].attributeName+'</span>'+data[0].attributes[i].value+'</li>');
+                 }
+                 for(var i=0;i<data[0].parameters.length;i++){
+
+                     $(".basics_msg").append('<li><span>'+data[0].parameters[i].parameterName+'</span>'+data[0].parameters[i].value+'</li>');
+                 }
+                 for(var i=0;i<data[0].pics;i++){
+                     $(".img").append('<img src="'+data[0].prcs[i]+'">')
+                 }
+                 $(".attribute").html(str);
+                 $(".code").html(data[0].id);
+
+                 $(".price").html(data[0].price);
+                 $(".product_img_detail").html('<li><img src="'+data[0].goodsDetails+'" alt=""><span></span></li>')
+                 var baozhuang="";
+                 for(var j=0;i<data[0].packings.length;j++){
+                     baozhuang+='<span>'+data[0].packings[j].packingsName +'X '+data[0].packings[j].value+'</span>'
+                 }
+                 $(".order_msg ul:nth-child(1) .fr").html(baozhuang);
+                 var peijian="";
+                 for(var j=0;i<data[0].parts.length;j++){
+                     baozhuang+='<span>'+data[0].parts[j].partsName +'X '+data[0].parts[j].value+'</span>'
+                 }
+                 $(".order_msg ul:nth-child(2) .fr").html(peijian);
+                 $(".order_msg ul:nth-child(3) .fr").html(data[0].buyInstructions);
+
+
+             }
+         })
+        </script>
+</body>
+</html>

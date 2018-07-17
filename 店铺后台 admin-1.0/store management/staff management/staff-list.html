@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <title>员工列表</title>
+    <style>
+        ol,ul{margin-bottom: 0;}
+        .container{padding:0;}
+        .staff_input .staff_inputs{width: 200px; display: inline-block; margin-left:10px;}
+        .staff_input{display: inline-block; margin-right: 40px;}
+        .btn_cz{margin-top:-5px; padding:6px 40px;}
+        .staff_table  .staff_top{border:1px solid #dedede; padding:10px 0; margin-top:20px; text-align: center;}
+        .staff_table  .staff_top li{float: left; text-align: center;}
+        .staff_bottom .staff_bottom1 li{float: left; text-align: center;border:1px solid #dedede; border-top:none;  line-height: 50px;}
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../../image/xbxm.png" />
+    </a>
+
+    <a href="javascript:;">
+        <img src="../../image/logo_img.png" />
+    </a>
+    <ul>
+        <li><span>基础设置</span></li>
+        <li><span>商家管理</span></li>
+        <li><span>订单管理</span></li>
+        <li><span>退款售后</span></li>
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li class="first">
+                订单管理
+            </li>
+            <li><span class="active"></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="container ">
+            <p class="right_p">1》2》3</p>
+            <div class="staff_input">
+                <label for="">关键字:</label>
+                <input type="text" class="form-control staff_inputs keyWord">
+            </div>
+            <div class="staff_input">
+                <label for="">岗位类型:</label>
+                <select name="" id="" class="form-control staff_inputs postType">
+                    <option value="">请选择</option>
+                    <option value="0">未分配</option>
+                    <option value="1">商家</option>
+                    <option value="2">供应商</option>
+                    <option value="3">消费者</option>
+                    <option value="4">运营</option>
+                    <option value="5">导购</option>
+                    <option value="6">店长</option>
+                    <option value="7">采购</option>
+                    <option value="8">客服</option>
+                </select>
+            </div>
+            <button class="btn btn-primary btn_cz order_btn">查找</button>
+            <div class="staff_table">
+
+            </div>
+        </div>
+            <!--分页-->
+        <div class="leftBottom clearfix">
+            <div class="page pageBar" id="page">
+                <p></p >
+                <div class="pageLft clearfix">
+                    <a href="#" class="prev"></a>
+                    <a href="#" class="active">1</a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                </div>
+                <div class="pageRht">共<span id="totalPage"></span>页</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script  src="../../js/pagination.js"></script>
+<script>
+    $(function () {
+        searchPage();   //初始化函数
+    });
+    /**
+     * 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.41.184:8003/shopStaff/staffList', "page", function (data) {
+        fillTableData(data);
+    });
+    function searchNowPage() {//首次两参进入
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+    };
+
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+    }
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        console.log(1);
+        var accountType="";
+        $('.postType').change(function () {
+            accountType=$(this).val();
+        })
+        var params = {
+            'shopId':1,
+            'pageSize':10,
+            // 'currentPage':1,
+            'inWords':$('.keyWord').val(),
+            'accountType':accountType
+        };
+        return params;
+    };
+
+    /** table数据 */
+    function fillTableData(data) {
+       console.log(data)
+            var html=''
+            html+='<div class="staff_tops">'
+            html+=' <ul class="clearfix staff_top">'
+            html+='<li class="col-sm-3">邮箱账号</li>'
+            html+='<li class="col-sm-2">手机号</li>'
+            html+='<li class="col-sm-1">姓名</li>'
+            html+='<li class="col-sm-1">身份类型</li>'
+            html+='<li class="col-sm-2">创建时间</li>'
+            html+='<li class="col-sm-2">工作状态</li>'
+            html+='<li class="col-sm-1">操作</li>'
+            html+=' </ul></div>'
+           for (var i=0;i<data.length;i++){
+               html+='<div class="staff_bottom">'
+               html+=' <ul class="clearfix staff_bottom1">'
+               html+='<li class="col-sm-3">'+data[i].email+'</li>'
+               html+='<li class="col-sm-2">'+data[i].phoneNumber+'</li>'
+               html+=' <li class="col-sm-1">'+data[i].realName+'</li>'
+               html+=' <li class="col-sm-1">店长</li>'
+               html+=' <li class="col-sm-2">'+data[i].regTime+'</li>'
+               if (data[i].isFrozen=='0') {
+                   html+='<li class="col-sm-2">正常</li>'
+               }else  if (data[i].isFrozen=='1'){
+                   html+='<li class="col-sm-2">冻结</li>'
+               }
+               html+=' <li class="col-sm-1">' +
+                      '<a href="javascript:;" class="examine" onclick="look(this)">查看</a>' +
+                      '</li>'
+               html+='</ul></div>'
+           }
+        $('.staff_table').html(html);
+    }
+
+    // 点击查询获取数据
+    $(".order_btn").click(function () {
+         // console.log(3);
+        searchNowPage();
+        searchPage(_nowPage);
+
+    })
+   // 点击查看 跳转页面
+    function look(a){
+        // console.log($(a).html())
+       window.location.href='staff_details.html'
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

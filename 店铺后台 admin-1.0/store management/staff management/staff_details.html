@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <title>员工详情</title>
+    <style>
+        .container{padding:0;}
+        .staff_detailsCont{padding:20px 0 30px;}
+        .staff_detailsCont .ygMess li>label{text-align: right;width: 60px;}
+        .staff_detailsCont .ygMess li>p{display: inline-block; margin-left: 20px;}
+        .staff_left  .staff_name>img{width: 30px; height: 30px;}
+        .staff_left{margin-right: 100px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../../image/xbxm.png" />
+    </a>
+
+    <a href="javascript:;">
+        <img src="../../image/logo_img.png" />
+    </a>
+    <ul>
+        <li><span>基础设置</span></li>
+        <li><span>商家管理</span></li>
+        <li><span>订单管理</span></li>
+        <li><span>退款售后</span></li>
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li class="first">
+                订单管理
+            </li>
+            <li><span class="active"></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="container ">
+            <p class="right_p router">1》2》3</p>
+            <h5>账户信息</h5>
+            <div class="staff_detailsCont  staff_detailsCont1 clearfix">
+                <!--<div class="staff_left fl">-->
+                    <!--<p class="staff_name">-->
+                        <!--<label for="">头像:</label>-->
+                        <!--<img src="../../image/icon.png" alt="">-->
+                    <!--</p>-->
+                    <!--<P>-->
+                        <!--<label for="">昵称:</label>-->
+                        <!--<span>wrewtrvyty</span>-->
+                    <!--</P>-->
+                <!--</div>-->
+                <!--<div class="staff_right fl">-->
+                    <!--<p>-->
+                       <!--<label for="">注册方式:</label>-->
+                        <!--<span>wrewtrvyty</span>-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--<label for="">邮箱地址:</label>-->
+                        <!--<span>wrewtrvyty@163.com</span>-->
+                    <!--</p>-->
+                <!--</div>-->
+            </div>
+            <h5>员工信息</h5>
+            <div class="staff_detailsCont staff_detailsCont2 clearfix">
+                <!--<ul class="ygMess">-->
+                    <!--<li>-->
+                        <!--<label for="">姓名:</label>-->
+                        <!--<p>wrctty</p>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label for="">手机号:</label>-->
+                        <!--<p>wrctty</p>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label for="">身份证:</label>-->
+                        <!--<p>1324354654657677</p>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label for="">身份类型:</label>-->
+                        <!--<p>导购</p>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<label for="">所属店铺:</label>-->
+                        <!--<p>353545</p>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script  src="../../js/pagination.js"></script>
+<script>
+    $.ajax({
+        type : "POST",
+        url : 'http://172.16.41.184:8003/shopStaff/getStaff',
+        data : {
+            "id" : "2"
+        },
+        success : function(result) {
+          console.log(result)
+          var data=result.data.staffInfo;
+          var html=''
+            html+=' <div class="staff_left fl">'
+            html+='<p class="staff_name">' +
+                '<label for="">头像:</label>' +
+                '<img src="'+data.headPic+'" alt="">' +
+                '</p>'
+            html+='<P>' +
+                '<label for="">昵称:</label>' +
+                '<span>'+data.nickName+'</span>' +
+                '</P>'
+            html+='</div>'
+            html+=' <div class="staff_right fl">'
+            html+=' <p>' +
+                '<label for="">注册方式:</label>' +
+                '<span>邮箱验证</span>' +
+                '</p>'
+            html+='  <p>\n' +
+                '<label for="">邮箱地址:</label>' +
+                '<span>'+data.email+'</span>' +
+                '</p>'
+            html+='</div>';
+            $('.staff_detailsCont1 ').append(html);
+            var mess=''
+            mess+='<ul class="ygMess">'
+            mess+=' <li>' +
+                '<label for="">姓名:</label>' +
+                '<p>'+data.realName+'</p>' +
+                '</li>'
+            mess+=' <li>\n' +
+                '<label for="">手机号:</label>' +
+                '<p>'+data.phoneNumber+'</p>' +
+                '</li>'
+            mess+='<li>'+
+                 '<label for="">身份证:</label>'+
+                  '<p>'+data.identification+'</p>'+
+                 '</li>'
+            mess+='<li>'+
+                  '<label for="">身份类型:</label><p>';
+                  switch (data.accountType){
+                      case 0:
+                          mess+='';
+                          break;
+                      case 0:
+                          mess+='';
+                          break;
+                      case 0:
+                          mess+='';
+                          break;
+                      case 0:
+                          mess+='';
+                          break;
+                      case 0:
+                          mess+='';
+                          break;
+                  }
+            mess+=  '</p></li>'
+            mess+='<li>' +
+                ' <label for="">所属店铺:</label><p>' ;
+                  for(var i=0;i<result.data.shopId.length;i++){
+                   mess+=result.data.shopId[i]+" ";
+                 }
+                mess+=   '</p></li>'
+            $('.staff_detailsCont2 ').append(mess);
+            }
+
+    });
+
+</script>
+
+</body>
+</html>

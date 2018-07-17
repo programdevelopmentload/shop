@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        dt,dd{
+            float: left;
+        }
+        dt img{
+            width: 50px;
+            height: 50px;
+        }
+        dd{
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+        .list{
+            padding: 10px 0;
+            font-size: 18px;
+
+        }
+        .allList ol{
+            overflow: hidden;
+            line-height: 40px;
+            background: #f2f2f2;
+            border:1px solid #999;
+            margin-bottom: 0;
+        }
+        .allList ul{
+            overflow: hidden;
+            padding:15px 0;
+            border: 1px solid #dedede;
+            border-top: none;
+            margin-bottom: 0;
+        }
+        .allList ul .name{
+            padding-top: 15px;
+        }
+        #box .allList  li{
+            float: left;
+            padding-right: 0;
+        }
+        .right .col-sm-1{
+            width: 10%;
+
+        }
+        .right .col-sm-2{
+            width: 18%;
+        }
+        .right .col-sm-0{
+            width: 5%;
+            float: left;
+            padding-left: 10px;
+
+        }
+        .allList ul .col-sm-1{
+            padding-top: 15px;
+        }
+        .allList ul .col-sm-0{
+            padding-top: 15px;
+        }
+
+        .product_type li{
+            float: left;
+            margin-right: 40px;
+
+        }
+        .edit{
+            float: right;width: 8%;
+        }
+        .allList .ul1{
+            border-top: 1px solid #dedede;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <div class="header_left">
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <img src="../image/logo.png" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../image/logo_img.png" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="box">
+    <div class="left">
+        <ul>
+            <li class="first">
+                <img src="../image/down.png" alt="">订单管理
+            </li>
+            <li><span class="active"></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="nav">1>2>3</p>
+        <p class="list">上架清单 <span>共 <i>21</i>条</span></p>
+
+
+        <div class="allList">
+            <ol>
+                <li class="col-sm-0">序号</li>
+                <li class="col-sm-2">商品规格</li>
+                <li class="col-sm-2">商品型号</li>
+                <li class="col-sm-1">商品类型</li>
+                <li class="col-sm-1">商品编号</li>
+                <li class="col-sm-1">销售价格</li>
+                <li class="col-sm-1">分配时间</li>
+                <li class="col-sm-1">样品量</li>
+                <li class="">操作</li>
+
+            </ol>
+            <p><label for=""><input type="checkbox">全选</label> <span>上架</span>  <span>打印二维码</span></p>
+            <ul class="ul1">
+                <li class="col-sm-0"><input type="checkbox">1</li>
+                <li class="col-sm-2"><dl>
+                    <dt><img src="../image/icon.png" alt=""></dt>
+                    <dd>白色两关</dd>
+                </dl></li>
+                <li class="col-sm-2 name">松下 家用开关  0392</li>
+                <li class="col-sm-1">商型</li>
+                <li class="col-sm-1">2121</li>
+                <li class="col-sm-1">42342</li>
+                <li class="col-sm-1">2011_11_11</li>
+                <li class="col-sm-1">
+                    1
+                </li>
+                <li class="edit" ><span>查看</span><span>编辑标题</span><span>上架</span><span>打印二维码</span></li>
+
+            </ul>
+            <ul class="ul1 liCenter">
+                <li class="col-sm-0"><input type="checkbox">1</li>
+                <li class="col-sm-2">
+                        <span class="s1">
+                          <img src="../image/icon.png" alt="">
+                    </span>
+
+                    <span class="s2">白色两关242412214121</span>
+                </li>
+                <li class="col-sm-2 name">松下 家用开关  0392</li>
+                <li class="col-sm-1">商型</li>
+                <li class="col-sm-1">2121</li>
+                <li class="col-sm-1">42342</li>
+                <li class="col-sm-1">2011_11_11</li>
+                <li class="col-sm-1">
+                    1
+                </li>
+                <li class="edit" ><span>查看</span><span>编辑标题</span><span>上架</span><span>打印二维码</span></li>
+
+            </ul>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+
+</body>
+</html>

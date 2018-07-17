@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1">  
+		<title>登录</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		 <!--[if lt IE 9]>
+		 <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		 <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+         <![endif]-->
+	</head>
+	<body >
+		<div class="header clearfix">
+			<a href="javascript:;">
+				<img src="image/xbxm.png"/>
+			</a>
+			<a href="javascript:;">
+				<img src="image/login.png"/>
+			</a>
+		</div>
+		<div class="banner">
+			<div class="login_box">
+				<p>账户登录</p>
+				<ul class="login_form">
+					<span style='color:red;font-size:14px;display:none' class="upErr">账户名或密码错误，请重新输入！</span>
+				  <li>
+				  	<label >账号:</label>
+				  	<input type="text" name="userName" id="userName" class="form-control"/>
+				  </li>
+				  <li>
+				  	<label >密码:</label>
+				  	<input type="password" name="password" id="password" class="form-control"/>
+				  </li>
+				  <li>
+				  	<a href="mob_verification.html" style="float: right;">忘记密码？</a>
+				  </li>
+				  <li>
+				  	<button type="submit" class="btn login_btn" id="btn">登录</button>
+				  </li>
+				   <li>
+				  	 <a href="agreement.html" class="login_a" style="text-decoration: underline;">立即入驻,成为供应商</a>
+				  </li>
+				</ul>
+			</div>
+		</div>
+		<div class="footer">
+			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+		</div>
+		<script src="js/jquery-1.12.4.min.js"></script>
+	    <script src="js/common.js" ></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="layer/layer.js"></script>
+		<script type="text/javascript">
+            var url = getBaseUrl('yy');
+			pullUrl = url +'/auth/auth/partner';
+            pullUrls = url +'/user/seller/sellerApplyState';
+		    $('input:text').focus(); //焦点聚集在第一个input上
+			  //点击登录按钮
+			$("#btn").click(function(){
+				var hash = $("#password").val();
+				var param={
+					"username":$('#userName').val(),
+					"password":hash,
+					flag:"pc"
+		        };
+    			if($("#userName").val() == ""){
+    				layer.msg("请输入账号");
+    				return false;
+    			}
+    			if($("#password").val() ==""){
+                    layer.msg("请输入密码");
+    				return false;
+    			}
+    			var userId;
+    		    $.ajax({
+                    url:pullUrl,
+    				type:"post",
+					data:param,
+					dataType:'json',	
+					success:function(data,status,header){
+                        console.log(header.getResponseHeader("Date"))
+    				    console.log(data);
+						if(data.success){
+							$(".upErr").css("display","none");
+							localStorage.setItem("username",data.data.user.username);
+							localStorage.setItem("userId",data.data.user.id);
+							localStorage.setItem("token","bearer "+data.data.token);
+							userId=data.data.user.id;
+						$.ajax({
+							url:pullUrls,
+							type:"post",
+							headers:{
+                                Authorization:localStorage.getItem("token")
+							},
+							data:{
+							    userId:userId,
+							},
+							complete:function(a,b){
+							    // console.log(a.getResponseHeader("Authorization"));
+							    // console.log(a.getResponseHeader());
+							    // console.log(b);
+                                // debugger;
+							},
+							dataType:"json",
+							success:function (res,a,xhr) {
+
+								debugger;
+								if(res.errorCode==9999){
+									window.location.href="login.html";
+								}
+                                localStorage.setItem("imagesState",res.data.imagesState);
+
+                                localStorage.setItem("companyId",res.data.companyId);
+                                if(res.AccountType==2){
+                                    window.location.href="登录首页页面";
+								}
+								if(res.data.companyState==0){
+                                    window.location.href="com_mess.html";
+								}
+								if(res.data.companyState==1||res.data.companyState==3){
+                                    window.location.href="prompt.html";
+								}
+                                if(res.data.imagesState==2){//保证金
+                                    // window.location.href="Application supplier/application_pass.html";
+									window.location.href="basis_setting/account_msg.html"
+                                }
+								if(res.data.imagesState==0||res.data.imagesState==1||res.data.imagesState==3){
+                                    sessionStorage.setItem("imagesState",res.data.imagesState);
+                                    window.location.href="Application supplier/pending application.html";
+								}
+
+							    if(res.data.managementType=="-1"){
+							         window.location.href="supplier-mess.html";
+
+								}else if(res.data.companyId=="0"){//0  公司信息页面；
+                                    // window.location.href=""
+									window.location.href="com_mess.html";
+								}
+                                // console.log(res);//1 待审核 2审核未通过  3通过  0保存未提交
+                            }
+						})
+						}else{
+							$(".upErr").css("display","block");
+						}
+
+				       
+			       },
+                    error:function (err) {
+
+                    }
+			    })	
+    			
+    		})
+		</script>
+	</body>
+</html>

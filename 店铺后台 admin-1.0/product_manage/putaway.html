@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上架管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        dt,dd{
+            float: left;
+        }
+        dt img{
+            width: 50px;
+            height: 50px;
+        }
+        dd{
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+    .list{
+        padding: 10px 0;
+        font-size: 18px;
+
+    }
+        .allList ol{
+            overflow: hidden;
+            line-height: 40px;
+            background: #f2f2f2;
+            border:1px solid #999;
+            margin-bottom: 0;
+        }
+        .allList ul{
+            overflow: hidden;
+            padding:15px 0;
+            border: 1px solid #dedede;
+            border-top: none;
+            margin-bottom: 0;
+        }
+        .allList ul .name{
+            padding-top: 15px;
+        }
+        #box .allList  li{
+            float: left;
+            padding-right: 0;
+        }
+        .right .col-sm-1{
+            width: 9%;
+
+        }
+        .right .col-sm-2{
+            width: 21%;
+        }
+        .right .col-sm-0{
+            width: 5%;
+            float: left;
+            padding-left: 10px;
+
+        }
+    .allList ul .col-sm-1{
+        padding-top: 15px;
+    }
+        .allList ul .col-sm-0{
+            padding-top: 15px;
+        }
+
+       .product_type li{
+            float: left;
+            margin-right: 40px;
+
+        }
+        .edit{
+            float: right;width: 8%;
+        }
+
+        .form-control{
+            display: inline-block;
+            width: 200px;
+        }
+        .btn-primary{
+            display: inline-block;
+            width: 200px;
+        }
+        ol>li:last-child{
+            margin-left: 10px;
+        }
+        .allList  .ul1{
+            border-top: 1px solid #dedede;
+        }
+        .edit span{
+            display: inherit;
+        }
+        ul li{
+            text-align: center;
+        }
+        .col-sm-2 img{
+            width: 100%;
+            height: 60px;
+        }
+        .col-sm-2 span{
+            width: 68%;
+            text-align: left;
+        }
+        .col-sm-2 .s1{
+            width: 30%;
+        }
+        .allList>p{
+            margin: 0;
+            line-height: 30px;
+        }
+        .allList>p span{
+            margin-left: 20px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/login.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >店铺管理</span></li>
+        <li><span class="head_active">商品管理</span></li>
+        <li><span>仓储管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>陈列管理</span>
+                <ul>
+                    <li>新品陈列</li>
+                    <li>陈列记录</li>
+                </ul>
+            </li>
+            <li >
+                <span>上架管理</span>
+                <ul>
+                    <li class="first">商品上架</li>
+                    <li>上架记录</li>
+                </ul>
+            </li>
+            <li >
+                <span>在售管理</span>
+                <ul>
+
+                    <li>在售商品</li>
+
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="right">
+        <p class="router">商品管理》上架管理》商品上架</p>
+        <div>
+            商品名：<input type="text" class="form-control key">
+            <span style="margin-left: 30px;">商品编号：<input type="text" class="form-control num" ></span>
+            <input type="button" class="form-control btn-primary" value="查找">
+        </div>
+         <p class="list">
+             <!--上架清单 <span>共 <span>11</span>条</span>-->
+             商品类型：
+             <select name="" class="form-control down">
+                 <option value=" ">全部</option>
+                 <option value="0">标品</option>
+                 <option value="1">非标品</option>
+                 <option value="2">订制品</option>
+             </select>
+         </p>
+
+
+        <div class="allList">
+            <ol class="list_head">
+                <li class="col-sm-0">序号</li>
+                <li class="col-sm-2">商品信息</li>
+
+                <li class="col-sm-1">商品类型</li>
+                <li class="col-sm-2">商品编号</li>
+                <li class="col-sm-1">销售价格</li>
+                <li class="col-sm-1">申请时间</li>
+                <li class="col-sm-1">样品量</li>
+                <li class="col-sm-1">商品状态</li>
+                <li class="">操作</li>
+
+            </ol>
+            <p ><label for="all"><input type="checkbox" id="all">全选</label> <span>上架</span>  <span>打印二维码</span></p>
+            <div>
+            <ul class="ul1 ">
+                <li class="col-sm-0"><input type="checkbox">1</li>
+                <li class="col-sm-2" >
+                    <span class="s1">
+                          <img src="../image/icon.png" alt="">
+                    </span>
+
+                  <span class="s2">白色两关242412214121</span>
+                </li>
+                <li class="col-sm-1 name">0392</li>
+
+                <li class="col-sm-2">2121</li>
+                <li class="col-sm-1">42342</li>
+                <li class="col-sm-1">11</li>
+                <li class="col-sm-1">待上架</li>
+                <li class="col-sm-1">
+                   1
+                </li>
+                <li class="edit" ><span class="looks">查看</span><span>上架</span><span>编辑标题</span><span>打印价签</span></li>
+
+            </ul>
+            <ul class="ul1">
+                <li class="col-sm-0"><input type="checkbox">1</li>
+
+                <li class="col-sm-2"><dl><dt><img src="../image/icon.png" alt=""></dt>
+
+                    <dd>白色两关</dd></dl></li>
+
+                <li class="col-sm-1">商型</li>
+                <li class="col-sm-2">2121</li>
+                <li class="col-sm-1">42342</li>
+                <li class="col-sm-1">2011_11_11</li>
+                <li class="col-sm-1">待上架</li>
+                <li class="col-sm-1">
+                   1
+                </li>
+                <li class="edit" orderId="22">
+                    <span>查看</span>
+                    <span  data-toggle="modal" data-target="#myModal">上架</span>
+                    <span>编辑标签</span><span>打印价签</span></li>
+
+            </ul>
+            </div>
+        </div>
+        <div>
+
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p> CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+    <p> 西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+    <p> ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">上架提示</h4>
+            </div>
+            <div class="modal-body">
+                上架后，商品将在平台上交易，是否确认商家
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary ok" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pagination.js"></script>
+<script>
+    var
+        index=1,
+        type="",
+        number="",
+        keyWord="",
+        currentPage=1;
+    function find(){
+        keyWord=$(".key").html();
+        number=$(".num").html();
+        index=1;
+        ajax();
+    }
+    //商品类型
+    $(".type").change(function () {
+        type=$(this).val();
+        index=1;
+        ajax()
+    });
+//全选
+    $(".allList label").click(function () {
+        var check=$(this).find("input").prop("checked");
+
+        $(".allList input").prop("checked",check);
+    });
+    $(".allList div input").click(function () {
+        var check=true;
+        $(".allList div input").each(function () {
+            if(!$(this).prop("checked")){
+                check=false;
+            }
+        });
+        $(".allList label input").prop("checked",check)
+    })
+    // //获取类型
+    // rewriteAjax({
+    //     url:getIp("wx")+"/goods/service/showAll"
+    // },function (res) {
+    //     var str="";
+    //     if(res.success){
+    //         for(var i=0;i<res.data.length;i++){
+    //             str+='<option typeId="'+res.data[i].id+'">'+res.data[i].goodsType+'</option>'
+    //         }
+    //     }
+    //     $(".down").append(str)
+    // })
+    $(function () {
+        searchPage();   //初始化函数
+    });
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.40.153:8009/shop/findReadyShelfList', "page", function (data) {
+        fillTableData(data);
+    });
+    function searchNowPage() {//首次两参进入
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+    };
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+    }
+    function getParams() {
+        var params = {
+            shopId:11010101,
+            pageNum:index,
+            pageSize:10,
+            keyWord:"",
+            number:"",
+            type:""
+        };
+        return params;
+    };
+    function fillTableData(data) {
+        for(var i=0;i<data.length;i++){
+            str+='<ul class="ul1"><li class="col-sm-0"><input type="checkbox">';
+            if(index<10){
+                str+='0'+index;
+            }
+            str+='</li>';
+            str+=' <li class="col-sm-2">' +
+                '<span class="s1"><img src="'+data[i].pics[0].pic+'" alt=""></span><span class="s2">'
+            str+=data[i].showName;
+            str+='</span></li>';
+            str+='<li class="col-sm-1">';
+            str+=data[i].goodsService.goodsType+'</li>';
+            str+='<li class="col-sm-2">'+data[i].number+'</li>';
+            str+='<li class="col-sm-1">'+data[i].price+'</li>';
+            str+='<li class="col-sm-1">'+data[i].applyDisplayTime+'</li>';
+            str+='<li class="col-sm-1">'+data[i].sampleCount+'</li><li class="col-sm-1">';
+            switch (data[i].state){
+                case 1:
+                    str+='已加入陈列 ';
+                    break;
+                case 2:
+                    str+='待上架';
+                    break;
+                case 3:
+                    str+='已上架';
+                    break;
+                case 4:
+                    str+='已下架';
+                    break;
+            }
+            str+='</li>';
+            str+='<li class="edit" number="'+data[i].number+'"><span>查看</span><span type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">上架交易</span><span>打印价签</span></li>'
+        }
+        $(".allList div").append(str);
+    }
+
+    var orderId=0;
+    $(".allList").on("click",".edit",function () {
+        orderId=$(this).attr("number");
+        // console.log($(this).html())
+        // console.log(1)
+    })
+  $(".ok").click(function () {
+    // console.log(orderId)
+      rewriteAjax({
+          url:"http://172.16.40.153:8009/shop/onShelf",
+          data:{shopId:11010101,goodsIds:orderId}
+      },function (res) {
+          if(res.success){
+              window.location.reload();
+          }
+      })
+  })
+
+  $('.allList div').on('click','.looks',function () {
+     // alert(1)
+    var number=$(this).parent().attr('number');
+      sessionStorage.setItem('number',number)
+    window.location.href='./putaway_details.html'
+  })
+</script>
+</body>
+</html>
