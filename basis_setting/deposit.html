@@ -43,11 +43,6 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
-    <ul>
-        <li><span class="head_active">基础设置</span></li>
-        <li><span>商品管理</span></li>
-        <li><span>订单管理</span></li>
-    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -57,7 +52,15 @@
     </ol>
 
 </div>
-
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
 <div id="box">
     <div class="left">
         <ul>
@@ -66,21 +69,19 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-
-                </ul>
-            </li>
-            <li >
-                <span>合同管理</span>
-                <ul>
                     <li class="first">保证金</li>
-                    <li>我的合同</li>
-
                 </ul>
             </li>
             <li >
                 <span>经营管理</span>
                 <ul>
                     <li>经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
                 </ul>
             </li>
         </ul>
@@ -105,7 +106,7 @@
     </div>
     <div class="right">
         <div class="deposit">
-            <p class="router">1>2>3</p>
+            <p class="router">基础设置》基础设置》保证金</p>
             <p class="understand">  缴纳服务保障金，有助于提高自身的竞争力。点击了解 <span>《保证金说明》</span></p>
             <p class="money">保证金额度：</p>
             <p class="money"><span>0.00</span>&nbsp;&nbsp;元</p>
@@ -124,35 +125,23 @@
 <script>
     var money=0;
     var res=rewriteAjax({
-
-
-    });
-    $.ajax({
-        url:"http://172.16.40.134:8003/pay/seller/cautionMoney",
-        type:"post",
-        dataType:"json",
         data:{
-            companyId:8
-        },
-        success:function (res) {
-            console.log(res);
-            if(res.success){
-                $(".money span").html(res.data.cautionMoney);
-                money=res.data.cautionMoney;
-            }
+            companyId:localStorage.getItem("companyId")
+        }, url:getBaseUrl("yy")+"/pay/seller/cautionMoney",
+
+    },function (res) {
+        if(res.success){
+            $(".money span").html(res.data.cautionMoney);
+            money=res.data.cautionMoney;
         }
     });
-    $.ajax({
-        url:"http://172.16.40.134:8003/seller/selectCompanyBycompanyid",
-        data:{companyId:8},
-        dataType:"json",
-        type:"post",
-        success:function (res) {
-            if(res.data.isCautionMoney==1){
-                $(".btn-primary").css("display","none");
-            }
-        }
-    });
+rewriteAjax({ url:getBaseUrl("yy")+"/seller/selectCompanyBycompanyid",
+    data:{companyId:localStorage.getItem("companyId")},},function (res) {
+    if(res.data.isCautionMoney==1){
+        $(".btn-primary").css("display","none");
+    }
+});
+
     $(".btn-primary").click(function () {
         sessionStorage.setItem("money",money);
         window.location.href="pay_deposit.html";

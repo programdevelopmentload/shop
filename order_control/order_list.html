@@ -98,7 +98,7 @@
         </ul>
     </div>
     <div class="right">
-        <p class="router">订单管理》》3</p>
+        <p class="router"></p>
         <div class="search">
             查订单:<input type="text" class="form-control gjc" placeholder="请输入关键字" id="Dd_Number">
             查商品:<input type="text" class="form-control gjc" placeholder="请输入关键字" id="Dd_shopName">
@@ -481,21 +481,16 @@
         window.location.href="../product/kc.html"
     }
     $('.sureBtn').click(function () {
-        $.ajax({
-           url:'http://172.16.44.23:8005/supplierOrder/stockUp',
-           data:{
-               'orderId':orderId
-           },
-           dataType:'json',
-           type:'json',
-           success:function (data) {
-               // console.log(data)
-               if (data.success){
-                   layer.msg('备货完成')
-               }
-         
-           }
-       })
+        rewriteAjax({
+            url:'http://172.16.44.23:8005/supplierOrder/stockUp',
+            data:{
+                'orderId':orderId
+            },},function (res) {
+            if (data.success){
+                layer.msg('备货完成')
+            }
+        })
+
     })
 
 

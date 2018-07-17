@@ -14,92 +14,131 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AllInvoice.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/发票管理/AllInvoice.html">
+      <file leaf-file-name="order_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order_control/order_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="34" selection-start-line="34" selection-end-line="42" selection-end-column="6" />
+            <state relative-caret-position="320">
+              <caret line="492" selection-start-line="492" selection-end-line="492" />
+              <folding>
+                <element signature="n#ul#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
+                <element signature="e#54#60#0" expanded="true" />
+                <element signature="e#61#67#0" expanded="true" />
+                <element signature="e#68#74#0" expanded="true" />
+                <element signature="e#75#81#0" expanded="true" />
+                <element signature="e#64#70#0" expanded="true" />
+                <element signature="e#70#76#0" expanded="true" />
+                <element signature="e#76#82#0" expanded="true" />
+                <element signature="e#82#88#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AllInvoiceDetails.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/发票管理/AllInvoiceDetails.html">
+      <file leaf-file-name="purchase_details.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order_control/purchase_details.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+            <state relative-caret-position="30">
+              <caret line="683" column="33" selection-start-line="683" selection-start-column="33" selection-end-line="683" selection-end-column="33" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#p#0;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#1;n#li#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#1;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="invoiceDetails.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/发票管理/invoiceDetails.html">
+      <file leaf-file-name="purchase_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order_control/purchase_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="317" column="21" lean-forward="true" selection-start-line="317" selection-start-column="21" selection-end-line="317" selection-end-column="21" />
+              <folding>
+                <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="e#15221#15692#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="com_mess.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/com_mess.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="336">
+              <caret line="255" column="25" lean-forward="true" selection-start-line="255" selection-start-column="25" selection-end-line="255" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cover_manage.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product/cover_manage.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="686" selection-start-line="686" selection-end-line="686" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product_agreement.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product/product_agreement.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="151" column="34" lean-forward="true" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="product_template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product/product_template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="357" column="10" lean-forward="true" selection-start-line="357" selection-start-column="10" selection-end-line="357" selection-end-column="10" />
+              <folding>
+                <element signature="e#6025#7752#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sale.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product/sale.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3518">
+              <caret line="531" column="10" selection-start-line="531" selection-start-column="10" selection-end-line="531" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="upLoad.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product/upLoad.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="96" column="54" lean-forward="true" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sale_details.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/product/sale_details.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
-              <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ticketsIssued.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/发票管理/ticketsIssued.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alreadyStateDetails.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/结算管理/alreadyStateDetails.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="openStateDetails.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/结算管理/openStateDetails.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orderInquDetail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/结算管理/orderInquDetail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orderInquiry.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/结算管理/orderInquiry.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statement.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/商家对账/结算管理/statement.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="statementDetails.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/商家对账/结算管理/statementDetails.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="32">
-              <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+              <caret line="341" selection-start-line="341" selection-end-line="341" />
+              <folding>
+                <element signature="e#10591#13587#0" />
+                <element signature="e#13610#15908#0" />
+                <element signature="e#125#131#0" expanded="true" />
+                <element signature="e#131#137#0" expanded="true" />
+                <element signature="e#137#143#0" expanded="true" />
+                <element signature="e#143#149#0" expanded="true" />
+                <element signature="e#149#155#0" expanded="true" />
+                <element signature="e#155#161#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -115,7 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>操作</find>
       <find>looks</find>
       <find>add</find>
       <find>downLoad</find>
@@ -145,16 +183,12 @@
       <find>.swiper</find>
       <find>timer</find>
       <find>reg</find>
+      <find>lcid</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/商品管理/commodity_management.html" />
-        <option value="$PROJECT_DIR$/product/库存管理.html" />
-        <option value="$PROJECT_DIR$/product/供货清单.html" />
-        <option value="$PROJECT_DIR$/product/zaishou.html" />
-        <option value="$PROJECT_DIR$/product/zaishou_details.html" />
         <option value="$PROJECT_DIR$/order_control/待备货.html" />
         <option value="$PROJECT_DIR$/money/账户管理.html" />
         <option value="$PROJECT_DIR$/money/添加银行卡.html" />
@@ -163,31 +197,11 @@
         <option value="$PROJECT_DIR$/css/common.css" />
         <option value="$PROJECT_DIR$/Application supplier/application_pass.html" />
         <option value="$PROJECT_DIR$/Application supplier/pending application.html" />
-        <option value="$PROJECT_DIR$/com_mess.html" />
         <option value="$PROJECT_DIR$/product/kc.html" />
         <option value="$PROJECT_DIR$/supplier-mess.html" />
         <option value="$PROJECT_DIR$/account.html" />
-        <option value="$PROJECT_DIR$/login.html" />
         <option value="$PROJECT_DIR$/demo/demo.html" />
-        <option value="$PROJECT_DIR$/basis_setting/account_msg.html" />
-        <option value="$PROJECT_DIR$/basis_setting/add_region.html" />
-        <option value="$PROJECT_DIR$/basis_setting/cer-infor-submit.html" />
-        <option value="$PROJECT_DIR$/basis_setting/cert-already.html" />
-        <option value="$PROJECT_DIR$/basis_setting/change_phone.html" />
-        <option value="$PROJECT_DIR$/basis_setting/change_pwd.html" />
-        <option value="$PROJECT_DIR$/basis_setting/operation_msg.html" />
-        <option value="$PROJECT_DIR$/order_control/order_details.html" />
-        <option value="$PROJECT_DIR$/order_control/order_list.html" />
-        <option value="$PROJECT_DIR$/order_control/purchase_details.html" />
-        <option value="$PROJECT_DIR$/order_control/purchase_list.html" />
-        <option value="$PROJECT_DIR$/js/common.js" />
-        <option value="$PROJECT_DIR$/product/sale.html" />
-        <option value="$PROJECT_DIR$/product/sale_details.html" />
-        <option value="$PROJECT_DIR$/product/product_template.html" />
-        <option value="$PROJECT_DIR$/product/product_agreement.html" />
         <option value="$PROJECT_DIR$/product/upLoad.html" />
-        <option value="$PROJECT_DIR$/product/cover_manage.html" />
-        <option value="$PROJECT_DIR$/basis_setting/basis_msg.html" />
         <option value="$PROJECT_DIR$/basis_setting/addBank.html" />
         <option value="$PROJECT_DIR$/basis_setting/bank_manage.html" />
         <option value="$PROJECT_DIR$/basis_setting/editBank.html" />
@@ -201,6 +215,31 @@
         <option value="$PROJECT_DIR$/商家对账/结算管理/orderInquiry.html" />
         <option value="$PROJECT_DIR$/商家对账/结算管理/statement.html" />
         <option value="$PROJECT_DIR$/商家对账/结算管理/statementDetails.html" />
+        <option value="$PROJECT_DIR$/login.html" />
+        <option value="$PROJECT_DIR$/basis_setting/account_msg.html" />
+        <option value="$PROJECT_DIR$/basis_setting/basis_msg.html" />
+        <option value="$PROJECT_DIR$/basis_setting/cer-infor-submit.html" />
+        <option value="$PROJECT_DIR$/basis_setting/cert-already.html" />
+        <option value="$PROJECT_DIR$/basis_setting/change_phone.html" />
+        <option value="$PROJECT_DIR$/basis_setting/change_pwd.html" />
+        <option value="$PROJECT_DIR$/basis_setting/login_hasPro.html" />
+        <option value="$PROJECT_DIR$/js/common.js" />
+        <option value="$PROJECT_DIR$/basis_setting/operation_msg.html" />
+        <option value="$PROJECT_DIR$/basis_setting/pay_deposit.html" />
+        <option value="$PROJECT_DIR$/basis_setting/payFor.html" />
+        <option value="$PROJECT_DIR$/basis_setting/add_region.html" />
+        <option value="$PROJECT_DIR$/basis_setting/deposit.html" />
+        <option value="$PROJECT_DIR$/order_control/order_details.html" />
+        <option value="$PROJECT_DIR$/order_control/order_list.html" />
+        <option value="$PROJECT_DIR$/order_control/purchase_details.html" />
+        <option value="$PROJECT_DIR$/order_control/purchase_list.html" />
+        <option value="$PROJECT_DIR$/product/cover_manage.html" />
+        <option value="$PROJECT_DIR$/product/product_agreement.html" />
+        <option value="$PROJECT_DIR$/product/product_template.html" />
+        <option value="$PROJECT_DIR$/product/sale.html" />
+        <option value="$PROJECT_DIR$/product/sale_details.html" />
+        <option value="$PROJECT_DIR$/Merchants reconciliation/AllorderDetails.html" />
+        <option value="$PROJECT_DIR$/com_mess.html" />
       </list>
     </option>
   </component>
@@ -213,7 +252,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="45" />
     <option name="width" value="1920" />
@@ -244,34 +283,12 @@
             <path>
               <item name="商家后台1.0（最新版本）" type="b2602c69:ProjectViewProjectNode" />
               <item name="商家后台1.0（最新版本）" type="462c0819:PsiDirectoryNode" />
-              <item name="demo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="商家后台1.0（最新版本）" type="b2602c69:ProjectViewProjectNode" />
-              <item name="商家后台1.0（最新版本）" type="462c0819:PsiDirectoryNode" />
               <item name="order_control" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="商家后台1.0（最新版本）" type="b2602c69:ProjectViewProjectNode" />
               <item name="商家后台1.0（最新版本）" type="462c0819:PsiDirectoryNode" />
               <item name="product" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="商家后台1.0（最新版本）" type="b2602c69:ProjectViewProjectNode" />
-              <item name="商家后台1.0（最新版本）" type="462c0819:PsiDirectoryNode" />
-              <item name="商家对账" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="商家后台1.0（最新版本）" type="b2602c69:ProjectViewProjectNode" />
-              <item name="商家后台1.0（最新版本）" type="462c0819:PsiDirectoryNode" />
-              <item name="商家对账" type="462c0819:PsiDirectoryNode" />
-              <item name="发票管理" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="商家后台1.0（最新版本）" type="b2602c69:ProjectViewProjectNode" />
-              <item name="商家后台1.0（最新版本）" type="462c0819:PsiDirectoryNode" />
-              <item name="商家对账" type="462c0819:PsiDirectoryNode" />
-              <item name="结算管理" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,21 +300,23 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../店铺" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../popularize" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）\demo" />
-      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）-2018-07.13\商家后台1.0（最新版本）\Application supplier" />
       <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）\order_control" />
       <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）" />
       <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）\product" />
       <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）\basis_setting" />
-      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）\money" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）-2018-07.13\商家后台1.0（最新版本）\basis_setting" />
+      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）-2018-07.13\商家后台1.0（最新版本）\demo" />
+      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）\demo" />
+      <recent name="C:\Users\Administrator\Desktop\商家后台1.0（最新版本）" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -341,16 +360,18 @@
       <workItem from="1530871728386" duration="4316000" />
       <workItem from="1531098991910" duration="28018000" />
       <workItem from="1531184942142" duration="27873000" />
+      <workItem from="1531794921701" duration="11227000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119381000" />
+    <option name="totallyTimeSpent" value="130608000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21207307" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20889595" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -381,55 +402,9 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/product/库存管理.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="435" column="38" lean-forward="true" selection-start-line="435" selection-start-column="38" selection-end-line="435" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/供货清单.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="66" column="48" lean-forward="true" selection-start-line="66" selection-start-column="48" selection-end-line="66" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cellphon.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="68" column="12" selection-start-line="68" selection-start-column="12" selection-end-line="69" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/swiper.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="3" lean-forward="true" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/money/account_manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="163" selection-start-line="163" selection-end-line="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/money/addBank.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="155" column="22" lean-forward="true" selection-start-line="155" selection-start-column="22" selection-end-line="155" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/money/editBank.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="223" column="34" selection-start-line="223" selection-start-column="34" selection-end-line="223" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/money/account_manage.html" />
+    <entry file="file://$PROJECT_DIR$/money/addBank.html" />
+    <entry file="file://$PROJECT_DIR$/money/editBank.html" />
     <entry file="file://$PROJECT_DIR$/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -444,30 +419,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/order_control/待备货.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1096">
-          <caret line="447" column="20" lean-forward="true" selection-start-line="447" selection-start-column="20" selection-end-line="447" selection-end-column="20" />
-          <folding>
-            <element signature="e#7588#7601#0" />
-            <element signature="e#84#90#0" expanded="true" />
-            <element signature="e#91#97#0" expanded="true" />
-            <element signature="e#98#104#0" expanded="true" />
-            <element signature="e#105#111#0" expanded="true" />
-            <element signature="e#64#70#0" expanded="true" />
-            <element signature="e#70#76#0" expanded="true" />
-            <element signature="e#76#82#0" expanded="true" />
-            <element signature="e#82#88#0" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/product/kc.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/order_control/待备货.html" />
     <entry file="file://$PROJECT_DIR$/demo/putaway.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
@@ -482,28 +434,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com_mess.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="167" column="15" lean-forward="true" selection-start-line="167" selection-start-column="15" selection-end-line="167" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/account.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="298" column="88" lean-forward="true" selection-start-line="298" selection-start-column="88" selection-end-line="298" selection-end-column="88" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="90" column="85" lean-forward="true" selection-start-line="90" selection-start-column="85" selection-end-line="90" selection-end-column="85" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#style#0;n#span#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -529,10 +463,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/AllInvoice.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/AllInvoiceDetails.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/invoiceDetails.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/ticketsIssued.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/alreadyStateDetails.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/openStateDetails.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/orderInquDetail.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/orderInquiry.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/statement.html" />
+    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/statementDetails.html" />
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="93" column="75" selection-start-line="93" selection-start-column="75" selection-end-line="93" selection-end-column="75" />
+          <folding>
+            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#ul#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application supplier/pending application.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/addBank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-224">
+          <caret line="55" column="41" lean-forward="true" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/bank_manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-800">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/basis_msg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/cer-infor-submit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="66" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/account_msg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/change_phone.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8">
+          <caret line="126" column="21" lean-forward="true" selection-start-line="126" selection-start-column="21" selection-end-line="126" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/login_hasPro.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="64" column="37" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/editBank.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="75" column="19" selection-start-line="75" selection-start-column="19" selection-end-line="75" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/change_pwd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="103" column="17" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/basis_setting/cert-already.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="149" column="42" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
+        <state relative-caret-position="288">
+          <caret line="166" column="20" lean-forward="true" selection-start-line="166" selection-start-column="20" selection-end-line="166" selection-end-column="20" />
           <folding>
             <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#input#0;n#!!top" expanded="true" />
@@ -544,45 +569,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/change_phone.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="113" column="42" selection-start-line="113" selection-start-column="42" selection-end-line="113" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/change_pwd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="77" column="42" selection-start-line="77" selection-start-column="42" selection-end-line="77" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/basis_setting/operation_msg.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="354">
+          <caret line="183" column="26" lean-forward="true" selection-start-line="183" selection-start-column="26" selection-end-line="183" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Application supplier/pending application.html">
+    <entry file="file://$PROJECT_DIR$/basis_setting/pay_deposit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="41" column="8" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="33" />
+        <state relative-caret-position="96">
+          <caret line="112" column="17" lean-forward="true" selection-start-line="112" selection-start-column="17" selection-end-line="112" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/payFor.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="156" column="29" selection-start-line="156" selection-start-column="29" selection-end-line="156" selection-end-column="29" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/basis_setting/add_region.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
+        <state relative-caret-position="296">
+          <caret line="312" column="38" lean-forward="true" selection-start-line="312" selection-start-column="38" selection-end-line="312" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4224">
+          <caret line="282" column="52" selection-start-line="282" selection-start-column="52" selection-end-line="282" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/basis_setting/deposit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="142" column="3" selection-start-line="142" selection-start-column="3" selection-end-line="142" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/order_control/order_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="226" column="32" selection-start-line="226" selection-start-column="32" selection-end-line="226" selection-end-column="32" />
+        <state relative-caret-position="130">
+          <caret line="506" column="41" lean-forward="true" selection-start-line="506" selection-start-column="41" selection-end-line="506" selection-end-column="41" />
           <folding>
             <element signature="n#ul#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#input#1;n#!!top" expanded="true" />
@@ -597,8 +635,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/order_control/order_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+        <state relative-caret-position="320">
+          <caret line="492" selection-start-line="492" selection-end-line="492" />
           <folding>
             <element signature="n#ul#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" />
             <element signature="e#54#60#0" expanded="true" />
@@ -616,76 +654,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="261" column="58" selection-start-line="261" selection-start-column="58" selection-end-line="261" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/product_template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="111" column="44" selection-start-line="111" selection-start-column="44" selection-end-line="111" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/upLoad.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="70" column="25" selection-start-line="70" selection-start-column="25" selection-end-line="70" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/cover_manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="401" column="28" selection-start-line="401" selection-start-column="28" selection-end-line="401" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/account_msg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="70" column="22" lean-forward="true" selection-start-line="70" selection-start-column="22" selection-end-line="70" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/basis_msg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="69" lean-forward="true" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/cer-infor-submit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="44" column="6" lean-forward="true" selection-start-line="44" selection-start-column="6" selection-end-line="44" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/product/sale.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3376">
-          <caret line="211" column="17" lean-forward="true" selection-start-line="211" selection-start-column="17" selection-end-line="211" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/order_control/purchase_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="135" column="33" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/order_control/purchase_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5856">
-          <caret line="366" column="33" selection-start-line="366" selection-start-column="33" selection-end-line="366" selection-end-column="33" />
+        <state relative-caret-position="30">
+          <caret line="683" column="33" selection-start-line="683" selection-start-column="33" selection-end-line="683" selection-end-column="33" />
           <folding>
             <element signature="n#style#0;n#span#0;n#p#0;n#li#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#p#1;n#li#0;n#!!top" expanded="true" />
@@ -697,39 +669,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/addBank.html">
+    <entry file="file://$PROJECT_DIR$/product/cover_manage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/bank_manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/basis_setting/editBank.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="322">
+          <caret line="686" selection-start-line="686" selection-end-line="686" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/product/product_agreement.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="452">
-          <caret line="82" column="7" lean-forward="true" selection-start-line="74" selection-start-column="1" selection-end-line="82" selection-end-column="7" />
+        <state relative-caret-position="240">
+          <caret line="151" column="34" lean-forward="true" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/product_template.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="357" column="10" lean-forward="true" selection-start-line="357" selection-start-column="10" selection-end-line="357" selection-end-column="10" />
+          <folding>
+            <element signature="e#6025#7752#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/product/sale.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3518">
+          <caret line="531" column="10" selection-start-line="531" selection-start-column="10" selection-end-line="531" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/product/sale_details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="196" selection-start-line="196" selection-end-line="204" selection-end-column="6" />
+        <state relative-caret-position="112">
+          <caret line="341" selection-start-line="341" selection-end-line="341" />
           <folding>
+            <element signature="e#10591#13587#0" />
+            <element signature="e#13610#15908#0" />
             <element signature="e#125#131#0" expanded="true" />
             <element signature="e#131#137#0" expanded="true" />
             <element signature="e#137#143#0" expanded="true" />
@@ -740,73 +717,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/AllInvoice.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="34" selection-start-line="34" selection-end-line="42" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/AllInvoiceDetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/invoiceDetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="28" column="8" selection-start-line="28" selection-start-column="8" selection-end-line="28" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/发票管理/ticketsIssued.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/alreadyStateDetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/openStateDetails.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/orderInquDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/orderInquiry.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="25" column="8" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/statement.html">
+    <entry file="file://$PROJECT_DIR$/Merchants reconciliation/AllorderDetails.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <caret line="127" column="48" lean-forward="true" selection-start-line="127" selection-start-column="48" selection-end-line="127" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/商家对账/结算管理/statementDetails.html">
+    <entry file="file://$PROJECT_DIR$/product/upLoad.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+        <state relative-caret-position="192">
+          <caret line="96" column="54" lean-forward="true" selection-start-line="96" selection-start-column="54" selection-end-line="96" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order_control/purchase_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="317" column="21" lean-forward="true" selection-start-line="317" selection-start-column="21" selection-end-line="317" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#15221#15692#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/com_mess.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="255" column="25" lean-forward="true" selection-start-line="255" selection-start-column="25" selection-end-line="255" selection-end-column="25" />
         </state>
       </provider>
     </entry>

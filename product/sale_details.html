@@ -329,6 +329,17 @@
         }
     })(jQuery);
     var dataId=$.getUrlParam("dataId");
+    // 在售商品详情
+    rewriteAjax({
+        url:"http://172.16.40.153:8009/goods/sku/findDetailPublisher",  //商品详情
+        data:{
+            id:dataId,//452113557006454800
+            publisherId:192,
+        },
+    },function (data) {
+
+    })
+
     var data={
         "data":{
             "attributes":[
@@ -506,20 +517,8 @@
     }
     $('.pjListFr').html(html)
     // 购买说明
-    $('.mailSmFr').html(data.buyInstructions)
-       // 在售商品详情
-    $.ajax({
-        url:"http://172.16.40.153:8009/goods/sku/findDetailPublisher",  //商品详情
-        type:"post",
-        dataType:"json",
-        data:{
-            id:dataId,//452113557006454800
-            publisherId:192,
-        },
-        success:function (data) {
-            // console.log(res);
-        }
-    });
+    $('.mailSmFr').html(data.buyInstructions);
+
     // 库存信息
 
 </script>

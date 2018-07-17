@@ -459,84 +459,56 @@
         // boo=true;
     });
     $(".cover .all").on("click", "li", function () {
-        brandId = "";
+        storeId = "";
         // $(".select_list").html("");
         // boo=true;
         // index=1;
         // fn();
     });
     //获取分类
-    $.ajax({
+    rewriteAjax({
         url: "http://172.16.41.60:8007/goods/GoodsClassification/showAllLeafClass",
-        type: "post",
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            if (res.success) {
-                var data = res.data;
-                var str = ""
-                for (var i = 0; i < data.length; i++) {
-                    str += '<li lcid="' + data[i].id + '">' + data[i].name + '</li>'
-                }
-                $(".classify .fr ul").html(str)
+    },function (res) {
+        if (res.success) {
+            var data = res.data;
+            var str = ""
+            for (var i = 0; i < data.length; i++) {
+                str += '<li lcid="' + data[i].id + '">' + data[i].name + '</li>'
             }
+            $(".classify .fr ul").html(str)
         }
     });
+
     //获取品牌
-    $.ajax({
+    rewriteAjax({
         url: "http://172.16.41.60:8007/goods/brand/showBrandLeafClassOpenClose",
-        dataType: "json",
-        type: "post",
-        success: function (res) {
-            console.log(res);
-            if (res.success) {
-                var data = res.data;
-                var str = "";
-                for (var i = 0; i < data.length; i++) {
-                    str += '<li fpy="' + data[i].fpy + '" brandId="' + data[i].id + '">' + data[i].nameCh + '</li>'
-                }
-                $(".brand .fr ul").html(str);
+    },function (res) {
+        if (res.success) {
+            var data = res.data;
+            var str = "";
+            for (var i = 0; i < data.length; i++) {
+                str += '<li fpy="' + data[i].fpy + '" brandId="' + data[i].id + '">' + data[i].nameCh + '</li>'
             }
+            $(".brand .fr ul").html(str);
         }
-    });
-    //获取类型
-    // $.ajax({
-    //     url: "http://172.16.41.60:8007/goods/service/showAll",
-    //     type: "post",
-    //     dataType: "json",
-    //     success: function (res) {
-    //         console.log(res);
-    //         var str = ""
-    //         if (res.success) {
-    //             for (var i = 0; i < res.data.length; i++) {
-    //                 str += '<li typeId="' + res.data[i].id + '">' + res.data[i].goodsType + '</li>'
-    //             }
-    //         }
-    //         $(".type .fr ul").html(str)
-    //     }
-    // })
+    })
+
     //仓库
-    $.ajax({
+    rewriteAjax({
         url: "http://172.16.40.239:8013/area/supplier/findStoreInfoBySupplierId",
         data: {
             supplierId: [localStorage.getItem("companyId")]
         },
-        dataType: "json",
-        type: "post",
-        success: function (res) {
-            console.log(res);
-            var str = '';
-            if (res.success) {
-                for (var i = 0; i < res.data.length; i++) {
-                    str += '<li storeId="' + res.data[i].id + '">' + res.data[i].storeName + '</li>'
-                }
-                $(".cover .fr ul").append(str)
+    },function (res) {
+        var str = '';
+        if (res.success) {
+            for (var i = 0; i < res.data.length; i++) {
+                str += '<li storeId="' + res.data[i].id + '">' + res.data[i].storeName + '</li>'
             }
-        },
-        error: function () {
-            console.log(1);
+            $(".cover .fr ul").append(str)
         }
     })
+
     //字母
     $(".eng span").click(function () {
         var letter = $(this).html();
@@ -557,19 +529,16 @@
     }
     function confirm(b) {
         var money = $(b).prev().val();
-        $.ajax({
+        rewriteAjax({
             url: "/usergoods/sku/publisher/updatePrice",
             data: {id: $(this).parent().attr("proId"), factory_price_new: money},
-            type: "post",
-            dataType: 'json',
-            success: function (res) {
-                console.log(res);
-                if (res.success) {
-                    $(b).parent().html('<span>￥' + money + '</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">')
+        },function (res) {
+            if (res.success) {
+                $(b).parent().html('<span>￥' + money + '</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">')
 
-                }
             }
-        })
+        });
+
     }
     //去处理
     $(".more").click(function () {
@@ -614,10 +583,10 @@
     function getParams() {
         var shopNumber=$('#shopNumber').val();
         var params = {
-            'lcid': '',
+            'lcid': lcids,
             'pageSize': 1,
             'pageNum': 10,
-            'brandId': '',
+            'brandId': brandId,
             'number': '',
             'storeId': storeId,
             'publisherId': ''
@@ -716,19 +685,6 @@
          $('.select_list').html(str)
      }
 
-    $.ajax({
-        url: '',
-        type: 'post',
-        dataType: 'json',
-        success: function (data) {
-            if (data.success) {
-
-            }
-        },
-        error: function (e) {
-            console.log(e)
-        }
-    })
 
 
 </script>

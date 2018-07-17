@@ -145,20 +145,15 @@
          })
 
          // 协议
-         $.ajax({
+         rewriteAjax({
              url:'http://172.16.38.97:8009/user/agreement/goods/info',
-             type:"post",
-             dataType:"json",
-             headers:{
-                 Authorization:localStorage.getItem("token")
-             },
-             success:function (data) {
-                 if (data.success){
-                     console.log(data)
-                     $('.agreements') .html('<li>'+data.data.comment+'</li>')
-                 }
+         },function (data) {
+             if (data.success){
+                 console.log(data)
+                 $('.agreements') .html('<li>'+data.data.comment+'</li>')
              }
          })
+
         // 点击同意跳转
         $('.yes').click(function () {
            window.location.href='./product_template.html'

@@ -259,7 +259,7 @@
             </div>
           <div class="right">
                 <div class="account_cont">
-                  <p class="router">1》2》3</p>
+                  <p class="router"></p>
                   <p class="look_nav"> 订单信息</p>
                   <ul class="basics_msg">
                                 <!--<li><span>订单编号：</span></li>-->
@@ -365,115 +365,109 @@
             })(jQuery);
             var dataId=$.getUrlParam("orderId");
             // 订单信息  仓库信息
-            $.ajax({
-                url:'http://172.16.44.23:8005/supplierOrder/showOrderDetailClaimAndComplete',
-                data:{orderId:'94'},
-                dataType:'json',
-                type:'post',
-                success:function (res) {
-                    console.log(res)
-                        var order=res.data.orderInfo;
-                        var str="";
-                        var basics="";
-                        basics+='<li><span>订单编号：<span class="orderId">'+order.orderCode+'</span></span></li><li><span>下单时间：'+order.createTime+'</span></li><li><span>订单状态：';
-                        switch (order. tradeState){
-                            case '-3':
-                                basics+='超时未支付';
-                                break;
-                            case '-2':
-                                basics+='用户取消订单';
-                                break;
-                            case '-1':
-                                basics+='关闭订单';
-                                break;
-                            case '1':
-                                basics+='未付款';
-                                break;
-                            case '2':
-                                basics+='待备货';
-                                $('. workerMessage').hide();
-                                break;
-                            case '3':
-                                basics+='待取货';
-                                $(".stock").html('<input type="text" class="form-control" placeholder="请输入取货码" id="code"><input type="button" value="验证" onclick="verify()" class="form-control btn-primary" style="width: 200px;">')
-                                $('.workerMessage').hide();
-                                break;
-                            case '4':
-                                basics+='已取货';
-                                $('.cz').hide();
-                                break;
-                            case '5':
-                                basics+='已完成';
-                                $('.cz').hide();
-                                break;
-                            case '6':
-                                basics+='售后时期已过';
-                                break;
-                            case '97':
-                                basics+='退款中';
-                                break;
-                        }
-                        $(".basics_msg").html(basics+'</span></li>')
-                        $(".cover_msg").html('<li><span>仓库名称：</span>'+order.storeName+'</li><li><span>所在地址：'+order.storePosition+'</span></li>')
-                        for(var i=0;i<order.orderDetails.length;i++){
-                            str+='<ul><li class="col-sm-3"><img src="'+order.orderDetails[i].pic2+'" alt="">'+order.orderDetails[i].showName+'</dd></dl></li>'
-                            str+='<li class="col-sm-3"><span>'+order.orderDetails[i].skuModel+'</span></li><li class="col-sm-1">';
-                            // console.log(order.orderDetails[i]. skuType)
-                            switch (order.orderDetails[i].skuType) {
-                                case "1":
-                                    str+='标品';
-                                    break;
-                                case "2":
-                                    str+='非标1类';
-                                    break;
-                                case "3":
-                                    str+='非标2类';
-                                    break;
-                                case "4":
-                                    str+='定制品';
-                                    break;
-                            }
-                            str+='</li>';
-                            str+='<li class="col-sm-1">'+order.orderDetails[i]. skuCode+'</li>'
-                            str+='<li class="col-sm-1">X'+order.orderDetails[i].skuNumber+'</li>'
-                            str+='<li class="col-sm-1">￥'+order.orderDetails[i].currentPrice+'</li>'
-                            str+='<li class="col-sm-2">' +
-                                  '<a href="javascript:;" class="downLoad" productId="'+order.orderDetails[i].skuCode+'" onclick="downLoad(this)">下载测量表</a>' +
-                                  '<a href="javascript:;" class="looks"  productId="'+order.orderDetails[i].skuCode+'"  onclick="look()" data-toggle="modal" data-target="#myModal">查看设计图</a>' +
-                                 '</li>'
-                            str+='</ul>'
-                        }
-                        var clear="";
-                        for(var i=0;i<order.orderDetails.length;i++){
-                            clear+=' <ul><li>'+order.orderDetails[i].showName+':</li>'
-                            clear+='<li>￥<span class="price">'+order.orderDetails[i].currentPrice+'</span> X <span>'+order.orderDetails[i].skuNumber+'</span>'
-                            clear+='= <span class="total" ></span> '
-                            if(order.orderDetails[i].enough==0){
-                                clear+='<span class="buzu" style="color:red;margin-left: 30px">库存不足，无法发货</span>'
-                                $(".stock").html('<input type="button" value="增加库存" onclick="add()" class="form-control btn-primary" style="width: 200px;">')
-                            }else{
-                                $(".stock").html('<input type="button" value="已备货，确认出库" onclick="ok()" class="form-control btn-primary" style="width: 180px;">')
-
-                            }
-                            clear+='</li></ul>'
-                        }
-                        clear+="<p  style='text-align: right;margin-right: 30px'> 总计：￥<span style='color:red;' class='num'></span></p>"
-                        $(".clear").html(clear);
-                        $(".specification_msg").html(str);
-                        var num=0;
-                        $(".total").each(function () {
-                            num+=$(this).prev().html()*$(this).prev().prev().html()
-                            $(this).html("￥"+$(this).prev().html()*$(this).prev().prev().html())
-                        });
-                        $(".num").html(num);
-                        // console.log(res.data.workerPic!==undefined);
-                        if(res.data.workerPic!==undefined){
-                            var worker="";
-                            worker+='<ul class="worker"><img src="'+res.data.workerPic+'" alt=""></li>';
-                            worker+='<li class="col-sm-3">姓名：'+res.data.workerName+'</li><li class="col-sm-3">手机号：'+res.data.workerPhoneNumber+'</li><li class="col-sm-3">车牌号：'+res.data.workerCarCode+'</li>'
-                            $("ul.worker").html(worker)
-                        }
+            rewriteAjax({ url:'http://172.16.44.23:8005/supplierOrder/showOrderDetailClaimAndComplete',
+                data:{orderId:'94'}},function (res) {
+                var order=res.data.orderInfo;
+                var str="";
+                var basics="";
+                basics+='<li><span>订单编号：<span class="orderId">'+order.orderCode+'</span></span></li><li><span>下单时间：'+order.createTime+'</span></li><li><span>订单状态：';
+                switch (order. tradeState){
+                    case '-3':
+                        basics+='超时未支付';
+                        break;
+                    case '-2':
+                        basics+='用户取消订单';
+                        break;
+                    case '-1':
+                        basics+='关闭订单';
+                        break;
+                    case '1':
+                        basics+='未付款';
+                        break;
+                    case '2':
+                        basics+='待备货';
+                        $('. workerMessage').hide();
+                        break;
+                    case '3':
+                        basics+='待取货';
+                        $(".stock").html('<input type="text" class="form-control" placeholder="请输入取货码" id="code"><input type="button" value="验证" onclick="verify()" class="form-control btn-primary" style="width: 200px;">')
+                        $('.workerMessage').hide();
+                        break;
+                    case '4':
+                        basics+='已取货';
+                        $('.cz').hide();
+                        break;
+                    case '5':
+                        basics+='已完成';
+                        $('.cz').hide();
+                        break;
+                    case '6':
+                        basics+='售后时期已过';
+                        break;
+                    case '97':
+                        basics+='退款中';
+                        break;
+                }
+                $(".basics_msg").html(basics+'</span></li>')
+                $(".cover_msg").html('<li><span>仓库名称：</span>'+order.storeName+'</li><li><span>所在地址：'+order.storePosition+'</span></li>')
+                for(var i=0;i<order.orderDetails.length;i++){
+                    str+='<ul><li class="col-sm-3"><img src="'+order.orderDetails[i].pic2+'" alt="">'+order.orderDetails[i].showName+'</dd></dl></li>'
+                    str+='<li class="col-sm-3"><span>'+order.orderDetails[i].skuModel+'</span></li><li class="col-sm-1">';
+                    // console.log(order.orderDetails[i]. skuType)
+                    switch (order.orderDetails[i].skuType) {
+                        case "1":
+                            str+='标品';
+                            break;
+                        case "2":
+                            str+='非标1类';
+                            break;
+                        case "3":
+                            str+='非标2类';
+                            break;
+                        case "4":
+                            str+='定制品';
+                            break;
                     }
+                    str+='</li>';
+                    str+='<li class="col-sm-1">'+order.orderDetails[i]. skuCode+'</li>'
+                    str+='<li class="col-sm-1">X'+order.orderDetails[i].skuNumber+'</li>'
+                    str+='<li class="col-sm-1">￥'+order.orderDetails[i].currentPrice+'</li>'
+                    str+='<li class="col-sm-2">' +
+                        '<a href="javascript:;" class="downLoad" productId="'+order.orderDetails[i].skuCode+'" onclick="downLoad(this)">下载测量表</a>' +
+                        '<a href="javascript:;" class="looks"  productId="'+order.orderDetails[i].skuCode+'"  onclick="look()" data-toggle="modal" data-target="#myModal">查看设计图</a>' +
+                        '</li>'
+                    str+='</ul>'
+                }
+                var clear="";
+                for(var i=0;i<order.orderDetails.length;i++){
+                    clear+=' <ul><li>'+order.orderDetails[i].showName+':</li>'
+                    clear+='<li>￥<span class="price">'+order.orderDetails[i].currentPrice+'</span> X <span>'+order.orderDetails[i].skuNumber+'</span>'
+                    clear+='= <span class="total" ></span> '
+                    if(order.orderDetails[i].enough==0){
+                        clear+='<span class="buzu" style="color:red;margin-left: 30px">库存不足，无法发货</span>'
+                        $(".stock").html('<input type="button" value="增加库存" onclick="add()" class="form-control btn-primary" style="width: 200px;">')
+                    }else{
+                        $(".stock").html('<input type="button" value="已备货，确认出库" onclick="ok()" class="form-control btn-primary" style="width: 180px;">')
+
+                    }
+                    clear+='</li></ul>'
+                }
+                clear+="<p  style='text-align: right;margin-right: 30px'> 总计：￥<span style='color:red;' class='num'></span></p>"
+                $(".clear").html(clear);
+                $(".specification_msg").html(str);
+                var num=0;
+                $(".total").each(function () {
+                    num+=$(this).prev().html()*$(this).prev().prev().html()
+                    $(this).html("￥"+$(this).prev().html()*$(this).prev().prev().html())
+                });
+                $(".num").html(num);
+                // console.log(res.data.workerPic!==undefined);
+                if(res.data.workerPic!==undefined){
+                    var worker="";
+                    worker+='<ul class="worker"><img src="'+res.data.workerPic+'" alt=""></li>';
+                    worker+='<li class="col-sm-3">姓名：'+res.data.workerName+'</li><li class="col-sm-3">手机号：'+res.data.workerPhoneNumber+'</li><li class="col-sm-3">车牌号：'+res.data.workerCarCode+'</li>'
+                    $("ul.worker").html(worker)
+                }
             })
                 // 增加库存
            // function  add() {
@@ -481,33 +475,23 @@
            //  }
                 // 验证取货码
            function verify(){
-              $.ajax({
-                        url:"http://172.16.40.237:8005/supplierOrder/getPickUpCode",
-                        data:{ orderId:$(".orderId").html(), pickUpCode:$("#code").html()},
-                        type:"post",
-                        success:function (res) {
-                            if(res.data==0){
-                                alert("提货码有误")
-                            }else if(res.data==1){
-                                alert("正在提货")
-                            }else{
-                                alert("已经提货")
-                            }
-                            window.location.reload()
-                        }
-                    })
+                rewriteAjax({url:"http://172.16.40.237:8005/supplierOrder/getPickUpCode",
+                    data:{ orderId:$(".orderId").html(), pickUpCode:$("#code").html()},},function (res) {
+                    if(res.data==0){
+                        alert("提货码有误")
+                    }else if(res.data==1){
+                        alert("正在提货")
+                    }else{
+                        alert("已经提货")
+                    }
+                    window.location.reload()
+                })
            }
               //点击弹框确认按钮（待备货）
            function ok(){
-              $.ajax({
-                    url:"http://172.16.44.23:8005/supplierOrder/stockUp",
-                    type:"post",
-                    dataType:"json",
-                    data:{ orderId:$(".orderId").html()},
-                    success:function (res) {
-                        if(res.success){
-                           layer.msg('备货完成')
-                        }
+                rewriteAjax({url:"http://172.16.44.23:8005/supplierOrder/stockUp",data:{ orderId:$(".orderId").html()},},function (res) {
+                    if(res.success){
+                        layer.msg('备货完成')
                     }
                 })
             }
@@ -519,7 +503,7 @@
             function look(a) {
                 var str = "";
                 // var pic = $(a).find("span").html();
-                var pic="dads,34324,3243324";
+
                 var arr = pic.split(",");
                 for (var i = 0; i < arr.length; i++) {
                     str += '<div class="swiper-slide"><img src="../image/icon.png" alt=""></div>';

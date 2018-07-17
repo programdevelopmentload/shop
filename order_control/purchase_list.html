@@ -418,47 +418,43 @@ function  goDetail(a) {
 //可备货
 function ok(a){
     var orderId=$(a).parent().attr("orderid");
-    $.ajax({
+    rewriteAjax({
         url:"http://172.16.38.97:8009/purchase/order/supplier/confirm",
         data:{orderNum:orderId},
-        dataType:"json",
-        type:"post",
-        success:function (res) {
-            if(res.success){
-                layer.msg("已出库")
-            }
+    },function (res) {
+        if(res.success){
+            layer.msg("已出库")
         }
     })
+
 }
 //++
 function add(a){
-    window.location.href=""
+    window.location.href="../product/cover_manage.html"
 }
 
 $(".modal-content .modal-body p span").click(function () {
-    $.ajax({
+    rewriteAjax({
         url:"http://172.16.44.200:8002/user/agreement/technical/service",
-        dataType:"json",
-        type:"post",
-        success:function (res) {
-            if(res.success){
+    },function (res) {
+        if(res.success){
 
-                $(".caigou").show();
-                var str="";
-                str+='<ul><li>订单编号：'+orderId+'<span>'+createTime+'</span></li>';
+            $(".caigou").show();
+            var str="";
+            str+='<ul><li>订单编号：'+orderId+'<span>'+createTime+'</span></li>';
 
-                $(name).each(function () {
-                    str+='<li>'+$(this).html()+'</li>'
-                })
-                for(var i=0;i<arr.length;i++){
+            $(name).each(function () {
+                str+='<li>'+$(this).html()+'</li>'
+            })
+            for(var i=0;i<arr.length;i++){
 
-                }
-                str+='<li>'+res.data.comment+'</li>';
-                str+='</ul>' ;
-                $(".caigou").html(str);
             }
+            str+='<li>'+res.data.comment+'</li>';
+            str+='</ul>' ;
+            $(".caigou").html(str);
         }
     })
+
 });
     $(document).click(function () {
 
@@ -467,17 +463,15 @@ $(".modal-content .modal-body p span").click(function () {
     });
 $(".modal-footer .btn-primary").click(function () {
     if($(".modal-body input").prop("checked")){
-        $.ajax({
+        rewriteAjax({
             url:"http://172.16.38.97:8009//purchase/order/supplier/makeSure",
             data:{orderNum:orderId},
-            dataType:"json",
-            type:"post",
-            success:function (res) {
-              if(res.success){
-                  layer.msg("采购单确认成功");
-              }
+        },function (res) {
+            if(res.success){
+                layer.msg("采购单确认成功");
             }
         })
+
     }
 
 

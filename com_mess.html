@@ -247,7 +247,7 @@
 
                     $(".store_city").html(html);
                     rewriteAjax({  url:store_area_url,
-                        data:{cityId:cityId},},function () {
+                        data:{cityId:cityId},},function (res) {
                         var data = res.data;
                         //console.log(data);
                         var html='';

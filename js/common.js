@@ -282,6 +282,9 @@ $(".header li").click(function () {
     if(text=="基础设置"){
         window.location.href="../basis_setting/basis_msg.html"
     }
+    if(text=="首页"){
+        window.location.href="../basis_setting/login_hasPro.html"
+    }
     if(text==localStorage.getItem("username")){
         window.location.href="../basis_setting/account_msg.html"
     }

@@ -177,61 +177,54 @@
     var dataJson = {};
     getData();
     function getData() {
-        $.ajax({
+        rewriteAjax({
             url: "http://172.16.34.37:8007/goods/GoodsClassification/findAllBackClass",
-            type: "post",
-            dataType: "json",
-            success: function (res) {
-                console.log(111)
-                console.log(res)
-                if (res.success) {
-                    var arr = [];
-                    var data = res.data;
-                    for (var i = 0; i < data.length; i++) {
-                        if (data[i].parentId == 0) {
-                            var obj = {};
-                            obj.id = data[i].id;
-                            obj.name = data[i].name;
-                            var secondArr = [];
-                            for (var j = 0; j < data.length; j++) {
+        },function () {
+            if (res.success) {
+                var arr = [];
+                var data = res.data;
+                for (var i = 0; i < data.length; i++) {
+                    if (data[i].parentId == 0) {
+                        var obj = {};
+                        obj.id = data[i].id;
+                        obj.name = data[i].name;
+                        var secondArr = [];
+                        for (var j = 0; j < data.length; j++) {
 
-                                if (data[j].parentId == obj.id) {
-                                    var obj2 = {};
-                                    obj2.id = data[j].id;
-                                    obj2.name = data[j].name;
-                                    secondArr.push(obj2);
+                            if (data[j].parentId == obj.id) {
+                                var obj2 = {};
+                                obj2.id = data[j].id;
+                                obj2.name = data[j].name;
+                                secondArr.push(obj2);
 
-                                    var thirdArr = [];
-                                    for (var k = 0; k < data.length; k++) {
-                                        var obj3 = {};
-                                        if (data[k].parentId == obj2.id) {
-                                            obj3.id = data[k].id;
-                                            obj3.name = data[k].name;
-                                            thirdArr.push(obj3);
-                                        }
-
+                                var thirdArr = [];
+                                for (var k = 0; k < data.length; k++) {
+                                    var obj3 = {};
+                                    if (data[k].parentId == obj2.id) {
+                                        obj3.id = data[k].id;
+                                        obj3.name = data[k].name;
+                                        thirdArr.push(obj3);
                                     }
-                                    obj2.child = thirdArr;
+
                                 }
-
-                                //遍历3级菜单；
+                                obj2.child = thirdArr;
                             }
-                            obj.child = secondArr
-                            arr.push(obj);
+
+                            //遍历3级菜单；
                         }
-
-
+                        obj.child = secondArr
+                        arr.push(obj);
                     }
-                    dataJson.option = arr;
-                    console.log(arr);
 
-                    sanji();
+
                 }
-            },
-            error: function (err) {
-                console.log(err)
+                dataJson.option = arr;
+                console.log(arr);
+
+                sanji();
             }
-        });
+        })
+
     }
     getData();
     function sanji() {
@@ -358,21 +351,18 @@
          window.location.href='../basis_setting/operation_msg.html'
      })
          // alert(1)
-         $.ajax({
-             url:'http://172.16.40.239:8080/area/supplier/findStoreInfoBySupplierId',
-             type:"post",
-             data:{
-                 supplierIds:2,  //店铺ID
-             },
-             dataType:"json",
-             success:function (res) {
-                 // console.log(res);
-                 if(res.data.length==0){
-                     $('.shopTips').show();
+     rewriteAjax({
+         url:'http://172.16.40.239:8080/area/supplier/findStoreInfoBySupplierId',
+         data:{
+             supplierIds:2,  //店铺ID
+         }
+     },function(res){
+         if(res.data.length==0){
+             $('.shopTips').show();
 
-                 }
-             }
-         });
+         }
+     })
+
 
 
 

@@ -47,11 +47,6 @@
     <a href="javascript:;">
         <img src="../image/store.png"/>
     </a>
-    <ul>
-        <!--<li>首页</li>-->
-        <li><span class="head_active">基础设置</span></li>
-
-    </ul>
     <ol>
         <li>退出</li>
         <i></i>
@@ -61,7 +56,15 @@
     </ol>
 
 </div>
-
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
 <div id="box">
     <div class="left">
         <ul>
@@ -70,7 +73,7 @@
                 <ul>
                     <li>基本信息</li>
                     <li>认证资料</li>
-
+                    <li >保证金</li>
                 </ul>
             </li>
             <li >
@@ -79,7 +82,12 @@
                     <li class="first">经营区域</li>
                 </ul>
             </li>
-
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
         </ul>
 
 
@@ -150,13 +158,6 @@
         width: '15%',
         valign: "middle",
         align: "center"
-    }, {
-        field: 'start_time',
-        title: '服务区域',
-        width: '30%',
-        align: "center",
-        valign: "middle"
-
     }];
     var res=rewriteAjax({
         url: pullUrl,
@@ -174,12 +175,12 @@
             var obj={};
             obj.shop_mess=data[0].storeName;
             obj.shop_number=data[i].storePosition;
-            var str="";
-            for(var j=0;j<data[i].storeServerDetails.length;j++){
-                str+=data[i].storeServerDetails[j]+","
-            }
-            str= str.substr(0,str.length-1);
-            obj.start_time=str;
+            // var str="";
+            // for(var j=0;j<data[i].storeServerDetails.length;j++){
+            //     str+=data[i].storeServerDetails[j]+","
+            // }
+            // str= str.substr(0,str.length-1);
+            // obj.start_time=str;
             arr.push(obj);
             console.log(arr)
         }
