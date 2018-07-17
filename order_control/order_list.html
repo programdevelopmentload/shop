@@ -468,6 +468,7 @@
     }
     // 点击跳转详情
     $('.purch_tables').on('click','.ddDetailBtn',function () {
+        sessionStorage.setItem("orderId",$(this).parent().attr("orderid");)
         window.location.href='./order_details.html'
     })
 

@@ -366,12 +366,12 @@
             var dataId=$.getUrlParam("orderId");
             // 订单信息  仓库信息
             rewriteAjax({ url:'http://172.16.44.23:8005/supplierOrder/showOrderDetailClaimAndComplete',
-                data:{orderId:'94'}},function (res) {
+                data:{orderId:sessionStorage.getItem("orderId")}},function (res) {
                 var order=res.data.orderInfo;
                 var str="";
                 var basics="";
                 basics+='<li><span>订单编号：<span class="orderId">'+order.orderCode+'</span></span></li><li><span>下单时间：'+order.createTime+'</span></li><li><span>订单状态：';
-                switch (order. tradeState){
+                switch (order.tradeState){
                     case '-3':
                         basics+='超时未支付';
                         break;
