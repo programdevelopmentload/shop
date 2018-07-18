@@ -1,0 +1,155 @@
+i{
+	font-weight: normal;
+	font-style: normal;
+}
+.modelClass,.modelClass_brand{
+	padding: 0 0 10px 0;
+	border-bottom: 1px #ccc dashed
+}
+.modelClass span{
+	display: inline-block; 
+	width:  6%;
+
+}
+.modelClass_brand {
+	height: 30px;
+	overflow: hidden;
+	line-height: 30px
+}
+.modelClass_brand span{
+	width: 11%;
+	display: inline-block;
+}
+.modelClass span.modelClass_spc, .modelClass_brand span.modelClass_spc{
+	color: #333;
+	width: 7%;
+}
+.modelClass_brand span img{
+	display: inline-block;
+	width: 16px;
+	height: 8px
+}
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 20%;
+}
+.mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.4);
+	display: none;
+}
+.model_mask{
+	width: 500px;
+	height:600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -250px;
+    margin-top: -300px;
+    background: #efefef;
+    border-radius: 4px;
+    box-shadow:  5px 5px 5px #777
+}
+.mask_tit{
+	line-height: 45px;
+	border-bottom: 1px solid #ccc;
+	height: 45px;
+}
+.mask_tit span{
+	float: left;
+    margin-left: 5px;
+    display: block;
+}
+.mask_tit span:nth-of-type(2){
+	float: right;
+	margin-right: 5px;
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border-radius: 30px;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
+    cursor: pointer;
+
+}
+.mask_model{
+    display: flex;
+    display: -webkit-flex;
+    border-bottom: 1px solid #ccc;
+    line-height: 45px
+}
+.mask_model span{
+	flex: 1;
+	-webkit-flex:1;
+	margin-left: 5px
+ }
+ .uls{
+ 	 width: 100%;
+ 	 display: flex;
+ 	 display: -webkit-flex;
+ }
+ .uls span{
+    flex: 1;
+    -webkit-flex:1;
+    border:1px solid #ccc;
+    padding: 10px 0;
+    text-align: center;
+    cursor: pointer;
+ }
+ .actived{
+  	color: #fff;
+  	background: #777
+  }
+.newType{
+	width: 80%;
+	margin:50px auto;
+}
+#setUp{
+	margin-left: 130px;
+	margin-top: 80px
+}
+
+.modelType{
+	width: 100%;;
+
+	display: none;
+}
+.modelType p{
+	text-indent: 5px;
+	line-height: 45px
+
+}
+.model_ul{
+	width: 80%;
+	margin: 10px auto;
+	border:1px solid #ccc;
+	height: 200px;
+	overflow-y: auto;
+}
+.model_ul li{
+	display: flex;
+	display: -webkit-flex;
+	border-bottom: 1px solid #ccc;
+	line-height: 45px;
+
+}
+.model_ul li span{
+	float: 1;
+	-webkit-flex:1;
+	margin-left: 5px;
+}
+.model_ul li input{
+    margin-top: 15px;
+    margin-right: 5px
+}
+#modelType_btn{
+	margin-left: 215px;
+	margin-top: 30px
+}
+.audits{
+	cursor: pointer;
+}

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>协议条款-上传协议</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .relation_arrow {
+        background: url(../../images/drop_arrow.png) no-repeat center;
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        }
+
+        .manag_class_state input[type=radio] {
+        margin: 10px 10px 0;
+        width: 20px;
+        }
+
+        .checkTip {
+        color: red;
+        }
+
+        .agree_add_btn {
+        margin: 50px auto 0;
+        }
+
+        .skuListDetail_con .dianping-head {
+        margin-bottom: 16px;
+        }
+
+        .skuListDetail_con .dianping-head .btn-dp {
+        width: 45px;
+        height: 22px;
+        color: #ffffff;
+        font-size: 14px;
+        padding: 0px 10px;
+        border: 1px solid #3498da;
+        background: #3498da;
+        text-align: center;
+        vertical-align: middle;
+        display: inline-block;
+        border-radius: 0;
+        padding: 0;
+        }
+
+        .skuListDetail_con .dianping-center {
+        width: 100%;
+        height: 100px;
+        border: 1px solid #999999;
+        background: #ffffff;
+        }
+
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container" id="box">
+        <div class="left" style="min-height: 951px;">
+            <ul>
+                <li>
+                    <span>类目属性</span>
+                    <ul>
+                        <li class="side_active"><a href="./backstage_oneGradeDivide.html">后台分类</a></li>
+                        <li class=""><a href="./front_oneGradeDivide.html">运营分类</a></li>
+                        <li class=""><a href="./brand_manag.html">品牌管理</a></li>
+                        <li class=""><a href="./attr_manag_tuiguang.html">属性管理</a></li>
+                        <li class=""><a href="./unit_manag.html">单位管理</a></li>
+                        <li class=""><a href="./attr_service_list.html">服务属性</a></li>
+                        <!--<li class="side_active side_three">添加服务</li>-->
+                        <li class=""><a href="./model_list.html">型号管理</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+
+            <!--<ul>-->
+            <!--<li class="side_active">-->
+            <!--订单管理-->
+            <!--</li>-->
+
+            <!--<li><span ></span>代发货</li>-->
+            <!--<li><span ></span>代发货</li>-->
+            <!--<li><span ></span>代发货</li>-->
+            <!--</ul>-->
+            <!--<ul>-->
+
+
+            <!--<li><span ></span>代发货</li>-->
+            <!--<li><span ></span>代发货</li>-->
+            <!--<li><span ></span>代发货</li>-->
+            <!--</ul>-->
+        </div>
+        <div class=" brandAdd_con_right yycon_right yyconOrder_right col-xs-10 ">
+            <ol class=" breadcrumb breadcrumb_selfDefined">
+                <li><a href="#">商品管理》</a></li>
+                <li><a href="#">商品审核》</a></li>
+                <li><a href="#">待审核》</a></li>
+                <li class="active"><a href="#">审核详情》</a></li>
+            </ol>
+            <h4 class="conRight_h4">添加模板</h4>
+            <form class="form-horizontal mess_list_margin clearfix" role="form">
+                <div class="form-group col-sm-12 clearfix">
+                    <label for="" class="col-sm-2 control-label">协议名称：</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control everyAdd_input" id="clrs" placeholder="请输入协议名称">
+                    </div>
+                    <div class="col-sm-5 brand_name_tip  checkTip">
+                        支持中英文，最多32个字符
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 clearfix">
+                    <label for="" class="col-sm-2 control-label">协议类型：</label>
+                    <div class="col-sm-3">
+                        <select class=" form-control ">
+                            <option value="">请选择</option>
+                            <option value="5" class="">5</option>
+                            <option value="10" class="">10</option>
+                            <option value="15" class="">15</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-5 brand_name_tip  checkTip">
+                        请选择模板类型
+                    </div>
+                </div>
+                <!--<div class="form-group col-sm-12 clearfix hide_ctr">-->
+                    <!--<label for="" class="col-sm-2 text-right">选择文件：</label>-->
+                    <!--<div class="col-sm-5 ">-->
+                        <!--请上传excel文档，仅支持xls、xlsx格式。-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-5 brand_logo_tip checkTip ">-->
+                        <!--请上传excel文档-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-sm-6 ">-->
+                    <!--<input type="file" id="logo_brand_file">-->
+                <!--</div>-->
+                <div class="form-group col-sm-12 clearfix">
+                    <label for="" class="col-sm-2 control-label">编辑协议内容：</label>
+                    <div class="col-sm-3 dianping">
+
+                    </div>
+                    <div class="col-sm-5 brand_name_tip  checkTip">
+                        支持中英文，最多32个字符
+                    </div>
+                </div>
+
+            </form>
+            <div class="sure_mdBtn agree_add_btn">
+                确认并上传
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<!--<script src="../../js/lib/jquery-1.12.4.min.js"></script>-->
+<script src="../../js/lib/jquery-2.1.4.min.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+
+<script src="../../js/other_manage/template_up.js"></script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新品整合-sku列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/skuNewMerge_skuList.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+        .choice_box{
+            text-align: center;
+            margin: 66px auto 0 auto;
+        }
+        .choice_box .sure_supsBtn{
+            margin: 5px;
+        }
+        .popwin_out{
+            margin-bottom:  30px!important;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="skuListDetail_con_right public_con yycon_right col-xs-10">
+                <ol class="skuListDetail_Bread breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a></li>
+                    <li><a href="#">商品审核 > </a></li>
+                    <li><a href="#">待审核 > </a></li>
+                    <li class="active"><a href="#">审核详情</a></li>
+                </ol>
+                <div class="skuNew_skuList conRight1 clearfix">
+                    <h2>喜宝梦 儿童书柜 A109</h2>
+                    <!--<p class="skuNew_skuList_p">-->
+                        <!--<span>SKU数量:5</span>-->
+                        <!--<span>上新SKU:5</span>-->
+                    <!--</p>-->
+                </div>
+
+                <p class="skulist">sku列表</p>
+                <div class="ceshi2">
+                    详情测试
+                </div>
+                <div class="table_merge">
+
+                    <div class="sku_tab vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                        <div class="clearfix pageSize_switch_con">
+                            <div class="fl">每页显示</div>
+                            <select class="pageSize_switch form-control fl">
+                                <option value="5" class="">5</option>
+                                <option value="10" class="">10</option>
+                                <option value="15" class="">15</option>
+                            </select>
+                            <div class="ceshi">
+                                批量整合测试[提示最多选择5条]
+                            </div>
+                            <!--<a href="./front_everyGrade_add.html?selfId=0&amp;isLeaf=0&amp;level=1&amp;editSign=0" type="button" class="fr sure_supsBtn ">添加一级分类</a>-->
+                        </div>
+                       <!-- <table id="sku_tab" class="table table-hover skuTable_left"></table> -->
+                        <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                            <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" name="front_top" class="all-check">
+                                </th>
+                                <th>商品信息</th>
+                                <th>发布商家</th>
+                                <th>上新时间</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="leftBottom clearfix">
+                            <!--<button type="button" class="outBack">批量退回</button>-->
+                            <div class="page pageBar" id="page">
+                                <p>共0条记录</p>
+                                <div class="pageLft clearfix">
+                                    <!--<a class="noprev"></a>-->
+                                    <a href="#" class="prev"></a>
+                                    <a href="#" class="active">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <span>...</span>
+                                    <a href="#" class="next"></a>
+                                    <!--<a class="nonext"></a>-->
+                                </div>
+                                <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skuTab_Merge_List">
+                       <p>整合清单</p>
+                       <ul class="skuTab_Merge_ul">
+                           <li>
+                               <img src="../../images/standard_img.jpg">
+                               <span>喜梦宝  儿童书柜 A109 四格书架</span>
+                           </li>
+                       </ul>
+                       <span  class="go_skuManage">
+                           去整合
+                       </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+        <div class="clearfix choice_box">
+            <div class="ajax_alert_sure  sure_supsBtn">确定</div>
+            <div class="ajax_alert_false sure_supsBtn">取消</div>
+        </div>
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="detail_bubble">
+    <div class="mergeBubble_container">
+        <h4 class="conRight_h4">基本信息</h4>
+        <div class="bubble_basic_info">
+            <div class="col-xs-6">
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">所属分类：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">客厅-书架-儿童书柜</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">所属品牌：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">喜梦宝</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">型号：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">A109</div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">商品类型：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">标准产品</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">产地：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">澳大利亚</div>
+                </div>
+                <div class="clearfix">
+                    <p class="col-xs-4 text-right">风格：</p>
+                    <div class="col-xs-8 text-left merge_deta_cates">飞舞轻扬</div>
+                </div>
+            </div>
+        </div>
+        <h4 class="conRight_h4">产品规格</h4>
+        <div class="bubble_standard_info clearfix">
+            <div class="col-xs-3">
+                <img src="../../images/standard_img.jpg" alt="">
+            </div>
+            <div class="col-xs-9 text-left">
+                <div class="bubble_color">
+                    颜色
+                </div>
+                <div class="bubble_size">
+                    尺寸
+                </div>
+            </div>
+        </div>
+        <h4 class="conRight_h4">商品参数</h4>
+        <div class="bubble_goodsdetail">
+            <img src="../../images/vwaitDetail_img.jpg" alt="">
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/common.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/product_manage/skuNewMerge_skuList.js"></script>
+<script type="text/javascript">
+// $(".skuTab_Merge_ul").append("<li>" +"<img src=''>" + "<span>"+ row.GoodsName +"</span>"+"</li>")
+</script>
+</body>
+</html>

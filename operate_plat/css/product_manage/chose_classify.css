@@ -1,0 +1,206 @@
+ .select-res span {
+    display: inline-block;
+    width: 330px;
+    height: 35px;
+    line-height: 35px;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+    }
+
+    .select-res p {
+    position: relative;
+    width: 200px;
+    height: 28px;
+    line-height: 28px;
+    border-bottom: dashed 1px #c0c0c0;
+    padding: 0 5px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 20px;
+    }
+
+    .select-res a {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 28px;
+    height: 28px;
+    background: url(../images/close_btn.jpg) no-repeat center;
+    cursor: pointer;
+    }
+
+    .select-res input {
+    width: 172px;
+    height: 14px;
+    line-height: 14px;
+    margin-left: 4px;
+    padding: 7px 5px;
+    border: solid 1px #c0c0c0;
+    color: #2c2c2c;
+    }
+
+    .select-res span.selected {
+    color: #337ab7;
+    }
+
+    .select-box {
+    /*     border:solid 1px #fd8340;*/
+    width: 536px;
+    height: 220px;
+    padding: 20px 20px 10px;
+
+    display: none;
+    z-index: 5;
+    background: #fff;
+    }
+
+    .select-box .close-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+    }
+
+    .select-box .wrap {
+    height: 200px;
+    border: solid 1px #ddd;
+    margin-top: 5px;
+    }
+
+    .select-box ul {
+    float: left;
+    width: 164px;
+    height: 200px;
+    overflow-y: scroll;
+    }
+
+    .select-box ul li {
+
+    line-height: 25px;
+    padding: 0 10px;
+    background: url(../images/arr.gif) no-repeat 152px center;
+    color: #626262;
+    cursor: pointer;
+    }
+
+    .select-box ul li.selected {
+    background: url(../images/arr_selected.gif) no-repeat 152px center #337ab7;
+    color: #fff;
+    }
+
+    .select_classify .form-control {
+        width: 170px;
+        height: 40px;
+        margin: 0 auto;
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+    }
+
+    .release_product {
+    margin: 0 auto;
+    width: 1200px;
+    float: none;
+    }
+   .select_classify{
+       padding-top: 20px;
+   }
+    #ss_brand {
+    width: 300px;
+    }
+
+    .account_title span span {
+    margin: 0;
+    padding: 0;
+    }
+
+    .product_sku .seletion_uls div .checkbox label span {
+    margin: 0;
+    padding: 0;
+    }
+
+    .add_product_img {
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    position: relative;
+    }
+
+    .add_product_img input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 64px;
+    height: 64px;
+    opacity: 0;
+    }
+
+    .detail_img {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    }
+
+    .detail_img img {
+    width: 100%;
+    height: 100%;
+
+    }
+
+    .detail_img span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 35px;
+    background: #151515;
+    color: #fff;
+    }
+
+    .seletion_uls i {
+    display: none
+    }
+
+    .mask{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: none;
+
+    }
+    .maskCont{
+        background: #fff;
+        border-radius: 4px;
+        width: 80%;
+        margin: 60px auto;
+        padding: 30px;
+    }
+
+    .btnClose{
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        background: #000;
+        line-height: 20px;
+        text-align: center;
+        cursor: pointer;
+        color: #fff;
+        font-style: normal;
+        display: block;
+        position: absolute;
+        right: 10%;
+        top: 60px
+
+    }

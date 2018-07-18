@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>sku -- 整合内容 </title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/skuNewMerge_mergecon.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .skuInte_conten ul {
+            margin-bottom: 0 !important;
+        }
+
+        .newskumerge_title_tip {
+            color: #000;
+            font-size: 20px;
+            height: 40px;
+            line-height: 40px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .skuMerge_list_left {
+            width: 12%;
+        }
+
+        .skuMerge_list_right {
+            width: 88%;
+        }
+
+        .merge_list {
+            width: 20%;
+        }
+
+        .skuMerge_list_left li, .skuMerge_list_right li {
+            min-height: 58px;
+            line-height: 58px;
+            font-size: 14px;
+            text-align: center;
+            padding-right: 11px;
+            text-align: center;
+            border-right: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .skuMerge_list_right ul:last-child > li {
+            border-right: none !important;
+        }
+
+        .skuMerge_list_right ul > li:last-child {
+            border-bottom: none;
+        }
+
+        .skuMerge_basicInfo,
+        .skuMerge_SkuDegree,
+        .skuMerge_detail,
+        .skuMerge_other {
+            font-size: 16px;
+            color: #000;
+            font-weight: 600;
+            border-right: none !important;
+        }
+
+        .skuMerge_basicInfo_right,
+        .skuMerge_categs_right,
+        .skuMerge_brand_right,
+        .skuMerge_model_right,
+        .skuMerge_type_right,
+        .skuMerge_SkuDegree,
+        .skuMerge_detail_right,
+        .skuMerge_other_right,
+        .skuMerge_basicInfo_right,
+        .skuMerge_SkuDegree_right,
+        .skuMerge_detail_right,
+        .skuMerge_other_right {
+            border-right: none !important;
+        }
+
+        .skuMerge_list_left .skuMerge_pack_list, .skuMerge_list_right .skuMerge_pack_right {
+            height: 120px;
+            line-height: 120px;
+            overflow: hidden;
+        }
+
+        .skuMerge_list_right .skuMerge_pack_right {
+            line-height: 30px !important;
+            overflow: hidden;
+        }
+
+        .skuMerge_list_left .skuMerge_part_list, .skuMerge_list_right .skuMerge_part_right {
+            height: 120px;
+            line-height: 120px;
+            overflow: hidden;
+        }
+
+        .skuMerge_list_right .skuMerge_part_right {
+            line-height: 30px !important;
+            overflow: hidden;
+        }
+
+        .skuMerge_list_left .skuMerge_Explain_list, .skuMerge_list_right .skuMerge_Explain_right {
+            min-height: 100px;
+            line-height: 100px;
+            /*overflow: hidden;*/
+        }
+
+        .skuMerge_list_left .skuMerge_Explain_list {
+            border-bottom: none;
+        }
+
+        .skuMerge_list_right .skuMerge_Explain_right {
+            line-height: 20px;
+        !important;
+            /*overflow: hidden;*/
+        }
+
+        .skuMerge_list_right .skuMerge_Explain_right > div:first-child {
+            padding: 3px;
+            width: 13%;
+            height: 90px;
+        }
+
+        .skuMerge_list_right .skuMerge_Explain_right > div:last-child {
+            padding: 3px;
+            width: 87%;
+            min-height: 90px;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="skuListDetail_con_right yycon_right col-xs-10">
+                <ol class="skuListDetail_Bread breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a></li>
+                    <li><a href="#">商品审核 > </a></li>
+                    <li><a href="#">待审核 > </a></li>
+                    <li class="active"><a href="#">审核详情</a></li>
+                </ol>
+                <!--产品详情 -->
+                <div class="skuInte_conten">
+                    <div class="skuMerge_list conRight1 clearfix">
+                        <div class="newskumerge_title_tip">
+                            <span class="newskumerge_brand">喜宝梦</span>
+                            <span class="newskumerge_cates">儿童书柜</span>
+                            <span class="newskumerge_Model">A109</span>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <div class="skuMerge_list_left fl ">
+                            <li>发布商家</li>
+                            <li>上新时间</li>
+                            <li class="skuMerge_basicInfo">基本信息</li>
+                            <li>所属分类</li>
+                            <li>所属品牌</li>
+                            <li>型号</li>
+                            <li>商品类型</li>
+                            <li>产地</li>
+                            <li>风格</li>
+                            <li class="skuMerge_SkuDegree">SKU规格</li>
+                            <li>图片</li>
+                            <li>颜色</li>
+                            <li>尺寸</li>
+                            <li class="skuMerge_detail">商品详情</li>
+                            <li>长图</li>
+                            <li class="skuMerge_other">其它信息</li>
+                            <li class="skuMerge_pack_list">包装清单</li>
+                            <li class="skuMerge_part_list">配件清单</li>
+                            <li class="skuMerge_Explain_list">购买说明</li>
+                        </div>
+                        <div class="skuMerge_list_right fl clearfix">
+                            <ul class="merge_list fl">
+                                <li>蓝翔家居</li>
+                                <li>2018-02-22 11:20:32</li>
+                                <li class="skuMerge_basicInfo_right">空</li>
+                                <li class="skuMerge_categs_right">
+                                    客厅-书架-儿童书柜
+                                </li>
+                                <li class="skuMerge_brand_right">
+                                    喜梦宝
+                                </li>
+                                <li class="skuMerge_model_right">
+                                    A109
+                                </li>
+                                <li class="skuMerge_type_right">
+                                    非标品
+                                </li>
+                                <li>
+                                    <input name="merge_from_check" value="0" class="merge_from_check" type="radio">澳大利亚
+                                </li>
+                                <li>
+                                    <input name="merge_style_check" value="0" class="merge_style_check" type="radio">飞舞轻扬
+                                </li>
+                                <li class="skuMerge_SkuDegree_right">
+                                    SKU规格
+                                </li>
+                                <li>
+                                    <input name="merge_smimg_check" value="0" class="merge_smimg_check" type="checkbox">
+                                    <img src="../../images/close_btn.jpg" alt="">图片
+                                </li>
+                                <li>
+                                    <input name="merge_color_check" value="0" class="merge_color_check" type="checkbox">
+                                    黄色
+                                </li>
+                                <li>
+                                    <input name="merge_size_check" value="0" class="merge_size_check" type="checkbox">
+                                    高书架
+                                </li>
+                                <li class="skuMerge_detail_right">
+                                    商品详情
+                                </li>
+                                <li>
+                                    <input name="merge_longimg_check" value="0" class="merge_longimg_check"
+                                           type="checkbox">
+                                    <img src="" alt="">长图
+                                </li>
+                                <li class="skuMerge_other_right">其它信息【空】</li>
+                                <li class="skuMerge_pack_right">
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum1">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item2">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_part_right">
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_Explain_right clearfix">
+                                    <div class="fl">
+                                        <input name="merge_explain_check" value="0" class="merge_explain_check"
+                                               type="radio">
+                                    </div>
+                                    <div class="fl merge_explain_con">
+                                        凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="merge_list fl">
+                                <li>蓝翔家居</li>
+                                <li>2018-02-22 11:20:32</li>
+                                <li class="skuMerge_basicInfo_right">空</li>
+                                <li class="skuMerge_categs_right">
+                                    客厅-书架-儿童书柜
+                                </li>
+                                <li class="skuMerge_brand_right">
+                                    喜梦宝
+                                </li>
+                                <li class="skuMerge_model_right">
+                                    A109
+                                </li>
+                                <li class="skuMerge_type_right">
+                                    非标品
+                                </li>
+                                <li>
+                                    <input name="merge_from_check" value="0" class="merge_from_check" type="radio">澳大利亚
+                                </li>
+                                <li>
+                                    <input name="merge_style_check" value="0" class="merge_style_check" type="radio">飞舞轻扬
+                                </li>
+                                <li class="skuMerge_SkuDegree_right">
+                                    SKU规格
+                                </li>
+                                <li>
+                                    <input name="merge_smimg_check" value="0" class="merge_smimg_check" type="checkbox">
+                                    <img src="../../images/close_btn.jpg" alt="">图片
+                                </li>
+                                <li>
+                                    <input name="merge_color_check" value="0" class="merge_color_check" type="checkbox">
+                                    黄色
+                                </li>
+                                <li>
+                                    <input name="merge_size_check" value="0" class="merge_size_check" type="checkbox">
+                                    高书架
+                                </li>
+                                <li class="skuMerge_detail_right">
+                                    商品详情
+                                </li>
+                                <li>
+                                    <input name="merge_longimg_check" value="0" class="merge_longimg_check"
+                                           type="checkbox">
+                                    <img src="" alt="">长图
+                                </li>
+                                <li class="skuMerge_other_right">其它信息【空】</li>
+                                <li class="skuMerge_pack_right">
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum1">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item2">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_part_right">
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_Explain_right clearfix">
+                                    <div class="fl">
+                                        <input name="merge_explain_check" value="0" class="merge_explain_check"
+                                               type="radio">
+                                    </div>
+                                    <div class="fl merge_explain_con">
+                                        凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="merge_list fl">
+                                <li>蓝翔家居</li>
+                                <li>2018-02-22 11:20:32</li>
+                                <li class="skuMerge_basicInfo_right">空</li>
+                                <li class="skuMerge_categs_right">
+                                    客厅-书架-儿童书柜
+                                </li>
+                                <li class="skuMerge_brand_right">
+                                    喜梦宝
+                                </li>
+                                <li class="skuMerge_model_right">
+                                    A109
+                                </li>
+                                <li class="skuMerge_type_right">
+                                    非标品
+                                </li>
+                                <li>
+                                    <input name="merge_from_check" value="0" class="merge_from_check" type="radio">澳大利亚
+                                </li>
+                                <li>
+                                    <input name="merge_style_check" value="0" class="merge_style_check" type="radio">飞舞轻扬
+                                </li>
+                                <li class="skuMerge_SkuDegree_right">
+                                    SKU规格
+                                </li>
+                                <li>
+                                    <input name="merge_smimg_check" value="0" class="merge_smimg_check" type="checkbox">
+                                    <img src="../../images/close_btn.jpg" alt="">图片
+                                </li>
+                                <li>
+                                    <input name="merge_color_check" value="0" class="merge_color_check" type="checkbox">
+                                    黄色
+                                </li>
+                                <li>
+                                    <input name="merge_size_check" value="0" class="merge_size_check" type="checkbox">
+                                    高书架
+                                </li>
+                                <li class="skuMerge_detail_right">
+                                    商品详情
+                                </li>
+                                <li>
+                                    <input name="merge_longimg_check" value="0" class="merge_longimg_check"
+                                           type="checkbox">
+                                    <img src="" alt="">长图
+                                </li>
+                                <li class="skuMerge_other_right">其它信息【空】</li>
+                                <li class="skuMerge_pack_right">
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum1">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item2">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_part_right">
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_Explain_right clearfix">
+                                    <div class="fl">
+                                        <input name="merge_explain_check" value="0" class="merge_explain_check"
+                                               type="radio">
+                                    </div>
+                                    <div class="fl merge_explain_con">
+                                        凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="merge_list fl">
+                                <li>蓝翔家居</li>
+                                <li>2018-02-22 11:20:32</li>
+                                <li class="skuMerge_basicInfo_right">空</li>
+                                <li class="skuMerge_categs_right">
+                                    客厅-书架-儿童书柜
+                                </li>
+                                <li class="skuMerge_brand_right">
+                                    喜梦宝
+                                </li>
+                                <li class="skuMerge_model_right">
+                                    A109
+                                </li>
+                                <li class="skuMerge_type_right">
+                                    非标品
+                                </li>
+                                <li>
+                                    <input name="merge_from_check" value="0" class="merge_from_check" type="radio">澳大利亚
+                                </li>
+                                <li>
+                                    <input name="merge_style_check" value="0" class="merge_style_check" type="radio">飞舞轻扬
+                                </li>
+                                <li class="skuMerge_SkuDegree_right">
+                                    SKU规格
+                                </li>
+                                <li>
+                                    <input name="merge_smimg_check" value="0" class="merge_smimg_check" type="checkbox">
+                                    <img src="../../images/close_btn.jpg" alt="">图片
+                                </li>
+                                <li>
+                                    <input name="merge_color_check" value="0" class="merge_color_check" type="checkbox">
+                                    黄色
+                                </li>
+                                <li>
+                                    <input name="merge_size_check" value="0" class="merge_size_check" type="checkbox">
+                                    高书架
+                                </li>
+                                <li class="skuMerge_detail_right">
+                                    商品详情
+                                </li>
+                                <li>
+                                    <input name="merge_longimg_check" value="0" class="merge_longimg_check"
+                                           type="checkbox">
+                                    <img src="" alt="">长图
+                                </li>
+                                <li class="skuMerge_other_right">其它信息【空】</li>
+                                <li class="skuMerge_pack_right">
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum1">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item2">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_part_right">
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_Explain_right clearfix">
+                                    <div class="fl">
+                                        <input name="merge_explain_check" value="0" class="merge_explain_check"
+                                               type="radio">
+                                    </div>
+                                    <div class="fl merge_explain_con">
+                                        凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="merge_list fl">
+                                <li>蓝翔家居</li>
+                                <li>2018-02-22 11:20:32</li>
+                                <li class="skuMerge_basicInfo_right">空</li>
+                                <li class="skuMerge_categs_right">
+                                    客厅-书架-儿童书柜
+                                </li>
+                                <li class="skuMerge_brand_right">
+                                    喜梦宝
+                                </li>
+                                <li class="skuMerge_model_right">
+                                    A109
+                                </li>
+                                <li class="skuMerge_type_right">
+                                    非标品
+                                </li>
+                                <li>
+                                    <input name="merge_from_check" value="0" class="merge_from_check" type="radio">澳大利亚
+                                </li>
+                                <li>
+                                    <input name="merge_style_check" value="0" class="merge_style_check" type="radio">飞舞轻扬
+                                </li>
+                                <li class="skuMerge_SkuDegree_right">
+                                    SKU规格
+                                </li>
+                                <li>
+                                    <input name="merge_smimg_check" value="0" class="merge_smimg_check" type="checkbox">
+                                    <img src="../../images/close_btn.jpg" alt="">图片
+                                </li>
+                                <li>
+                                    <input name="merge_color_check" value="0" class="merge_color_check" type="checkbox">
+                                    黄色
+                                </li>
+                                <li>
+                                    <input name="merge_size_check" value="0" class="merge_size_check" type="checkbox">
+                                    高书架
+                                </li>
+                                <li class="skuMerge_detail_right">
+                                    商品详情
+                                </li>
+                                <li>
+                                    <input name="merge_longimg_check" value="0" class="merge_longimg_check"
+                                           type="checkbox">
+                                    <img src="" alt="">长图
+                                </li>
+                                <li class="skuMerge_other_right">其它信息【空】</li>
+                                <li class="skuMerge_pack_right">
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum1">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_pack_check" value="0" class="merge_pack_check"
+                                               type="checkbox">
+                                        <i class="merge_pack_item2">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_pack_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_part_right">
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                    <div>
+                                        <input name="merge_part_check" value="0" class="merge_part_check"
+                                               type="checkbox">
+                                        <i class="merge_part_item1">四格书架</i>
+                                        <i>X</i>
+                                        <i class="merge_part_itemNum2">12</i>
+                                    </div>
+                                </li>
+                                <li class="skuMerge_Explain_right clearfix">
+                                    <div class="fl">
+                                        <input name="merge_explain_check" value="0" class="merge_explain_check"
+                                               type="radio">
+                                    </div>
+                                    <div class="fl merge_explain_con">
+                                        凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="conRightBottom_btn mergecon_sure">
+                        确认,下一步
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //初始化样式
+        styleInit();
+        debugger
+        $(".mergecon_sure").on("click", function () {
+            var _merge_from_check = radioPull('merge_from_check');
+            var _merge_style_check = radioPull('merge_style_check');
+            var _merge_smimg_check = radioPull('merge_smimg_check');
+            var _merge_color_check = radioPull('merge_color_check');
+            var _merge_size_check = radioPull('merge_size_check');
+            var _merge_longimg_check = radioPull('merge_longimg_check');
+            var _merge_pack_check = radioPull('merge_pack_check');
+            var _merge_part_check = radioPull('merge_part_check');
+            var _merge_explain_check = radioPull('merge_explain_check');
+            debugger;
+        });
+
+        // var _merge_from_check = $('input:radio[name="merge_from_check"]:checked').attr("value");
+        // var _merge_style_check = $('input:radio[name="merge_style_check"]:checked').attr("value");
+        // var _merge_smimg_check = $('input:radio[name="merge_smimg_check"]:checked').attr("value");
+        // var _merge_color_check = $('input:radio[name="merge_color_check"]:checked').attr("value");
+        // var _merge_size_check = $('input:radio[name="merge_size_check"]:checked').attr("value");
+        // var _merge_longimg_check = $('input:radio[name="merge_longimg_check"]:checked').attr("value");
+        // var _merge_pack_check = $('input:radio[name="merge_pack_check"]:checked').attr("value");
+        // var _merge_part_check = $('input:radio[name="merge_part_check"]:checked').attr("value");
+        // var _merge_explain_check = $('input:radio[name="merge_explain_check"]:checked').attr("value");
+
+    });
+
+    function styleInit() {
+        $(".skuMerge_basicInfo_right").html("&nbsp;");//基本信息
+        $(".skuMerge_SkuDegree_right").html("&nbsp;");
+        $(".skuMerge_detail_right").html("&nbsp;");
+        $(".skuMerge_other_right").html("&nbsp;");
+
+        $(".skuMerge_categs_right").html("&nbsp;");
+        $(".skuMerge_list_right .skuMerge_categs_right").html("&nbsp;");
+        $(".skuMerge_list_right .skuMerge_brand_right").html("&nbsp;");
+        $(".skuMerge_list_right .skuMerge_model_right").html("&nbsp;");
+        $(".skuMerge_list_right .skuMerge_type_right").html("&nbsp;");
+        $(".skuMerge_list_right ul:first-child > .skuMerge_categs_right").html("第一个有");
+        $(".skuMerge_list_right ul:first-child > .skuMerge_brand_right").html("第一个有");
+        $(".skuMerge_list_right ul:first-child > .skuMerge_model_right").html("第一个有");
+        $(".skuMerge_list_right ul:first-child > .skuMerge_type_right").html("第一个有");
+
+        var explain_list = $(".skuMerge_Explain_right ");
+        var max_height = $(explain_list[0]).height();
+        $.each(explain_list, function () {
+            if ($(this).height() > max_height) {
+                max_height = $(this).height();
+            }
+        });
+        $(".skuInte_conten .skuMerge_list_left .skuMerge_Explain_list").height(max_height);
+        explain_list.height(max_height);
+    };
+
+    function radioPull(class_ctr) {
+        return $("input:radio[name='" + class_ctr + "']:checked").attr("value");
+    }
+</script>
+</body>
+</html>

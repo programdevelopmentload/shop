@@ -1,0 +1,38 @@
+.addUl{
+    margin-top: 16px
+    background-color: #fff;
+    font-size: 14px;
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    border-radius: 4px;
+    color: #9099b0;
+}
+.addUl_head{
+    line-height: 47px;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    display: -webkit-flex;
+    background: #e9ecf2
+}
+.addUl_head li{
+    flex:1;
+    -webkit-flex:1;
+    border-right: 1px solid #ccc;
+    text-align: center;
+    color: #666 !important;
+    font-weight: bold;
+}
+.contUl{
+   width: 100%;
+}
+.contUl li{
+    display: flex;
+    display: -webkit-flex;
+    line-height: 45px;
+    border-bottom: 1px solid #ccc;
+
+}
+.contUl li span{
+    flex:1;
+    -webkit-flex:1;
+    text-align: center;
+}

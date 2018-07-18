@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <title>卫鹏艳页面参考</title>
+    <style>
+        .container{padding:0;}
+        ol, ul{margin-bottom: 0;}
+        .measure_title{margin-top: 10px;}
+        .measure_title >p{display: inline-block; }
+        .measure_title>p:last-child{margin-left:40px;}
+        .measureTable ul{border:1px solid #dedede; margin-top:20px;}
+        .measureTable ul >li{text-align: center; padding:10px 0; }
+        .measure_bottom ul li{text-align: center; padding:15px 0;border:1px solid #dedede;border-top: none;}
+        .measure_bottom ul li a{margin-right: 15px;}
+        .modal-dialog{ width: 1000px;}
+        .modal-body>p{text-align: center;}
+        table .mbs{height: 100px;}
+        table tr td{color: #333333;}
+        .text>td{text-align: left;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../../image/xbxm.png" />
+    </a>
+
+    <a href="javascript:;">
+        <img src="../../image/logo_img.png" />
+    </a>
+    <ul>
+        <li><span>基础设置</span></li>
+        <li><span>商家管理</span></li>
+        <li><span>订单管理</span></li>
+        <li><span>退款售后</span></li>
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li class="first">
+                订单管理
+            </li>
+            <li><span class="active"></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="container ">
+            <p class="right_p">1》2》3</p>
+            <h5>测量模板</h5>
+            <div class="measure_title">
+                <p>
+                    <label for="">当前区域:</label>
+                    <span>成都</span>
+                </p>
+                <p class="measure_titleP">
+                    <label for="">测量费用:</label>
+                    <span>￥12211</span>
+                </p>
+            </div>
+            <div class="measureTable">
+                <ul class="clearfix">
+                    <li class="col-sm-3">模板信息</li>
+                    <li class="col-sm-2">模板类型</li>
+                    <li class="col-sm-2">上传时间</li>
+                    <li class="col-sm-5">操作</li>
+                </ul>
+            </div>
+            <div class="measure_bottom">
+                <ul class="clearfix">
+                    <li class="col-sm-3">wrveyvtruytu</li>
+                    <li class="col-sm-2">tuytu</li>
+                    <li  class="col-sm-2">urtuytkju</li>
+                    <li class="col-sm-5">
+                        <!--<a href="javascript:;">删除</a>-->
+                        <a href="javascript:;" id="preview"  data-toggle="modal" data-target="#myModal">预览</a>
+                        <a href="javascript:;" id="downLoad" onclick="exportExcel('tableExcel')">下载</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--导出excel-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">模板预览</h4>
+            </div>
+            <div class="modal-body">
+                <p>定制橱柜测量单</p>
+               <table id="tableExcel" width="100%" border="1" cellspacing="0" cellpadding="0" style="table-layout:fixed;">
+
+                   <tr>
+                       <td >客户姓名</td>
+                       <td ></td>
+                       <td >客户电话</td>
+                       <td colspan="2"></td>
+                       <td>客户地址</td>
+                       <td colspan="5"></td>
+
+                   </tr>
+                   <tr >
+                       <td >橱柜品牌</td>
+                       <td colspan="2"></td>
+                       <td >测量师</td>
+                       <td   colspan="2"></td>
+                       <td >测量师电话</td>
+                       <td ></td>
+                       <td>测量时间</td>
+                       <td colspan="2" ></td>
+                   </tr>
+                   <tr class="mbs">
+                       <td>厨房平面示意图（手绘并标识尺寸）门窗需标识</td>
+                       <td colspan="10"></td>
+                   </tr>
+                   <tr >
+                       <td  class="col-sm-1">窗户左侧到左侧墙距离</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">窗户右侧到右侧墙面或竹子距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">窗户高度mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">窗户距离地面高度mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">厨房层高mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                   </tr>
+                   <tr >
+                       <td  class="col-sm-1">吊顶高度mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                   </tr>
+                   <tr class="mbs">
+                       <td>水电燃气定位示意图（手绘并标识尺寸）</td>
+                       <td colspan="10"></td>
+                   </tr>
+                   <tr >
+                       <td  class="col-sm-1">燃气表上部与地面的距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">燃气表下部与地面的距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">燃气表左侧与左侧墙面（柱子）距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">燃气表右侧与右侧墙面（柱子）距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">电源开关上部与地面距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                   </tr>
+                   <tr >
+                       <td  class="col-sm-1">电源开关下部与地面距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">电源开关左侧与左侧墙面（柱子）距离</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">电源开关右侧与右侧墙面（柱子）距离</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">冷热水管出水点与地面距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">冷热水管出水点与左侧墙面距离mm</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                   </tr>
+                   <tr >
+                       <td  class="col-sm-1">冷热水管出水</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">下水（排水）</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">下水（排水）点位</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1">下水（排水）点位</td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                       <td class="col-sm-1"></td>
+                   </tr>
+                   <tr >
+                       <td colspan="11">客户要求</td>
+                   </tr>
+                   <tr >
+                       <td colspan="11" style="height: 100px;"></td>
+                   </tr>
+                   <tr >
+                       <td colspan="11" >测量现场情况说明</td>
+                   </tr>
+                   <tr >
+                       <td colspan="11"  style="height: 80px;" ></td>
+                   </tr>
+                   <tr >
+                       <td colspan="4" >客户签字</td>
+                       <td colspan="3"></td>
+                       <td colspan="2">测量师（设计师签字）</td>
+                       <td colspan="2"></td>
+                   </tr>
+                   <tr class="text" >
+                       <td  rowspan="6" >注意事项</td>
+                   </tr>
+                   <tr class="text">
+                       <td colspan="10">1、测量师测量到现场测量前请联系客户确认上门测量时间</td>
+                   </tr>
+                   <tr class="text">
+                       <td colspan="10">2、测量师到现场测量前请客户确认现场是否符合测量条件(复尺)?(墙地砖是否铺贴完毕?水电改造是否完毕等)以免造成无效上门复尺</td>
+                   </tr>
+                   <tr class="text">
+                       <td colspan="10">3、测量师在现场测量必须与客户及施工负责人进行橱柜位置的交流沟通，水电定位并记录客户要求</td>
+                   </tr>
+                   <tr class="text">
+                       <td colspan="10">4、橱柜测量尺寸后请在表单栏进行手绘表示，并在现场进行尺寸数据标识，并对现场环境进行拍照水电定位并记录客户要求</td>
+                   </tr>
+                   <tr class="text">
+                       <td colspan="10">5、完成测量后必须要求客户在测量单上签字确认</td>
+                   </tr>
+               </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<!--<script src="../../js/lib/common.js"></script>-->
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script>
+    //导出excel
+    var idTmr;
+    //获取当前浏览器类型
+    function getExplorer() {
+        var explorer = window.navigator.userAgent ;
+        //ie
+        if (explorer.indexOf("MSIE") >= 0) {
+            return 'ie';
+        }
+        //firefox
+        else if (explorer.indexOf("Firefox") >= 0) {
+            return 'Firefox';
+        }
+        //Chrome
+        else if(explorer.indexOf("Chrome") >= 0){
+            return 'Chrome';
+        }
+        //Opera
+        else if(explorer.indexOf("Opera") >= 0){
+            return 'Opera';
+        }
+        //Safari
+        else if(explorer.indexOf("Safari") >= 0){
+            return 'Safari';
+        }
+    }
+
+    //获取到类型需要判断当前浏览器需要调用的方法，目前项目中火狐，谷歌，360没有问题
+    //win10自带的IE无法导出
+    function exportExcel(tableid) {
+        if(getExplorer()=='ie')
+        {
+            var curTbl = document.getElementById(tableid);
+            var oXL = new ActiveXObject("Excel.Application");
+            var oWB = oXL.Workbooks.Add();
+            var xlsheet = oWB.Worksheets(1);
+            var sel = document.body.createTextRange();
+            sel.moveToElementText(curTbl);
+            sel.select();
+            sel.execCommand("Copy");
+            xlsheet.Paste();
+            oXL.Visible = true;
+
+            try {
+                var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+            } catch (e) {
+                print("Nested catch caught " + e);
+            } finally {
+                oWB.SaveAs(fname);
+                oWB.Close(savechanges = false);
+                oXL.Quit();
+                oXL = null;
+                idTmr = window.setInterval("Cleanup();", 1);
+            }
+
+        }
+        else
+        {
+            tableToExcel(tableid)
+        }
+    }
+    function Cleanup() {
+        window.clearInterval(idTmr);
+        CollectGarbage();
+    }
+
+    //判断浏览器后调用的方法，把table的id传入即可
+    var tableToExcel = (function() {
+        var uri = 'data:application/vnd.ms-excel;base64,',
+            template = '<html><head><meta charset="UTF-8"></head><body><div class="modal-body"><table>{table}</table></div></body></html>',
+            base64 = function(s) { return window.btoa(unescape(encodeURIComponent(s))) },
+            format = function(s, c) {
+                return s.replace(/{(\w+)}/g,
+                    function(m, p) { return c[p]; }) }
+        return function(table, name) {
+            if (!table.nodeType) table = document.getElementById(table)
+            var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML}
+            window.location.href = uri + base64(format(template, ctx))
+        }
+    })()
+</script>
+</body>
+</html>

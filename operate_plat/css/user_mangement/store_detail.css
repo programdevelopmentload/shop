@@ -1,0 +1,114 @@
+.aui-screen-list-item{
+    width: 100%;
+    line-height: 30px;
+    border-bottom: 1px dashed #ccc;
+    display: block;
+}
+.aui-screen-list-item dt {
+   display: inline-block;
+    height: 30px;
+
+    
+}
+.aui-screen-list-item  dd {
+    display: inline-block;
+}
+
+.aui-screen-list-item  dd a{
+    color: #666;
+    display: inline-block;
+    padding: 0 20px;
+    text-decoration: none
+
+}
+.aui-screen-list-item  dd span{
+     display: inline-block;
+      padding: 0 20px 0 0;
+}
+.aui-screen-list-item dd a.selected {
+    background: #4284d9;
+    color: #fff;
+    text-align: center;
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 30%;
+}
+.public_con #test .table thead tr th:nth-child(3) {
+    width: 25%;
+}
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 10%;
+}
+.table a{
+    color: #337ab7
+}
+/*测试遮罩框样式进入*/
+.mask_control .popwin_bar{
+    background: #ffffff;
+    padding: 0 20px;
+    border-bottom: 0;
+    position: relative;
+    top: 15px;
+    height: 65px;
+    overflow: hidden;
+    height: 42px;
+}
+.mask_control h4{
+    height: 30px;
+    padding: 10px 0!important;
+    font-size: 20px!important;
+    line-height: 20px!important;
+    color: #7a85a2!important;
+    text-align: center!important;
+    font-weight:normal!important;
+}
+.test_mask_con{
+    padding:0px 36px 0 36px;
+    width: 408px;
+}
+ .maskBtn_operate{
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 21%;
+}
+.maskBtn{
+    display: inline-block;
+    width: 97px;
+    height: 38px;
+    background: #4fc2b9;
+    color: #ffffff;
+    border-radius: 3px;
+    margin: 15px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+.attr_manag_add h4{
+  font-size: 18px!important;
+}
+.attr_manag_add .attrAdd_container{
+    width: 100%;
+    height: 270px
+}
+.close_detail{
+    display: flex;
+    display: -webkit-flex;
+}
+.close_deal,.close_store{
+    flex: 1;
+    -webkit-flex:1;
+}
+.close_deal input,.close_store input{
+    margin-right:10px 
+}
+/*.info_deal,.info_store{
+    display:block;
+    width: 100%
+}
+*/.info_store{
+    display: none;
+}

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>运营分类-三级详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/cate_manage/attr_manag_detail.css"/>
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+
+        .brand_img {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="attrManag_detail_con_right public_con yycon_right col-xs-12 mess_con_form">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <h4 class="conRight_h4">分类信息</h4>
+    <div class="clearfix">
+        <div class="row clearfix">
+            <div class="col-xs-3">
+                <div class="clearfix">
+                    <p class="fl">分类名称：</p>
+                    <div class="fl everyGrade_name">风格</div>
+                </div>
+                <div class="clearfix">
+                    <p class="fl">分类图片：</p>
+                    <div class="fl everyGrade_unit">
+                        <img src="" alt="" class="brand_img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4 evg_msg_middle">
+                <div class="clearfix">
+                    <p class="fl">分类等级：</p>
+                    <div class="fl everyGrade_type">关键属性</div>
+                </div>
+                <div class="clearfix isHave_twoFather">
+                    <p class="fl">所属分类：</p>
+                    <div class="fl everyGrade_necessary"></div>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="clearfix everyGrade_necessary_box">
+                    <p class="fl">分类状态：</p>
+                    <div class="fl  everyGrade_switchState">是</div>
+                </div>
+                <div class="clearfix">
+                    <p class="fl">创建时间：</p>
+                    <div class="fl">
+                                    <span class="everyGrade_ymd">
+                                        2017-02-13
+                                    </span>
+                        <span>&nbsp;&nbsp;&nbsp;</span>
+                        <span class="everyGrade_hms">
+                                        13:33:67
+                                    </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix  col-xs-12 everyGrade_operate">
+            <p class="fl conRightBottom_btn_sm everyGrade_switch">关闭</p>
+            <a class="fl conRightBottom_btn_sm everyGrade_rename" href="./front_everyGrade_add.html?selfId='+_id+'&isLeaf=1&editSign=1">编辑</a>
+            <p class="fl conRightBottom_btn_sm everyGrade_dele">删除</p>
+        </div>
+    </div>
+    <!--<div class="conRight_h4 clearfix pageSize_switch_box">-->
+    <!--<div class="fl pageSize_switch_con">-->
+    <!--属性值-->
+    <!--</div>-->
+    <!--<div class="clearfix pageSize_switch_con fl">-->
+    <!--<div class="fl">每页显示</div>-->
+    <!--<select class="pageSize_switch form-control fl">-->
+    <!--<option value="5" class="">5</option>-->
+    <!--<option value="10" class="">10</option>-->
+    <!--<option value="15" class="">15</option>-->
+    <!--</select>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="attrManag_table_box">-->
+    <!--&lt;!&ndash;分页我自己尝试&ndash;&gt;-->
+    <!--<div class="wrap_table wrap_table_01 oneGDvide_tbcon" id="test">-->
+
+    <!--<div id="pic_no" class="default-prompt">-->
+    <!--<img src="../../images/nothing.png">-->
+    <!--<br>-->
+    <!--<span>查询无结果</span>-->
+    <!--</div>-->
+
+    <!--<table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">-->
+    <!--<thead>-->
+    <!--<tr class="th_table_con">-->
+    <!--<th class="th_table1">属性值</th>-->
+    <!--<th class="th_table2">单位</th>-->
+    <!--</tr>-->
+    <!--</thead>-->
+    <!--<tbody>-->
+    <!--&lt;!&ndash;<tr>&ndash;&gt;-->
+    <!--&lt;!&ndash;<td>01</td>&ndash;&gt;-->
+    <!--&lt;!&ndash;<td>颜色</td>&ndash;&gt;-->
+    <!--&lt;!&ndash;<td>&ndash;&gt;-->
+    <!--&lt;!&ndash;<img class="brand_img" src="../../images/tatadoor.png" alt="">&ndash;&gt;-->
+    <!--&lt;!&ndash;</td>&ndash;&gt;-->
+    <!--&lt;!&ndash;</tr>&ndash;&gt;-->
+    <!--</tbody>-->
+    <!--</table>-->
+    <!--<div class="leftBottom clearfix">-->
+    <!--<button type="button" class="outPut" style="display: none">批量删除</button>-->
+    <!--&lt;!&ndash;<button type="button" class="outBack">批量退回</button>&ndash;&gt;-->
+    <!--<div class="page pageBar" id="page">-->
+    <!--<p>共0条记录</p>-->
+    <!--<div class="pageLft clearfix">-->
+    <!--&lt;!&ndash;<a class="noprev"></a>&ndash;&gt;-->
+    <!--<a href="#" class="prev"></a>-->
+    <!--<a href="#" class="active">1</a>-->
+    <!--<a href="#">2</a>-->
+    <!--<a href="#">3</a>-->
+    <!--<a href="#">4</a>-->
+    <!--<a href="#">5</a>-->
+    <!--<span>...</span>-->
+    <!--<a href="#" class="next"></a>-->
+    <!--&lt;!&ndash;<a class="nonext"></a>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="pageRht">共<span id="totalPage">100</span>页</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="m-pagination">-->
+
+    <!--</div>-->
+    <!--</div>-->
+
+    <h4 class="conRight_h4">关联分类</h4>
+    <div >
+        <div class=" container">
+            <div class="row belong_box_con">
+                <!--<div class="col-xs-9 clearfix attr_manag_area">-->
+                <!--<div class="fl attr_manag_lable col-xs-2">-->
+                <!--分类信息-->
+                <!--</div>-->
+                <!--<div class="fl attr_manag_level col-xs-6">-->
+                <!--叶子分类-->
+                <!--</div>-->
+                <!--</div>-->
+
+
+                <!--<div class="nanag_con1">-->
+                <!--<div class="col-xs-9">-->
+                <!--<div class="col-xs-3 attrDetail_con_tip">-->
+                <!--家具-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-9 table_border">-->
+                <!--<div class="col-xs-2 attrDetail_con_left">-->
+                <!--餐厅家具-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 attrDetail_con_right">-->
+                <!--沙发、咖啡桌、电视柜/塔柜、边几、边桌、休闲、休闲椅/休闲凳/备用套、软包休闲椅、门厅/玄关、玄关柜、玄关凳、边桌、床尾凳、沙发、所有沙发、三人沙发、双人沙发、单人沙发、脚台、沙发床、组合沙发、皮沙发-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-9 table_border">-->
+                <!--<div class="col-xs-2 attrDetail_con_left">-->
+                <!--客厅家具-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 attrDetail_con_right">-->
+                <!--餐桌、餐椅、餐边柜/酒柜、吧台/吧椅-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="nanag_con2">-->
+                <!--<div class="col-xs-9 ">-->
+                <!--<div class="col-xs-3 attrDetail_con_tip">-->
+                <!--"灯具墙饰"-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class="col-xs-9 table_border ">-->
+                <!--<div class="col-xs-2 attrDetail_con_left">-->
+                <!--灯具-->
+                <!--</div>-->
+                <!--<div class="col-xs-6 attrDetail_con_right ">-->
+                <!--吊顶灯、壁灯/浴室灯、台灯、落地灯、书桌灯、儿童灯具、墙画/挂钟/墙镜、墙画、墙镜、挂钟-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<script id="belong_box" type="text/html">
+    {{each options as value i}}
+        <div class="nanag_con1">
+            <div class="col-xs-9">
+                <div class="col-xs-3 attrDetail_con_tip">
+                {{value.name}}
+                </div>
+            </div>
+            {{each value.child as value1 i}}
+            <div class="col-xs-9 table_border">
+                <div class="col-xs-2 attrDetail_con_left">
+                    {{value1.name}}
+                </div>
+                <div class="col-xs-6 attrDetail_con_right">
+                    {{each value1.child as value2 i}}
+                    <span>{{value2.name}}</span>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    {{/each}}
+</script>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/front_leafGrade_detail.js"></script>
+</body>
+</html>

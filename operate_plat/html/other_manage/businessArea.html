@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>经营区域 - 添加区域</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<style type="text/css">
+    #area{ 
+        border: 1px solid #999999; 
+        padding:30px 10px
+    }
+    .area_right>.clearfix li{
+          width: 30%;
+          height: 50px;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;}
+    .area_right>.clearfix li .trigger{
+        width: 0;
+        height: 0;
+        border-width: 5px;
+        border-style: solid;
+        border-color: red transparent transparent transparent;
+        position: absolute;
+        top: 8px;
+        left: 145px
+    }
+    .area_right>.clearfix li  .trigger_click{
+        padding:10px;
+        border:1px solid #999999; 
+        width: 180px;
+        height: 150px; 
+        background: #ffffff;
+        z-index: 10000;
+        overflow-y: scroll;   
+        display: none; 
+        position: absolute;
+        top: 30px;
+        left: 0px;
+    }
+    .area_right> .trigger_click ul li{
+        margin:0 10px;
+    }
+    .close1{
+        float: right;
+        margin-top:-12px;
+    }
+    .area_right .fl li>span{
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+    }
+    #addBtn{
+        margin-top: 60px;
+        margin-left: 46%;
+        width: 160px;
+        height: 40px;
+    }
+</style>
+<body>
+<div class="uMDvfyDetail_con_right yycon_right col-xs-12">
+    <div class="businessArea">
+       <h4 class="conRight_h4">新增区域</h4>
+       <div id="area" class="clearfix">
+            <div class="area_right fl">
+                <ul class="clearfix">
+                    <li>
+                        <input type="checkbox">
+                        <span>北京</span>
+                        <p class="trigger"></p>
+                        <div class="trigger_click">
+                            <p class="clearfix">
+                                <span>
+                                    <input type="checkbox">
+                                   北京
+                                </span>
+                                <span>
+                                    <input type="checkbox">
+                                    北京
+                                </span>
+                                <span>
+                                    <input type="checkbox">
+                                    <span>北京</span>
+                                </span>
+                            </p>
+                            <label class="close1">关闭</label>
+                        </div>
+                    </li>
+                    <li>
+                        <input type="checkbox">
+                        <span>北京</span>
+                        <p class="trigger"></p>
+                        <div class="trigger_click">
+                            <ul class="clearfix">
+                                <li>
+                                    <input type="checkbox">
+                                    <span>北京</span>
+                                </li>
+                            </ul>
+                            <label class="close1">关闭</label>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div id="area_btn">
+            <button type="btn" class="btn btn-primary" id="addBtn">确认并提交</button>
+        </div>
+    </div>
+</div>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/other_manage/businessArea.js"></script>
+<!-- <script type="text/javascript" src="../../js/user_manage/business_info_detail.js"></script> -->
+
+</body>
+</html>

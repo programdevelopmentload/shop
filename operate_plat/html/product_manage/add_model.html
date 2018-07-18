@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>型号列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/modelMerge_merge.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+                <div class="add_model">
+                    <h4 class="conRight_h4">添加型号</h4>
+                    <div class="brand  form-group form-inline">
+                        <label>所属品牌:</label>
+                        <select class="add_brand form-control"></select>
+                    </div>
+                    <div class="brand  form-group form-inline">
+                        <label>所属分类:</label>
+                        <div class="clearfix linkage">
+                            <div class="fl selectbox selebar selectbox_width160" id="selectbox1">
+                                <input name="" value="" type="hidden">
+                                <div class="selectbox_arraw">
+                                    <span class="selectbox_down"></span>
+                                    <span class="selectbox_up"></span>
+                                </div>
+                                <div class="selectbox_value_box">
+                                    <div class="selectbox_value">请选择一级分类</div>
+                                </div>
+                                <div class="selectbox_list selectbox_width160">
+                                    <div class="selectbox_scroll_body">
+                                        <div class="selectbox_scroll">
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <ul class="selectbox_body">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="fl selectbox selebar selectbox_width160" id="selectbox2">
+                                <input name="" value="" type="hidden">
+                                <div class="selectbox_arraw">
+                                    <span class="selectbox_down"></span>
+                                    <span class="selectbox_up"></span>
+                                </div>
+                                <div class="selectbox_value_box">
+                                    <div class="selectbox_value">请选择二级分类</div>
+                                </div>
+                                <div class="selectbox_list selectbox_width160">
+                                    <div class="selectbox_scroll_body">
+                                        <div class="selectbox_scroll">
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <ul class="selectbox_body">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="fl selectbox selebar selectbox_width160" id="selectbox3">
+                                <input name="" value="" type="hidden">
+                                <div class="selectbox_arraw">
+                                    <span class="selectbox_down"></span>
+                                    <span class="selectbox_up"></span>
+                                </div>
+                                <div class="selectbox_value_box">
+                                    <div class="selectbox_value">请选择三级分类</div>
+                                </div>
+                                <div class="selectbox_list selectbox_width160">
+                                    <div class="selectbox_scroll_body">
+                                        <div class="selectbox_scroll">
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <ul class="selectbox_body">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="brand  form-group form-inline">
+                        <label>型号:</label>
+                        <input type="text" name="" class="form-control model_input">
+                    </div>
+                    <p> 属性类型:标准型号</p>
+                    <button type="button" class="btn btn-primary" id="add_sure">确认并添加</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/product_manage/add_model.js"></script>  
+</body>
+</html>

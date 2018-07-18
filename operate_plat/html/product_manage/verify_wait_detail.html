@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>待审核详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_wait_detail.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="vwaitDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="vwaitDetail_con_right yycon_right col-xs-10">
+
+                
+                <div class="vwaitDetail_list conRight1 clearfix">
+                    
+                    <div class="clearfix fl">
+                        <p class="fl">商家账号:</p>
+                        <div id="s"></div>
+                        <script type="text/html" id="main">
+                            <div class="fl">{{data.publisher}}</div>
+                        </script>
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">审核阶段:</p>
+                        <div id="h">商品审核</div>
+                        <!-- <script type="text/html" id="Id">
+                            <div class="fl">{{data.type}}</div>
+                        </script> -->
+                    </div>
+                    
+                    <div class="clearfix fl">
+                        <p class="fl">审核状态:</p>
+                        <div id="wait"></div>
+                        <script type="text/html" id="waitDetail">
+                            <div class="fl">{{data.state}}</div>
+                        </script>
+                        
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">手机号:</p>
+                        <div class="fl" id="phone"></div>
+                        <script type="text/html" id="telphone">
+                            <div class="fl">{{data.tel}}</div>
+                        </script>
+                    </div>
+                    <div class="clearfix fl">
+                        <p class="fl">申请时间:</p>
+                        <div id="uptime"></div>
+                        <script type="text/html" id="times">
+                             <div class="fl">{{data.time}}</div>
+                        </script>
+                    </div>
+                </div>
+                <div class="vwaitDetail_basicInfo">
+                    <h4 class="conRight_h4">基本信息</h4>
+                    <div class="clearfix">
+                        <div class="vwaitDetail_basicInfo_left clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">所属分类：</p>
+                                <span id="category"></span>
+                                <script type="text/html" id="categories">
+                                    <span class="fl">{{data.leafClassName}}</span>
+                                </script>  
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">所属品牌：</p>
+                                <span id="brands"></span>
+                                <script type="text/html" id="brand">
+                                    <span class="fl">{{data.brandName}}</span>
+                                </script>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">型号：</p>
+                                <div id="model"></div>
+                                <script type="text/html" id="models">
+                                    <div class="fl">{{data.model}}</div>
+                                </script>
+                            </div>
+                        </div>
+                        <div class="vwaitDetail_basicInfo_right clearfix fl">
+                            <div class="clearfix">
+                                <p class="fl">商品类型：</p>
+                                <span id="shopstyle"></span>
+                                <script type="text/html" id="shopstyles">
+                                    <span class="fl">{{data.model}}</span>
+                                </script>
+                            </div>
+                            <div id="origin"></div>
+                            <script type="text/html" id="origins">
+                                <ul style="line-height: 30px">
+                                    {{each data.parameters as value }}
+                                     <li>
+                                         <span>{{value.parameterName}}:</span>
+                                         <span>{{value.value}}</span>
+                                     </li>
+                                    {{/each}}
+                                </ul>
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="vwaitDetail_standard">
+                    <h4 class="conRight_h4">产品规格</h4>
+                    <div class="clearfix conRight2 vwaitDetail_standard_title">
+                        <p class="fl">规格信息</p>
+                        <p class="fl">成本价</p>
+                        <p class="fl">虚拟库存</p>
+                        <p class="fl">实体库存</p>
+                        <p class="fl">规格图片</p>
+                    </div>
+                    <div id="attribute" class=""></div>
+                    <script type="text/html" id="attributes">
+                        {{each data.baseChecks as val i}}
+                        <div class="vwaitDetail_color">
+                            <div class="fl">
+                            {{each val as cont}}
+                                <div style="width: 150px">
+                                    {{each cont as cc}}
+                                        {{cc.value}}
+                                    {{/each}}
+                                </div>                            
+                            {{/each}}
+                         </div>
+                          <div class="fl" style="width: 160px">成本价{{val.facotryPrice}}</div>
+                          <div class="fl" style="width: 160px"> 库存{{val.factoryStock}}</div>
+                          <div class="fl" style="width: 160px"> {{val.factoryStock}}</div>
+                          <div class="fl" style="width: 160px">
+                                <img src="{{val.pics[0]}}" style="width: 40px;height: 60px">
+                                <img src="{{val.pics[1]}}"  style="width: 40px;height: 60px">
+                                <img src="{{val.pics[2]}}" style="width: 40px;height: 60px">
+                          </div>
+                        </div>                        
+                         
+                        {{/each}}
+                    </script>
+                </div>
+                <div class="vwaitDetail_goodDetail">
+                    <h4 class="conRight_h4">
+                        商品详情
+                    </h4>
+                    <div id="vwaitDetail_paramImg" class="vwaitDetail_paramImg"></div>
+                    <script type="text/html" id="vwaitDetail_paramImgs">
+                        <img src="{{data.goodsDetails}}">
+                    </script>
+                    <div class="conRight_lookImg">
+                        查看完整图片
+                    </div>
+                </div>
+                <div class="vwaitDetail_otherInfo">
+                    <h4 class="conRight_h4">
+                        其他信息
+                    </h4>
+                    <div class="vwaitOther_packing clearfix">
+                        <div class="fl">包装清单</div>
+                        <div id="vwaitOther_packin"></div>
+                        <script type="text/html" id="vwaitOther_packins">
+                            {{each data.parts as index}}
+                                <p class="fl">{{index.partsName}} * {{index.value}}</p>
+                            {{/each}}
+                        </script>
+                    </div>
+                    <div class="vwaitOther_parts clearfix">
+                        <div class="fl">配件清单</div>
+                        <div id="vwaitOther_part"></div>
+                        <script type="text/html" id="vwaitOther_parts">
+                             {{each data.packings as index}}
+                                <p class="fl">{{index.partsName}} * {{index.value}}</p>
+                            {{/each}}
+                        </script>
+                    </div>
+                    <div class="vwaitOther_explain clearfix">
+                        <div class="fl">购买说明</div>
+                        <div id="vwaitOther_explain"></div>
+                        <script type="text/html" id="vwaitOther_explains">
+                            <p>{{data.buyInstructions}}</p>
+                        </script>
+                    </div>
+                    <div class="vwaitDeatil_operation clearfix">
+                        <h4 class="conRight_h4">审核操作</h4>
+                        <div class="vwaitDetail_form">
+                            <input type="radio" name="vwait_detail_operation" value="0"  class="vwaitDetail_form_radio" checked="checked">通过
+                            <input type="radio" name="vwait_detail_operation" value="1" class="vwaitDetail_form_radio" >拒绝申请
+                        </div>
+                        <div role="form" >
+                            <div class="form-group">
+                            <textarea class="form-control vwait_reason" rows="6" cols="100" placeholder=""  style="display: none">请填写拒绝通过的具体理由.
+                            </textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="vwaitDetail_btn conRightBottom_btn">
+                            确认并提交
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/lib/getTime.js"></script>
+<script type="text/javascript">
+    $.sidebarMenu($('.sidebar-menu'));
+    
+    //渲染页面
+    function verify_wait_detail(){
+        var verify_wait_url = "http://172.16.41.23:8007/goods/check/showOne";
+        var _id = "5afd2f74a296605fb4d316be"
+        $.ajax({
+            type: "post",
+            url:verify_wait_url,
+            data:{id:_id},
+            dataType: "json",
+            success:function(data){
+                console.log(data)
+                var html = template("main", data);
+                $('#s').append(html)                
+               
+                //审核状态
+                if (data.state = 0 ) {
+                    var html = template("waitDetail", data);
+                     $("#wait").html("草稿")
+                }else if (data.state = 1) {
+                    var html = template("waitDetail", data);
+                    $("#wait").html("待审核")
+                }else if(data.state = 2){
+                    var html = template("waitDetail", data);
+                    $("#wait").html("审核未通过")
+                }else if(data.state = 3){
+                    var html = template("waitDetail", data);
+                    $("#wait").html("审核通过")
+                }else if(data.state = 4){
+                    var html = template("waitDetail", data);
+                    $("#wait").html("已整合")  
+                }    
+                // 手机号
+                var html = template("telphone", data);
+                $('#phone').append(html)
+                // 申请时间
+                var createTime = getNowFormatDate(data.createTime)
+                var html = template("times", data);
+                $('#uptime').html(createTime)
+                //基本信息
+                var html = template("categories", data);
+                $('#category').html(html)
+                //所属品牌
+                var html = template("brand", data);
+                $('#brands').html(html)
+                //所属型号
+                var html = template("models", data);
+                $('#model').html(html)
+                //商品类型
+                if (data.type = 1) {
+                    var html = template("shopstyles", data);;
+                     $('#shopstyle').html("完成品（标品)")
+                }else{
+                    var html = template("shopstyles", data);
+                     $('#shopstyle').html("订制品（非标品）")
+                }
+               
+                //厂地
+                
+                var html = template("origins", data);
+                $('#origin').html(html)
+
+                //产品规格
+                var html = template("attributes", data);
+                $('#attribute').html(html)
+                //商品详情
+                var html = template("vwaitDetail_paramImgs", data);
+                $('#vwaitDetail_paramImg').html(html)
+
+                //包装清单
+                var html = template("vwaitOther_packins", data);
+                $('#vwaitOther_packin').html(html) 
+                //配件清单
+                var html = template("vwaitOther_parts", data);
+                $('#vwaitOther_part').html(html) 
+                 //购买说明
+                var html = template("vwaitOther_explains", data);
+                $('#vwaitOther_explain').html(html) 
+            },
+            error:function(){
+                alert("数据没获取到")
+            }
+
+
+        })
+    }
+    verify_wait_detail()
+
+
+    //获取id 和state
+    function GetRequest() {   
+     var url = location.search; //获取url中"?"符后的字串   
+     var theRequest = new Object();   
+        if (url.indexOf("?") != -1) {   
+          var str = url.substr(1);   
+          strs = str.split("&");   
+          for(var i = 0; i < strs.length; i ++) {   
+             theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);   
+          }   
+       }   
+    return theRequest;   
+    }
+    
+
+
+   //提交
+   $(".vwaitDetail_btn").click(function(){
+     var Request = new Object();
+         Request = GetRequest();
+       var  vwait_reason = $(".vwait_reason").val(); //未通过的原因
+       console.log(vwait_reason)
+       //var  id = Request['id'];  //获取id
+       var id = '5afd2f74a296605fb4d316be';
+       var  auditor = "wangxuan" //获取审核人 
+       var  auditorId = "9527" //获取审核人id。
+       var  url = "http://172.16.41.23:8007/goods/check/check";
+       //var  state = Request['state'];   //获取状态
+       var state  =2
+       var  params = {
+                'id':id,
+                'refuseReason':vwait_reason,
+                'auditor':auditor,
+                'auditorId':auditorId,
+                'state':state
+             };
+             debugger;
+       console.log(params);
+       $.ajax({
+            type: "post",
+            url:url,
+            dataType: "json",
+            data:params,
+            success:function(data){
+                debugger;
+               if ($(".vwait_reason").show()) {
+                    if (vwait_reason == '') {
+                         alert("请写明拒绝原因")
+
+                         return false
+                    }else{
+
+                        alert(data.message);
+                        //window.location.href = "../product_manage/verify_wait.html"+"&state=" + 2;
+                    
+                    }
+                }
+               
+                
+            },
+            error:function(){
+                alert("数据加载失败")
+            }
+       })
+   })
+
+    //点击小图显示大图
+    $(".conRight_lookImg").click(function(){
+        if ($(".vwaitDetail_paramImg img").css("overflow","hidden")) {
+            $(".vwaitDetail_paramImg").css("height","auto").css("overflow","auto");
+            $(".conRight_lookImg").text("大图已展示")
+        }else{
+            $(".vwaitDetail_paramImg").css("height","300px").css("overflow","hidden");
+            $(".conRight_lookImg").text("查看完整图片")
+        }
+    })
+
+
+    //通过不显示 vwait_reason
+     $(".vwaitDetail_form_radio").change(
+        function() {
+            var value = $("input[name='vwait_detail_operation']:checked").val();
+            if (value == 0) {
+                $('.vwait_reason').hide();
+            }else if (value == 1){
+                 $('.vwait_reason').show();
+            }
+        });
+
+    
+</script>
+                 
+</body>
+</html>

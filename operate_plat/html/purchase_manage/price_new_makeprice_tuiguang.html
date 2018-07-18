@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>采购管理-新品定价</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/skuNewMerge_skuList.css"/>
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .choice_box {
+            text-align: center;
+            margin: 66px auto 0 auto;
+        }
+
+        .choice_box .sure_supsBtn {
+            margin: 5px;
+        }
+
+        .popwin_out {
+            margin-bottom: 30px !important;
+        }
+
+        .class_bubble_items {
+            margin-top: 50px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        .class_bubble_items img {
+            display: block;
+            width: 40px;
+            height: 40px;
+        }
+
+        .class_bubble_items_title {
+            padding: 15px 6px;
+        }
+
+        .class_bubble_items li {
+            border: 1px solid #929fbe;
+            border-top: none;
+            width: 70%;
+        }
+
+        .class_bubble_items li:first-child {
+            border-top: 1px solid #929fbe;
+        }
+
+        .merge_look, .merge_class {
+            cursor: pointer;
+            color: red;
+        }
+
+        .sub_btn_box {
+            padding-top: 40px;
+        }
+
+        .sub_btn_box span {
+            margin: 0 30px;
+        }
+
+        .merge_num, .jump_shop_num {
+            line-height: 65px;
+        }
+
+        .merge_num span, .jump_shop_num span {
+            color: red;
+        }
+
+        .total_num {
+            /*padding: 0 8px;*/
+            color: red;
+        }
+
+        .right_box > div {
+            border-bottom: 1px dotted #d3d9e5;
+        }
+
+        .right_box > div > div:first-child > div {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .goods_model span {
+            margin-right: 8px;
+        }
+
+        .public_con #self_table thead tr th:nth-child(1) {
+            width: 28%;
+        }
+
+        .public_con #self_table thead tr th:nth-child(2) {
+            width: 18%;
+        }
+
+        .public_con #self_table thead tr th:nth-child(3) {
+            width: 8%;
+        }
+
+        .public_con #self_table thead tr th:nth-child(4) {
+            width: 14%;
+        }
+
+        .public_con #self_table thead tr th:nth-child(5) {
+            width: 7%;
+        }
+
+        .td1 {
+            width: 37%;
+            box-sizing: content-box;
+            -moz-box-sizing: content-box;
+            padding: 10px 0;
+            min-height: 50px;
+            line-height: 50px;
+            position: relative;
+        }
+
+        .td1 .td1_sonL {
+            width: 35%;
+            min-height: 50px;
+        }
+
+        .td1 .td1_sonL img {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            width: 35%;
+            min-height: 50px;
+            display: block;
+            height: 50px;
+        }
+
+        .td1 .td1_sonR {
+            width: 64%;
+            min-height: 50px;
+            line-height: 20px;
+        }
+
+        .td1 .td1_sonR dl {
+            margin-bottom: 0px;
+        }
+
+        .td2 {
+            width: 24%;
+        }
+
+        .td3 {
+            width: 11%;
+        }
+
+        .td4 {
+            width: 19%;
+        }
+
+        .td5 {
+            width: 8%;
+        }
+
+        .td5, .td2, .td3, .td4 {
+            display: block;
+            /*border-right: 1px solid red;*/
+            /*border-right: 1px dotted #d3d9e5;*/
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .td1 {
+            display: block;
+            /*border-right: 1px solid red;*/
+            border-right: 1px dotted #d3d9e5;;
+            line-height: 50px;
+        }
+
+        .td_son0 {
+            width: 50%;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .td_son1 {
+            width: 70%;
+            display: inline-block;
+            line-height: 80px;
+            border-right: green 1px solid;
+        }
+
+        .td_son2 {
+            width: 29%;
+            display: inline-block;
+            line-height: 60px;
+            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+        }
+
+        .td_son3 {
+            width: 7%;
+            display: inline-block;
+        }
+
+        .left_box .left_items {
+            /*border-bottom: 1px solid #ccc;*/
+            border-bottom:1px dotted #d3d9e5;
+        }
+
+        .left_box .left_items:last-child {
+            border-bottom: none;
+        }
+
+        .left_box .left_items:last-child {
+            border-bottom: none;
+        }
+
+        .td_son1_son1, .td_son1_son2, .td_son1_son3 {
+            border-right: 1px solid red;
+            /*border-right:1px dotted #d3d9e5;*/
+        }
+
+        .td_son1_son1 {
+            width: 44%;
+            padding-left: 10px;
+        }
+
+        .td_son1_left, .td_son1_right {
+            border-right: 1px solid red;
+            /*border-right:1px dotted #d3d9e5;*/
+        }
+
+        .td_son1_son3 {
+            width: 23%;
+        }
+
+        .td_son1_son2 {
+            width: 33%;
+        }
+
+        .td_son2_son1 {
+            width: 44%;
+            border-right: 1px solid red;
+            /*border-right:1px dotted #d3d9e5;*/
+        }
+
+        .td_son2_son2 {
+            width: 23%;
+            /*border-right: 1px solid red;*/
+            border-right:1px dotted #d3d9e5;
+        }
+
+        .td_son2_son3 {
+            width: 33%;
+            border-right: 1px solid red;
+            /*border-right:1px dotted #d3d9e5;*/
+        }
+
+        .td_son1_left {
+            width: 40%;
+        }
+
+        .td_son1_right {
+            width: 59%;
+        }
+
+        .order_num_tr td {
+            line-height: 50px !important;
+            padding-left: 10px !important;
+        }
+
+        .tab_switch {
+            padding: 15px 0 15px 20px;
+        }
+
+        .tab_switch > div {
+            cursor: pointer;
+        }
+
+        .tab_switch > div > span {
+            color: red;
+        }
+
+        .tab_switch_active {
+            color: red;
+        }
+        /*#show{*/
+            /*height: 300px;*/
+            /*overflow-y: scroll;*/
+        /*}*/
+    </style>
+</head>
+<body>
+
+
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-12 clearfix">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理 > </a></li>
+        <li><a href="#">商品审核 > </a></li>
+        <li><a href="#">待审核 > </a></li>
+        <li class="active"><a href="#">审核详情 </a></li>
+    </ol>
+    <div class="moldMerge clearfix">
+        <div class="moldClass moldKind_switch_box clearfix col-xs-12">
+            <div class="col-xs-1">
+                <div class="row">
+                    <strong class="moldClass_spc">分类:</strong>
+                </div>
+            </div>
+            <div class="col-xs-10 clearfix moldKind_switch">
+                <div class="clearfix">
+                    <!--<span data-lcid="34" class="moldClass_all moldKind_switch_active col-xs-2">全部</span>-->
+                    <!--<span data-lcid="35" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="36" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="37" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="38" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="39" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="30" class="col-xs-2">餐厨用品</span>-->
+                </div>
+            </div>
+            <div class="col-xs-1 moldKind_click">
+                            <span class="moldKind_more">
+                                <i>更多</i>
+                                <i class="icon iconfont open_arrow"></i>
+                            </span>
+                <span class="moldKind_less hide_ctr">
+                                <i>收起</i>
+                                <i class="icon iconfont close_arrow"></i>
+                            </span>
+            </div>
+        </div>
+        <div class="moldBrand_switch_box col-xs-12 clearfix">
+            <div class="col-xs-1">
+                <div class="row">
+                    <strong class="moldClass_spc">品牌:</strong>
+                </div>
+            </div>
+            <div class="col-xs-10 moldBrand_switch clearfix">
+                <div class="clearfix">
+                    <!--<span data-bcid="21" class="moldClass_all moldBrand_switch_active col-xs-2">全部</span>-->
+                    <!--<span data-bcid="22" class="col-xs-2">九牧(JOMOO)</span>-->
+                    <!--<span data-bcid="23" class="col-xs-2">九牧(JOMOO)</span>-->
+                    <!--<span data-bcid="24" class="col-xs-2">九牧(JOMOO)</span>-->
+                    <!--<span data-bcid="25" class="col-xs-2">九牧(JOMOO)</span>-->
+                </div>
+            </div>
+            <div class="col-xs-1 moldBrand_click">
+                            <span class="moldBrand_more">
+                                <i>更多</i>
+                                <i class="icon iconfont open_arrow"></i>
+                            </span>
+                <span class="moldBrand_less hide_ctr">
+                                <i>收起</i>
+                                <i class="icon iconfont close_arrow"></i>
+                            </span>
+            </div>
+        </div>
+        <div class="moldClass_cates_box  clearfix col-xs-12">
+            <div class="col-xs-1">
+                <div class="row">
+                    <strong class="moldClass_spc">商品类型:</strong>
+                </div>
+            </div>
+            <div class="col-xs-11 moldClass_types_con">
+                <!--<span data-type="all" class="moldClass_all moldType_active">全部</span>-->
+                <!--<span data-type="1" class="">标品</span>-->
+                <!--<span data-type="2">非标品</span>-->
+                <!--<span data-type="3">定制品</span>-->
+            </div>
+        </div>
+    </div>
+    <div class="conRight_h4 ">
+                    <span class="conRight_h4_title">
+                        商家筛选
+                    </span>
+        <!--<span class="conRight_h4_1">-->
+        <!--当前区域：-->
+        <!--</span>-->
+        <!--<span class="conRight_h4_2">-->
+        <!--四川-->
+        <!--</span>-->
+        <span class="conRight_h4_3">
+                        选择商品的供应商
+                    </span>
+        <!--<span class="conRight_h4_4">-->
+        <!--成都市-->
+        <!--</span>-->
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-xs-12 ">
+              <div class="selfTable_box_ctr">
+                  <div class="merge_title_tip text-right">
+                      <div class="row">
+                          <div class="col-xs-6 text-left">
+                              鼠标在页面底部滚动的时候，每次您会拉取10条数据
+                          </div>
+                          <div class="col-xs-6 text-right">
+                              最少选择一条数据
+                          </div>
+                      </div>
+                  </div>
+                  <div class="self_table_box" id="show">
+                      <table class="detail_table self_table" id="self_table">
+                          <thead>
+                          <tr>
+                              <th>商品信息</th>
+                              <th>商品编号</th>
+                              <th>商品类型</th>
+                              <th>发布时间</th>
+                              <!--<th>供应商</th>-->
+                              <!--<th>成本报价</th>-->
+                              <th>
+                                  选择
+                              </th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <!--<tr class="order_num_tr">-->
+                          <!--<td colspan="7" style="text-align:left;line-height:35px">-->
+                          <!--松下 家用开关 0392-->
+                          <!--</td>-->
+                          <!--</tr>-->
+                          <!--<tr class="">-->
+                          <!--<td class="left_box" colspan="7">-->
+                          <!--<div class="clearfix left_items">-->
+                          <!--<div class="fl td_son1 clearfix">-->
+                          <!--<div class="td_son1_son1 fl clearfix">-->
+                          <!--<div class="td_son1_left fl clearfix">-->
+                          <!--<img src="" alt="">-->
+                          <!--</div>-->
+                          <!--<div class="td_son1_right fl">-->
+                          <!--<dl>wxx fang fang 10C</dl>-->
+                          <!--<dl>黑 44</dl>-->
+                          <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="td_son1_son2 fl">-->
+                          <!--20393934-->
+                          <!--</div>-->
+                          <!--<div class="td_son1_son3 fl">-->
+                          <!--标品-->
+                          <!--</div>-->
+                          <!--<div class="td_son1_son4 fl">-->
+                          <!--<span class="time_ymd">2018-04-30</span>-->
+                          <!--<span class="time_hms">11:20:32</span>-->
+                          <!--</div>-->
+                          <!--</div>-->
+                          <!--<div class="fl td_son2">-->
+                          <!--<span class="clearfix">-->
+                          <!--<i class="td_son2_son1 fl">-->
+                          <!--蓝翔家居-->
+                          <!--</i>-->
+                          <!--<i class="td_son2_son2 fl">-->
+                          <!--¥100-->
+                          <!--</i>-->
+                          <!--<i class="td_son2_son3 fl">-->
+                          <!--<input class="supplier_check" type="checkbox"-->
+                          <!--name="supplier_check">-->
+                          <!--</i>-->
+                          <!--</span>-->
+                          <!--</div>-->
+                          <!--</div>-->
+                          <!--</td>-->
+                          <!--</tr>-->
+                          </tbody>
+                      </table>
+                      <div class="merge_throttle sure_mdBtn" data-page="0">
+                          往下滚动加载更多
+                      </div>
+                      <div>
+                          <div class="col-xs-9">
+
+                          </div>
+                          <div class="col-xs-3 text-right">
+                              <span class="sure_smBtn go_merge_btn">去定价</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前属性名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<!--分配到店交互前的确认弹框-->
+<!-- 归档遮罩弹窗 -->
+<template type="text/html" id="distribution_bubble">
+    <div class="distribution_container">
+        <div>
+            <div class="dis_bubble_listTittle">
+                将
+                <span class="dis_bubble_num">11</span>
+                个SKU分到以下店铺，请再次确认操作
+            </div>
+            <div class="dis_bubble_listBox">
+                <div class="dis_bubble_listItems">
+                    <span>高新区</span>
+                    <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+                    <span>
+                        精选002店
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="sub_btn_box">
+            <span class="sure_xsBtn">确认</span>
+            <span class="cancle_xsBtn">取消</span>
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/purchase_manage/price_new_makeprice_tuiguang.js"></script>
+</body>
+</html>

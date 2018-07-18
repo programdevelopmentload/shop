@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>库存管理-订单接收</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/storage_manage/purchase_list.css">
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button, .oneGDvide_tbcon a {
+            margin: 0 5px;
+        }
+
+        .public_con #test .table thead tr th:nth-child(1) {
+            width: 14%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(2) {
+            width: 9%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(3) {
+            width: 6%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(4) {
+            width: 8%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(5) {
+            width: 8%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(6) {
+            width: 6%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(7) {
+            width: 7%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(8) {
+            width: 8%;
+        }
+
+        .td_son1 {
+            width: 32%;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .td_son2 {
+            width: 50%;
+            display: inline-block;
+            border-right: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+        }
+
+        .td_son3 {
+            width: 15%;
+            display: inline-block;
+        }
+
+        .left_items {
+            border-bottom: 1px solid #ccc;
+        }
+
+        .left_box .left_items:last-child {
+            border-bottom: none;
+        }
+
+        .td_son2_son1 {
+            width: 38%;
+            /*border-right: 1px solid red;*/
+        }
+
+        .td_son2_son2 {
+            width: 27%;
+            /*border-right: 1px solid red;*/
+        }
+
+        .td_son2_son3 {
+            width: 33%;
+            /*border-right: 1px solid red;*/
+        }
+
+        .td_son1_left {
+            width: 30%;
+        }
+
+        .td_son1_right {
+            width: 70%;
+        }
+        .order_num_tr td{
+            line-height: 50px!important;
+            padding-left: 10px!important;
+        }
+        .order_receive_num{
+            color: red;
+        }
+        .sub_btn_box{
+            margin-top: 70px;
+        }
+        .tab_switch{
+            padding:15px 0 15px 20px;
+        }
+        .tab_switch>div{
+            cursor: pointer;
+        }
+        .tab_switch >div >span{
+            color: red;
+        }
+        .tab_switch_active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="skuListDetail_con_right public_con yycon_right col-xs-10">
+                <ol class="skuListDetail_Bread breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a></li>
+                    <li><a href="#">商品审核 > </a></li>
+                    <li><a href="#">待审核 > </a></li>
+                    <li class="active"><a href="#">审核详情</a></li>
+                </ol>
+                <div class="approve_detail">
+                    <form class="filter_area clearfix form-horizontal">
+                        <div class="form-group col-sm-4">
+                            <label for="" class="col-sm-5 control-label">订单编号：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control order_num_input">
+                            </div>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <label for="" class="col-sm-5 control-label">商品名称：</label>
+                            <div class="col-sm-7">
+                                <input type="text" class="form-control goods_name_input">
+                            </div>
+                        </div>
+                        <div class="btn-primary btn list_query">
+                            查询
+                        </div>
+                    </form>
+                    <!--<div class="clearfix tab_switch">-->
+                        <!--<div class="col-xs-2 tab_switch_active" data-status="2">待出库（<span>5</span>）</div>-->
+                        <!--<div class="col-xs-2" data-status="3">待入库（<span>5</span>）</div>-->
+                        <!--<div class="col-xs-2" data-status="4">已完成（<span>5</span>）</div>-->
+                    <!--</div>-->
+                    <h4 class="conRight_h4">
+                        入库单
+                    </h4>
+                    <div class="approve_detail_count">
+                        <div class="clearfix pageSize_switch_con">
+                            <!--<div class="order_receive_num fl">-->
+                                <!--入库接收（<span> 4</span>）-->
+                            <!--</div>-->
+                            <div class="fl">每页显示</div>
+                            <select class="pageSize_switch form-control fl">
+                                <option value="5" class="">5</option>
+                                <option value="10" class="">10</option>
+                                <option value="15" class="">15</option>
+                            </select>
+                        </div>
+                        <!-- table -->
+                        <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                            <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                                <thead>
+                                <tr>
+                                    <th>商品信息</th>
+                                    <th>商品编码</th>
+                                    <th>商品类型</th>
+                                    <th>供应商</th>
+                                    <th>数量</th>
+                                    <th>价格</th>
+                                    <th>采购总量</th>
+                                    <!--<th>金额小计</th>-->
+                                    <!--<th>申请时间</th>-->
+                                    <!--<th>采购店铺</th>-->
+                                    <!--<th>采购人员</th>-->
+                                    <!--<th>所属区域</th>-->
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+                            <div class="leftBottom clearfix">
+                                <!--<button type="button" class="outBack">批量退回</button>-->
+                                <div class="page pageBar" id="page">
+                                    <p>共0条记录</p>
+                                    <div class="pageLft clearfix">
+                                        <!--<a class="noprev"></a>-->
+                                        <a href="#" class="prev"></a>
+                                        <a href="#" class="active">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <a href="#">4</a>
+                                        <a href="#">5</a>
+                                        <span>...</span>
+                                        <a href="#" class="next"></a>
+                                        <!--<a class="nonext"></a>-->
+                                    </div>
+                                    <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="login_container test_mask_con">
+        <div class="maskBtn_operate">
+            <span class="maskBtn mask_ok">是</span>
+            <span class="maskBtn mask_false">否</span>
+            <!--<span href="" class="maskBtn mask_else">取消</span>-->
+        </div>
+    </div>
+</template>
+<!-- 遮招层2 -->
+<div class="mask_two">
+    <div class="mask_false_input">
+        <input type="text" name="" placeholder="请输入拒绝原因" value="" id="approve_reason">
+        <div class="approve_decision">
+            <span>取消</span>
+            <span>确定</span>
+        </div>
+        <i class="approve_closebtn">X</i>
+        <p class="error"></p>
+    </div>
+</div>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+        <div class="sub_btn_box">
+            <span class="sure_xsBtn">确认</span>
+            <span class="cancle_xsBtn">取消</span>
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/storage_manage/order_receive.js"></script>
+</body>
+</html>

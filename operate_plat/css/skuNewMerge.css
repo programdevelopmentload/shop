@@ -1,0 +1,139 @@
+.skuNeMerge_choose{
+	line-height: 40px;
+	margin-top: 20px;
+	border-bottom: 1px dashed #ccc
+}
+.select-res span {
+	display: inline-block;
+	width:230px;
+	height: 40px;
+	line-height: 40px;
+	border:solid 1px #c0c0c0;
+	background:url(../images/select_box_bg.gif) no-repeat right;
+	cursor: pointer;
+	color:#000;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.select-res p {
+	position:relative;
+	width: 300px;
+	height:28px;
+	line-height:28px;
+	border-bottom:dashed 1px #c0c0c0;
+	padding:0 5px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+	padding-right:20px;
+}
+.select-res a {
+	position:absolute;
+	top:0;
+	right:0;
+	display: block;
+	width:28px;
+	height:28px;
+	background:url(../images/close_btn.jpg) no-repeat center;
+	cursor:pointer;
+}
+.select-res input {
+	width:172px;
+	height:14px;
+	line-height:14px;
+	margin-left:4px;
+	padding:7px 5px;
+	border:solid 1px #c0c0c0;
+	color:#2c2c2c;
+}
+.select-res span.selected {
+	color:#626262;
+}
+.select-box {
+	border:solid 1px #fd8340;
+	width: 60%;
+	height:220px;
+	padding:20px 20px 10px;
+	/*position:absolute;*/
+	display:none;
+	z-index:5;
+	background: #fff;
+}
+.select-box .close-btn {
+	float: right;
+    margin-top: -22px;
+	cursor: pointer;
+}
+.select-box .wrap {
+	 height: 200px;
+	 display: flex;
+	 display: -webkit-flex
+}
+.select-box ul {
+	flex: 1;
+	-webkit-flex:1;
+	height:200px;
+	overflow-y: scroll;
+}
+.select-box ul li {
+	height:25px;
+	line-height:25px;
+	padding:0 10px;
+	background: url(../images/arr.gif) no-repeat 152px center;
+	color:#626262;
+	cursor: pointer;
+}
+.select-box ul li.selected {
+   background:url(../images/arr_selected.gif) no-repeat 152px center #fd8340;
+	color:#fff;
+}
+
+.skuNeMerge_choose_brand h5{
+     line-height: 30px;
+     border-bottom: 1px dashed #ccc
+
+}
+
+.skuNeMerge_choose_brand p span{
+	padding-left: 12px;
+	font-size: 18px;
+    display: inline-block;
+    cursor: pointer;
+}
+.skuNeMerge_choose_brand p span{
+	 padding: 5px 7px;
+}
+
+.skuNeMerge_choose_brands_box{
+	min-height: 180px;
+	width: 100%;
+	margin-top: 15px;
+	display: flex;
+	display: -webkit-flex;
+	padding-bottom: 10px;
+}
+.skuNeMerge_choose_brands{
+	flex: 1;
+	-webkit-flex:1;
+
+}
+.skuNeMerge_choose_brands li{
+	height: 32px;
+	line-height: 32px;
+	color: #000
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

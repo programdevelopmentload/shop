@@ -1,0 +1,35 @@
+.tab_role{
+    margin-top: 10px;
+    background: #fff;  
+    width: 80%;
+}	
+
+/*权限分配*/
+.assign_ul{
+    border:1px solid #ccc;
+    border-radius: 4px;
+    width: 80%;
+    margin-top: 20px;
+    padding: 0 30px;
+}
+.assign_ul li{
+    line-height: 45px;
+    margin-top: 10px;
+
+}
+
+.assign_ul li span{
+    display: inline-block;
+    padding: 0px 15px
+}
+
+.activited{
+    color: #fff;
+    background: #337ab7
+}
+.assign_ul li p input{
+    margin-right: 5px
+}
+
+
+

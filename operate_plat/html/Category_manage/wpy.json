@@ -1,0 +1,25 @@
+{
+  "success":true,
+  "errorCode":0,
+  "message":"成功",
+  "data":{
+    "pageSize":5,
+    "totalCount":2,
+    "isMore":0,
+    "totalPage":1,
+    "startIndex":0,
+    "items":[
+      {
+        "id":2,
+        "supplierId":12,
+        "storeName":"仓库2",
+        "storePosition":"具体地址",
+        "storeServerDetails":[
+          "昌平区",
+          "朝阳区"
+        ]
+      }
+    ],
+    "currentPage":1
+  }
+}

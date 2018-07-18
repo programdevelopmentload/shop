@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>模板管理-添加运费</title>
+  	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/addFreight.css">
+</head>
+
+<body>
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-12">
+    <div class="areaInfo">
+     <h4 class="conRight_h4">运费模板</h4>
+       <div class="service">
+         <p>服务品类:</p>
+         <p>
+          <span>
+             <input type="radio"  name="radio" disabled=true  data-val="0">
+             <label>全品类</label>
+          </span>
+          <span>
+             <input type="radio"  name="radio" disabled=true data-val="1">
+             <label>全品类（特殊商品除外）</label>
+          </span>
+          <span>
+             <input type="radio"  name="radio" disabled=true data-val="2">
+             <label>特殊商品</label>
+          </span>
+          <span style="cursor: pointer;" class="spcGoods">
+            设置特殊商品
+          </span>
+         </p>
+       </div>
+       <div class="orderMax form-inline" >
+          <label>订单额度:</label>
+          <input type="text" class="form-control" name="" placeholder="¥0.00">
+          <p>用于判断是否应该收取物流费用的界限</p>
+       </div>
+       <div class="logistics">
+         <p>物流费用:</p>
+         <p>
+          <span>
+             <input type="radio"  name="freight" value="0">
+             <label>包邮</label>
+          </span>
+          <span>
+             <input type="radio"  name="freight"  value="1">
+             <label>有运费</label>
+          </span>
+       </div>
+       <div class="priceSet">
+          <p>价格设置:</p>
+          <div class="setPrice">
+            <ul>
+              <li>
+                <span>服务区域</span>
+                <span>配送价格</span>
+              </li>
+              <li>
+                <span class="chooesArea" onclick="chooseArea(this)">选择区域</span>
+                <span class="form-inline"><input type="text" class="form-control" name=""></span>
+              </li>
+              <li>
+                <i class="addLine">
+                <img src="../../images/attr_add.png"> 
+                添加
+                </i>
+              </li>
+            </ul>
+          </div>
+       </div>
+    </div>
+</div>
+<div class="mask">
+    <div class="spcSet">
+      <h4 class="conRight_h4">特殊品类设置</h4>
+      <i class="colseBtn">X</i>
+      <p>请选择包含特殊商品的分类</p>
+      <div class="countFreight">
+      
+         <div class="spc1">
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+             <i>
+               <img src="../../images/WechatIMG2.png">
+             </i>
+           </p>
+         </div>
+         <div class="spc2">
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+             <i>
+               <img src="../../images/WechatIMG2.png">
+             </i>
+           </p>
+         </div>
+         <div class="spc3">
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+           </p>
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+           </p>
+         </div>
+
+         <div class="spc1">
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+             <i>
+               <img src="../../images/WechatIMG2.png">
+             </i>
+           </p>
+         </div>
+         <div class="spc2">
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+             <i>
+               <img src="../../images/WechatIMG2.png">
+             </i>
+           </p>
+         </div>
+         <div class="spc3">
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+           </p>
+           <p>
+             <input type="checkbox"  name="">
+             <label>家具</label>
+           </p>
+         </div>
+      
+       
+      </div>
+       <div id="spcSet">
+            <button type="btn" class="btn btn-default addBtn" id="cancelSpc">取消</button>
+            <button type="btn" class="btn btn-primary addBtn" id="sureSpc">确认</button>
+        </div>
+    </div>
+   <div class="businessArea" >
+     <h4 class="conRight_h4">新增区域</h4>
+     <i class="colseBtn">X</i>
+     <div id="area" class="clearfix">
+          <div class="area_right fl">  
+          </div>
+          
+     </div>
+     <div id="area_btn">
+        <button type="btn" class="btn btn-default addBtn" id="cancelArea">取消</button>
+        <button type="btn" class="btn btn-primary addBtn"  id="sureArea">确认</button>
+      </div>
+   </div>
+</div>
+<script id="belong_box" type="text/html">
+    {{each options as value i}}
+    <div class=" ">
+        <div class="spc1">
+          <p>
+            {{value.name}}
+              <i>
+               <img src="../../images/WechatIMG2.png">
+             </i>
+          </p>   
+        </div>
+        {{each value.child as value1 i}}
+        <div class=" ">
+            <div class="spc2">
+              <p>
+                {{value1.name}}
+               <i>
+                <img src="../../images/WechatIMG2.png">
+               </i>
+              </p>
+                
+            </div>
+            <div class="spc3">
+               <p>
+                  {{each value1.child as value2 i}}
+                <span class="leaf" data-check="{{value2.isCheck}}">
+                    {{if value2.isCheck == 0 }}
+                    <input type="checkbox"  value="{{value2.id}}">
+                    {{value2.name}}&nbsp;&nbsp;&nbsp;
+                    {{else}}
+                      <input type="checkbox"  class="check" checked value="{{value2.id}}">
+                    {{value2.name}}&nbsp;&nbsp;&nbsp;
+                    {{/if}}
+                </span>
+                {{/each}}
+               </p>
+               
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/wangeditor.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/other_manage/addFreight.js"></script>
+
+</body>
+</html>

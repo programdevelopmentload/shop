@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>采购管理-定价审核</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/skuNewMerge_skuList.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .attr_manag_add .unitAdd_container {
+            /* padding: 40px 36px 40px 36px; */
+            text-align: center;
+            width: 500px;
+            min-height: 150px;
+            font-family: "Microsoft YaHei";
+            color: #929fbe;
+        }
+
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .choice_box {
+            text-align: center;
+            margin: 66px auto 0 auto;
+        }
+
+        .choice_box .sure_supsBtn {
+            margin: 5px;
+        }
+
+        .popwin_out {
+            margin-bottom: 30px !important;
+        }
+
+        .class_bubble_items {
+            margin-top: 50px;
+            height: 200px;
+            overflow-y: scroll;
+        }
+
+        .class_bubble_items img {
+            display: block;
+            width: 40px;
+            height: 40px;
+        }
+
+        .class_bubble_items_title {
+            padding: 15px 6px;
+        }
+
+        .class_bubble_items li {
+            border: 1px solid #929fbe;
+            border-top: none;
+            width: 70%;
+        }
+
+        .class_bubble_items li:first-child {
+            border-top: 1px solid #929fbe;
+        }
+
+        .sub_btn_box {
+            padding-top: 40px;
+        }
+
+        .sub_btn_box span {
+            margin: 0 30px;
+        }
+
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .order_num_tr td {
+            border-right: none !important;
+            border-left: none !important;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .public_con #test .table thead tr th:nth-child(1) {
+            width: 18%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(2) {
+            width: 9%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(3) {
+            width: 10%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(4) {
+            width: 8%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(5) {
+            width: 12%;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .public_con #test .table tbody tr {
+            border-bottom: 1px dotted #d3d9e5
+        }
+
+        .public_con #test .table tbody tr td {
+            border: none;
+            height: 0;
+            min-height: 70px;
+            line-height: 70px;
+            text-align: center;
+        }
+
+        .public_con #test .table tbody tr .td1 {
+            border: none;
+            height: 0;
+            min-height: 70px;
+            line-height: 70px;
+            text-align: center;
+        }
+
+        .public_con #test .table tbody tr .td1 {
+            box-sizing: content-box;
+            -moz-box-sizing: content-box; /* Firefox */
+            padding: 10px 0;
+        }
+
+        .public_con #test .table tbody tr .td1 .td1_sonR {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .public_con #test .table tbody tr .td1 .td1_sonR dl {
+            margin-bottom: 3px;
+        }
+
+        #table_data .td1 .td1_sonL {
+            width: 35%;
+            min-height: 50px;
+        }
+
+        #table_data .td1 .td1_sonL img {
+            display: block;
+            width: 50px;
+            height: 50px;
+        }
+
+        #table_data .td1 .td1_sonR {
+            width: 64%;
+        }
+
+        .pv_brandName, .pv_leafName {
+            margin-right: 6px;
+        }
+
+        .pv_attrValue {
+            margin-right: 6px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+
+<div class="skuListDetail_con_right public_con yycon_right col-xs-12">
+    <ol class="hide_ctr skuListDetail_Bread breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理 > </a></li>
+        <li><a href="#">商品审核 > </a></li>
+        <li><a href="#">待审核 > </a></li>
+        <li class="active"><a href="#">审核详情</a></li>
+    </ol>
+    <!--<div class="skuNew_skuList conRight1 clearfix">-->
+    <!--<h2>喜宝梦 儿童书柜 A109</h2>-->
+    <!--&lt;!&ndash;<p class="skuNew_skuList_p">&ndash;&gt;-->
+    <!--&lt;!&ndash;<span>SKU数量:5</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;<span>上新SKU:5</span>&ndash;&gt;-->
+    <!--&lt;!&ndash;</p>&ndash;&gt;-->
+    <!--</div>-->
+    <div class="moldMerge clearfix">
+        <div class="moldClass moldKind_switch_box clearfix col-xs-12">
+            <div class="col-xs-1">
+                <div class="row">
+                    <strong class="moldClass_spc">分类:</strong>
+                </div>
+            </div>
+            <div class="col-xs-10 clearfix moldKind_switch">
+                <div class="clearfix">
+                    <!--<span data-lcid="34" class="moldClass_all moldKind_switch_active col-xs-2">全部</span>-->
+                    <!--<span data-lcid="35" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="36" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="37" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="38" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="39" class="col-xs-2">餐厨用品</span>-->
+                    <!--<span data-lcid="30" class="col-xs-2">餐厨用品</span>-->
+                </div>
+            </div>
+            <div class="col-xs-1 moldKind_click">
+                            <span class="moldKind_more">
+                                <i>更多</i>
+                                <i class="icon iconfont open_arrow"></i>
+                            </span>
+                <span class="moldKind_less hide_ctr">
+                                <i>收起</i>
+                                <i class="icon iconfont close_arrow"></i>
+                            </span>
+            </div>
+        </div>
+        <div class="moldBrand_switch_box col-xs-12 clearfix">
+            <div class="col-xs-1">
+                <div class="row">
+                    <strong class="moldClass_spc">品牌:</strong>
+                </div>
+            </div>
+            <div class="col-xs-10 moldBrand_switch clearfix">
+                <div class="clearfix">
+                    <!--<span data-bcid="21" class="moldClass_all moldBrand_switch_active col-xs-2">全部</span>-->
+                    <!--<span data-bcid="22" class="col-xs-2">九牧(JOMOO)</span>-->
+                    <!--<span data-bcid="23" class="col-xs-2">九牧(JOMOO)</span>-->
+                    <!--<span data-bcid="24" class="col-xs-2">九牧(JOMOO)</span>-->
+                    <!--<span data-bcid="25" class="col-xs-2">九牧(JOMOO)</span>-->
+                </div>
+            </div>
+            <div class="col-xs-1 moldBrand_click">
+                            <span class="moldBrand_more">
+                                <i>更多</i>
+                                <i class="icon iconfont open_arrow"></i>
+                            </span>
+                <span class="moldBrand_less hide_ctr">
+                                <i>收起</i>
+                                <i class="icon iconfont close_arrow"></i>
+                            </span>
+            </div>
+        </div>
+        <div class="moldClass_cates_box  clearfix col-xs-12">
+            <div class="col-xs-1">
+                <div class="row">
+                    <strong class="moldClass_spc">商品类型:</strong>
+                </div>
+            </div>
+            <div class="col-xs-11 moldClass_types_con">
+                <!--<span data-type="all" class="moldClass_all moldType_active">全部</span>-->
+                <!--<span data-type="1" class="">标品</span>-->
+                <!--<span data-type="2">非标品</span>-->
+                <!--<span data-type="3">定制品</span>-->
+            </div>
+        </div>
+    </div>
+    <h4 class="conRight_h4 two_common">选货列表</h4>
+
+    <div class="approve_detail_count pagination_box_ctr">
+        <div class="clearfix pageSize_switch_con">
+            <!--<div class="col-xs-2 text-left">-->
+            <!--共<span class="total_num">120</span>条-->
+            <!--</div>-->
+            <div class="fl">每页显示</div>
+            <select class="pageSize_switch form-control fl">
+                <option value="20" class="">20</option>
+                <option value="30" class="">30</option>
+                <option value="40" class="">40</option>
+                <option value="50" class="">50</option>
+            </select>
+        </div>
+        <!-- table -->
+        <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+            <div id="pic_no" class="default-prompt">
+                <img src="../../images/nothing.png">
+                <br>
+                <span>查询无结果</span>
+            </div>
+            <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                <thead>
+                <tr>
+                    <th>商品信息</th>
+                    <th>商品编号</th>
+                    <th>商品类型</th>
+                    <th>销售定价</th>
+                    <th>操作</th>
+                    <!--<th>金额小计</th>-->
+                    <!--<th>采购店铺</th>-->
+                    <!--<th>采购人员</th>-->
+                    <!--<th>所属区域</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <div class="leftBottom clearfix">
+                <!--<button type="button" class="outBack">批量退回</button>-->
+                <div class="page pageBar" id="page">
+                    <p>共0条记录</p>
+                    <div class="pageLft clearfix">
+                        <!--<a class="noprev"></a>-->
+                        <a href="#" class="prev"></a>
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <span>...</span>
+                        <a href="#" class="next"></a>
+                        <!--<a class="nonext"></a>-->
+                    </div>
+                    <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                </div>
+            </div>
+        </div>
+        <div class="m-pagination">
+
+        </div>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<!-- 归档遮罩弹窗 -->
+<template type="text/html" id="class_bubble">
+    <div class="unitAdd_container clearfix">
+        <h4 class="conRight_h4 text-left">温馨提示</h4>
+        <div class="bubble_basic_info clearfix">
+            <div class="col-xs-12 title_tip">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="sub_btn_box_unit clearfix">
+        <span class="sure_xsBtn">确认</span>
+        <span class="cancle_xsBtn">取消</span>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/getTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/purchase_manage/price_verify_tuiguang.js"></script>
+</body>
+</html>

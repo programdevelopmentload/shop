@@ -1,0 +1,141 @@
+
+.service p,.logistics p{
+	display: inline-block;
+}
+label{
+	font-weight: normal;
+}
+i{
+	font-style: normal;
+	cursor: pointer;
+}
+.orderMax, .logistics{
+	margin-top: 20px
+}
+.setPrice{
+	margin-top: 20px;
+	border:1px solid #ccc;
+}
+.setPrice ul li{
+	border-bottom: 1px solid #ccc;
+	padding: 20px;
+	display: flex;
+	display: -webkit-flex;
+}
+.setPrice ul li span{
+	flex: 1;
+	-webkit-flex:1;
+}
+.setPrice ul li img{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+}
+.mask{
+	width: 100%;
+	height: 200%;
+	background: rgba(0,0,0,0.4);
+	position: absolute;
+	left: 0;
+	top:0;
+	display: none;
+}
+.spcSet{
+	width: 80%;
+	margin: 10% auto;
+	background: #fff;
+	border-radius: 4px;
+	position: relative;
+	/*display: none;*/
+}
+.colseBtn{
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	position: absolute;
+	right: 8px;
+    top: 14px;
+    border:1px solid #ccc;
+    border-radius: 20px;
+}
+.spc1,.spc2{
+	border-bottom: 1px solid #ccc;
+}
+.spc1 p,.spc2 p,.spc3 p{
+	padding-top: 10px;
+	display: inline-block;
+	/*width: 150px*/
+}
+.spc1 img,.spc2 img{
+	display: inline-block;
+	width: 18px;
+	height: 10px;
+} 
+.spc2{
+	padding-left: 20px;
+}
+.spc3{
+	padding-left: 40px
+}
+
+.businessArea{ 
+    border: 1px solid #999999; 
+    width: 80%;
+    background: #fff;
+    border-radius: 4px;
+    margin: 20px auto;
+    position: relative;
+}
+.area_right>.clearfix li{
+      width: 30%;
+      height: 50px;
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+ }
+.area_right>.clearfix li .trigger{
+    width: 0;
+    height: 0;
+    border-width: 5px;
+    border-style: solid;
+    border-color: red transparent transparent transparent;
+    position: absolute;
+    top: 8px;
+    left: 145px
+}
+.area_right>.clearfix li  .trigger_click{
+    padding:10px;
+    border:1px solid #999999; 
+    width: 180px;
+    height: 150px; 
+    background: #ffffff;
+    z-index: 10000;
+    overflow-y: scroll;   
+    display: none; 
+    position: absolute;
+    top: 30px;
+    left: 0px;
+}
+.area_right> .trigger_click ul li{
+    margin:0 10px;
+}
+.close1{
+    float: right;
+    margin-top:-12px;
+}
+.area_right .fl li>span{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.addBtn{
+    margin-top: 20px;
+    margin-left: 30%;
+}
+#sureArea,#sureSpc{
+	 margin-left: 10%;
+}
+.listul{
+	padding: 0 30px;
+}

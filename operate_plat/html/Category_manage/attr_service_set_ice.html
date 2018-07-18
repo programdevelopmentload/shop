@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务属性设置</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/attr_manag.css"/>-->
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+        .ope_btn_box {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
+            <div class="attr_manag_con_right public_con yycon_right yyconOrder_right col-xs-10 mess_con_form">
+
+                <h4 class="conRight_h4">服务设置</h4>
+                <form class="form-horizontal mess_list_margin clearfix" role="form">
+                    <div class="col-sm-12 form-group">
+                        <div class="col-sm-2 text-right">
+                            服务对象：
+                        </div>
+                        <div class="col-sm-3 ">标品</div>
+                    </div>
+                    <div class="col-sm-12 form-group">
+                        <div class="col-sm-2 text-right">
+                            配送服务：
+                        </div>
+                        <div class="col-sm-3 ">有</div>
+                    </div>
+                    <div class="col-sm-12 form-group blongFlag">
+                        <div class="col-sm-2 text-right">
+                            所属分类：
+                        </div>
+                        <div class="col-sm-3 ">
+                            家具
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label for="" class="col-sm-2 control-label">自提服务：</label>
+                        <div class="col-sm-3">
+                            <select name="" id="" class="form-control">
+                                <option value="">有</option>
+                                <option value="">无</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-5 everyGradeTip hide_ctr">
+                            支持中英文，最多32个字符
+                        </div>
+                    </div>
+                    <div class="col-sm-12 form-group blongFlag">
+                        <div class="col-sm-2 text-right">
+                            测量服务：
+                        </div>
+                        <div class="col-sm-3 ">
+                            无
+                        </div>
+                    </div>
+                    <div class="col-sm-12 form-group blongFlag">
+                        <div class="col-sm-2 text-right">
+                            安装服务：
+                        </div>
+                        <div class="col-sm-3 ">
+                            无
+                        </div>
+                    </div>
+                </form>
+                <h4 class="conRight_h4">关联分类</h4>
+                <div class="ope_btn_box">
+                    <span class="cancle_xsBtn">取消</span>
+                    <span class="sure_xsBtn">确认并提交</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前属性名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/attr_manag.js"></script>
+</body>
+</html>

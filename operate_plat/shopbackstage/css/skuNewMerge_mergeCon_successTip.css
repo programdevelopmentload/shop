@@ -1,0 +1,11 @@
+.sku_success{
+	margin:  100px auto;
+	width: 350px;
+	text-align: center;
+}
+.sku_success span{
+	color: #000;
+	font-size: 20px;
+	margin-left: 20px
+
+}

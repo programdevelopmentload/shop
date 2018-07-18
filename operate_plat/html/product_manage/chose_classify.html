@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>发布商品-选分类</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>   
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/product_manage/chose_classify.css">
+</head>
+<body>
+
+<div class="verifyLog_con_right yycon_right public_con pagination_box_ctr col-xs-12">
+    <div id="box" class="clearfix">
+        <div class="right">
+            <div class="select_classify">
+                <div class="classify-msg">
+                    <p>
+                        分类信息
+                    </p>
+                    <div class="select-res">
+                        <span>点击这里请选择您主营的品类名称</span>
+
+                        <input type="hidden" id="hiddenText" name="">
+                    </div>
+                    <div class="select-box">
+                        <div class="wrap">
+                            <ul class="first"></ul>
+                            <ul class="second"></ul>
+                            <ul class="third"></ul>
+                        </div>
+                    </div>
+                    <!--<div style="margin-top: 16px;color:#000;font-weight: 100">-->
+                        <!--<label>-->
+                            <!--<input class="agreement" type="checkbox"> 我已同意<a href="javascript:;" class="agreementGoods">《商品发布协议》</a>-->
+                        <!--</label>-->
+
+                    <!--</div>-->
+                    <input type="button" class="form-control btn-primary" value="下一步">
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>  
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/product_manage/chose_classify.js"></script>
+<script>
+
+
+    // 商品管理 选择分类  3级分类点击跳转
+    // $(".select_classify .form-control").click(function () {
+    //     console.log(sessionStorage.getItem("cid3") )
+    //     if (sessionStorage.getItem("cid3") !== undefined && $(".select_classify .agreement").is(':checked') && sessionStorage.getItem("cid3") !== ""&& sessionStorage.getItem("cid3") !== null) {
+    //        window.location.href="../publish_product.html";
+
+    //     }
+    // });
+
+
+
+
+</script>
+</body>
+</html>

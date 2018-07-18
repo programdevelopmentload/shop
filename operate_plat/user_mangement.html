@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>用户列表</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/onSale_list.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="../../css/user_mangement/audit.css">
+
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+
+                <div class="user_management_info form-inline" >
+					<div class="form-group form-group-lg user_management_keyword" >
+					    <label class="control-label" for="formGroupInputLarge">关键字</label>
+					      <input class="form-control user_management_keyword" type="text" id="formGroupInputLarge" placeholder="">
+					</div>
+					<div class="form-group ">
+						<label for="user_management_idcard">身份类型</label>
+						<select class="user_management_idcard">
+							<option>全部</option>
+							<option>买家</option>
+							<option>商家</option>
+							<option>运营</option>
+							<option>客服</option>
+							<option>管理员</option>
+						</select>
+					</div>
+					<!-- Standard button -->
+					<button type="button" class="btn btn-primary">查找</button>
+				</div>
+
+				<div class="audit_count">
+		  			<!-- table -->
+                        <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                            <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                                <thead>
+                                <tr>
+                                    <th>用户信息</th>
+                                    <th>手机号</th>
+                                    <th>账户来源</th>
+                                    <th>身份类型</th>
+                                    <th>创建时间</th>
+                                    <th>用户状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+
+                            <div class="leftBottom clearfix">
+                                <!--<button type="button" class="outBack">批量退回</button>-->
+                                <div class="page pageBar" id="page">
+                                    <p>共0条记录</p>
+                                    <div class="pageLft clearfix">
+                                        <!--<a class="noprev"></a>-->
+                                        <a href="#" class="prev"></a>
+                                        <a href="#" class="active">1</a>
+                                        <a href="#">2</a>
+                                        <a href="#">3</a>
+                                        <a href="#">4</a>
+                                        <a href="#">5</a>
+                                        <span>...</span>
+                                        <a href="#" class="next"></a>
+                                        <!--<a class="nonext"></a>-->
+                                    </div>
+                                    <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                                </div>
+                            </div>
+                        </div>
+				</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+<script src="./js/lib/jquery-1.12.4.min.js"></script>
+<script src="./js/lib/bootstrap.min.js"></script>
+<script src="./js/lib/bootstrap-table.js"></script>
+<script src="./js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="./js/lib/sidebar-menu.js"></script>
+<script src="./js/lib/jquery.datetimepicker.js"></script>
+<script src="./js/setDateTime.js"></script>
+<script src="./js/lib/art_template.js"></script>
+<script src="./js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript">
+  $.sidebarMenu($('.sidebar-menu'));
+
+</script>
+</html>

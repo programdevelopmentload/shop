@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>版本详情 -- 版本详情</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+<body>
+<style type="text/css">
+  .channel{
+     display: inline-block;
+     width: 100px;
+     font-style: normal;
+     line-height: 45px;
+  }
+</style>
+
+<div class="verifyLog_con_right public_con yycon_right col-xs-10">
+    <div class="areaInfo form-inline">
+      <h4 class="conRight_h4">版本详情</h4>
+
+      <div class="versionDetail">
+      </div>
+      <div class="updateUrl"></div>
+    </div>
+</div>
+
+
+
+<script type="text/html" id="versionDetail">
+<p><span>版本号：</span>{{data.version}}</p>    
+<p><span>版本终端：</span>
+{{if data.appType ==1 }}<span>客户端(ios)</span>{{else if data.appType ==2 }}<span>客户端(Android)</span>{{else if data.appType ==3}}<span>导购端(PAD)</span>{{else if data.appType ==4}}<span>服务端(ios)</span>{{else if data.appType ==5}} <span>服务端(Android)</span>
+{{/if}}
+</p>    
+<p><span>版本状态：</span>{{if data. versionState == 0}} <span> 正常 </span>{{else if data.versionState == 1}} <span> 过期 </span>{{/if}}</p>    
+<p><span>发版时间：</span>{{data.createTime}}</p>    
+<p><span>更新说明：</span>{{data.remarks}}</p>    
+</script>
+<script type="text/html" id="updateURL">
+    <p><span>更新渠道：</span>
+    {{each data as val}}
+    <i class="channel">{{val.downloadChannel}}</i>
+    {{/each}}
+</p>      
+</script>
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript">
+function getUrlParam(name){ 
+//构造一个含有目标参数的正则表达式对象 
+var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+//匹配目标参数 
+var r = window.location.search.substr(1).match(reg); 
+//alert(r); 
+//返回参数值 
+if (r!=null) return decodeURI(r[2]); 
+    return null; 
+} 
+
+var  id =getUrlParam("id");
+console.log(id);
+var version = getUrlParam("version");
+console.log(version);
+
+var localHttp = 'http://172.16.38.142:8010';
+var findUrl = localHttp+'/messageserver/queryChannel';
+
+var update = localHttp+'/messageserver/queryHeader';
+
+function  versionDetail() {
+    $.ajax({
+        url:update,
+        type:'post',
+        dataType:'json',
+        data:{id: id},
+        success:function(data){
+            console.log(data);
+            if (data.errorCode == 9527){
+
+            }
+            var html = template("versionDetail",data);
+            $(".versionDetail").html(html);
+        }
+    })
+}
+versionDetail()
+
+function updataUrl(){
+   $.ajax({
+        url:findUrl,
+        type:'post',
+        dataType:'json',
+        data:{ version: version},
+        success:function(data){
+            console.log(data);
+            var html = template("updateURL",data);
+            $(".updateUrl").html(html);
+        }
+    }) 
+}
+updataUrl();
+
+
+</script>
+</html>

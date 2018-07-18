@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>模板管理-测量费用-设置</title>
+  	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.addBtn{
+		margin-top: 30px;
+	}
+</style>
+<body>
+
+<div class="uMDvfyDetail_con_right yycon_right public_con col-xs-12">
+    <div class="measuringCost">
+      <h4 class="conRight_h4">费用设置</h4>
+      <div class="measuringlist form-inline">
+
+         <!--  <input id="fileSelect" type="file" accept=" application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  multiple="multiple" />
+          <a href="./姚爱琪.xlsx">文件预览</a> -->
+      </div>
+    </div>
+</div>
+
+<script type="text/html">
+    <p>当前省份:</p> 
+    <p>当前省份:</p> 
+    <p>测量价格: <input type="text" class="form-control " name=""  class="value"></p>
+    <button type="button" class="btn btn-primary sureAdd"  onclick="addCost()"> 确认</button> 
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/wangeditor.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+  
+
+function getUrlParam(name){ 
+//构造一个含有目标参数的正则表达式对象 
+  var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+  //匹配目标参数 
+  var r = window.location.search.substr(1).match(reg); 
+  //alert(r); 
+  //返回参数值 
+  if (r!=null) return decodeURI(r[2]); 
+      return null; 
+} 
+
+var  id =getUrlParam("id");
+console.log(id);
+
+
+var localHttp = 'http://172.16.39.168:8005';
+var updateUrl = localHttp +'/measurecost/update';
+
+function addCost(){
+  var value =  $('.value').val();
+  if (value !='') {
+    $.ajax({
+      url:updateUrl,
+      data:{id:id,value:value},
+      dataType:'json',
+      type:'post',
+      success:function(data){
+          console.log(data)
+      },
+      error:function(){
+        console.log(21321)
+      }
+  })
+  }
+  
+}
+
+
+</script>
+
+
+</body>
+</html>

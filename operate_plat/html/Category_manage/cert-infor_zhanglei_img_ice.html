@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <!--<link rel="stylesheet" type="text/css" href="../css/common.css" />-->
+    <title>认证资料</title>
+    <style>
+        .account_cont{padding-bottom: 30px;}
+        .account_cont>p{padding-top:10px;}
+        .account_cont .account_p1{padding:10px 0 10px 10px;border:1px solid #337ab7; background: #f2f2f2;}
+        .account_file{position: relative; overflow: hidden; display: inline-block !important; margin-left: -200px; vertical-align: top ;}
+        .account_file input{height: 48px; position: absolute;top:0;left:0;opacity: 0;}
+       .account_title li{float: left; margin-right: 160px; padding:20px 0;}
+        .account_card img{padding-left: 20px;}
+        .account_card li{float: left;}
+        .cer-infor-btn{width: 300px; display: block;margin:0 auto;}
+        /*.click_img{display: block; background: url("../../images/look.png") no-repeat 10px center; margin-left: 90px; cursor: pointer;*/
+            /*display: none;*/
+        /*}*/
+        .account_title li div{
+            position: relative;
+        }
+        .account_title li div img{
+            margin: 0;
+            padding: 0;
+        }
+        .account_title li div input{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 48px;
+            width: 100%;
+        }
+       .account_title li span{
+           position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            background: #00000080;
+            line-height: 30px;
+            width: 100%;
+            text-align: center
+       }
+        .account_title label{width: 94px;}
+        .account_title a{padding-left: 40px;}
+        .upimg{
+            width:220px;
+            height: 140px;
+        }
+        .upimg img{
+            width: 100%;
+            height: 100%;
+        }
+        .upimg span{
+            display: none;
+        }
+        i{
+            color:red;
+        }
+        .left ul span{
+
+
+            border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+        }
+        .account_card li .upimg{display: inline-block;}
+        .left>ul:nth-child(2){
+            display:none;
+        }
+        .left>ul:nth-child(3){
+            display:none;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ul>
+        <li><span class="head_active">基础设置</span></li>
+        <li><span>商品管理</span></li>
+        <li><span>订单管理</span></li>
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li class="first">认证资料</li>
+
+                </ul>
+            </li>
+            <li >
+                <span>合同管理</span>
+                <ul>
+                    <li>保证金</li>
+                    <li>我的合同</li>
+
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li>经营区域</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+            <div class="right">
+                <div class="account_cont">
+                    <p>1>2>3</p>
+                    <p class="account_p1">温馨提示:您所上传的资质证明越完善,越有利于平台的加速审核以及方便我们进行供应商资质等级定位！</p>
+                    <div class="account_title">
+                        <p><i>*</i>经营身份证明</p>
+                        <ul class="account_card clearfix">
+                            <li>
+                                <label for="">营业执照:</label>
+                                <div class="upimg">
+                                    <img src="" alt="" class="yingye">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+
+                                <div class="account_file" style="display: block">
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="account_card clearfix">
+                            <li>
+                                <label for="">法人身份证正面:</label>
+                                <div  class="upimg">
+
+
+                                    <img src="" alt="" class="fa_zheng">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <!--<img src="" alt="">-->
+                                <div class="account_file" >
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+
+                            </li>
+                            <li>
+                                <label for="">法人身份证反面:</label>
+                                <!--<img src="" alt="">-->
+                                <div  class="upimg">
+
+
+                                    <img src="" alt="" class="fa_fan">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <div class="account_file" >
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="account_title">
+                        <p>*纳税证明:</p>
+                        <ul class="account_card clearfix">
+                            <li>
+                                <label for="">开户许可证:</label>
+                                <div class="upimg">
+
+
+                                    <img src="" alt="" class="kaihu">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <div class="account_file" style="">
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                            <li>
+                                <label for="">一船纳税人资格认定书 :</label>
+                                <div  class="upimg">
+
+
+                                    <img src="" alt="" class="zige">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <div class="account_file" >
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                            <li>
+                                <label for="">税务登记证书 :</label>
+                                <!--<img src="../image/img.png" alt="">-->
+                                <div  class="upimg">
+
+
+                                    <img src="" alt="" class="shuiwu">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <div class="account_file" >
+                                    <img src="../../images/img_add.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="account_title">
+                        <p>*经营资质证明:</p>
+                        <ul class="account_card clearfix">
+                            <li>
+                                <label for="">产品合格证书:</label>
+                                <div  class="upimg">
+
+
+                                    <img src="" alt="" class="jingying">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <div class="account_file" >
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                            <li>
+                                <label for="">授权代理证明 :</label>
+                                <!--<img src="../image/img.png" alt="">-->
+                                <div  class="upimg">
+
+
+                                    <img src="" alt="" class="shouqan">
+                                    <span>更换图片</span>
+                                    <input type="file" onchange="change(this)">
+                                </div>
+                                <div class="account_file" >
+                                    <img src="../image/add1.png" alt="">
+                                    <input type="file"  onchange="upImg(this)">
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                    <button  type="button"  class="btn btn-primary btn-lg cer-infor-btn">提交</button>
+                </div>
+            </div>
+        </div>
+    <script src="../../js/lib/jquery-1.12.4.min.js"></script>
+    <script src="../../js/lib/bootstrap.min.js"></script>
+    <script src="../../js/lib/common.js"></script>
+        <script>
+        var companyId=localStorage.getItem("companyId");
+
+            function upImg(img) {
+
+
+                console.log(img.files[0]);
+                var imgType=img.files[0].name.split(".");
+                imgType=imgType[imgType.length-1];
+                console.log(imgType);
+                if(imgType=="png"||imgType=="jpg"||imgType=="jpeg"){
+                }else{
+                    alert("上传的图片格式仅为jpg、png、jpeg");
+                    return;
+                }
+                if(img.files[0].size>3*1024*1024){
+                    alert("上传的图片大小最多为3M");
+                    return;
+                }
+                var formData = new FormData();
+                console.log(formData);
+                formData.append('uploadFile', img.files[0]);
+                $.ajax({
+                    url: "http://172.16.40.60:8010//pic/upload",
+                    type: "post",
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    cache: false,
+                    timeout:"10000",
+                    data: formData,
+                    success: function (res) {
+                        console.log(res);
+                        if (res.error == 0) {
+                            $(img).parent('.account_file').prev().css("display","block")
+
+                                $(img).parent('.account_file').prev().find("img").attr("src",res.data);
+                            $(img).parent('.account_file').css("display","none")
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+            }
+            function change(img) {
+                var formData = new FormData();
+                formData.append('uploadFile', img.files[0]);
+                $.ajax({
+                    url: "http://172.16.40.60:8010//pic/upload",
+                    type: "post",
+                    processData: false,
+                    contentType: false,
+                    dataType: "json",
+                    cache: false,
+                    data: formData,
+                    success: function (res) {
+                        if (res.error == 0) {
+                      $(img).prev().prev().attr("src",res.data);
+                        }
+                    },
+                    error: function (err) {
+                        console.log(err)
+                    }
+                })
+            }
+            $(".btn-lg ").click(function () {
+                var obj={};
+            obj.imageIdFront=$(".fa_zheng").attr("src");
+                obj.imageIdAfter=$(".fa_fan").attr("src");
+                obj.imageBusiness=$(".yingye").attr("src");//yingye
+                obj.imageLicense=$(".kaihu").attr("src");
+                obj.imageTaxpayer=$(".shuiwu").attr("src");
+                obj.imageTaxRegistration=$(".zige").attr("src");
+                obj.imageProductQualification=$(".jingying").attr("src");
+                obj.imageProxyCertificate=$(".shouqan").attr("src");
+                obj.companyId=8;
+                if($(".yingye").attr("src")==""){
+                    alert("请上传营业执照");
+                    return;
+                }
+                if($(".fa_zheng").attr("src")==""){
+                    alert("请上传法人省份证正面");
+                    return;
+                }
+                if($(".fa_fan").attr("src")==""){
+                    alert("请上传法人省份证反面");
+                    return;
+                }
+                $.ajax({
+                    url:"http://172.16.40.134:8003/seller/imageSubmit",
+                    type:"post",
+                    dataType:"json",
+                    data:obj,
+                    success:function (res) {
+                        console.log(res);
+                        if(res.success){
+                            window.location.href="cer-infor-submit.html";
+                        }
+                    },
+                    error:function (err) {
+                        console.log(err);
+                    }
+                })
+
+            })
+        </script>
+</body>
+</html>

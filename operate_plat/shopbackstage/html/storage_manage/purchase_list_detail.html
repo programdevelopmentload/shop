@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>仓储管理-采购单</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/storage_manage/purchase_list_detail.css">
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button, .oneGDvide_tbcon a {
+            margin: 0 5px;
+        }
+
+        .public_con #test .table thead tr th:nth-child(1) {
+            width: 17%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(2) {
+            width: 6%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(3) {
+            width: 10%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(4) {
+            width: 5%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(5) {
+            width: 8%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(6) {
+            width: 8%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(7) {
+            width: 12%;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="skuListDetail_con_right public_con yycon_right col-xs-10 clearfix">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a></li>
+                    <li><a href="#">商品审核 > </a></li>
+                    <li><a href="#">待审核 > </a></li>
+                    <li class="active"><a href="#">审核详情</a></li>
+                </ol>
+                <div class="clearfix model_box">
+                    <!--<div class="col-xs-12 ">-->
+                    <!--<div class="col-xs-6 clearfix ">-->
+                    <!--<h4 class="conRight_h4">-->
+                    <!--采购单信息-->
+                    <!--</h4>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">采购单编号：</p>-->
+                    <!--<div class="col-xs-8 order_num text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">采购批次：</p>-->
+                    <!--<div class="col-xs-8 order_batch text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">下单时间：</p>-->
+                    <!--<div class="col-xs-8 order_time text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">采购单状态：</p>-->
+                    <!--<div class="col-xs-8 order_status text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 clearfix ">-->
+                    <!--<h4 class="conRight_h4">-->
+                    <!--审核信息-->
+                    <!--</h4>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-5 text-left second_time">2018-02-20 11:20:32：</p>-->
+                    <!--<div class="col-xs-7 second_info text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-5 text-left first_time">2018-02-20 11:20:32：</p>-->
+                    <!--<div class="col-xs-7 first_info text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-5 text-left begin_time">2018-02-20 11:20:32：</p>-->
+                    <!--<div class="col-xs-7 begin_info text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-12">-->
+                    <!--<div class="col-xs-6 clearfix ">-->
+                    <!--<h4 class="conRight_h4">-->
+                    <!--收货信息-->
+                    <!--</h4>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">下单店铺：</p>-->
+                    <!--<div class="col-xs-8 shop_name text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">收货人：</p>-->
+                    <!--<div class="col-xs-8 shop_person text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">联系电话：</p>-->
+                    <!--<div class="col-xs-8 shop_phone text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-3 text-left">收货地址：</p>-->
+                    <!--<div class="col-xs-8 shop_address text-left">-->
+                    <!--北京市朝阳区四惠甘露园718创意总站4D-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6 clearfix ">-->
+                    <!--<h4 class="conRight_h4">-->
+                    <!--配货信息-->
+                    <!--</h4>-->
+                    <!--<div class="clearfix">-->
+                    <!--<div class="row">-->
+                    <!--<p class="col-xs-5 text-left run_last_time">2018-02-20 11:20:32：</p>-->
+                    <!--<div class="col-xs-7 run_last_info text-left">-->
+                    <!--2142342342-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+                <div class="show_area">
+                    <h4 class="conRight_h4">
+                        商品信息
+                    </h4>
+                    <div class="self_table_box">
+                        <table class="detail_table self_table" id="self_table">
+                            <thead>
+                            <tr>
+                                <th>商品信息</th>
+                                <th>供应商</th>
+                                <th>采购数量</th>
+                                <th>采购价格</th>
+                                <th>采购总量</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--<tr class="">-->
+                                <!--<td class="td1">-->
+                                    <!--<div class="goods_img_box ">-->
+                                        <!--<img class="goods_img" src="../../images/orderIssiue_img.png" alt="">-->
+                                    <!--</div>-->
+                                    <!--<div class="goods_info_box ">-->
+                                        <!--<div>松下 家用开关 0392</div>-->
+                                        <!--<div>白色 两关</div>-->
+                                    <!--</div>-->
+                                <!--</td>-->
+                                <!--<td class="td2 " colspan="3">-->
+                                    <!--<div class="td2_son">-->
+                                        <!--<span class="td2_son_son1">蓝翔家居</span>-->
+                                        <!--<span class="td2_son_son2">X 100</span>-->
+                                        <!--<span class="td2_son_son3">￥9.8</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="td2_son">-->
+                                        <!--<span class="td2_son_son1">蓝翔家居</span>-->
+                                        <!--<span class="td2_son_son2">X 100</span>-->
+                                        <!--<span class="td2_son_son3">￥9.8</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="td2_son">-->
+                                        <!--<span class="td2_son_son1">蓝翔家居</span>-->
+                                        <!--<span class="td2_son_son2">X 100</span>-->
+                                        <!--<span class="td2_son_son3">￥9.8</span>-->
+                                    <!--</div>-->
+                                    <!--<div class="td2_son">-->
+                                        <!--<span class="td2_son_son1">蓝翔家居</span>-->
+                                        <!--<span class="td2_son_son2">X 100</span>-->
+                                        <!--<span class="td2_son_son3">￥9.8</span>-->
+                                    <!--</div>-->
+                                <!--</td>-->
+                                <!--<td class="">这是第三列</td>-->
+                            <!--</tr>-->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="light_color_underline">
+                        <span>申请备注：</span>
+                        <span class="detail_remark">库存货品采购</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--模板引擎-->
+<script id="model_con_ajax" type="text/html">
+    <div class="col-xs-12 ">
+        <div class="col-xs-6 clearfix">
+            <h4 class="conRight_h4">
+                采购单信息
+            </h4>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">采购单编号：</p>
+                    <div class="col-xs-8 order_num text-left">
+                        {{orderNum}}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">采购批次：</p>
+                    <div class="col-xs-8 order_batch text-left">
+                        {{batchNumber}}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">下单时间：</p>
+                    <div class="col-xs-8 order_time text-left">
+                        {{createTime}}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">采购单状态：</p>
+                    {{if status ==0 }}
+                    <div class="col-xs-8 order_status text-left">
+                        待审核
+                    </div>
+                    {{else if status ==1}}
+                    <div class="col-xs-8 order_status text-left">
+                        未通过
+                    </div>
+                    {{else if status ==2}}
+                    <div class="col-xs-8 order_status text-left">
+                        待出库
+                    </div>
+                    {{else if status ==3}}
+                    <div class="col-xs-8 order_status text-left">
+                        待接收
+                    </div>
+                    {{else if status ==4}}
+                    <div class="col-xs-8 order_status text-left">
+                        待入库
+                    </div>
+                    {{else if status ==5}}
+                    <div class="col-xs-8 order_status text-left">
+                        已完成
+                    </div>
+                    {{else if status ==6}}
+                    <div class="col-xs-8 order_status text-left">
+                        已取消
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 clearfix ">
+            <h4 class="conRight_h4">
+                审核信息
+            </h4>
+            {{if financeUserId}}
+            <div class="clearfix">
+                <div class="row">
+                    {{if financeIsPass == 0}}
+                    <p class="col-xs-5 text-left second_time">{{financeReviewTime}}</p>
+                    <div class="col-xs-7 second_info text-left">
+                        {{financeReason}}
+                    </div>
+                    {{else}}
+                    <p class="col-xs-5 text-left second_time">{{financeReviewTime}}</p>
+                    <div class="col-xs-7 second_info text-left">
+                        财务审批已通过，下单成功
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{else}}
+            <div class="clearfix">
+                <div class="row">
+                </div>
+            </div>
+            {{/if}}
+            {{if managerUserId}}
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-5 text-left first_time">{{managerReviewTime}}</p>
+                    {{if managerIsPass==0}}
+                    <div class="col-xs-7 first_info text-left">
+                        {{managerReason}}
+                    </div>
+                    {{else}}
+                    <div class="col-xs-7 first_info text-left">
+                        您的采购单审批已通过，请等待财务审批
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            {{else}}
+            <div class="clearfix">
+                <div class="row"></div>
+            </div>
+            {{/if}}
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-5 text-left begin_time">{{createTime}}</p>
+                    <div class="col-xs-7 begin_info text-left">
+                        {{comment}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-6 clearfix ">
+            <h4 class="conRight_h4">
+                收货信息
+            </h4>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">下单店铺：</p>
+                    <div class="col-xs-8 shop_name text-left">
+                        {{shopName}}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">收货人：</p>
+                    <div class="col-xs-8 shop_person text-left">
+                        {{consigneeName}}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">联系电话：</p>
+                    <div class="col-xs-8 shop_phone text-left">
+                        {{consigneePhone}}
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                <div class="row">
+                    <p class="col-xs-3 text-left">收货地址：</p>
+                    <div class="col-xs-8 shop_address text-left">
+                        {{addressDetail}}
+                    </div>
+                </div>
+            </div>
+
+            {{if financeIsPass==1}}
+            <div class="col-xs-6 clearfix ">
+                <h4 class="conRight_h4">
+                    配货信息
+                </h4>
+                <div class="clearfix">
+                    <div class="row">
+                        <p class="col-xs-5 text-left run_last_time">{{financeReviewTime}}</p>
+                        <div class="col-xs-7 run_last_info text-left">
+                            您的采购单已提交，等待商家处理
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="col-xs-6 clearfix ">
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</script>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/lib/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/storage_manage/purchase_list_detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+.skuListDetail_basicInfo_left{
+    padding-right: 80px;
+}
+.skuListDetail_standard_title p{
+    width: 150px;
+    padding: 0 30px 0 10px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+}
+.skuListDetail_standard_body > div{
+    height: 88px;
+    border-bottom:1px solid rgba(215, 215, 215, 1);
+}
+.skuListDetail_standard_body > div > div{
+    width: 150px;
+    padding: 20px 30px 0 10px;
+    height: 50px;
+    line-height: 26px;
+    margin: 0;
+}
+.skuListDetail_standard_body img{
+    width: 37px;
+    height: 38px;
+}
+.skuListDetail_paramImg{
+    width: 655px;
+    height: 380px;
+    overflow: hidden;
+}
+.skuListDetail_lookImg{
+    width: 655px;
+    height: 30px;
+    line-height: 30px;
+    background-color: rgb(121, 121, 121);
+    text-align: center;
+    font-family: PingFangSC-Regular, "PingFang SC";
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+}
+.skuListDetail_otherInfo > div{
+    padding: 10px 0 20px 0;
+}
+.skuListDetail_otherInfo > div:last-child{
+    padding: 10px 0 20px 0;
+    background: none;
+}
+.skuListDetail_otherInfo > div > div:nth-child(1){
+    padding-right: 40px;
+    height: 80px;
+}
+.skuListDetail_otherInfo > div > div:nth-child(2){
+    width: 740px;
+}
+.skuListDetail_otherInfo > div > div:nth-child(2)>p{
+    padding-right: 30px;
+}
+.skuListDetail_form{
+    padding: 20px 0;
+}
+.skuListDetail_form input{
+    padding:10px 30px 0 0;
+    margin-right: 10px;
+}
+textarea{
+    padding: 0;
+    text-align: left;
+
+}
+.skuListDetail_btn{
+    width: 420px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: rgb(91, 161, 193);
+    color: rgb(255, 255, 255);
+    margin: 30px auto;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.skuListDetail_list,.skuListDetail_basicInfo,.skuListDetail_standard,.skuListDetail_goodDetail,.skuListDetail_otherInfo{
+    margin-top: 15px;
+}
+.skuListDetail_list{
+    padding: 20px 10px;
+}
+.skuListDetail_list >div{
+    width: 270px;
+}
+.skuListDetail_list >div:last-child >div> span{
+    padding-right: 10px;
+}
+.skuListDetail_list >div>p{
+    width: 90px;
+}
+.skuListDetail_info >div{
+    margin-top: 20px;
+}
+.skuListDetail_info >div>p{
+    width: 90px;
+}
+.skuListDetail_info .standardImg_con>div{
+    position: relative;
+    width: 70px;
+    height: 80px;
+    border: 1px solid rgba(201, 201, 201, 1);
+    padding: 6px;
+    margin-right: 25px;
+}
+.conright_mianImg{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 32px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    font-family: 'PingFangSC-Regular', 'PingFang SC';;
+    text-align: center;
+    color: #fff;
+    background-color: #c81623;
+}
+.skuListDetail_info img{
+    width: 55px;
+    height: 65px;
+}
+
+

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布商品</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>   
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/product_manage/publish_product.css">
+</head>
+<body>
+<div class="verifyLog_con_right yycon_right pagination_box_ctr public_con col-xs-12">
+
+    <div id="box" class="clearfix">
+        <div class="right">
+            <!--发布-->
+            <div class="fabu">
+                <div class="account_cont">
+                    <div class="shop_mess_title">
+                        <h3>商品发布信息填写</h3>
+                        <div class="shop_title1">
+                            <label>当前类目:</label>
+                            <span class="classCategory"></span>
+                            <a href="./chose_classify.html">更改类目</a>
+                            <!-- <p>该类目下发布全新宝贝，保证金额度不能少于<span class="shop_title_color">2000 </span>元 ，您的余额是<span class="shop_title_color"> 0.0 元</span>， <a href="javascript:;"> 立即缴纳</a>
+                            </p> -->
+                        </div>
+                       <!--  <p>您目前的供应商等级只能发布10条SPU 商品记录。 您已发布 <span class="already">4</span> 条，还能发布 <span class="have">6</span> 条  。 建议您发布竞争力比较高的商品</p> -->
+                    </div>
+                    <div class="account_title">
+                        <p class="conRight_h4">商品基本信息</p>
+                        <ul class="shop_setting">
+                            <li>属性参数设置</li>
+                            <li>请认真填写基本属性信息，以便快速通过审核</li>
+                        </ul>
+                        <div class="seletion_uls clearfix">
+                            <ul class=" seletion_li_left">
+                                <li class="form-group form-inline">
+                                    <label for="">*所属品牌:</label>
+                                    <select id="ss_brand" class="form-control down">
+
+                                    </select>
+                                </li>
+                                <li  class="form-group form-inline">
+                                    <label for="">*型号:</label>
+                                    <select name=""  class="form-control down type" id="modelType" >
+
+                                    </select>
+                                    <input type="text" class="form-control" id="xh">
+                                </li>
+
+                                <!-- <li class="form-group form-inline key">
+                                    <label data-id="45">hhh</label>
+                                    <input type="text" class="form-control" name="">
+                                </li> -->
+
+                            </ul>
+                             <ul class=" seletion_li_left  key">
+                                <!-- <li  class="form-group form-inline">
+                                    <label for="">*等级:</label>
+                                    <input type="text" class="form-control level" maxlength="16">
+                                    
+                                </li>
+
+                                <li class="form-group form-inline">
+                                    <label for="">*销售单位:</label>
+                                     <input type="text" class="form-control unit" >
+                                 </li> -->
+                            </ul>
+                            <div class="seletion_li_right"></div>
+                            
+                        </div>
+                    </div>
+                    <div class="account_title product_sku">
+                        <p class="conRight_h4">商品规格</p>
+                        <div class="main">
+                            <p>主属性</p>
+                            <div class="attr_product">
+                            
+                                
+                                <!-- 点击加 新增一条主属性数据 -->
+                                <button class="add_attr_product">+</button>
+                               
+                            </div>
+
+                        </div>
+                        <div class="assistant">
+                            <p>副属性</p>
+                            <div class="attr_assistant">
+                                <button class="add_attr_assistant">+</button>
+                            </div>
+                        </div>
+                        <div class="product_type">
+                                已选择<span></span>主属性,<span></span>副属性,可生成<span></span>种SKU规格。
+                        </div>
+                       
+                    </div>
+                    <div class="account_title sku_rules">
+                        <!-- <div class="sku_specification_msg">
+
+                        </div>
+                        <div class="all_sku">
+
+                        </div> -->
+                        <!-- 销售规格设置 头部显示下面的内容生成sku之后才显示 -->
+                            <div>销售规格设置</div>
+                            <i style="font-size: 12px; font-style : normal;">点击 x 即可删除不需要添加的SKU信息</i>
+                            <div class="sales_setting">
+                                <p class="sales_tit">
+                                    <span>规格信息</span>
+                                    <span>图片</span>
+                                </p>
+                                <p> </p>
+                                <!-- 动态生成 -->
+                                <ul class = "sales_uls">
+                                    
+                                </ul>
+                                 <p class="parent_setting" style="color: red"></p>
+                            </div>
+                        <!--商品详情-->
+                        <div class="account_cont" id="detail_img">
+                            <p class="conRight_h4">商品详情</p>
+                            <label for="">长图:</label>
+                            <span>用于商品详情展示，支持jgp、jpeg、png,  图片大小3M以内</span>
+                            <div class="add_product_img">
+                                <img src="../../images/a11.png" alt="">
+                                <input type="file" onchange="upDetail(this)" accept="image/jpg,image/jpeg,image/png,image/bmp" multiple  id="imgUpLoad">
+                            </div>
+
+                        </div>
+                        <div class="account_cont">
+                            <p class="conRight_h4">其他信息</p>
+                            <div id="table_release">
+                                <div style="overflow: hidden">
+                                    <div style="float: left;width: 30%;margin-right: 40px" class="table_left">
+                                        <span style="padding-left: 0">包装清单:</span>
+                                        <table class="table table-bordered table-hover" style="width:100%;">
+                                            <thead>
+                                            <tr>
+                                                <th style="text-align: center;vertical-align: middle">物品名称</th>
+                                                <th style="text-align: center;vertical-align: middle">数量</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <span class="jia">
+                                       <img src="../../images/attr_add.png" alt="">
+                                       添加表格
+                                    </span>
+                                    </div>
+                                    <div style="float: left;width: 30%;margin-left: 60px;" class="table_right">
+                                        <span style="padding-left: 0">配件清单:</span>
+                                        <table class="table table-bordered table-hover" style="width:100%;">
+                                            <thead>
+                                            <tr>
+                                                <th style="text-align: center;vertical-align: middle">配件名称</th>
+                                                <th style="text-align: center;vertical-align: middle">配件数量</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                                <td><input type="text" class="form-control" placeholder="请输入"></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <span class="jia">
+                                       <img src="../../images/attr_add.png" alt="">
+                                          添加表格
+                                    </span>
+                                    </div>
+                                </div>
+                                <div class="explain">
+                                    <span>购买说明:</span>
+                                    <textarea name="text" id="text" rows="6" cols="100" placeholder="可填写产品售卖及售后说明，建议50-300字"></textarea>
+                                </div>
+                                <div class="bottom">
+                                    <button type="button" class="btn btn-primary btn-lg" style="width: 250px;"
+                                            id="goods_btn">申请发布
+                                    </button>
+                                     <span class="draft">保存草稿，暂不申请发布</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+     
+</div>
+
+<script type="text/html" id="seletion_li">
+    <ul>
+        {{if data.server == undefined}}
+            <span>暂无数据</span>
+        
+        {{else}}
+        <li class="shop_type">
+            <label for="">*商品类型:</label>
+            <span data-type="{{data.server.id}}" class="typeId">{{data.server.goodsType}}</span>
+        </li>
+        
+        {{each data.service as val }}
+
+            {{if val.type==0}}
+                <li class="clfw">
+                    <label for="" style="">测量服务:</label>
+                    <span>{{ val.serviceDetailsName}}</span>
+                </li>
+            {{else if val.type==1}}  
+                 <li class="az_server">
+                    <label for="" style="">安装服务:</label>
+                    <span>{{ val.serviceDetailsName}}</span>
+                </li>  
+            {{/if}}
+        {{/each}} 
+        {{/if}}   
+    </ul>
+</script>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/product_manage/publish_product.js"></script>
+
+</body>
+</html>

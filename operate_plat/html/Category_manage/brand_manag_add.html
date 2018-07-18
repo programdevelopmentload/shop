@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>类目管理-品牌-添加</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/cate_manag_oneGrade_add.css"/>-->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .yycon_right input[type=radio] {
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+        /*.personData_sex {*/
+            /*height: 55px;*/
+            /*line-height: 55px;*/
+        /*}*/
+
+        /*.personData_sex .girl_con, .personData_sex .man_con {*/
+            /*width: 240px;*/
+            /*height: 55px;*/
+        /*}*/
+
+        /*.personData_sex .girl_con {*/
+            /*padding-left: 50px;*/
+        /*}*/
+
+        /*.personData_sex input[type=checkbox].personData_radio {*/
+            /*display: none;*/
+        /*}*/
+
+        /*.personData_sex label.personData_radio {*/
+            /*background: url(../../images/grayRing.png) left center no-repeat;*/
+            /*padding-left: 26px;*/
+        /*}*/
+
+        /*.personData_sex input[type='checkbox'].personData_radio:checked + .personData_radio {*/
+            /*background: url(../../images/greenCircle.png) left center no-repeat;*/
+        /*}*/
+        .relation_cate_tip{
+            padding: 6px 2px;
+        }
+        .relation_table{
+            margin: 25px 160px 10px 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .relation_tip1,.relation_tip2,.relation_tip3{
+            padding:10px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+        .relation_tip1{
+            padding-left: 5px;
+        }
+        .relation_tip2{
+            padding-left: 45px;
+        }
+        .relation_tip3{
+            padding-left: 85px;
+        }
+        .relation_arrow{
+            background: url(../../images/drop_arrow.png) no-repeat center;
+            width: 10px;
+            height:10px;
+            display: inline-block;
+        }
+        .manag_class_state input[type=radio]{
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+        .checkTip{
+            color: red;
+        }
+        .ope_btn_box {
+            text-align: center;
+        }
+        .skuListDetail_con input[type=radio] {
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+        .account_card li .upimg {
+            display: inline-block;
+            position: relative;
+        }
+
+        .account_file {
+            position: relative;
+            overflow: hidden;
+            display: inline-block !important;
+            margin-left: -200px;
+            vertical-align: top;
+        }
+
+        .account_card img {
+            padding-left: 20px;
+            vertical-align: middle;
+            border: 0;
+        }
+
+        .account_file input {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 48px;
+            width: 100%;
+            top: 0;
+        }
+
+        .upimg {
+            width: 220px;
+            height: 140px;
+        }
+
+        .upimg img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .upimg span {
+            display: block;
+            /*display: none;*/
+        }
+
+        .up_img_box {
+            padding-bottom: 20px;
+        }
+        .up_img_box img {
+            display: block;
+            float: left;
+            padding: 1px;
+            width: 86px;
+            height: 86px;
+            border: 1px solid #d3dbde;
+        }
+        .up_img_ope {
+            float: left;
+            width: 500px;
+            padding-top: 60px;
+            /*color: #fc8c82;*/
+            height: 40px;
+            line-height: 40px;
+        }
+        .data_upCtrl {
+            background-color: #7a85a2;
+            position: relative;
+            display: inline-block;
+            width: 88px;
+            height: 30px;
+            color: #ffffff;
+            border-radius: 3px;
+            margin-left: 16px;
+            line-height: 30px;
+            text-align: center;
+        }
+        i{
+            font-style: normal;
+        }
+        #data_upHeadImg {
+            display: inline-block;
+            width: 88px;
+            height: 30px;
+            opacity: 0;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+        .data_up_talk {
+            padding-left: 11px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="brandAdd_con_right yycon_right yyconOrder_right col-xs-12 ">
+
+    <h4 class="conRight_h4">品牌信息</h4>
+    <form class="form-horizontal mess_list_margin clearfix" role="form">
+        <div class="form-group col-sm-12 clearfix">
+            <label for="" class="col-sm-2 control-label">品牌名称：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control everyAdd_input" id="clrs">
+            </div>
+            <div class="col-sm-5 brand_name_tip hide_ctr checkTip">
+                支持中英文，最多32个字符
+            </div>
+        </div>
+
+        <div class="clearfix up_img_box clearfix col-sm-12 form-group">
+            <label class="personData_list_left col-sm-2 control-label">品牌图标：</label>
+            <div class="col-sm-6">
+                <img class="img_con hide_ctr_absolute" src="" alt="">
+                <div class="clearfix up_img_ope">
+                    <div class="data_upCtrl fl">
+                        <i>添加图片</i>
+                        <input type="file" id="data_upHeadImg" onchange="upImg(this)">
+                    </div>
+                    <span class="fl data_up_talk">支持jpg/jpeg/png格式的图片，文件小于300k</span>
+                </div>
+            </div>
+            <div class="col-sm-4 checkTip _upImg_tip hide_ctr">
+                未添加品牌图标
+            </div>
+        </div>
+        <div class="form-group col-sm-12">
+            <label for="" class="col-sm-2 control-label">分类状态：</label>
+            <input checked="checked" name="addSwitch" value="0" class="mess_con_radio1" type="radio">开启
+            <input name="addSwitch" value="1" class="mess_con_radio1" type="radio">关闭
+        </div>
+        <!--<h4 class="conRight_h4">其他</h4>-->
+        <!--<div class="form-group col-sm-12 form-horizontal manag_class_state">-->
+        <!--<label for="" class="col-sm-2 control-label">分类状态：</label>-->
+        <!--<input checked="checked" name="addSwitch" value="0" class="mess_con_radio1" type="radio">开启-->
+        <!--<input name="addSwitch" value="1" class="mess_con_radio1" type="radio">关闭-->
+        <!--</div>-->
+    </form>
+    <h4 class="conRight_h4">关联分类</h4>
+    <div class=" relation_cate_tip checkTip text-left hide_ctr">
+        请勾选添加属性的关联分类
+    </div>
+    <div class="relation_table clearfix">
+        <div class="clearfix ">
+            <div class="relation_tip1">
+                <!--<input type="checkbox">-->
+                家具
+                <span class="relation_arrow">
+                            </span>
+            </div>
+            <div class=" ">
+                <div class="relation_tip2">
+                    <!--<input type="checkbox">-->
+                    客厅家具
+                    <span class="relation_arrow">
+                                </span>
+                </div>
+                <div class="relation_tip3">
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </div>
+            <div class=" ">
+                <div class="relation_tip2">
+                    <input type="checkbox">
+                    客厅家具
+                    <span class="relation_arrow">
+                                </span>
+                </div>
+                <div class="relation_tip3">
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+        <div class=" ">
+            <div class="relation_tip1">
+                <input type="checkbox">
+                家具
+                <span class="relation_arrow">
+                            </span>
+            </div>
+            <div class=" ">
+                <div class="relation_tip2">
+                    <input type="checkbox">
+                    客厅家具
+                    <span class="relation_arrow">
+                                </span>
+                </div>
+                <div class="relation_tip3">
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </div>
+            <div class=" ">
+                <div class="relation_tip2">
+                    <input type="checkbox">
+                    客厅家具
+                    <span class="relation_arrow">
+                                </span>
+                </div>
+                <div class="relation_tip3">
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                    <span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ope_btn_box">
+        <span class="sure_xsBtn">确认并提交</span>
+        <a class="cancle_xsBtn" href="javascript:history.go(-1);">取消</a>
+    </div>
+    <!--<div class="clearfix cate_bottom_operate">-->
+    <!--<p class="fl conRightBottom_btn btn_sure">确认</p>-->
+    <!--</div>-->
+</div>
+
+<script id="belong_box" type="text/html">
+    {{each options as value i}}
+    <div class=" ">
+        <div class="relation_tip1">
+            {{value.name}}
+            <span class="relation_arrow">
+            </span>
+        </div>
+        {{each value.child as value1 i}}
+        <div class=" ">
+            <div class="relation_tip2">
+                {{value1.name}}
+                <span class="relation_arrow">
+                </span>
+            </div>
+            <div class="relation_tip3">
+                {{each value1.child as value2 i}}
+                <span><input type="checkbox" value="{{value2.id}}">
+                    {{value2.name}}&nbsp;&nbsp;&nbsp;
+                </span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+
+
+
+
+
+
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/brand_manag_add.js"></script>
+</body>
+</html>

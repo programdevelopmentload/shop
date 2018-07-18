@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <!--<link rel="shortcut icon"type="image/x-icon" href="images/popwin_close.png"media="screen" />-->
+    <link rel="stylesheet" type="text/css" href="css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <!--[if lt IE 9]>
+    <script src="./js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="./js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .hide_ctr_im {
+            display: none !important;
+        }
+        .yyheader_login{
+            width: 100%;
+            margin: 0 auto;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 16px;
+        }
+        .yyheader_login .container{
+            width: 100%;
+        }
+        .banner_login {
+            background: url(./images/banner.jpg) no-repeat left top;
+            background-size: cover;
+            width: 100%;
+            height: 888px;
+            /*height: 56.25%;*/
+            position: relative;
+        }
+        .yyheader_login .yyheader_left {
+            padding-left: 12px;
+        }
+        .yyheader_login .yyheader_left>ul {
+            margin-bottom: 0px!important;
+            margin-left: 12px;
+        }
+        .yyheader_login .yyheader_left li:first-child {
+            padding-left: 0;
+        }
+        .yyheader_login .yyheader a, .yyheader span {
+            color: #666;
+            font-size: 14px;
+        }
+        .login_box {
+            width: 366px;
+            height: 366px;
+            padding: 40px 50px 50px;
+            background: #fff;
+            position: absolute;
+            top: 12%;
+            right: 4%;
+        }
+
+        .login_box p {
+            font: bold 14px/2em "微软雅黑";
+            color: #686969;
+            border-bottom: 1px solid #f2f2f2;
+        }
+
+        .login_form li {
+            margin-top: 20px;
+        }
+
+        .login_form li label {
+            font-size: 14px;
+            color: #a5a3a3;
+            font-weight: normal;
+        }
+
+        .login_form li input {
+            width: 215px;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .login_form li a {
+            display: block;
+            margin-top: -12px;
+            color: #b5b5b5;
+            font-size: 12px;
+        }
+
+        .login_form li .login_btn {
+            width: 246px;
+            background: #49768d;
+            font-size: 18px;
+            color: #fff;
+            margin: 22px 0 28px 14px;
+        }
+
+        .login_form li .login_a {
+            font-size: 14px;
+            color: #4f7d94;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader_login">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-4">
+                        <div class="row">
+                            <a href="javascript:;" class="login_href">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-xs-3">
+                        <div class="row">
+                            <a href="javascript:;" class="sloganLogo_href">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+        </div>
+    </div>
+</header>
+<div class="banner_login">
+    <div class="login_box">
+        <p>账户登录</p>
+        <ul class="login_form">
+            <span style='color:red;font-size:14px;display:none' class="upErr">账户名或密码错误，请重新输入！</span>
+            <li>
+                <label for="">账号:</label>
+                <input type="text" name="userName" id="userName" class="form-control"/>
+            </li>
+            <li>
+                <label for="">密码:</label>
+                <input type="password" name="password" id="password" class="form-control"/>
+            </li>
+            <li>
+                <a href="password.html" style="float: right;" class="hide_ctr_im">忘记密码？</a>
+            </li>
+            <li>
+                <button type="submit" class="btn login_btn" id="btn">登录</button>
+            </li>
+            <li class="hide_ctr_im">
+                <a href="account.html" class="login_a" style="text-decoration: underline;">立即入驻,成为供应商</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="./js/lib/jquery-1.12.4.min.js"></script>
+<script src="./js/lib/md5.js"></script>
+
+<script src="./js/lib/baseURL.js"></script>
+<script src="./js/lib/localstorage.js"></script>
+<script src="./js/lib/common.js"></script>
+<script src="./js/lib/art_template.js"></script>
+<script src="./js/lib/jquery.popwin.js"></script>
+<script src="./js/lib/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    var url = getBaseUrl('yy');
+    pullUrl = url + '/auth/auth/staff';
+    $('input:text').focus(); //焦点聚集在第一个input上
+    //鼠标点击登录
+    $("#btn").click(function () {
+        login_Fun();
+    });
+    /**enter键登录*/
+    $(document).keydown(function (event) {
+        if (event.keyCode == 13) {
+            login_Fun();
+        }
+    })
+
+    function login_Fun() {
+        var hash = $("#password").val();
+        var param = {
+            "username": $('#userName').val(),
+            "password": hash,
+            "type": 1,
+            "src": 1
+        };
+        if ($("#userName").val() == "") {
+            var html = template('ajax_alert', {});
+            $.popwin(html, {
+                title: '',
+                fixed: true,
+                drag: false, //是否可拖拽
+            });
+            $("#popwin_Out").addClass("attr_manag_add");
+            $.popwin.setPosition(410, 460);
+            $(".attr_manag_add .mask_tip").html("请输入账号");
+            return false;
+        }
+        if ($("#password").val() == "") {
+            var html = template('ajax_alert', {});
+            $.popwin(html, {
+                title: '',
+                fixed: true,
+                drag: false, //是否可拖拽
+            });
+            $("#popwin_Out").addClass("attr_manag_add");
+            $.popwin.setPosition(410, 460);
+            $(".attr_manag_add .mask_tip").html("请输入密码");
+            return false;
+        }
+        var userId;
+
+        $.ajax({
+            url: pullUrl,
+            type: "post",
+            beforeSend: function (request) {
+
+            },
+            data: param,
+            dataType: 'json',
+            success: function (data) {
+                debugger;
+                console.log(data);
+                if (data.success == true) {
+                    debugger;
+                    $(".upErr").css("display", "none");
+                    var userId = data.data.user.id;
+                    userId_setIem(userId);
+                    userName_setIem(data.data.user.username);
+                    userPhone_setIem(data.data.user.phoneNumber);
+                    var loginToken = "bearer " + data.data.token;
+                    debugger;
+                    // localStorage.setItem("token",loginToken);
+                    TOKEN_setIem(loginToken);
+                    var firstHref = "./index.html";
+                    window.location.href = firstHref;
+                } else {
+                    $(".upErr").css("display", "block");
+                }
+            },
+            error: function (err) {
+
+            },
+            complete: function (data) {
+
+            }
+        })
+    }
+</script>
+</body>
+</html>

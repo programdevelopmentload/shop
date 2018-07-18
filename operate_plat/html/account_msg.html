@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="./common_zcss.css"/>
+    <style>
+        #box .account_cont p{
+            margin: 20px 0;
+            border-bottom:1px solid #dedede;
+            line-height: 45px;
+        }
+        #box .account_cont li{
+            line-height: 35px;
+            height:35px;
+        }
+        #box .account_cont li span{
+            margin: 0;
+        }
+             .account_cont  .company_msg>div{
+                 overflow: hidden;
+             }
+        .account_cont  .company_msg>div>div{
+            width:50%;
+        }
+        .account_cont  .service_msg>div{
+            overflow: hidden;
+        }
+        .account_cont  .service_msg>div>div{
+            width:50%;
+        }
+        .account_cont ol{
+                overflow: hidden;
+            border:1px solid #000;
+            border-left:none;
+            width:352px;
+
+            }
+        #box  .account_cont ol li{
+           float: left;
+            padding:5px 30px;
+            line-height: 28px;
+            border-left:1px solid #000;
+            cursor: pointer;
+        }
+        #box  .account_cont ol li:first-child{
+            background:#000;
+            color:#fff;
+        }
+       .account_cont .company_msg{
+            display: none;
+        }
+      .account_cont  .service_msg{
+            display: none;
+        }
+        .look_nav{
+            border-bottom: 1px solid #dedede;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ul>
+        <li><span class="head_active">基础设置</span></li>
+
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li >
+                <span>个人中心</span>
+                <ul>
+                    <li class="first">我的资料</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right">
+        <div class="account_cont">
+
+    <p class="router">基础设置》个人中心》我的资料</p>
+            <div class="account_title">
+                <p>账户信息</p>
+                <ul>
+                    <li>
+                        <label for="">用户名:</label>
+                        <span class="userName"></span>
+                    </li>
+                    <li>
+                        <label for="">邮箱:</label>
+                        <span class="emali"></span>
+
+                    </li>
+                    <li>
+                        <label for="">手机号:</label>
+                        <span class="phone"></span>
+                        <a href="javascript:;" onclick="phone()">更换</a>
+                    </li>
+                    <li>
+                        <label for="">密码:</label>
+                        <a href="javascript:;" onclick="edit()">修改</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+
+<script src="../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../js/lib/bootstrap.min.js"></script>
+
+<script src="./common_zjs.js"></script>
+
+
+<script>
+    function edit() {
+        window.location.href="change_pwd.html";
+    }
+    function phone(){
+        window.location.href="change_phone.html";
+    }
+    $.ajax({
+        url:"http://172.16.40.134:8003/seller/userInformation",
+        type:"post",
+        dataType:"json",
+        data:{
+            userId:31,
+        },
+        success:function (res) {
+            console.log(res);
+            if(res.success){
+                var json=res.data.sellerCompany;
+                for(var k in json){
+                    if(json[k]==null){
+                        json[k]="";
+                    }
+                }
+                $(".userName").html(res.data.userName);
+                $(".email").html(res.data.email);
+                $(".phone").html(res.data.phoneNumber);
+
+
+            }
+
+        }
+    });
+
+</script>
+</body>
+</html>

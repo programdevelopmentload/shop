@@ -1,0 +1,56 @@
+.attrManag_detail_con_right .attrManag_table_box{
+    /*padding-right: 200px;*/
+}
+.attrManag_detail_con_right .attrManag_table_box #test{
+    width: 600px;
+}
+.attrManag_detail_con_right .public_con #test .table thead tr th:nth-child(1) {
+    width: 6%;
+}
+.public_con #test .table thead tr th:nth-child(2) {
+    width: 94%;
+    text-align: center;
+}
+/*分页重新绘制结束*/
+.yycon .attr_manag_area{
+    background-color: #e9ecf2;
+    height: 80px;
+    padding: 10px 0 0 10px;
+    margin-top: 10px;
+}
+.attr_manag_area > div{
+    padding-right: 20px;
+}
+.table_border{
+    border: 1px solid #d3dbde;
+    border-bottom: none;
+    padding:10px;
+}
+.attrDetail_con_tip{
+    margin-left: -12px;
+    padding: 10px 0 10px 0;
+}
+
+.nanag_con1>div:last-child,
+.nanag_con2>div:last-child
+{
+    border-bottom: 1px solid #d3dbde;
+}
+.brand_log{
+    width: 108px;
+    height: 35px;
+}
+
+.attrManag_detail_con_right .pageSize_switch_con {
+    padding: 5px 0;
+    line-height: 28px;
+}
+.attrManag_detail_con_right .pageSize_switch_box>div:first-child {
+    padding-right: 40px;
+    font-size: 18px;
+}
+.attrManag_detail_con_right .pageSize_switch {
+    width: 120px;
+    height: 30px;
+    margin-right: 10px;
+}

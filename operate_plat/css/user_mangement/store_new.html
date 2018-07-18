@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店铺管理-新建店铺</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+<link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+<link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+   	.store_new{
+   		width: 100%
+   	}
+	.store_add{
+		margin: 0 43%
+	}
+</style>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+				<div class="store_new">
+					<div class="store_name form-group form-inline">
+						<label class="control-label" for="newStore_name">店铺名称:</label>
+						<input class="form-control" type="text" name="" placeholder="输入新建店铺名称" id="newStore_name">
+					</div>
+					<div class="store_address form-group form-inline">
+						<label class="control-label">所在区域:</label>
+						<select>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+						</select>
+					</div>
+					<div class="store_name form-group form-inline">
+						<label class="control-label" for="newStore_detail">详细地址:</label>
+						<input class="form-control" type="text" name="" placeholder="输入新建店铺名称" id="newStore_detail">
+					</div>
+					<div class="store_name form-group form-inline">
+						<label class="control-label" for="newStore_detail">经营区域:</label>
+						<input class="form-control" type="text" name="" placeholder="输入新建店铺名称" id="newStore_detail">
+					</div>
+					<div class="store_name form-group form-inline">
+						<label class="control-label" for="newStore_detail">经营状态:</label>
+						<input type="radio" name="">
+					</div>
+
+					<button type="button" class="btn btn-primary store_add"> 确认并添加</button>
+				</div>          
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>	
+</body>
+</html>

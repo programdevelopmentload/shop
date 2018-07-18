@@ -1,0 +1,20 @@
+{
+  "data":[
+    {
+      "serviceDetailsId":23,
+      "serviceDetailsName":"士大夫"
+    },
+    {
+      "serviceDetailsId":24,
+      "serviceDetailsName":"铺装2"
+    },
+    {
+      "serviceDetailsId":25,
+      "serviceDetailsName":"铺装3"
+    },
+    {
+      "serviceDetailsId":26,
+      "serviceDetailsName":"铺装4"
+    }
+  ]
+}

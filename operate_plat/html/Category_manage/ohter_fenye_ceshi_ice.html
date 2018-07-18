@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>在售商品</title>
+    <meta http-equiv="pragma"content="no-cache">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <style>
+
+        /*.fixed-table-pagination .pagination-detail{float: left; margin-top:20px;}
+        .fixed-table-pagination:after{
+            content:"";
+            height: 0;
+            visibility: hidden;
+            clear: both;
+            display: block;
+        }*/
+        .fixed-table-pagination  .pagination-detail{float: left; margin-top: 15px;}
+        .fixed-table-container thead th .sortable{background: url("../image/sort.png") no-repeat 110px 14px;}
+        #table thead th{background: #337ab7;}
+        .table_list {margin-top: 25px;}
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <div class="header_left">
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <img src="../image/logo.png" />
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../image/logo_img.png" />
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="head">
+    <ul>
+        <li><span class="active"></span> 首页</li>
+        <li > <span></span>商品管理</li>
+        <li> <span></span>首页</li>
+        <li><span></span>首页</li>
+    </ul>
+</div>
+<div id="box" class="clearfix">
+    <div class="left">
+        <ul>
+            <li class="first">
+                <img src="image/down.png" alt="">订单管理
+            </li>
+            <li><span class="active"></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <!-- search部分-->
+        <div class="search">
+            <div>
+                关键词： <input type="text" class="form-control gjc">
+                商品编码：<input type="text" class="form-control orderNum">
+                <p>
+                    <input type="button" class="form-control btn-primary" value="查询">
+                </p>
+            </div>
+        </div>
+        <!-- table部分-->
+        <div class="table_list">
+            <table id="table" class="table table-hover"></table>
+        </div>
+    </div>
+</div>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script>
+    function getParams() {
+        var pageSize = $('.pageSize_switch').val();
+        var params = {
+            'pageSize': pageSize//3
+            // 'currentPage': 1,//1
+
+        };
+        return params;
+    };
+    var localUrl = 'http://172.16.41.23:8007';
+    var attr_pageUrl = localUrl + '/goods/attribute/show';
+    //1.初始化Table
+    $('#table').bootstrapTable({
+
+        url: 'http://172.16.41.23:8007/goods/GoodsClassification/showBackClass',
+        method: 'post',
+        contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+        striped: true, //是否显示各行变色
+        /* pageSize: "5",*/
+        pagination: true, // 是否分页
+        pageNumber:1,  //如果设置了分页，首页页码
+        paginationPreText:'上一页',
+        paginationNextText:'下一页',
+        showPaginationSwitch:false,//是否显示数据条数选择框
+        /*showColumns: true, */ //是否显示所有的列
+        /* queryParamsType:'limit',*///查询参数组织方式
+        queryParams:'',//请求服务器时所传的参数
+        clickToSelect: true,//是否启用点击选中行
+        pageSize:2,///如果设置了分页，页面数据条数
+        pageList:[5,15,20,25],//如果设置了分页，设置可供选择的页面数据条数。设置为All 则显示所有记录 ,这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+        paginationHAlign:'right',// //设置分页条的位置
+        /*sortable: true,*/ // 是否启用排序
+        sidePagination: "server",
+        sortName: 'start_time', // 要排序的字段
+        sortOrder:	'asc',
+        dataField : "data", //很重要，这是后端返回的实体数据！
+        cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        queryParams : function(params) {//自定义参数，这里的参数是传给后台的，我这是是分页用的
+            return {//这里的params是table提供的
+                offset : params.offset,//从数据库第几条记录开始
+                limit : params.limit
+                //找多少条
+            };
+        },
+        columns: [ {
+            field: 'checked',
+            checkbox : true,
+            width:'2%',
+
+        }, {
+            field: 'name',
+            title: 'name',
+            width:'35%',
+            valign:"middle",
+            align:"center"
+
+        }, {
+            field: 'level',
+            title: '等级',
+            width:'2%',
+            valign:"middle",
+            align:"center"
+        },
+            {
+            field: 'operate',
+            title: '操作',
+            width:'40%',
+            align:"center",
+            valign:"middle",
+            formatter: actionFormatter   //格式化footer内容，function(rows)，rows：所有行数据
+        }],
+        data: [{
+            name:'喜梦宝  儿童书柜 简易落地 多款可选 寓乐工坊&nbsp;&nbdp;商品编码：3440399' ,
+            type :'无'
+            // start_time:'2018-02-22 11:20',
+            // add_time:'2018-02-22 11:20'
+        }
+        ]
+    });
+    //操作栏的格式化
+    function actionFormatter(value, row, index) {
+        var id = value;
+        var result = "";
+        result += "<a href='javascript:;'>查看</a>";
+        result+='&nbsp;&nbsp;'
+        result += "<a href='javascript:;'>申请下架</a>";
+        result+='&nbsp;&nbsp;'
+        result += "<a href='javascript:;'>添加商品规格</a>";
+        return result;
+    }
+
+
+</script>
+</body>
+</html>

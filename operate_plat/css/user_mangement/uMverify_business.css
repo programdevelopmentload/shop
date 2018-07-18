@@ -1,0 +1,112 @@
+/*body{*/
+
+/*}*/
+.uMbussiness_con_right  .uMverify_progress_con{
+    padding:40px 0 20px 206px;
+}
+.uMbussiness_con_right  .mess_cont__circle li{
+    color: #fff;
+}
+.uMbussiness_con_right  .mess_cont__circle li:first-child div,
+.uMbussiness_con_right  .mess_cont__circle li:nth-child(2) div
+{
+    background-color:#00CC00;
+}
+.uMbussiness_con_right .mess_cont__circle li:first-child p,
+.uMbussiness_con_right .mess_cont__circle li:nth-child(2) p
+{
+    color:#00CC00;
+}
+.uMvfyDetail_basicInfo_left{
+    padding-right: 80px;
+}
+.uMvfyDetail_standard_title p{
+    width: 150px;
+    padding: 0 30px 0 10px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+}
+.uMvfyDetail_standard_body > div{
+    height: 88px;
+    border-bottom:1px solid rgba(215, 215, 215, 1);
+}
+.uMvfyDetail_standard_body > div > div{
+    width: 150px;
+    padding: 20px 30px 0 10px;
+    height: 50px;
+    line-height: 26px;
+    margin: 0;
+}
+.uMvfyDetail_standard_body img{
+    width: 37px;
+    height: 38px;
+}
+.uMvfyDetail_paramImg{
+    width: 655px;
+    height: 380px;
+    overflow: hidden;
+}
+.uMvfyDetail_otherInfo > div > div:nth-child(1){
+    padding-right: 40px;
+    height: 80px;
+}
+.uMvfyDetail_otherInfo > div > div:nth-child(2){
+    width: 740px;
+}
+.uMvfyDetail_otherInfo > div > div:nth-child(2)>p{
+    padding-right: 30px;
+}
+.uMvfyDeatil_form{
+    padding: 20px 0;
+}
+.uMvfyDeatil_form input{
+    padding:10px 30px 0 0;
+    margin-right: 10px;
+}
+textarea{
+    padding: 0;
+    text-align: left;
+}
+.uMvfyDetail_btn{
+    width: 420px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    background-color: rgb(91, 161, 193);
+    color: rgb(255, 255, 255);
+    margin: 30px auto;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.uMvfyDetail_basicInfo,
+.uMvfyDetail_standard,
+.uMvfyDetail_goodDetail,
+.uMvfyDetail_otherInfo{
+    margin-top: 15px;
+}
+.vfyDetail_list >div{
+    width: 270px;
+}
+.vfyDetail_list >div:last-child >div> span{
+    padding-right: 10px;
+}
+.vfyDetail_list >div>p{
+    width: 90px;
+}
+.vfyFag1 span{
+    padding-right: 10px;
+}
+.uMbussiness_form{
+    padding: 20px 0;
+}
+.uMbussiness_form input {
+    padding: 10px 30px 0 0;
+    margin-right: 10px;
+}
+.uMbussiness_reason{
+    color: #BABABA;
+}
+

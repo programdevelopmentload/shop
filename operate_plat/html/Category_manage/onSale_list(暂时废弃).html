@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商品列表</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/onSale_list.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container">
+        <div class="row">
+            <!-- 左侧导航 -->
+            <aside class="main-sidebar vwaitDetail_sidebar yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a></li>
+                    <li><a href="#">商品审核 > </a></li>
+                    <li><a href="#">待审核 > </a></li>
+                    <li class="active"><a href="#">审核详情 </a></li>
+                </ol>
+                <h4 class="conRight_h4">
+                    <!--模拟未登录购买时候弹框-->
+                    <span href="#" class="test_mask">模拟遮罩</span>
+                </h4>
+                <!--分配清单-->
+                <div class="distribution_list">
+                    <div class="conRight_h4">
+                        <span class="test_mask">分配清单</span>
+                    </div>
+                    <div class="shoplist list_height">
+                        <p>
+                            <span>商品分类：</span>
+                            <span class="active"> 全部</span>
+                            <span> 厨房卫浴</span>
+                            <span> 家用电器</span>
+                            <span> 家用软装</span>
+                            <span> 瓷砖地板</span>
+                            <span> 瓷砖地板</span>
+                            <span> 建材五金</span>
+                            <span> 油漆/墙纸</span>
+                        </p>
+                    </div>
+
+                    <div class="shopstyle list_height">
+                        <p>
+                            <span>商品类型：</span>
+                            <span> 全部</span>
+                            <span class="active"> 标品</span>
+                            <span> 非标品</span>
+                        </p>
+                    </div>
+
+                    <!--商品信息 -->
+                    <div class="shopins ">
+                        <table id="mytab" class="table table-hover" data-ajax="ajaxReqDate"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="login_container test_mask_con">
+        <div class="maskBtn_operate">
+            <span href="" class="maskBtn mask_ok">是</span>
+            <span href="" class="maskBtn mask_false">否</span>
+            <!--<span href="" class="maskBtn mask_else">取消</span>-->
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/bootstrap-table.js"></script>
+<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+    // $(function () {
+    //         //模拟按钮事件绑定
+    //         $('.yycon').on('click','.test_mask',function(){
+    //             let html = template('test_mask_catch',{});
+    //             $.popwin(html,{
+    //                 title: '是否删除',
+    //                 fixed: true,
+    //                 drag: false, //是否可拖拽
+    //             });
+    //             $("#popwin_Out").addClass("mask_control");
+    //             // $.popwin.setPosition(410,460);
+    //         })
+    //         //弹窗中取消按钮事件绑定
+    //         $('body').on('click','.mask_false',function(){
+    //             $("#popwin_Blank").remove();
+    //             $("#popwin_Out").remove();
+    //         })
+    //         //弹窗中其他按钮事件绑定
+    //         // $('body').on('click','.mask_else',function(){
+    //         //     // $("#popwin_Blank").remove();
+    //         //     //    $("#popwin_Out").remove();
+    //         // })
+    //         /**日历组件初始化代码*/
+    //         setDateTime();
+    //     });
+    $.sidebarMenu($('.sidebar-menu'));
+
+
+    // 分页
+
+    $('#mytab').bootstrapTable({
+
+        url: '',
+        method: 'post',
+        contentType: "application/x-www-form-urlencoded",//必须要有！！！！
+        striped: true, //是否显示各行变色
+        /* pageSize: "5",*/
+        pagination: true, // 是否分页
+        pageNumber: 1,  //如果设置了分页，首页页码
+        paginationPreText: '上一页',
+        paginationNextText: '下一页',
+        showPaginationSwitch: false,//是否显示数据条数选择框
+        /*showColumns: true, */ //是否显示所有的列
+        /* queryParamsType:'limit',*///查询参数组织方式
+        queryParams: '',//请求服务器时所传的参数
+        clickToSelect: true,//是否启用点击选中行
+        pageSize: 2,///如果设置了分页，页面数据条数
+        pageList: [5, 15, 20, 25],//如果设置了分页，设置可供选择的页面数据条数。设置为All 则显示所有记录 ,这个接口需要处理bootstrap table传递的固定参数,并返回特定格式的json数据
+        paginationHAlign: 'right',// //设置分页条的位置
+        /*sortable: true,*/ // 是否启用排序
+        sidePagination: "client",
+        sortName: 'start_time', // 要排序的字段
+        sortOrder: 'asc',
+        cache: false, //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
+        columns: [
+            {
+                title: '全选',
+                field: 'select',
+                checkbox: true,
+                width: 25,
+                align: 'center',
+                valign: 'middle'
+            },
+            {
+                title: 'ID',
+                field: 'ID',
+                visible: false
+            },
+            {
+                title: '商品信息',
+                field: 'GoodsName',
+                sortable: false
+            },
+            {
+                title: '商品类型',
+                field: 'GoodsType',
+                sortable: false
+            },
+            {
+                title: '售卖价',
+                field: 'GoodsPrice',
+            },
+            {
+                title: '上新时间',
+                field: 'GoodsTime',
+                sortable: true
+            },
+            {
+                title: '操作',
+                field: 'GoodsOperation',
+
+            },
+            {
+                title: '状态',
+                field: 'GoodsState',
+                align: 'center'
+                // formatter:operateFormatter
+            }
+        ],
+        ajax: function (result) {
+            // var skyurl = 'http://172.16.41.23:8001/'+'goods/GoodsClassification/showBackClass';
+            var skydata = {
+                classId: 2,
+                currentPage: 1,
+                pageSize: 10
+            };
+            console.log(result);
+            $.ajax({
+                url: skyurl,
+                type: 'POST',
+                dataType: 'json',
+                data: skydata,
+                success: function (msg) {
+                    debugger;
+                    result.success({
+                        row: msg
+                    });
+                    $('#table').bootstrapTable('load', msg);
+                },
+                error: function (msg) {
+                    alert("错误");
+                }
+            })
+        }
+    })
+    //三个参数，value代表该列的值
+    //   function operateFormatter(value,row,index){
+    //       if(value==2){
+    //           return '<i class="fa fa-lock" style="color:red"></i>'
+    //       }else if(value==1){
+    //           return '<i class="fa fa-unlock" style="color:green"></i>'
+    //       }else{
+    //           return '数据错误'
+    //       }
+    //   }
+
+    // function ajaxReqDate(result) {
+    //     // var skyurl = 'http://172.16.41.23:8001/'+'goods/GoodsClassification/showBackClass';
+    //     var skydata = {
+    //         classId: 2,
+    //         currentPage: 1,
+    //         pageSize: 10
+    //     };
+    //     console.log(result);
+    //     $.ajax({
+    //         url: skyurl,
+    //         type: 'POST',
+    //         dataType: 'json',
+    //         data: skydata,
+    //         success: function (msg) {
+    //             debugger;
+    //             result.success({
+    //                 row: msg
+    //             });
+    //             $('#table').bootstrapTable('load', msg);
+    //         },
+    //         error: function (msg) {
+    //             alert("错误");
+    //         }
+    //     })
+    // }
+</script>
+</body>
+</html>

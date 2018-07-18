@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>资质待审核-详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/uMverify_wait_detail.css"/>
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .paper_photo {
+            /*width: 180px;*/
+            /*height: 120px;*/
+        }
+
+        .paper_photo_box {
+            padding-top: 20px;
+        }
+
+        .paper_photo_father {
+            width: 180px;
+            height: 120px;
+        }
+
+        .radio_items > div {
+            padding: 18px 2px;
+        }
+
+        .reject_reason {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="uMDvfyDetail_con_right yycon_right col-xs-12">
+    <ol class="hide_ctr vfyDetail_Bread breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+
+    <!--<div class="mess_cont__circle uMverify_progress_con">-->
+    <!--<ul class="clearfix">-->
+    <!--<li class="green_color">-->
+    <!--<div class="mess_circle">1</div>-->
+    <!--<p>公司信息审核</p>-->
+    <!--</li>-->
+    <!--<li class="green_bac">-->
+    <!--<div class="mess_circle">2</div>-->
+    <!--<p>业务信息审核</p>-->
+    <!--</li>-->
+    <!--<li class="">-->
+    <!--<div class="mess_circle">3</div>-->
+    <!--<p>认证信息审核</p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <div class="right_con_box">
+
+    </div>
+    <div class="verify_btm_operateBox">
+        <h4 class=" conRight_h4">审核操作</h4>
+        <div class="radio_items">
+            <div>
+                <!--我已认真核实过该商家的所有资料信息，现做出如下决定：-->
+            </div>
+            <div>
+                <input type="radio" value="2" class="qualification_detail_radio"
+                       name="qualification_detail_operation">通过，允许该商家成为正式供应商
+            </div>
+            <div>
+                <input type="radio" value="3" class="qualification_detail_radio"
+                       name="qualification_detail_operation" checked="checked">拒绝，无法通过
+            </div>
+            <!--<input type="radio" name="qualification_detail_operation" checked="checked">通过，允许该商家成为正式供应商-->
+            <!--<input type="radio" name="qualification_detail_operation">拒绝，无法通过-->
+        </div>
+        <div role="form" class="clearfix">
+            <div class="form-group col-xs-11">
+                            <textarea class="form-control reason_area " rows="6" cols="30"
+                                      placeholder="">请填写拒绝通过的具体理由.</textarea>
+            </div>
+            <div class="reject_reason hide_ctr col-xs-11">
+                拒绝理由不可以空置。
+            </div>
+        </div>
+        <div>
+            <p class="qualification_sureBtn conRightBottom_btn">
+                确认并提交
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script id="rig_con_ajax" type="text/html">
+    <div class="clearfix grayBgcBox">
+        <div class="row clearfix">
+            <div class="col-xs-3">
+                <div class="clearfix">
+                    <p class="fl Shop_account_label">商家账号：</p>
+                    <div class="fl Shop_account_name">{{userSellerRecord.username}}</div>
+                </div>
+                <div class="clearfix isHave_twoFather">
+                    <p class="fl cellphone_num_label">手机号：</p>
+                    <div class="fl cellphone_num">{{userSellerRecord.phoneNumber}}</div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="clearfix">
+                    <p class="fl">审核阶段：</p>
+                    <div class="fl qualification_level">{{imageState}}</div>
+                </div>
+                <div class="clearfix">
+                    <p class="fl">申请时间：</p>
+                    <div class="fl qualification_time">
+                        {{userSellerRecord.imageApplyTime}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="clearfix">
+                    <p class="fl">审核人：</p>
+                    <div class="fl">{{userSellerRecord.imageEvaPerson}}</div>
+                </div>
+                <div class="clearfix">
+                    <p class="fl">审核时间：</p>
+                    <div class="fl qualification_time">
+                        {{userSellerRecord.imageEvaTime}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="clearfix">
+                    <p class="fl">审核状态：</p>
+                    {{if userSellerRecord.imageState==1}}
+                    <div class="fl qualification_state">
+                        待审核
+                    </div>
+                    {{else if userSellerRecord.imageState==2}}
+                    <div class="fl qualification_state">
+                        审核通过
+                    </div>
+                    {{else if userSellerRecord.imageState==3}}
+                    <div class="fl qualification_state">
+                        审核不通过
+                    </div>
+                    {{/if}}
+                </div>
+                <div class="clearfix">
+                    {{if userSellerRecord.imageState ==3}}
+                    <p class="fl">未通过理由：</p>
+                    <div class="fl qualification_reson">
+                        {{userSellerRecord.imageDismissReason}}
+                    </div>
+                    {{else }}
+                    <p class="fl hide_ctr">未通过理由：</p>
+                    <div class="fl qualification_reson hide_ctr">
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class="conRight_h4">基本信息：</h4>
+    <div class="clearfix">
+        <div class="row clearfix">
+            <div class="clearfix ">
+                <div class="clearfix col-xs-3">
+                    <p class="fl">公司名称：</p>
+                    <div class="fl company_name">{{userSellerRecord.companyName}}</div>
+                </div>
+                <div class="clearfix col-xs-3">
+                    <p class="fl">公司类型：</p>
+                    <div class="fl company_type">{{userSellerRecord.companyType}}</div>
+                </div>
+                <div class="clearfix col-xs-3">
+                    <p class="fl">成立日期：</p>
+                    <div class="fl origin_time">{{userSellerRecord.foundingTime}}</div>
+                </div>
+                <div class="clearfix col-xs-3">
+                    <p class="fl">公司人数：</p>
+                    <div class="fl company_manNum">{{userSellerRecord.peopleNum}}</div>
+                </div>
+            </div>
+            <div class="clearfix ">
+                <div class="clearfix col-xs-3">
+                    <p class="fl">公司地址：</p>
+                    <div class="fl company_address">{{userSellerRecord.companyAddress}}</div>
+                </div>
+                <div class="clearfix col-xs-3">
+                    <p class="fl">联系电话：</p>
+                    <div class="fl company_fixphone">{{userSellerRecord.telephone}}</div>
+                </div>
+                <div class="clearfix col-xs-3">
+                    <p class="fl">传真号码 ：</p>
+                    <div class="fl company_faxphone">{{userSellerRecord.fax}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class=" conRight_h4">经营信息</h4>
+    <div class="clearfix">
+        <div class="row">
+            <div class="col-xs-8 clearfix">
+                <p class="fl">经营类型：</p>
+                <div class="fl operate_type">
+                    {{userSellerRecord.managementType}}
+                </div>
+            </div>
+            <div class="col-xs-8 clearfix">
+                <p class="fl">企业规模：</p>
+                <div class="fl clearfix company_size">
+                    {{userSellerRecord.enterpriseScale}}
+                </div>
+            </div>
+            <div class="col-xs-8 clearfix">
+                <p class="fl">纳税规模：</p>
+                <div class="fl tax_type">{{userSellerRecord.taxScale}}</div>
+            </div>
+        </div>
+    </div>
+    <h4 class=" conRight_h4">服务信息</h4>
+    <div class="clearfix">
+        <div class="row">
+            <div class="col-xs-4">
+                <div class=" clearfix">
+                    <p class="fl">经营区域：</p>
+                    <div class="fl operate_area">
+                        {{userSellerRecord.operatingArea}}
+                    </div>
+                </div>
+                <div class=" clearfix">
+                    <p class="fl">配送人数：</p>
+                    <div class="fl clearfix">
+                        <span class="express_manNum">
+                            {{userSellerRecord.distributionNum}}
+                        </span>人
+                    </div>
+                </div>
+                <div class=" clearfix">
+                    <p class="fl">测量人数：</p>
+                    <div class="fl">
+                        <span class="measure_manNum">
+                             {{userSellerRecord.measureNum}}
+                        </span>人
+                    </div>
+                </div>
+                <div class=" clearfix">
+                    <p class="fl">设计人数：</p>
+                    <div class=" fl">
+                        <span class="design_manNum">
+                            {{userSellerRecord.designNum}}
+                        </span>人
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class=" clearfix">
+                    <p class="fl">主要客户销售范围：</p>
+                    <div class="fl clearfix sale_area">
+                        {{userSellerRecord.saleScope}}
+                    </div>
+                </div>
+                <div class=" clearfix">
+                    <p class="fl">主营品牌：</p>
+                    <div class="fl brand_have">
+                        {{each brand}}
+                        <span>{{$value.nameCh}}&nbsp;&nbsp;</span>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class=" conRight_h4">联系信息</h4>
+    <div class="clearfix ">
+        <div class=" clearfix ">
+            <div class="clearfix">
+                <p class="fl">业务对接人：</p>
+                <div class="fl butt_man">
+                    {{userSellerRecord.abutmentPerson}}
+                </div>
+            </div>
+        </div>
+        <div class=" clearfix ">
+            <div class="row">
+                <div class="clearfix col-xs-4">
+                    <p class="fl">手机号码：</p>
+                    <div class="fl butt_phone">
+                        {{userSellerRecord.abutmentPhone}}
+                    </div>
+                </div>
+                <div class="clearfix col-xs-5">
+                    <p class="fl">E-mail：</p>
+                    <div class="fl butt_email">
+                        {{userSellerRecord.abutmentEmail}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="underLine">
+    </div>
+    <div class="clearfix">
+        <div class="clearfix">
+            <p class="fl">服务负责人：</p>
+            <div class="fl service_man">
+                {{userSellerRecord.servicePerson}}
+            </div>
+        </div>
+        <div class=" clearfix ">
+            <div class="row clearfix">
+                <div class="clearfix col-xs-4">
+                    <p class="fl">手机号码：</p>
+                    <div class="fl service_phone"> {{userSellerRecord.servicePhone}}</div>
+                </div>
+                <div class="clearfix col-xs-5">
+                    <p class="fl">E-mail：</p>
+                    <div class="fl service_email">{{userSellerRecord.serviceEmail}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class=" conRight_h4">身份证明</h4>
+    <div class="">
+        <div class="clearfix paper_photo_box">
+            <p class="col-xs-7">营业执照：</p>
+            <div class="col-xs-6">
+                <div class="paper_photo_father">
+                    <img class="imageBusiness paper_photo" src="{{userSellerRecord.imageBusiness}}" alt="">
+                </div>
+                <div class="paper_photo_operate">
+                    <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageBusiness}}">查看大图</span>
+                    <span>
+                        <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageBusiness}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <h4 class=" conRight_h4">法人证明</h4>
+        <div class="clearfix">
+            <div class="row">
+                <div class="col-xs-6 paper_photo_box">
+                    <div class="clearfix">
+                        <p class="fl">法人姓名：</p>
+                        <div class="fl butt_man">
+                            {{userSellerRecord.legname}}
+                        </div>
+                    </div>
+                    <p class="col-xs-12">身份证正面：</p>
+                    <div class="col-xs-12 paper_photo_father">
+                        <img class="idcard_face_img paper_photo" src="{{userSellerRecord.imageIdFront}}" alt="">
+                    </div>
+                    <div class="col-xs-12 paper_photo_operate">
+                        <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageIdFront}}">查看大图</span>
+                        <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageIdFront}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+                    </div>
+                </div>
+                <div class="col-xs-6 paper_photo_box">
+                    <div class="clearfix">
+                        <p class="fl">身份证号：</p>
+                        <div class="fl butt_man">
+                            {{userSellerRecord.legIdcard}}
+                        </div>
+                    </div>
+                    <p class="col-xs-12 ">身份证反面：</p>
+                    <div class="col-xs-12 paper_photo_father">
+                        <img class="idcard_face_back paper_photo" src="{{userSellerRecord.imageIdAfter}}" alt="">
+                    </div>
+                    <div class="col-xs-12 paper_photo_operate">
+                        <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageIdAfter}}">查看大图</span>
+                        <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageIdAfter}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class=" conRight_h4">纳税证明</h4>
+    <div class="clearfix">
+        <div class="row clearfix">
+            <div class="clearfix col-xs-11">
+                <p class="fl">开票类型：</p>
+                <div class="fl butt_man">
+                    {{userSellerRecord.invoiceType}}
+                </div>
+                <!--{{if invoiceType == 1}}-->
+                <!--<div class="fl butt_man">-->
+                <!--增值税专用发票-->
+                <!--</div>-->
+                <!--{{else if invoiceType == 2}}-->
+                <!--<div class="fl butt_man">-->
+                <!--普通发票-->
+                <!--</div>-->
+                <!--{{else if invoiceType == 3}}-->
+                <!--<div class="fl butt_man">-->
+                <!--专业发票-->
+                <!--</div>-->
+                <!--{{else if invoiceType == 0}}-->
+                <!--<div class="fl butt_man">-->
+                <!--暂无法开票-->
+                <!--</div>-->
+                <!--{{/if}}-->
+            </div>
+            <div class="col-xs-6 paper_photo_box">
+                <p class="col-xs-12">开户许可证：</p>
+                <div class="col-xs-12 paper_photo_father">
+                    {{if userSellerRecord.imageLicense}}
+                    <img class="idcard_face_img paper_photo" src="{{userSellerRecord.imageLicense}}" alt="">
+                    {{else}}
+                    <span>暂无</span>
+                    {{/if}}
+                </div>
+                <div class="col-xs-12 paper_photo_operate">
+                    <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageLicense}}">查看大图</span>
+                    <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageLicense}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+
+                </div>
+            </div>
+            <div class="col-xs-6 paper_photo_box">
+                <p class="col-xs-12 ">一般纳税人资格认定书</p>
+                <div class="col-xs-12 paper_photo_father">
+                    {{if userSellerRecord.imageTaxRegistration.length>1}}
+                    <img class="imageTaxRegistration_photo paper_photo" src="{{userSellerRecord.imageTaxRegistration}}" alt="">
+                    {{else}}
+                    <span>暂无</span>
+                    {{/if}}
+                </div>
+                <div class="col-xs-12 paper_photo_operate">
+                    <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageTaxRegistration}}">查看大图</span>
+                    <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageTaxRegistration}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix paper_photo_box">
+            <p class="col-xs-7">税务登记证书：</p>
+            <div class="col-xs-6">
+                <div class="paper_photo_father">
+                    {{if userSellerRecord.imageTaxpayer.length>1}}
+                    <img class="imageBusiness paper_photo" src="{{userSellerRecord.imageTaxpayer}}" alt="">
+                    {{else}}
+                    <span>暂无</span>
+                    {{/if}}
+                </div>
+                <div class="paper_photo_operate">
+                    <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageTaxpayer}}">查看大图</span>
+                    <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageTaxpayer}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <h4 class=" conRight_h4">经营资质证明</h4>
+    <div>
+        <div class="row clearfix">
+            <div class="col-xs-6 paper_photo_box">
+                <p class="col-xs-12">产品合格证：</p>
+                <div class="col-xs-12 paper_photo_father">
+                    {{if userSellerRecord.imageProductQualification.length>1}}
+                    <img class="idcard_face_img paper_photo" src="{{userSellerRecord.imageProductQualification}}" alt="">
+                    {{else}}
+                    <span>暂无</span>
+                    {{/if}}
+                </div>
+                <div class="col-xs-12 paper_photo_operate">
+                    <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageProductQualification}}">查看大图</span>
+                    <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageProductQualification}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+
+                </div>
+            </div>
+            <div class="col-xs-6 paper_photo_box">
+                <p class="col-xs-12 ">授权代理证明</p>
+                <div class="col-xs-12 paper_photo_father">
+                    {{if userSellerRecord.imageProxyCertificate.length>1}}
+                    <img class="idcard_face_back paper_photo" src="{{userSellerRecord.imageProxyCertificate}}" alt="">
+                    {{else}}
+                    <span>暂无</span>
+                    {{/if}}
+                </div>
+                <div class="col-xs-12 paper_photo_operate">
+                    <span onclick="jumpBigImg(this)" data-imgsrc="{{userSellerRecord.imageProxyCertificate}}">查看大图</span>
+                    <a class="flagDown" href='/supplierOrder/downloadAndPreview?downUrl={{userSellerRecord.imageProxyCertificate}}&type="1"&fileName="下载图片"' onclick="">下载到本地</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="attrAdd_container">
+        <div class="col-sm-12 mask_tip">
+            请填写拒绝理由
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/seller_verify/authentication_verify_logo_detail.js"></script>
+</body>
+</html>

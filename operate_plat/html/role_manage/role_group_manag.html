@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>账户管理-角色组管理</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css">
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/cate_manage/attr_service_list.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .vwait_queryCtr {
+            padding: 0 8px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #dedede;
+            color: #333;
+        }
+
+        .vwait_queryCtr input {
+            height: 25px;
+            line-height: 25px;
+            margin-top: 9px;
+            padding-left: 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .vwait_queryCtr > div {
+            padding: 0px 8px;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        /*.coupon_btn {*/
+        /*background-color: #fff !important;*/
+        /*color: #ff0000 !important;*/
+        /*border: 1px solid #ff0000;*/
+        /*}*/
+
+        .self_table thead tr th:nth-child(1) {
+            width: 20%;
+        }
+
+        .self_table thead tr th:nth-child(2) {
+            width: 20%;
+        }
+
+        .self_table thead tr th:nth-child(3) {
+            width: 20%;
+        }
+
+        .self_table thead tr th:nth-child(4) {
+            width: 20%;
+        }
+
+        .self_table tbody tr td {
+            line-height: 50px;
+        }
+
+        .self_table .page_miniBtn {
+            margin: 5px !important;
+        }
+
+        .public_con #show1 #pic_no {
+            text-align: center;
+            padding: 16px;
+        }
+    </style>
+</head>
+<body>
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理 > </a></li>
+        <li><a href="#">商品审核 > </a></li>
+        <li><a href="#">待审核 > </a></li>
+        <li class="active"><a href="#">审核详情 </a></li>
+    </ol>
+    <div class="role_group_manage">
+        <form class="col-xs-12 clearfix form-horizontal">
+            <div class="col-xs-12 clearfix">
+                <div class="row clearfix">
+                    <div class="col-xs-3 form-group clearfix">
+                        <div class="row">
+                            <label class="control-label col-xs-6">角色组名称:</label>
+                            <div class="col-xs-6">
+                                <div class="row">
+                                    <input class="form-control role_name_keyWord" type="text" placeholder="输入角色组名称">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2 form-group clearfix text-center">
+                        <button type="button" class="btn btn-primary vwait_queryBtn">查询</button>
+                    </div>
+                    <div class="col-xs-2 form-group clearfix text-left">
+                        <button type="button" class="btn btn-primary role_groupAdd_btn">添加角色组</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <h4 class="conRight_h4 clearfix">
+            角色组列表
+        </h4>
+        <!--分页我自己尝试-->
+        <div class="pagination_box_ctr">
+            <div class="clearfix pageSize_switch_con hide_ctr">
+                <div class="fl">每页显示</div>
+                <select class="pageSize_switch form-control fl">
+                    <option value="20" class="">20</option>
+                    <option value="30" class="">30</option>
+                    <option value="40" class="">40</option>
+                    <option value="50" class="">50</option>
+                </select>
+                <!--<button type="button" class="btn btn-success fl btn-sm">确定</button>-->
+            </div>
+            <div class="wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                <div id="pic_no" class="default-prompt">
+                    <img src="../../images/nothing.png">
+                    <br>
+                    <span>查询无结果</span>
+                </div>
+                <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                    <thead>
+                    <tr>
+                        <th>角色组编号</th>
+                        <th>角色组名称</th>
+                        <th>当前状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <div class="leftBottom clearfix">
+                    <button type="button" class="outPut" style="display: none">批量删除</button>
+                    <!--<button type="button" class="outBack">批量退回</button>-->
+                    <div class="page pageBar" id="page">
+                        <p>共0条记录</p>
+                        <div class="pageLft clearfix">
+                            <!--<a class="noprev"></a>-->
+                            <a href="#" class="prev"></a>
+                            <a href="#" class="active">1</a>
+                            <a href="#">2</a>
+                            <a href="#">3</a>
+                            <a href="#">4</a>
+                            <a href="#">5</a>
+                            <span>...</span>
+                            <a href="#" class="next"></a>
+                            <!--<a class="nonext"></a>-->
+                        </div>
+                        <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                    </div>
+                </div>
+            </div>
+            <div class="m-pagination">
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="role_groupContainer">
+        <div class="role_groupName clearfix">
+            <div class="form-group col-sm-12">
+                <label for="" class="col-sm-3 control-label text-right">角色组名称：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control role_groupName_input" id="" placeholder="请输入角色组名称">
+                </div>
+            </div>
+            <div class="col-sm-12  clearfix">
+                <div class="col-sm-3">
+                    &nbsp;
+                </div>
+                <div class="col-sm-8 role_groupName_tip hide_ctr">
+                    不可空置/支持中英文，最多32个字符
+                </div>
+
+            </div>
+
+            <div class="form-group col-sm-12 hasAdd_group_box clearfix">
+                <label for="" class="col-sm-3 control-label text-right">已添加角色组：</label>
+                <div class="clearfix col-xs-8 hasAdd_group_con">
+                    <!--<div class="col-xs-3 hasAdd_group">采购部</div>-->
+
+                </div>
+            </div>
+        </div>
+        <div class="sure_xsBtn roleGroupAdd_sure">
+            保存
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<!--<script src="../../js/Category_manage/front_oneGradeDivide.js"></script>-->
+<script src="../../js/role_manage/role_group_manage.js"></script>
+</body>
+</html>

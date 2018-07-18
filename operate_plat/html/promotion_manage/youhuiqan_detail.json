@@ -1,0 +1,34 @@
+{
+    "success":true,
+    "errorCode":0,
+    "message":"成功",
+    "line":null,
+    "data":{
+        "pageNum":1,
+        "pageSize":5,
+        "totalCount":1,
+        "isMore":0,
+        "totalPage":1,
+        "startIndex":0,
+        "items":[
+            {
+                "couponId":1,
+                "couponNo":"1001",
+                "couponName":"听海",
+                "couponSendType":1,
+                "couponSettingType":1,
+                "couponMoney":50,
+                "couponNumber":100,
+                "couponStartTime":1528101840000,
+                "couponEndTime":1528361040000,
+                "couponStartPeriod":1528101840000,
+                "couponEndPeriod":1528447440000,
+                "couponStatus":0,
+                "categoryids":"衣服",
+                "couponRemarks":"嗯哼",
+                "createTime":1528101840000,
+                "couponAmount":null
+            }
+        ]
+    }
+}

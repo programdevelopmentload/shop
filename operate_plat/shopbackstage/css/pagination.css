@@ -1,0 +1,300 @@
+.table {
+    color: #333333;
+    background: #fff;
+    max-width: 100%;
+    margin-bottom: 10px;
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+.table.fixed-width {
+    min-width: 1020px;
+}
+
+.table tr.selected {
+    background: #cfe2fd;
+}
+
+.table tr:hover td {
+    background: #cfe2fd;
+}
+
+.table th, .table td {
+    padding: 10px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table thead th {
+    color: #ffffff;
+    vertical-align: bottom;
+    background: #e9ecf2;
+    white-space: nowrap;
+    font-weight: normal;
+    border-bottom: 1px solid #999999;
+}
+
+.table thead th, .table thead td {
+    border-bottom-width: 1px;
+}
+
+.table tbody {
+    border-top: 1px solid #999999;
+}
+
+.table a {
+    color: #fff;
+}
+
+.table a.disabled {
+    color: #a3a3a3;
+    cursor: not-allowed;
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+    background-color: #cfe2fd;
+}
+
+.table-striped tbody tr:nth-of-type(even).selected {
+    background: #cfe2fd;
+}
+
+.oneGDvide_tbcon{
+    /*width: 1000px;*/
+    min-height: 454px;
+    font-size: 14px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    border-radius: 4px;
+    color: #9099b0;
+}
+
+.public_con #test {
+    margin-top: 16px;
+}
+
+.public_con #test #pic_no {
+    display: none;
+    text-align: center;
+    padding: 16px;
+}
+
+.public_con #test .table {
+    width: 100%;
+}
+
+.public_con #test .table thead tr {
+    width: 100%;
+}
+
+.public_con #test .table thead tr th {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #e9ecf2;
+    border: 1px solid #d3d9e5;
+    color: #9099b0;
+    font-weight: 800;
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 26%;
+}
+
+.public_con #test .table thead tr th:nth-child(2) {
+    width: 16%;
+}
+
+.public_con #test .table thead tr th:nth-child(3) {
+    width: 16%;
+}
+
+.public_con #test .table thead tr th:nth-child(4) {
+    width: 42%;
+}
+
+/*.public_con #test .table thead tr th:nth-child(5) {*/
+    /*width: 5%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(6) {*/
+    /*width: 5%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(7) {*/
+    /*width: 5%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(8) {*/
+    /*width: 6%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(9) {*/
+    /*width: 9%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(10) {*/
+    /*width: 6%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(11) {*/
+    /*width: 6%;*/
+/*}*/
+
+/*.public_con #test .table thead tr th:nth-child(12) {*/
+    /*width: 14%;*/
+/*}*/
+
+.public_con #test .table tbody tr {
+    width: 100%;
+}
+.public_con #test .table tbody tr td{
+    border: none;
+    border-bottom: 1px dotted #d3d9e5;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+.public_con #test .table tbody tr td .greyWord {
+    color: #aaaaaa !important;
+}
+
+.public_con #test .leftBottom {
+    margin-top: 16px;
+}
+
+.public_con #test .leftBottom .outPut {
+    float: left;
+    width: 80px;
+    height: 30px;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0px 10px;
+    border: 1px solid #3498da;
+    background: #3498da;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 0;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.public_con #test .leftBottom .outBack {
+    margin-left: 16px;
+    float: left;
+    width: 80px;
+    height: 30px;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 0px 10px;
+    border: 1px solid #3498da;
+    background: #3498da;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-block;
+    padding: 0;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.public_con #test .leftBottom .page {
+    float: right !important;
+}
+
+.public_con #test .leftBottom .page p {
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    margin-right: 16px;
+}
+.public_con #test .leftBottom .page>p>span{
+    color: #0066FF;
+}
+.public_con #test .leftBottom .page p .totalNumPage{
+    color: #0066FF;
+}
+.public_con #test .leftBottom .page .pageLft {
+    float: left;
+}
+
+.public_con #test .leftBottom .page .pageLft a {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #193249;
+    cursor: pointer;
+    border-radius: 2em;
+    text-align: center;
+    display: block;
+}
+
+.public_con #test .leftBottom .page .pageLft a.prev {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkYxMTNDQjU3QkQxMTExRTZCMzM0OTQ5OUM1NkY1RTRFIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkYxMTNDQjU4QkQxMTExRTZCMzM0OTQ5OUM1NkY1RTRFIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjExM0NCNTVCRDExMTFFNkIzMzQ5NDk5QzU2RjVFNEUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjExM0NCNTZCRDExMTFFNkIzMzQ5NDk5QzU2RjVFNEUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7Lim0XAAAAiklEQVR42mL8//8/Ay5gYmKiCaT8gHgiCx5FukBqHxCLAPEZJiIULQPiA0xEKIo7c+bMXyZiFIHkmIhRBFdISBEIMBobGwsB6Zv4FKFYTQgwAXW/A9JOQPwGiKOAeBHQKcxYTQQqvkxIMdxqQopR3IhPMSO2RIEtuBhxpR40xS6MRCQzXyCeBBBgAJAST1jipkI5AAAAAElFTkSuQmCC") center no-repeat;
+    width: 32px;
+    height: 32px;
+}
+
+.public_con #test .leftBottom .page .pageLft a.next {
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAQCAYAAAAvf+5AAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjAxMjJCRjQ5QkQxMjExRTZCNjg2OTBEMzYwRURCMEM1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjAxMjJCRjRBQkQxMjExRTZCNjg2OTBEMzYwRURCMEM1Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDEyMkJGNDdCRDEyMTFFNkI2ODY5MEQzNjBFREIwQzUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDEyMkJGNDhCRDEyMTFFNkI2ODY5MEQzNjBFREIwQzUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5wpMLnAAAAk0lEQVR42mI0NjbmYGBgyAfiTWfOnLnOgAMwAbE1EHcA8SETExNdfAoPAPEyIBYB4n24FDMBrfsLpOMIKQaZyECMYiYYg5BiJmRd+BQz/v//H8PhQElmILUIiKOA+A0QqzMxEAmYiDDNCeikd0xEKLqMYiI+RXCFhBSBFRKjCGaiAyFFMIVHgbgciO1wKQIBgAADAGicT+HRvEDfAAAAAElFTkSuQmCC") center no-repeat;
+    width: 32px;
+    height: 32px;
+}
+
+.public_con #test .leftBottom .page .pageLft a.noprev {
+    background: url("../images/tab_left_arrow_jinyong.png") no-repeat center;
+    width: 32px;
+    height: 32px;
+}
+
+.public_con #test .leftBottom .page .pageLft a.nonext {
+    background: url("../images/tab_right_arrow_jinyong.png") no-repeat center;
+    width: 32px;
+    height: 32px;
+}
+
+.public_con #test .leftBottom .page .pageLft a:hover {
+    background-color: #b8c4ce;
+    color: #fff;
+}
+
+.public_con #test .leftBottom .page .pageLft a.active {
+    color: #fff;
+    cursor: default;
+    background-color: #3498da;
+    border-color: #3498da;
+}
+
+.public_con #test .leftBottom .page .pageLft span {
+    text-align: center;
+    display: block;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #193249;
+    cursor: pointer;
+    border-radius: 2em;
+}
+
+.public_con #test .leftBottom .page .pageLft span:hover {
+    background-color: #b8c4ce;
+    color: #fff;
+}
+
+.public_con #test .leftBottom .page .pageRht {
+    text-align: center;
+    display: block;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    color: #193249;
+    cursor: pointer;
+    border-radius: 2em;
+}
+
+.public_con #test .leftBottom .page .pageRht:hover {
+    background-color: #b8c4ce;
+    color: #fff;
+}

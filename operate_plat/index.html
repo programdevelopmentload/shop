@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="./css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="./css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="./css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="./css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/verify_log.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/cate_manage/backstage_oneGradeDivide.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/pagination.css"/>
+    <!--[if lt IE 9]>
+    <script src="./js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="./js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        #iframeId {
+            display: block;
+        }
+
+        .pageSize_switch_con {
+            padding: 8px 12px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        .btn-primary {
+            background-color: #fff;
+            color: #4295e7 !important;
+            border-color: #fff;
+        }
+
+        .btn-warning {
+            color: #4295e7 !important;
+            background-color: #fff;
+            border-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-4">
+                        <div class="row">
+                            <a href="javascript:;" class="login_href">
+                            </a>
+                        </div>
+                    </li>
+                    <li class="col-xs-3">
+                        <div class="row">
+                            <a href="javascript:;" class="sloganLogo_href">
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right fr">
+                <ul class="">
+                    <a class="loginUserName" href="./html/personal_center/personal_data.html">张三</a>
+                    <span class="loginUserOut">退出</span>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<nav class="yynav">
+    <div class="container">
+        <div class="row">
+            <div class="navbar navbar-default nav_selfDefined" role="navigation">
+                <ul class="nav navbar-nav">
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/personal_center/personal_data.html?&amp;navId=9">
+                        <a href="#">首页</a></li>
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/user_manage/user_mangement.html?&amp;navId=10">
+                        <a href="#">账户管理</a></li>
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/seller_verify/qualifications_verify.html?&amp;navId=11">
+                        <a href="#">商家审核</a></li>
+                    <li class="active"
+                        data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/backstage_oneGradeDivide.html?&amp;navId=12">
+                        <a href="#">类目管理</a></li>
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/product_manage/onSale_list.html?&amp;navId=13">
+                        <a href="#">商品管理</a></li>
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/purchase_manage/price_new_makeprice_tuiguang.html?&amp;navId=14">
+                        <a href="#">采购管理</a></li>
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/promotion_manage/coupon_list.html?&amp;navId=15">
+                        <a href="#">促销管理</a></li>
+                    <li class=""
+                        data-ref="http://opb.jxjia.net/operate_plat/html/other_manage/businessArea.html?&amp;navId=16">
+                        <a href="#">其它</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="skuListDetail_con yycon">
+    <div class="container " id="box">
+        <div class="row clearfix">
+            <div class="left" style="min-height: 951px;">
+                <ul class="">
+                    <li data-id="291" class="leaf 促销管理">
+                        <a target="right" href="./html/promotion_manage/coupon_list.html?&leftId=29">首页</a>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li data-id="291" class="leaf 促销管理">
+                        <a target="right" href="./html/promotion_manage/coupon_list.html?&leftId=29">账户管理</a>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li data-id="291" class="leaf 商家审核">
+                        <a target="right" href="./html/seller_verify/qualifications_verify.html?&leftId=29">商家审核</a>
+                    </li>
+                    <li data-id="292" class="leaf 商家审核">
+                        <a target="right"
+                           href="./html/seller_verify/qualifications_verify_logo.html?&leftId=29">资质审核记录</a>
+                    </li>
+                    <li data-id="293" class="leaf 商家审核">
+                        <a target="right" href="./html/seller_verify/authentication_verify.html?&leftId=29">认证审核</a>
+                    </li>
+                    <li data-id="294" class="leaf 商家审核">
+                        <a target="right"
+                           href="./html/seller_verify/authentication_verify_logo.html?&leftId=29">认证审核记录</a>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li>
+                        <span class="leaf" data-id="29">后台分类</span>
+                        <ul style="display: block;">
+                            <li data-id="49" class="leaf 后台一级列表 leftNav_active"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/backstage_oneGradeDivide.html?&amp;leftId=49">
+                                <a target="right" href="./html/Category_manage/backstage_oneGradeDivide.html">后台一级列表</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="leaf" data-id="30">运营分类</span>
+                        <ul>
+                            <li data-id="50" class="leaf 运营一级列表"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/front_oneGradeDivide.html?&amp;leftId=50">
+                                运营一级列表
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="leaf" data-id="31">品牌管理</span>
+                        <ul>
+                            <li data-id="51" class="leaf 品牌列表"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/brand_manag.html?&amp;leftId=51">
+                                品牌列表
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="leaf" data-id="32">属性管理</span>
+                        <ul>
+                            <li data-id="53" class="leaf 属性单位"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/unit_manag.html?&amp;leftId=53">
+                                属性单位
+                            </li>
+                            <li data-id="52" class="leaf 商品属性"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/attr_manag_tuiguang.html?&amp;leftId=52">
+                                商品属性
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="leaf" data-id="33">型号管理</span>
+                        <ul>
+                            <li data-id="54" class="leaf 型号列表"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/model_list.html?&amp;leftId=54">
+                                型号列表
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="leaf" data-id="34">服务管理</span>
+                        <ul>
+                            <li data-id="43" class="leaf 服务属性"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/attr_service_list.html?&amp;leftId=43">
+                                服务属性
+                            </li>
+                            <li data-id="42" class="leaf 服务设定"
+                                data-ref="http://opb.jxjia.net/operate_plat/html/Category_manage/attr_service_set.html?&amp;leftId=42">
+                                服务设定
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li data-id="295" class="leaf 商家审核">
+                        <a target="right" href="./html/purchase_manage/price_verify_tuiguang.html?&leftId=29">商品管理</a>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li data-id="295" class="leaf 商家审核">
+                        <a target="right" href="./html/purchase_manage/price_verify_tuiguang.html?&leftId=29">新品定价</a>
+                    </li>
+                    <li data-id="296" class="leaf 商家审核">
+                        <a target="right" href="./html/purchase_manage/price_verify_tuiguang.html?&leftId=29">定价审核</a>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li data-id="291" class="leaf 促销管理">
+                        <a target="right" href="./html/promotion_manage/coupon_list.html?&leftId=29">商品管理</a>
+                    </li>
+                </ul>
+
+                <ul class="hide_ctr">
+                    <li data-id="291" class="leaf 促销管理">
+                        <a target="right" href="./html/promotion_manage/coupon_list.html?&leftId=29">其它</a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="frameRight">
+                <iframe class="yycon_right" src="" frameborder="0" scrolling-x="none" scrolling="none" width="98%"
+                        id="iframeId" name="right">
+
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博新美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<!-- 一级分类更改名称遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<!-- 测试遮罩弹窗 -->
+<!--<template type="text/html" id="test_mask_catch">-->
+<!--<div class="rename_container">-->
+<!--<div class="grade_nowName clearfix">-->
+<!--<div class="fl">-->
+<!--当前名称：-->
+<!--</div>-->
+<!--<div class="fl grade_nowName_address">-->
+<!--家具-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="grade_newName ">-->
+<!--<div class="clearfix">-->
+<!--<div class="fl">-->
+<!--新名称：-->
+<!--</div>-->
+<!--<div class="fl">-->
+<!--<input class="grade_newName_input" type="text" placeholder="请输入新名称">-->
+<!--</div>-->
+<!--</div>-->
+<!--<p class="grade_newName_tip selfhide">-->
+<!--不可空置/支持中英文，最多32个字符-->
+<!--</p>-->
+<!--</div>-->
+<!--<div class="conRightBottom_btn_sm rename_sure">-->
+<!--确认-->
+<!--</div>-->
+<!--</div>-->
+<!--</template>-->
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<!--最外层的遮罩-->
+<div type="text/html" class="index_mask">
+
+</div>
+<script src="./js/lib/jquery-1.12.4.min.js"></script>
+<script src="./js/lib/urlParam.js"></script>
+<script src="./js/lib/baseURL.js"></script>
+<script src="./js/lib/localstorage.js"></script>
+<script src="./js/lib/common.js"></script>
+<script src="./js/lib/operate.js"></script>
+
+
+<script src="./js/lib/bootstrap.min.js"></script>
+<script src="./js/lib/sidebar-menu.js"></script>
+<script src="./js/lib/jquery.datetimepicker.js"></script>
+<script src="./js/setDateTime.js"></script>
+<script src="./js/lib/art_template.js"></script>
+<script src="./js/lib/pagination.js"></script>
+<script src="./js/lib/jquery.popwin.js"></script>
+<!--<script src="./js/Category_manage/backstage_oneGradeDivide.js"></script>-->
+<script>
+    // function setIframeHeight(height){
+    //  height = height+20;
+    //  var frameRight = $(".frameRight").css("height",height);
+    //  console.log($(".frameRight").height() + '外层高度')
+    //  var iframeId =$("#iframeId").css("height",height);
+    //   console.log($("#iframeId").height()+ 'iframe高度')
+    //   $("#iframeId").css("height",frameRight)
+    //   var iframeHeight = $('#iframeId').height();
+    //   console.log(iframeHeight)
+    //   // $("#iframeId").css("height",iframeHeight+40);
+    //   console.log($(".frameRight").height());
+    //     $("#iframeId").css("height",sessionStorage.getItem("height"))
+
+    // }
+
+
+    // $(function(){
+
+    //    $("#iframeId").css("height",sessionStorage.getItem("height"))
+    //     console.log(sessionStorage.getItem("height"))
+    //     console.log()
+    //     window.parent.setIframeHeight(document.body.scrollTop)
+    //      console.log(window.parent.setIframeHeight(document.body.scrollTop));
+    // })
+
+
+    var localHtttp = getBaseUrl('lh');
+    var selfHostPath = getHostPath();
+    // var allMenu_Url = localHtttp + '/user/permission/getUserMenu';
+    var allMenu_Url = 'LOGIN_MENU.json';
+    var topMenuArr = [];
+    var leftMenuArr = [];
+    $(function () {
+        debugger;
+        $.ajax({
+            url: allMenu_Url,
+            // headers: {
+            //     'user-header-id': '12321312312312131'
+            // },
+            type: 'post',
+            catch: false,
+            sync: false,
+            dataType: 'json',
+            success: function (data) {
+                if (data.success == true) {
+                    $(".left").html("");
+                    var data = data.data;
+                    var str = "";
+                    $(data).each(function (i, v) {
+
+                        if (i == 0) {
+                            str += "<li  class='active' data-ref='" + data[i].menuUrl + "?&navId=" + data[i].id + "'><a href='#'>" + data[i].menuName + "</a></li>";
+                        } else {
+                            str += "<li  class='' data-ref='" + data[i].menuUrl + "?&navId=" + data[i].id + "'><a href='#'>" + data[i].menuName + "</a></li>";
+                        }
+                    });
+                    $(data).each(function (i, v) {
+                        leftMenuArr.push(data[i].childMenu);
+                    })
+                    $(leftMenuArr).each(function (ii, vv) {
+                        $(".left").append(buildMenu(vv, ii));
+                    });//侧部
+
+                    $(".navbar-nav").html(str);//顶部
+                    //侧边导航栏点击事件
+                    $(".left ul >li").off("click").on("click", function () {
+
+                        $(this).siblings().find("ul").css("display", "none"); //找到同一级的ul将其隐藏
+                        if ($(this).has("ul").length > 0) {
+                            $(this).children("ul").css("display", "block");   //如果是ul将其子项显示出来
+                        }
+                    });
+                    //侧边栏底层叶子点击事件
+                    $(".left ul >li>ul>li").off("click").on("click", function () {
+                        // alert(1);
+                        $(this).parent().parent().parent().find(".jump_leaf").removeClass("leftNav_active");
+                        $(this).addClass("leftNav_active");
+                        var iframeHref = $(this).data('ref');
+                        debugger;
+                        $("#iframeId").attr("src", iframeHref);
+                    })
+                    //顶部导航点击切换事件
+                    // function nav_jump(obj) {
+                    //     var $this = $(obj);
+                    //     var ref = $this.data("ref");
+                    //     window.location.href = ref;
+                    // }
+                    //顶部导航点击事件
+                    $(".nav_selfDefined>ul").on('click', 'li', function () {
+                        var index = $(this).index();
+                        $(this).addClass("active").siblings().removeClass("active");
+                        $(".left>ul").hide();
+                        $(".left>ul").eq(index).show();
+                        $(".left>ul").eq(index).find(".jump_leaf").removeClass('leftNav_active');
+                        $(".left>ul").eq(index).find(".jump_leaf").eq(0).addClass('leftNav_active');
+                        $(".left>ul").eq(index).find(".jump_leaf").eq(0).parent().show();
+                        $(".left>ul").eq(index).find(".jump_leaf").eq(0).trigger("click");
+                    })
+                    $(".left>ul").eq(0).find(".jump_leaf").eq(0).trigger("click");
+                } else {
+                    // var html = template('ajax_alert', {});
+                    // $.popwin(html, {
+                    //     title: '',
+                    //     fixed: true,
+                    //     drag: false, //是否可拖拽
+                    // });
+                    // $("#popwin_Out").addClass("attr_manag_add");
+                    // $.popwin.setPosition(410, 460);
+                    // $(".attr_manag_add .mask_tip").html("该名称已经存在");
+                    // // alert('该名称已经存在')
+                }
+            },
+            error:function () {
+
+            }
+        });
+    })
+
+
+    //渲染左侧导航菜单逻辑
+    function buildMenu(obj, ii) {
+        var str = "<ul>";
+        if (ii != 0) {
+            str = "<ul class='hide_ctr'>";
+        }
+        $.each(obj, function (index, item) {
+            // if (typeof (obj[index].childMenu) == "object") {
+            if (obj[index].leaf == 1) {
+                str += "<li><span class='leaf' data-id='" + obj[index].id + "'>" + obj[index].menuName + "</span>";
+                str += buildMenu(obj[index].childMenu); //递归判断是不是object,直到不是li
+                str += "</li>";
+            }
+            else {
+                //  alert(index + "--" + obj[index]);  //item == obj[index]
+                str += "<li data-id='" + obj[index].id + "' class='leaf jump_leaf " + obj[index].menuName + "' data-ref='" + obj[index].menuUrl + "?&leftId=" + obj[index].id + "'>" + obj[index].menuName + "</li>"
+            }
+        });
+        str += "</ul>";
+        return str;
+    }
+
+    //     $(function () {
+    //         //主导航切换事件
+    //         $(".nav_selfDefined>ul").on('click', 'li', function () {
+    //             var index = $(this).index();
+    //             $(this).addClass("active").siblings().removeClass("active");
+    //             $(".left>ul").hide();
+    //             $(".left>ul").eq(index).show();
+    // //            var urlFlag = $(this).data('id');//detail_brand//detail_attr
+    // //            if (urlFlag == 'detail_brand') {
+    // //                url_page_input = brand_pageUrl;
+    // //                $(".everyGrade_rename").show();
+    // //                $(".everyGrade_dele").show();
+    // //            } else {
+    // //                url_page_input = attr_pageUrl;
+    // //                $(".everyGrade_rename").hide();
+    // //                $(".everyGrade_dele").hide();
+    // //            };
+    //
+    //
+    //         });
+    //         //侧导航切换事件
+    //         $(".left ul li").click(function () {
+    //             $(this).siblings().find("ul").css("display", "none"); //找到同一级的ul将其隐藏
+    //             if ($(this).has("ul").length > 0) {
+    //                 $(this).children("ul").css("display", "block");   //如果是ul将其子项显示出来
+    //             }
+    //         });
+    //     })
+</script>
+</body>
+</html>

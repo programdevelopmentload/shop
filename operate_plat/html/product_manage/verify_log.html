@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>审核记录-审核记录</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="" >退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="vlog_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar vwaitDetail_sidebar  yyCon_left_sidebar  col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+
+                <div class="verifyLog_queryCtr clearfix">
+                    <div class="fl">
+                        关键字
+                    </div>
+                    <div class="fl">
+                        <input type="text" placeholder="商品标题/商品编码" id="keyword">
+                    </div>
+                    <div class="fl">
+                        申请时间：
+                    </div>
+                    <div class="vwatiTime_start fl">
+                        <input type="text" id="dates_start1" name="dates_start1" value="">
+                        <img src="../../images/calendar.png" alt="" class="dates_start1">
+                    </div>
+                    <div class="fl">
+                        至
+                    </div>
+                    <div class="vwatiTime_end fl">
+                        <input type="text" id="dates_end1" name="dates_end1" value="">
+                        <img src="../../images/calendar.png" alt="" class="dates_end1">
+                    </div>
+                    <div class="fr">
+                        <a href="javascript:void(0);" class="conRight_btn2 verifyLog_queryBtn">
+                            <span>查询</span>
+                        </a>
+                    </div>
+                </div>
+                <!-- <h4 class="conRight_h4">
+                    
+                    <span href="#" class="test_mask">模拟遮罩</span>
+                </h4> -->
+                <div class="verifyLog_queryRes clearfix">
+                    <div class="verifyLog_queryRes_tab">
+                    <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                        <!-- <table id="vwait_queryRes_tab"></table> -->
+                        <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                            <thead>
+                            <tr>
+                                <th>商品信息</th>
+                                <th>申请商家</th>
+                                <th>申请时间</th>                               
+                                <th>审核状态</th>
+                                <!-- th>审核人</th>
+                                <th>审核结果</th> -->
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+
+                        <div class="leftBottom clearfix">
+                            <!--<button type="button" class="outBack">批量退回</button>-->
+                            <div class="page pageBar" id="page">
+                                <p>共0条记录</p>
+                                <div class="pageLft clearfix">
+                                    <!--<a class="noprev"></a>-->
+                                    <a href="#" class="prev"></a>
+                                    <a href="#" class="active">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <span>...</span>
+                                    <a href="#" class="next"></a>
+                                    <!--<a class="nonext"></a>-->
+                                </div>
+                                <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="login_container test_mask_con">
+        <div class="maskBtn_operate">
+            <span href="" class="maskBtn mask_ok">是</span>
+            <span href="" class="maskBtn mask_false">否</span>
+            <!--<span href="" class="maskBtn mask_else">取消</span>-->
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/lib/getTime.js"></script>
+<script type="text/javascript" src="../../js/product_manage/verify_log.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //模拟按钮事件绑定
+        $('.yycon').on('click','.test_mask',function(){
+            let html = template('test_mask_catch',{});
+            $.popwin(html,{
+                title: '是否删除',
+                fixed: true,
+                drag: false, //是否可拖拽
+            });
+            $("#popwin_Out").addClass("mask_control");
+            // $.popwin.setPosition(410,460);
+        })
+        //弹窗中取消按钮事件绑定
+        $('body').on('click','.mask_false',function(){
+            $("#popwin_Blank").remove();
+            $("#popwin_Out").remove();
+        })
+        //弹窗中其他按钮事件绑定
+        // $('body').on('click','.mask_else',function(){
+        //     // $("#popwin_Blank").remove();
+        //     //    $("#popwin_Out").remove();
+        // })
+        /**日历组件初始化代码*/
+        setDateTime();
+    });
+    $.sidebarMenu($('.sidebar-menu'));
+
+
+
+</script>
+</body>
+</html>

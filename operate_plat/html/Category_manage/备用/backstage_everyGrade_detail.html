@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>类目管理-三级详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/cate_manag_oneGrade_add.css"/>-->
+   <!--[if lt IE 9]>     <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>     <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .cate_everyDetail_con_right .everyGrade_operate {
+            margin-bottom: 0px;
+        }
+
+        .cate_everyDetail_con_right .everyGrade_operate p {
+            text-align: center;
+        }
+
+        .cate_everyDetail_con_right .everyGrade_operate .conRightBottom_btn_sm {
+            margin: 20px 0px 0px 10px;
+        }
+        .pageSize_switch_con {
+            padding: 5px 0;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+<header class="yyheader ">
+    <div class="container">
+        <div class="row">
+            <div class="yyheader_left col-xs-4">
+                <ul class=" row">
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="login_href">
+                        </a>
+                    </li>
+                    <li class="col-xs-6">
+                        <a href="javascript:;" class="sloganLogo_href">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-5"></div>
+            <div class="yyheader_right col-xs-3">
+                <ul class="row">
+                    <li class="col-xs-8">
+                        <a href="" class="">首页</a>
+                        <a href="" class="">张三</a>
+                        <span class="">|</span>
+                        <a href="" class="">通知</a>
+                    </li>
+                    <li class="col-xs-4">
+                        <a href="">退出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="skuListDetail_con yycon">
+    <div class="container">
+        <div class="row">
+            <aside class="main-sidebar skuListDetail_sidebar yyCon_left_sidebar col-xs-2">
+                <section class="sidebar">
+                    <ul class="sidebar-menu">
+                        <li class="header">主导航</li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i
+                                    class="fa fa-angle-right pull-right"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                            </ul>
+                        </li>
+                        <li class="treeview">
+                            <a href="#">
+                                <i class="fa fa-files-o"></i>
+                                <span>布局选项</span>
+                                <span class="label label-primary pull-right">4</span>
+                            </a>
+                            <ul class="treeview-menu" style="display: none;">
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                                <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                                <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+            </aside>
+            <div class="cate_everyDetail_con_right public_con yycon_right yyconOrder_right col-xs-10 mess_con_form">
+
+                <h4 class="conRight_h4 sky">测试回退</h4>
+                <h4 class="conRight_h4">分类信息</h4>
+                <div class="">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div class="clearfix">
+                                <p class="fl">分类名称：</p>
+                                <div class="fl everyGrade_name">皮艺沙发</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">分类等级：</p>
+                                <div class="fl everyGrade_level">叶子分类</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 evg_msg_middle">
+                            <div class="clearfix">
+                                <p class="fl">所属一级分类：</p>
+                                <div class="fl everyGrade_oneFatherName">家具</div>
+                            </div>
+                            <div class="clearfix isHave_twoFather">
+                                <p class="fl">所属二级分类：</p>
+                                <div class="fl everyGrade_twoFatherName">客厅沙发</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="clearfix">
+                                <p class="fl">分类状态：</p>
+                                <div class="fl everyGrade_state">正常</div>
+                            </div>
+                            <div class="clearfix">
+                                <p class="fl">创建时间：</p>
+                                <div class="fl">
+                                    <span class="everyGrade_ymd">
+                                        2017-02-13
+                                    </span>
+                                    <span>&nbsp;&nbsp;&nbsp;</span>
+                                    <span class="everyGrade_hms">
+                                        13:33:67
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix cate_bottom_operate col-xs-12 everyGrade_operate">
+                        <p class="fl conRightBottom_btn_sm everyGrade_switch">关闭</p>
+                        <p class="fl conRightBottom_btn_sm everyGrade_rename">更改名称</p>
+                        <p class="fl conRightBottom_btn_sm everyGrade_dele">删除</p>
+                    </div>
+                </div>
+                <h4 class="conRight_h4">关联信息</h4>
+                <div>
+                    <!--分页我自己尝试-->
+                    <div class="wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                        <div id="pic_no" class="default-prompt">
+                            <img src="../../images/nothing.png">
+                            <br>
+                            <span>查询无结果</span>
+                        </div>
+                        <div class="clearfix pageSize_switch_con">
+                            <div class="fl">每页显示</div>
+                            <select class="pageSize_switch form-control fl">
+                                <option value="5" class="">5</option>
+                                <option value="10" class="">10</option>
+                                <option value="15" class="">15</option>
+                            </select>
+                            <button type="button" class="btn btn-success fl btn-sm">确定</button>
+                            <a href="./backstage_everyGrade_add.html?parentId=0&isLeaf=0" type="button"
+                               class="btn btn-success fr btn-sm">添加一级分类</a>
+                        </div>
+                        <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                            <thead>
+                            <tr class="th_switch">
+                                <th>分类名称</th>
+                                <th>分类等级</th>
+                                <th>分类状态</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="leftBottom clearfix">
+                            <button type="button" class="outPut" style="display: none">批量删除</button>
+                            <!--<button type="button" class="outBack">批量退回</button>-->
+                            <div class="page pageBar" id="page">
+                                <p>共
+                                    <span class="everyGrade_totalNum totalNumPage">23123231</span>
+                                    条记录</p>
+                                <div class="pageLft clearfix">
+                                    <!--<a class="noprev"></a>-->
+                                    <a href="#" class="prev"></a>
+                                    <a href="#" class="active">1</a>
+                                    <a href="#">2</a>
+                                    <a href="#">3</a>
+                                    <a href="#">4</a>
+                                    <a href="#">5</a>
+                                    <span>...</span>
+                                    <a href="#" class="next"></a>
+                                    <!--<a class="nonext"></a>-->
+                                </div>
+                                <div class="pageRht">
+                                    共
+                                    <span id="totalPage">
+                                    100
+                                    </span>
+                                    页
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-pagination">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="rename_container">
+        <div class="grade_nowName clearfix">
+            <div class="fl">
+                当前名称：
+            </div>
+            <div class="fl grade_nowName_address">
+                家具
+            </div>
+        </div>
+        <div class="grade_newName ">
+            <div class="clearfix">
+                <div class="fl">
+                    新名称：
+                </div>
+                <div class="fl">
+                    <input class="grade_newName_input" type="text" placeholder="请输入新名称">
+                </div>
+            </div>
+            <p class="grade_newName_tip selfhide">
+                不可空置/支持中英文，最多32个字符
+            </p>
+        </div>
+        <div class="conRightBottom_btn_sm rename_sure">
+            确认
+        </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script type="text/javascript">
+    $.sidebarMenu($('.sidebar-menu'));
+    // var _selfUrl = window.location.href;
+    $('.sky').click(function () {
+        self.location = document.referrer;
+    });
+    var regex_reName = /[\u4e00-\u9fa5_a-zA-Z0-9_]{1,10}/;
+    var _id = $.getUrlParam("id");//
+    var _name = $.getUrlParam("name");//分类名称
+    var _updateTime = $.getUrlParam("updateTime");
+    var _state = $.getUrlParam("state");
+    var _isLeaf = $.getUrlParam("isLeaf");//
+    var _level = $.getUrlParam("level");//分类等级
+    var _parentId = $.getUrlParam("parentId");//
+
+    // var fisrtTime = _updateTime.substr(0,10);
+    // var secondTime = _updateTime.substr(11);
+    $(function () {
+        // $('.everyGrade_ymd').html(fisrtTime);//挂载时间
+        // $('.everyGrade_hms').html(secondTime);//挂载时间
+
+        $('.everyGrade_state').html(_state);//挂载状态
+        $('.everyGrade_name').html(_name);//挂载本级分类名称
+
+        everyGrade_switch(_state);
+
+        if (_level == 3) {
+            $(".isHave_twoFather").show();
+            $('.everyGrade_level').html('叶子分类');//挂载本级分类级别
+            $('.everyGrade_oneFatherName').html('');//@此处挂载一级分类名字
+            $('.everyGrade_twoFatherName').html('');//@此处挂载二级分类名字
+        } else if (_level == 2) {
+            $(".isHave_twoFather").hide();
+            $('.everyGrade_level').html('二级');
+            $('.everyGrade_oneFatherName').html('');//@此处挂载一级分类名称
+        } else {
+            $(".evg_msg_middle").hide();
+            $('.everyGrade_level').html('一级');
+        }
+        ;
+
+        searchPage();
+
+        $('.pageSize_switch').on('change', function () {
+            searchPage();
+        })
+        //switch开关控制事件
+        $('.everyGrade_switch').on('click', function () {
+            _state = !_state;
+            var params = {
+                id: _id,
+                state: _state
+            };
+            switch_runFun(params);
+        });
+        //删除触发
+        $('.everyGrade_dele').on('click', function () {
+            var params = {
+                id: _id
+            };
+            delete_runFun(params);
+        });
+        //更改名称触发函数事件
+        $('.everyGrade_rename').on('click', function () {
+            debugger;
+            let html = template('test_mask_catch', {});
+            $.popwin(html, {
+                title: '更改名称',
+                fixed: true,
+                drag: false, //是否可拖拽
+            });
+            $("#popwin_Out").addClass("grade_RenameStyle");
+            // $.popwin.setPosition(410,460);
+
+            // var _oldName = $this.parent().data("name");//旧名称返回参数好像没有啊
+            // $(".grade_RenameStyle .grade_nowName_address").html(_oldName);
+            var _newName = $('.grade_newName_input').val();
+            var rename_sureDom = $('.rename_sure');
+            $(".grade_newName_input").blur(function () {
+                if (regex_reName.test(_newName)) {
+                    debugger;
+                    $('.grade_newName_tip').hide();
+                    renameFlag = true;
+                } else {
+                    $('.grade_newName_tip').html('不可空置/支持中英文，最多32个字符').show();
+                    renameFlag = false;
+                }
+            });
+            rename_sureDom.on('click', function () {
+                var _newName = $('.grade_newName_input').val(),
+                    renameFlag = regexAdd.test($('.grade_newName_input').val());
+                param = {
+                    id: _id,
+                    name: _newName
+                };
+                if (renameFlag) {
+                    grade_Rename_link(param);
+                } else {
+                    $('.everyGradeTip').html('不可空置/支持中英文，最多32个字符').show();
+                }
+            })
+        })
+    });
+    /**
+     * 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+
+    var pagination = new Pagination('http://172.16.41.23:8001/' + '/goods/GoodsClassification/showBackClass', "page", function (data) {
+        fillTableData(data)
+    });
+
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+    }
+
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        var pageSize = $('.pageSize_switch').val();
+        var params = {
+            'classId': 0,
+            'pageSize': pageSize
+            // 'currentPage': 1,
+
+        };
+        return params;
+    };
+
+    /** table数据 */
+    function fillTableData(data) {
+        // debugger;
+        if (data.length == 0) {   //没有资源时
+            $("#pic_no").show();
+            $(".pageSize_switch_con").hide();
+            $("#table_data").hide();
+            $(".leftBottom").hide();
+        } else {
+            $("#pic_no").hide();
+            $("#table_data").show();
+            $(".leftBottom").show();
+            var tr = "tr";
+            var content = $("#table_data tbody");
+            var content1 = $(".sky");
+            content.html("");
+            for (var i = 0; i < data.length; i++) {
+                if (data[i].flag != 0) {
+                    content.append(
+                        // '<a>跳转到'+data[i].param+'这里</a>'
+                        '<tr data-id="' + '">' +
+                        '<td>' + data[i].name + '</td>' +       //分类名称
+                        '<td>' + data[i].level + '</td>' +       //分类等级
+                        '<td>' + data[i].state + '</td>' +       //分类状态
+                        '<td >' + ' <a class="_look sm btn-sm btn-primary" href="./backstage_everyGrade_detail.html?id=' + data[i].id + '&name=' + data[i].name + '&updateTime=' + data[i].updateTime + '&state=' + data[i].state + '&isLeaf=' + data[i].isLeaf + '&level=' + data[i].level + '">查看</a><button class="_change btn-sm btn-warning">更改名称</button><button class="_open btn-sm btn-success">开启</button><button class="_close sm btn-danger btn-sm">删除</button>' + '</td>' +       //操作
+                        '</tr>'
+                    );
+                }
+            }
+            ;
+
+        }
+    }
+
+    /*开关后台交互执行函数*/
+    function switch_runFun(params) {
+        var switch_runUrl = 'http://172.16.41.23:8001/' + '/goods/GoodsClassification/backCloseOpen';
+        $.ajax({
+            type: "post",
+            url: switch_runUrl,
+            dataType: "json",
+            data: params,
+            success: function (data) {
+                if (data.success == true) {//判断某个数
+                    everyGrade_switch(_state);
+                    // debugger;直接删除然后刷新数据
+
+                } else {
+                    alert('//提示有子类挂载，阻止删除【弹框有挂载】')
+
+                }
+            },
+            error: function () {
+                _state = !_state;
+                everyGrade_switch(_state);
+                // debugger;
+
+            }
+        });
+    }
+
+    /*开关渲染函数*/
+    function everyGrade_switch(_state) {
+        if (_state == 0) {
+            $('.everyGrade_switch').html('开启')
+        } else {
+            $('.everyGrade_switch').html('关闭')
+        }
+        ;
+    };
+
+    /*删除单行数据执行函数*/
+    function delete_runFun(params) {
+        var delete_runUrl = 'http://172.16.41.23:8001/' + '/goods/GoodsClassification/backDelClass';
+        $.ajax({
+            type: "post",
+            url: delete_runUrl,
+            dataType: "json",
+            data: params,
+            success: function (data) {
+                if (data.success == true) {//判断返回参数中某个数据，不是这个
+                    // window.location.href = _selfUrl;
+                    self.location = document.referrer;
+                    // debugger;直接删除然后刷新数据
+                } else {
+                    alert('阻止删除【弹框提示】')
+                }
+            },
+            error: function () {
+                alert('未连接到数据库')
+            }
+        });
+    };
+
+    /*更改名称触发函数*/
+    function grade_Rename(obj) {
+        let html = template('test_mask_catch', {});
+        $.popwin(html, {
+            title: '更改名称',
+            fixed: true,
+            drag: false, //是否可拖拽
+        });
+        $("#popwin_Out").addClass("grade_RenameStyle");
+        // $.popwin.setPosition(410,460);
+    };
+
+    /*更改名称交互函数*/
+    function grade_Rename_link(params) {
+        $.ajax({
+            url: 'http://172.16.41.23:8001/' + '/goods/GoodsClassification/changeName',
+            type: 'post',
+            dataType: 'json',
+            data: params,
+            success: function (data) {
+                if (data.message == '成功') {
+                    $('#popwin_Close').click();//@此处思考下到底怎么处理
+
+                    alert('更改名称成功');
+                } else {
+                    alert('该名称已经存在')
+                }
+            },
+            error: function () {
+                alert('连接错误');
+            }
+        });
+    }
+</script>
+</body>
+</html>

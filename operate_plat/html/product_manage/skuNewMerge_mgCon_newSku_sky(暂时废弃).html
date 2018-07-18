@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/skuNewMerge_mgCon_newSku.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="yyheader clearfix">
+    <div class="yyheader_left">
+        <ul class="clearfix">
+            <li>
+                <a href="javascript:;">
+                    <img src="../../images/logo.png"/>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:;">
+                    <img src="../../images/logo_img.png"/>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="yyheader_right">
+        <ul>
+            <li class="fr">
+                <a href="" >退出</a>
+            </li>
+            <li class="fr">
+                <a href="" class="fr">通知</a>
+                <span class="fr">|</span>
+                <a href="" class="fr">张三</a>
+                <a href="" class="fr">首页</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="skuListDetail_con ">
+    <div class="cler_fl">
+        <!--<nav class="navbar navbar-default">-->
+        <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash; Brand and toggle get grouped for better mobile display &ndash;&gt;-->
+        <!--<div class="navbar-header">-->
+        <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+        <!--<span class="sr-only">Toggle navigation</span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--<span class="icon-bar"></span>-->
+        <!--</button>-->
+        <!--<a class="navbar-brand" href="#">Brand</a>-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Collect the nav links, forms, and other content for toggling &ndash;&gt;-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+        <!--<ul class="nav navbar-nav">-->
+        <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+        <!--<li><a href="#">Link</a></li>-->
+        <!--<li class="dropdown">-->
+        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li><a href="#">Action</a></li>-->
+        <!--<li><a href="#">Another action</a></li>-->
+        <!--<li><a href="#">Something else here</a></li>-->
+        <!--<li role="separator" class="divider"></li>-->
+        <!--<li><a href="#">Separated link</a></li>-->
+        <!--<li role="separator" class="divider"></li>-->
+        <!--<li><a href="#">One more separated link</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--<form class="navbar-form navbar-left">-->
+        <!--<div class="form-group">-->
+        <!--<input type="text" class="form-control" placeholder="Search">-->
+        <!--</div>-->
+        <!--<button type="submit" class="btn btn-default">Submit</button>-->
+        <!--</form>-->
+        <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li><a href="#">Link</a></li>-->
+        <!--<li class="dropdown">-->
+        <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>-->
+        <!--<ul class="dropdown-menu">-->
+        <!--<li><a href="#">Action</a></li>-->
+        <!--<li><a href="#">Another action</a></li>-->
+        <!--<li><a href="#">Something else here</a></li>-->
+        <!--<li role="separator" class="divider"></li>-->
+        <!--<li><a href="#">Separated link</a></li>-->
+        <!--</ul>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
+        <!--</div>&lt;!&ndash; /.container-fluid &ndash;&gt;-->
+        <!--</nav>-->
+        <aside class="main-sidebar skuListDetail_sidebar fl">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="header">主导航</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-dashboard"></i> <span>仪表盘</span> <i class="fa fa-angle-right pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v1</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> 仪表盘 v2</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-files-o"></i>
+                            <span>布局选项</span>
+                            <span class="label label-primary pull-right">4</span>
+                        </a>
+                        <ul class="treeview-menu" style="display: none;">
+                            <li><a href="#"><i class="fa fa-circle-o"></i> 顶部导航</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> 盒子布局</a></li>
+                            <li><a href="#"><i class="fa fa-circle-o"></i> 固定布局</a></li>
+                            <li class=""><a href="#"><i class="fa fa-circle-o"></i> 折叠侧边栏</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </section>
+        </aside>
+        <div class="skuListDetail_con_right fl">
+            <div class="skuListDetail_Bread">
+                <span>商品管理》</span>
+                <span>商品审核》</span>
+                <span>待审核》</span>
+                <span>审核详情》</span>
+            </div>
+            <div class="skuListDetail_list skuListDetail_bg clearfix">
+                <div class="skuListDetail_list conRight1 clearfix">
+                    <h2>喜宝梦 儿童书柜 A109</h2>
+                </div>
+
+                <div class="clearfix fl">
+                    <p class="fl">商家账号:</p>
+                    <div class="fl">蓝翔家</div>
+                </div>
+                <div class="clearfix fl">
+                    <p class="fl">审核阶段:</p>
+                    <div class="fl">商品审核</div>
+                </div>
+                <div class="clearfix fl">
+                    <p class="fl">审核状态:</p>
+                    <div class="fl">待审核</div>
+                </div>
+                <div class="clearfix fl">
+                    <p class="fl">手机号:</p>
+                    <div class="fl">13466920248</div>
+                </div>
+                <div class="clearfix fl">
+                    <p class="fl">申请时间:</p>
+                    <div class="fl clearfix">
+                        <span class="fl">
+                            2018-08-09
+                        </span>
+                        <span class="fl">
+                            10:33:09
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="skuListDetail_basicInfo">
+                <h4 class="skuListDetail_h4">基本信息</h4>
+                <div class="clearfix">
+                    <div class="skuListDetail_basicInfo_left clearfix fl">
+                        <div class="clearfix">
+                            <p class="fl">所属分类：</p>
+                            <div class="fl">客厅-书架-儿童书柜</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">所属品牌：</p>
+                            <div class="fl">喜梦宝</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">型号：</p>
+                            <div class="fl">喜梦宝</div>
+                        </div>
+                    </div>
+                    <div class="skuListDetail_basicInfo_right clearfix fl">
+                        <div class="clearfix">
+                            <p class="fl">商品类型：</p>
+                            <div class="fl">标准产品</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">产地：</p>
+                            <div class="fl">澳大利亚</div>
+                        </div>
+                        <div class="clearfix">
+                            <p class="fl">风格：</p>
+                            <div class="fl">飞舞轻扬</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="skuListDetail_standard">
+                <h4 class="skuListDetail_h4">规格信息</h4>
+                <div class="clearfix skuListDetail_info">
+                    <div class="clearfix">
+                        <p class="fl">图片：</p>
+                        <div class="fl">
+                            <div class="fl">
+                                <img src="../../images/standard_img.jpg" alt="">
+                            </div>
+                            <div class="fl">
+                                <img src="../../images/standard_img.jpg" alt="">
+                            </div>
+                            <div class="fl">
+                                <img src="../../images/standard_img.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <p class="fl">颜色：</p>
+                        <div class="fl">
+                            四格
+                        </div>
+                    </div>
+                    <div class="clearfix">
+                        <p class="fl">尺寸：</p>
+                        <div class="fl">
+                            高书架
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="skuListDetail_goodDetail">
+                <h4 class="skuListDetail_h4">
+                    商品详情
+                </h4>
+                <div class="skuListDetail_paramImg">
+                    <img src="../../images/vwaitDetail_param.jpg" alt="">
+                </div>
+                <div class="skuListDetail_lookImg">
+                    查看完整图片
+                </div>
+            </div>
+            <div class="skuListDetail_otherInfo">
+                <h4 class="skuListDetail_h4">
+                    其他信息
+                </h4>
+                <div class="skuListOther_packing clearfix">
+                    <div class="fl">包装清单</div>
+                    <div>
+                        <p class="fl">四格矮书架 <span>X1</span></p>
+                        <p class="fl">四格矮书架 <span>X1</span></p>
+                        <p class="fl">四格矮书架 <span>X1</span></p>
+                        <p class="fl">四格矮书架 <span>X1</span></p>
+                    </div>
+                </div>
+                <div class="skuListOther_parts clearfix">
+                    <div class="fl">配件清单</div>
+                    <div>
+                        <p class="fl">液压缓冲门铰 <span>X1</span></p>
+                        <p class="fl">液压缓冲门铰 <span>X1</span></p>
+                        <p class="fl">液压缓冲门铰 <span>X1</span></p>
+                        <p class="fl">液压缓冲门铰 <span>X1</span></p>
+                        <p class="fl">液压缓冲门铰 <span>X1</span></p>
+                        <p class="fl">液压缓冲门铰 <span>X1</span></p>
+                    </div>
+                </div>
+                <div class="skuListOther_explain clearfix">
+                    <div class="fl">购买说明</div>
+                    <div class="fl">
+                        <p>
+                            凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！
+                        </p>
+                        <p class="skuListOther_explain_etc">
+                            注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <p class="skuListDetail_btn">
+                        确认并提交
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+    <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+</div>
+
+
+
+<!--<div>-->
+    <!--<div class="skuListDetail_list conRight1 clearfix">-->
+        <!--<h2>喜宝梦 儿童书柜 A109</h2>-->
+    <!--</div>-->
+    <!--<div class="skuListDetail_basicInfo">-->
+        <!--<h4 class="conRight_h4">-->
+            <!--<span>基本信息</span>-->
+            <!--<span><img src="../../images/standard_img.jpg" />编辑</span>-->
+        <!--</h4>-->
+        <!--<div class="clearfix">-->
+            <!--<div class="skuListDetail_basicInfo_left clearfix fl">-->
+                <!--<div class="clearfix form-group lh">-->
+                    <!--<label for="inputText" class="control-label fl">所属分类：</label>-->
+                    <!--<div class="fl">-->
+                        <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix">-->
+                    <!--<div class="clearfix form-group lh">-->
+                        <!--<label for="inputText" class="control-label fl">所属品牌：</label>-->
+                        <!--<div class="fl">-->
+                            <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix">-->
+                    <!--<div class="clearfix form-group lh">-->
+                        <!--<label for="inputText" class="control-label fl">型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>-->
+                        <!--<div class="fl">-->
+                            <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="skuListDetail_basicInfo_right clearfix fl">-->
+                <!--<div class="clearfix">-->
+                    <!--<div class="clearfix form-group lh">-->
+                        <!--<label for="inputText" class="control-label fl">商品类型：</label>-->
+                        <!--<div class="fl">-->
+                            <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix">-->
+                    <!--<div class="clearfix form-group lh">-->
+                        <!--<label for="inputText" class="control-label fl">产&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地：</label>-->
+                        <!--<div class="fl">-->
+                            <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix">-->
+                    <!--<div class="clearfix form-group lh">-->
+                        <!--<label for="inputText" class="control-label fl">风&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格：</label>-->
+                        <!--<div class="fl">-->
+                            <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="skuListDetail_standard">-->
+        <!--<h4 class="conRight_h4">-->
+            <!--<span>规格信息</span>-->
+            <!--<span><img src="../../images/standard_img.jpg" />编辑</span>-->
+        <!--</h4>-->
+        <!--<div class="clearfix skuListDetail_info">-->
+            <!--<div class="clearfix">-->
+                <!--<p class="fl">图片：</p>-->
+                <!--<div class="fl">-->
+                    <!--<div class="fl">-->
+                        <!--<img src="../../images/standard_img.jpg" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="fl">-->
+                        <!--<img src="../../images/standard_img.jpg" alt="">-->
+                    <!--</div>-->
+                    <!--<div class="fl">-->
+                        <!--<img src="../../images/standard_img.jpg" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="clearfix form-group lh">-->
+                <!--<label for="inputText" class="control-label fl">颜色：</label>-->
+                <!--<div class="fl">-->
+                    <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="clearfix form-group lh">-->
+                <!--<label for="inputText" class="control-label fl">尺寸：</label>-->
+                <!--<div class="fl">-->
+                    <!--<input type="text" class="form-control" id="inputText" placeholder="书柜">-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--</div>-->
+    <!--<div class="skuListDetail_goodDetail">-->
+        <!--<h4 class="conRight_h4">-->
+            <!--<span>商品详情</span>-->
+            <!--<span><img src="../../images/standard_img.jpg" />编辑</span>-->
+        <!--</h4>-->
+        <!--<div class="skuListDetail_paramImg">-->
+            <!--<img src="../../images/vwaitDetail_param.jpg" alt="">-->
+        <!--</div>-->
+        <!--<div class="conRight_lookImg">-->
+            <!--查看完整图片-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="skuListDetail_otherInfo">-->
+        <!--<h4 class="skuListDetail_h4 conRight_h4">-->
+            <!--<span>其他信息</span>-->
+            <!--<span><img src="../../images/standard_img.jpg" />编辑</span>-->
+        <!--</h4>-->
+        <!--<div class="skuListOther_packing clearfix">-->
+            <!--<div class="fl">包装清单</div>-->
+            <!--<div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">四格矮书架 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">四格矮书架 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">四格矮书架 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">四格矮书架 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<div class="skuListOther_parts clearfix">-->
+            <!--<div class="fl">配件清单</div>-->
+            <!--<div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+                <!--<div class="clearfix form-group lh fl mr10">-->
+                    <!--<label for="inputText" class="control-label fl">液压缓冲门铰 * </label>-->
+                    <!--<div class="fl w20">-->
+                        <!--<input type="text"  class="form-control w30" id="inputText" placeholder="30">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="skuListOther_explain clearfix">-->
+            <!--<div class="fl">购买说明</div>-->
+            <!--<div class="fl">-->
+                <!--<p>-->
+                    <!--凭质保证书及精选商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由精选联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。精选商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！-->
+                <!--</p>-->
+                <!--<p class="skuListOther_explain_etc">-->
+                    <!--注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！-->
+                <!--</p>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div>-->
+            <!--<p class="conRightBottom_btn">-->
+                <!--确认并提交-->
+            <!--</p>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/sidebar-menu.js"></script>
+<script type="text/javascript">
+    $.sidebarMenu($('.sidebar-menu'));
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  	<title>添加模板</title>
+  	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+	.addBtn{
+		margin-top: 30px;
+	}
+  .tip{
+    font-size: 12px;
+    margin-top: 10px
+  }
+  .echartTab p{
+    display: inline-block;
+  }
+  .border-bottom{
+    border-bottom: 1px solid #ccc;
+    width: 100px;
+  }
+</style>
+<body>
+<div class="uMDvfyDetail_con_right yycon_right pagination_box_ctr public_con col-xs-12">
+    <div class="areaInfo">
+        <h4 class="conRight_h4">添加模板</h4>
+      	<div class="agreeModel">
+      		<div class="form-group form-inline">
+      			<label for="" class="control-label" >协议名称:</label>
+      			<input type="text" placeholder="" class="form-control agreement" name="">
+      		</div>
+          <div class="form-group form-inline">
+            <label for="" class="control-label" >类型标示:</label>
+            <input type="text" placeholder="" class="form-control agreement" name="" id="code">
+            <p class="tip">请采用XY+三位数字，形式组合成协议编号，编号不能重复</p>
+          </div>
+          <div class='echartTab'>
+            <label>插入数据:</label>
+            <p>
+              <input type="checkbox"  name="checkNum"  value="订单编号"> 订单编号
+              <input type="checkbox"  name="checkNum"  value="下单时间"> 下单时间
+              <input type="checkbox"  name="checkNum"  value="商品名称"> 商品名称
+
+            </p>
+          </div>
+      		<div class="form-group form-inline">
+      			<label for="" class="control-label">协议类型:</label>
+        		<select class="form-control agreementSelect">
+        			<option value="商家协议">商家协议</option>
+        			<option value="用户协议">用户协议</option>
+                    <option value="工人协议">工人协议</option>
+        		</select>
+      		</div>
+      		
+      		<p>编辑协议内容:</p>
+      		<div id="editor"> </div>
+          <div class="addBtn btn btn-primary" id="btnSure">确认并提交</div>
+      	</div>
+    </div>
+    <div class="m-pagination">
+
+   </div>
+</div>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script type="text/javascript" src="../../js/lib/wangeditor.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript">
+// $(function () {
+//     nav_Common_fun("协议条款列表","添加协议");
+// })
+
+//var localHttp = 'http://172.16.39.70:8003'
+var localHttp=getBaseUrl('y_jl');//蒋磊
+var listUrl =localHttp +'/agreement/create';
+var E = window.wangEditor;
+var editor = new E('#editor')
+editor.create()
+var  textAdd=editor.txt.html(); //获取文本内容
+      // 或者 var editor = new E( document.getElementById('editor') )
+      
+     //点击checkbox  数据插入富文本编辑器中
+var idx = 0;
+$('input[type="checkbox"]').click(function(){
+   var v = $(this).val();
+   console.log(v);
+   $(this).attr('checked',true);
+   if ($(this).is(":checked")) {
+      idx++;
+      editor.txt.append('<p id="'+idx+'">'+v+':</p>')
+   }else{
+       //editor.txt.clear('<p>');
+        $("#"+idx).remove();
+       textAdd;
+   }
+
+});
+$('#btnSure').click(function(){
+  // 正则验证协议编号 XY+三位数
+  var reg = /^(XY[\d]{3})$/;
+    textAdd=editor.txt.html(); //获取文本内容
+  console.log(textAdd);
+  var code = $('#code').val();
+  var re = new RegExp(reg);
+
+  var name =$.trim($('.agreement').val())//获取条款名称
+  var type =$('.agreementSelect option:selected').val();
+  if (re.test(code) && code!='' && name !='' && type !='' && $('.w-e-text p').text()!=''){
+        $.ajax({
+          type:"post",
+          url:listUrl,
+          data:{name:name,type:type,type, comment:textAdd,code:code},
+          dataType:'json',
+          success:function(data){
+            if (data.success==true) {
+              //debugger;
+              console.log(textAdd)
+              alert(data.message)
+              window.location.href='./agreement_list.html';
+            }else{
+              alert('请检查信息是否正确！')
+              return false;
+            }
+          }
+        })
+      }else{
+         alert('请填写正确的信息！')
+         return false;
+      }
+
+
+     })
+</script>
+</body>
+</html>

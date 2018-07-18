@@ -1,0 +1,79 @@
+/*
+.standard_spc {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 10px
+}
+.standard_spc:last-of-type{
+	border-bottom: none;
+}
+.standard_spc img{
+	display: inline-block;
+	width: 45px;
+	height: 50px;
+}
+.public_con #test .table tbody tr td{
+	text-align: left;
+}
+.public_con #test .table tbody tr td.border_right{
+	border-right: 1px solid #ccc;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    vertical-align: inherit;
+}
+.public_con #test .table tbody tr td.t_a{
+	text-align: center;
+}
+.public_con #test .table thead tr th:nth-child(2){
+	width: 25%;
+}*/
+
+
+
+
+.public_con #test .table tbody tr.trTrue td{
+	text-align: left;
+}
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 35%;
+}
+.public_con #test .table thead tr th:nth-child(2) {
+    width: 30%;
+}
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th{
+    vertical-align: inherit
+}
+.standa_borderRight{
+    border-right: 1px solid #ccc;
+}
+.standard_spc{
+    border-bottom: 1px solid #ccc;
+   display: flex;
+   display: -webkit-flex;
+}
+.standard_spc:last-of-type{
+    border-bottom: 0
+}
+.standard_left{
+    flex:1;
+    -webkit-flex:1;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center
+}
+.standard_left img{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+  
+}
+.standard_right{
+    flex:3;
+    -webkit-flex:3;
+    
+}
+.standard_right span{
+    display: block
+}
+.table a{
+	color: #337ab7
+}

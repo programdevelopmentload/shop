@@ -1,0 +1,527 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body, div, dl, dt, dd, ul, ol, li,h1, h2, h3, h4, h5, h6, form, legend, button, p,th,td,input, select {
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  font-family: "微软雅黑";
+  list-style: none;
+  outline-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /*font-size:100%;*/
+  font-weight: normal;
+}
+
+fieldset, img {
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+}
+
+a:hover {
+  text-decoration: none!important;
+}
+
+a:focus {
+  outline: none;
+}
+
+input {
+  border: none;
+  outline: none;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color: #929fbe; opacity:1;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color: #929fbe;opacity:1;
+}
+
+input:-ms-input-placeholder{
+  color: #929fbe;opacity:1;
+}
+
+input::-webkit-input-placeholder{
+  color: #929fbe;opacity:1;
+}
+.clearfix:after {
+  content: "\20";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+.clearfix {
+  display: block;
+}
+
+.clearbox {
+  border-top: transparent 0px solid;
+  clear: both;
+  font-size: 0;
+  margin-top: 0px;
+  visibility: hidden;
+  overflow: hidden;
+  height: 0;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../fonts/glyphicons-halflings-regular.eot');
+  src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+/*popwin style*/
+#popwin_Blank{position:fixed;z-index:2000;left:0;top:0;width: 100vw!important;height: 100vh!important;background:black;}
+.popwin_out{
+  padding:0px;background:#fff;position:absolute;z-index:2000;
+  left:-9999px;
+  /*width: 696px!important;*/
+  /*height: 370px!important;*/
+  border: 1px solid #d3d9e5;
+  border-radius: 5px;
+}
+.popwin_in{border:none;background:none;height: 100%;}
+.popwin_bar{background:#ffffff; padding:0 20px;border-bottom:0;position: relative;height: 65px;overflow: hidden;}
+.popwin_title{line-height:110px;color:#7a85a2;text-align: center;font-size: 16px;}
+.popwin_close{position:absolute;top: 0;right: 0;}
+.popwin_close a{width:22px;height:22px;background: url(../images/popwin_close.png) no-repeat center center / contain;text-decoration:none;cursor:pointer;position:absolute;right: 14px;top: 0px;}
+/*.popwin_close a:hover{background-position:0 0;}*/
+.popwin_body{background:#fff;text-align: center;}
+.popwin_subbtn{display:inline-block;width:57px;height:23px;margin:0 10px;background:url(../img/popwin_bnbg.gif) no-repeat;border:none;color:#ffffff;cursor:pointer;}
+.popwin_cancelbtn{display:inline-block;width:57px;height:23px;margin:0 10px;background:url(../img/popwin_bnbg2.gif) no-repeat;border:none;color:#ffffff;cursor:pointer;}
+.popwin_success{color:#3f3f3f;background:url(../img/popwin_right.png) no-repeat left center;margin: 0 37px;padding-left: 40px;height:80px;line-height:80px;font-size:16px;}
+.popwin_success>em{color:#ec8134;font-size: 22px;}
+.popwin_warning{padding:3px 0 0 50px;width:210px;color: #000000;line-height: 1.5;min-height: 20px;}
+.login_again{color: #1b8ee9;}
+.popwin_warning1{padding:3px 0 0 105px;width:155px;}
+.popwin_warning2{padding:3px 0 0 95px;width:165px;}
+.popwin_success2{padding:3px 0 0 37px;color:#3f3f3f;background:url(../img/popwin_suc.gif) no-repeat 7px top;width:237px;min-height:20px;_height:20px;}
+.popwin_remind{padding:20px 18px;color:#3f3f3f;background:#fff;-moz-border-radius:3px;border-radius:3px;}
+.popwin_pbn{text-align:center;padding-top:20px;clear:both;}
+.popwin_con{background:#fff;padding:10px;-moz-border-radius:0 0 3px 3px;border-radius:0 0 3px 3px;}
+.popwin_remindb{border-top:none!important;-moz-border-radius:0 0 3px 3px!important;border-radius:0 0 3px 3px!important;}
+.popwin_wares{clear:both;padding:14px 0 0 0}
+.popwin_wares p{display:block;clear:both;color:#787878;line-height:18px;padding-left: 8px;background:url(../img/popwin_li.gif) no-repeat 0 7px;}
+.popwin_ask{padding:3px 0 0 37px;color:#3f3f3f;background:url(../img/popwin_ask.gif) no-repeat 7px top;width:237px;min-height:20px;_height:20px}
+.popwin_error{padding:3px 0 0 37px;color:#3f3f3f;background:url(../img/popwin_error.gif) no-repeat 7px top;width:237px;min-height:20px;_height:20px}
+/*分页更改名称遮罩弹框进入*/
+.grade_RenameStyle{
+  /*height: 500px!important;*/
+  /*width: 410px!important;*/
+  /*position: absolute!important;*/
+}
+.grade_RenameStyle h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.grade_RenameStyle .rename_container{
+  padding:0px 36px 0 36px;
+  width: 408px;
+  height: 260px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.grade_RenameStyle .rename_container input {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
+  box-sizing: border-box;
+  float: left;
+  border: 1px solid #d3dbde;
+  font-size: 14px;
+  padding-left: 18px;
+  color: #929fbe;
+}
+.grade_RenameStyle .grade_nowName{
+
+}
+.grade_RenameStyle .grade_nowName,.grade_newName{
+  margin-top: 30px;
+  height: 35px;
+  line-height: 35px;
+  text-align: left;
+}
+.grade_RenameStyle .grade_newName{
+  height: 70px;
+}
+.grade_RenameStyle .grade_nowName div:nth-child(1),
+.grade_RenameStyle .grade_newName div>div:nth-child(1)
+{
+  width:104px;
+  text-align: left;
+  padding-right: 1px;
+}
+.grade_RenameStyle .rename_container .conRightBottom_btn_sm{
+  margin: 15px auto;
+}
+.grade_RenameStyle .rename_container .grade_newName_tip {
+  padding-left: 90px;
+  color: red;
+}
+.grade_RenameStyle .popwin_close a{
+  right: 19px;
+  top: 19px;
+}
+/*增加属性遮罩校验*/
+.attr_manag_add{
+  /*height: 500px!important;*/
+  /*width: 410px!important;*/
+  /*position: absolute!important;*/
+}
+.attr_manag_add h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.attr_manag .rename_container{
+  padding:0px 36px 0 36px;
+  width: 408px;
+  height: 260px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.attr_manag_add .popwin_close a{
+  right: 19px;
+  top: 22px;
+}
+.attr_manag_add .attrAdd_container {
+  padding: 40px 36px 0 36px;
+  text-align: center;
+  width: 408px;
+  height: 200px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+#detail_bubble{
+  margin-bottom: 30px;
+}
+.attr_manag_add .mergeBubble_container {
+  padding: 40px 36px 40px 36px;
+  text-align: center;
+  width: 1100px;
+  min-height: 200px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.attr_manag_add .mergeBubble_container .bubble_standard_info img{
+  width: 80px;
+  height: 60px;
+}
+.bubble_goodsdetail img{
+  width: 880px;
+  height: 660px;
+}
+/*分配到店的确认遮罩*/
+.distribution_store h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.distribution_store .distribution_container{
+  padding:30px 36px 0 36px;
+  width: 450px;
+  min-height: 260px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.distribution_store .dis_bubble_listTittle{
+  padding: 15px 0 ;
+}
+.distribution_store .dis_bubble_listItems{
+  padding: 6px 0 ;
+}
+.distribution_store .popwin_close a{
+  right: 19px;
+  top: 22px;
+}
+.distribution_store .distribution_container .bubble_standard_info img{
+  width: 80px;
+  height: 60px;
+}
+.distribution_store .sub_btn_box{
+  margin-bottom: 40px;
+  padding-top: 20px;
+}
+.distribution_store img{
+  width: 880px;
+  height: 660px;
+}
+/*添加单位页面遮罩校验*/
+.attr_manag_add{
+  /*height: 500px!important;*/
+  /*width: 410px!important;*/
+  /*position: absolute!important;*/
+}
+.attr_manag_add h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.attr_manag .unitAdd_container{
+  padding:0px 36px 0 36px;
+  width: 408px;
+  height: 260px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.attr_manag_add .popwin_close a{
+  right: 19px;
+  top: 22px;
+}
+.attr_manag_add .unitAdd_container {
+  padding: 0px 36px 0 36px;
+  text-align: center;
+  width: 408px;
+  height: 200px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+#detail_bubble{
+  margin-bottom: 30px;
+}
+.attr_manag_add .unitAdd_container {
+  /*padding: 40px 36px 40px 36px;*/
+  text-align: center;
+  width: 500px;
+  min-height: 400px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.attr_manag_add .mergeBubble_container .bubble_standard_info img{
+  width: 80px;
+  height: 60px;
+}
+.bubble_goodsdetail img{
+  width: 880px;
+  height: 660px;
+}
+.sub_btn_box_unit{
+  margin: 20px 0 30px 0px;
+}
+.unitAdd_container .unit_title{
+  height: 34px;
+  line-height: 34px;
+}
+.unitAdd_container .form-control{
+  width: 60%;
+}
+.unitAdd_container .everyAdd_btn{
+  width: 30%;
+}
+/*审核详情大图跳转遮罩*/
+/*增加属性遮罩校验*/
+.bigImg_bubble_add{
+  /*height: 500px!important;*/
+  /*width: 410px!important;*/
+  /*position: absolute!important;*/
+}
+.bigImg_bubble_add h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.bigImg_bubble_add .bigImg_bubble_container{
+  padding:0px 36px 0 36px;
+  width: 408px;
+  height: 260px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.bigImg_bubble_add .popwin_close a{
+  right: 19px;
+  top: 22px;
+}
+.bigImg_bubble_add .bigImg_bubble_container {
+  padding: 40px 36px 0 36px;
+  text-align: center;
+  width: 408px;
+  height: 200px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+
+.bigImg_bubble_add .bigImg_bubble_container {
+  padding: 40px 36px 40px 36px;
+  text-align: center;
+  width: 1200px;
+  min-height: 820px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+/*角色组添加和编辑遮罩*/
+.role_groupStyle{
+  /*height: 500px!important;*/
+  /*width: 410px!important;*/
+  /*position: absolute!important;*/
+}
+.role_groupStyle h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.role_groupStyle .role_groupContainer{
+  padding:0px 36px 0 36px;
+  width: 730px;
+  min-height: 260px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.role_groupStyle .role_groupContainer input {
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
+  box-sizing: border-box;
+  float: left;
+  border: 1px solid #d3dbde;
+  font-size: 14px;
+  padding-left: 18px;
+  color: #929fbe;
+}
+.role_groupStyle .grade_nowName{
+
+}
+.role_groupStyle .grade_nowName,.role_groupName{
+  margin-top: 30px;
+  height: 35px;
+  line-height: 35px;
+  text-align: left;
+}
+.role_groupStyle .role_groupName{
+  height: 70px;
+}
+.role_groupStyle .grade_nowName div:nth-child(1)
+{
+  width:104px;
+  text-align: left;
+  padding-right: 1px;
+}
+.role_groupStyle .role_groupContainer .conRightBottom_btn_sm{
+  margin: 15px auto;
+}
+.role_groupStyle .role_groupContainer .role_groupName_tip{
+  color: red;
+}
+.role_groupStyle .popwin_close a{
+  right: 19px;
+  top: 19px;
+}
+.hasAdd_group_box{
+  margin-top: 20px;
+}
+.roleGroupAdd_sure{
+  margin: 30px!important;
+}
+
+/*角色添加和编辑遮罩*/
+.role_Style{
+  /*height: 500px!important;*/
+  /*width: 410px!important;*/
+  /*position: absolute!important;*/
+}
+.role_Style h4{
+  padding: 30px 0!important;
+  font-size: 24px!important;
+  line-height: 24px!important;
+  color: #7a85a2!important;
+  text-align: center!important;
+  font-weight:normal!important;
+}
+.role_Style .role_Container{
+  padding:0px 36px 0 36px;
+  width: 730px;
+  min-height: 535px;
+  font-family: "Microsoft YaHei";
+  color: #929fbe;
+}
+.role_Style .role_Container .role_Name_input,
+.role_Style .role_Container .role_NameEG_input,
+.role_Style .role_Container .role_desc_input
+{
+  width: 100%;
+  height: 35px;
+  line-height: 35px;
+  margin: 0;
+  box-sizing: border-box;
+  float: left;
+  border: 1px solid #d3dbde;
+  font-size: 14px;
+  padding-left: 18px;
+  color: #929fbe;
+}
+.role_Style .grade_nowName{
+
+}
+.role_Container{
+  margin-top: 30px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+}
+.role_Container .role_form_box{
+  text-align: left;
+}
+.role_Container .form-group{
+  margin-bottom: 0px;
+}
+.role_Style .role_Name{
+  height: 70px;
+}
+.role_Style .grade_nowName div:nth-child(1)
+{
+  width:104px;
+  text-align: left;
+  padding-right: 1px;
+}
+.role_Style .role_Container .conRightBottom_btn_sm{
+  margin: 15px auto;
+}
+.role_Style .role_Container .role_tip{
+  color: red;
+}
+.role_Style .popwin_close a{
+  right: 19px;
+  top: 19px;
+}
+.hasAdd_role_box{
+  margin-top: 20px;
+}
+.roleAdd_sure{
+  margin: 20px 0 30px 0!important;
+}

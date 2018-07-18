@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>版本详情 -- 版本列表</title>
+	<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+</head>
+<style type="text/css">
+    .public_con #test .table thead tr th{
+        height: 47px;
+        line-height: 47px;
+    }
+.public_con #test .table thead tr th:nth-child(1) {
+    width: 20%;
+}
+.public_con #test .table thead tr th:nth-child(4){
+   width: 15%
+}
+.areaInfo{
+      position: relative;
+}
+#addAgreement{
+    position: absolute;
+    top: 0;
+    right: 0
+}
+.table a{
+  color:#337ab7
+}
+
+</style>
+<body>
+<!-- 右侧上导航 -->
+<div class="verifyLog_con_right public_con yycon_right col-xs-12">
+    <div class="areaInfo">
+      <h4 class="conRight_h4">版本列表</h4>
+      <a href="./newVersion.html" class="btn btn-primary" id="addAgreement">发布新版</a>
+      <div class="clearfix pageSize_switch_con form-group form-inline">
+          <label >每页显示</label>
+          <select class="pageSize_switch form-control" style="width: 120px;">
+              <option value="20" class="">20</option>
+              <option value="30" class="">30</option>
+              <option value="40" class="">40</option>
+          </select>
+      </div>
+      <div class="audit_count">
+           <div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+                  <div id="pic_no" class="default-prompt">
+                      <img src="../../images/nothing.png">
+                      <br>
+                      <span>查询无结果</span>
+                  </div>
+                  <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                  <thead>
+                  <tr>
+                      <th>版本号</th>
+                      <th>版本终端</th>
+                      <th>发版时间</th>
+                      <th>版本状态</th>
+                      <th>操作</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  </tbody>
+              </table>
+                  <div class="leftBottom clearfix">
+                  <!--<button type="button" class="outBack">批量退回</button>-->
+                  <div class="page pageBar" id="page">
+                      <p>共0条记录</p>
+                      <div class="pageLft clearfix">
+                          <!--<a class="noprev"></a>-->
+                          <a href="#" class="prev"></a>
+                          <a href="#" class="active">1</a>
+                          <a href="#">2</a>
+                          <a href="#">3</a>
+                          <a href="#">4</a>
+                          <a href="#">5</a>
+                          <span>...</span>
+                          <a href="#" class="next"></a>
+                          <!--<a class="nonext"></a>-->
+                      </div>
+                      <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                  </div>
+              </div>
+                </div>
+      </div>
+    </div>
+</div>
+
+</body>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="../../js/lib/urlParam.js"></script>
+<script type="text/javascript" src="../../js/lib/baseURL.js"></script>
+<script type="text/javascript" src="../../js/lib/localstorage.js"></script>
+<script type="text/javascript" src="../../js/lib/common.js"></script>
+<script type="text/javascript" src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/other_manage/version_view.js"></script>
+</html>

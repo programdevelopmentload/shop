@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>服务管理-添加测量</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/cate_manage/cate_manag_oneGrade_add.css"/>-->
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .attr_add_unit {
+            padding-left: 165px;
+        }
+
+        .relation_table {
+            margin: 25px 160px 10px 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .relation_tip1, .relation_tip2, .relation_tip3 {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-bottom: none;
+        }
+
+        .relation_tip1 {
+            padding-left: 5px;
+        }
+
+        .relation_tip2 {
+            padding-left: 45px;
+        }
+
+        .relation_tip3 {
+            padding-left: 85px;
+        }
+
+        .relation_arrow {
+            background: url(../../images/drop_arrow.png) no-repeat center;
+            width: 10px;
+            height: 10px;
+            display: inline-block;
+        }
+
+        .manag_class_state input[type=radio] {
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+
+        .everyAdd_btn {
+            cursor: pointer;
+            margin-left: 8px;
+            width: 32px;
+            height: 32px;
+            background: url("../../images/attr_add.png") no-repeat;
+            background-size: 32px 32px;
+        }
+
+        .attr_manag_con_right input[type=radio] {
+            margin: 10px 10px 0;
+            width: 20px;
+        }
+
+        .checkTip {
+            color: red;
+        }
+
+        .attr_unit_future {
+            padding-left: 165px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="attr_manag_con_right yycon_right  col-xs-12 ">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <h4 class="conRight_h4">添加测量</h4>
+    <form class="form-horizontal mess_list_margin clearfix" role="form">
+        <div class="col-sm-12 form-group">
+            <label for="" class="col-sm-2 control-label">测量类型：</label>
+            <div class="col-sm-3">
+                <input type="text" class="form-control goodsType_input" id="clrs">
+            </div>
+            <div class="col-sm-5 type_input_tip checkTip hide_ctr">
+                <!--不可空置/支持中英文，最多32个字符-->
+            </div>
+        </div>
+    </form>
+    <h4 class="conRight_h4">关联分类</h4>
+    <div class="hasCheck_filter_tip clearfix">
+        <span class="hide_ctr edit_filter_tip fl editFilter_color">红色为其他服务占用的叶子分类，不可勾选</span>
+        <span class="hide_ctr add_filter_tip fl addFilter_color">红色为其他服务占用的叶子分类，不可勾选</span>
+    </div>
+    <div class="clearfix">
+        <div class="col-sm-12 messure_tip checkTip text-left">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+        <div class="relation_table">
+            <!--<div class=" ">-->
+            <!--<div class="relation_tip1">-->
+            <!--&lt;!&ndash;<input type="checkbox">&ndash;&gt;-->
+            <!--家具-->
+            <!--<span class="relation_arrow">-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--<div class=" ">-->
+            <!--<div class="relation_tip2">-->
+            <!--&lt;!&ndash;<input type="checkbox">&ndash;&gt;-->
+            <!--客厅家具-->
+            <!--<span class="relation_arrow">-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--<div class="relation_tip3">-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class=" ">-->
+            <!--<div class="relation_tip2">-->
+            <!--&lt;!&ndash;<input type="checkbox">&ndash;&gt;-->
+            <!--客厅家具-->
+            <!--<span class="relation_arrow">-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--<div class="relation_tip3">-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅、&nbsp;&nbsp;&nbsp;</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class=" ">-->
+            <!--<div class="relation_tip1">-->
+            <!--家具-->
+            <!--<span class="relation_arrow">-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--<div class=" ">-->
+            <!--<div class="relation_tip2">-->
+            <!--客厅家具-->
+            <!--<span class="relation_arrow">-->
+            <!--</span>-->
+            <!--</div>-->
+            <!--<div class="relation_tip3">-->
+            <!--<span><input type="checkbox">软包休闲椅&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅&nbsp;&nbsp;&nbsp;</span>-->
+            <!--<span><input type="checkbox">软包休闲椅&nbsp;&nbsp;&nbsp;</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </div>
+
+    <div class="clearfix cate_bottom_operate">
+        <p class="fl conRightBottom_btn_sm btn_sure">确认</p>
+        <p class="fl conRightBottom_btn_sm btn_cancle" href="javascript:history.go(-1);">取消</p>
+    </div>
+</div>
+
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script id="belong_box" type="text/html">
+    {{each options as value i}}
+    <div class=" ">
+        <div class="relation_tip1">
+            {{value.name}}
+            <span class="relation_arrow">
+            </span>
+        </div>
+        {{each value.child as value1 i}}
+        <div class=" ">
+            <div class="relation_tip2">
+                {{value1.name}}
+                <span class="relation_arrow">
+                </span>
+            </div>
+            <div class="relation_tip3">
+                {{each value1.child as value2 i}}
+                <span><input type="checkbox" value="{{value2.id}}">
+                    {{value2.name}}&nbsp;&nbsp;&nbsp;
+                </span>
+                {{/each}}
+            </div>
+        </div>
+        {{/each}}
+    </div>
+    {{/each}}
+</script>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="test_mask_catch">
+    <div class="attrAdd_container">
+
+        <div class="col-sm-12 mask_tip">
+            <!--不可空置/支持中英文，最多32个字符-->
+        </div>
+
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/Category_manage/attr_set_measureAdd.js"></script>
+</body>
+</html>

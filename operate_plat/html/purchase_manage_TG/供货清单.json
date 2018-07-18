@@ -1,0 +1,52 @@
+{
+  "data":[
+    {
+      "brandId":"23",
+      "brandName":"李宁广告",
+      "goodsSkus":[
+        {
+          "brandId":23,
+          "buyInstructions":"这里是购买说明",
+          "classificationPath":"6,33,34,",
+          "createTime":1528423975000,
+          "goodsDetails":"http://www.xbxm.com/pic",
+          "id":454588647971360800,
+          "integrationTime":1528423975000,
+          "isDelete":0,
+          "isDistribution":0,
+          "leafClassId":34,
+          "level":"312312",
+          "model":"CK-300",
+          "number":454588647971360800,
+          "otherName":"李宁广告 CK-300 实木桌子 黑 44 长春 休闲",
+          "price":0,
+          "publishers":[
+            {
+              "factoryPrice":99,
+              "publisherId":192,
+              "purchasePrice":0,
+              "regionid":27
+            }
+          ],
+          "salesVolume":0,
+          "showName":"李宁广告 CK-300 实木桌子 黑 44 长春 休闲",
+          "size":0,
+          "sortNumber":0,
+          "spuId":13,
+          "state":1,
+          "sysName":"李宁广告 CK-300 实木桌子 黑 44 长春 休闲",
+          "type":1,
+          "unit":"312213"
+        }
+      ],
+      "ids":"454588647971360768",
+      "leafClassId":34,
+      "leafClassName":"实木桌子",
+      "model":"CK-300",
+      "spuId":13
+    }
+  ],
+  "errorCode":0,
+  "message":"成功",
+  "success":true
+}

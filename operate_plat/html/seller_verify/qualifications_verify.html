@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>资质审核</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css">-->
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/uMverify_wait.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../../css/verify_log.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/jquery.selectbox.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/cate_manage/backstage_oneGradeDivide.css"/>
+
+    <!--[if lt IE 9]>
+    <script src="../../js/lib/cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="../../js/lib/cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>     <![endif]-->
+    <style>
+        .pageSize_switch_con {
+            padding: 5px 5px;
+            line-height: 28px;
+        }
+
+        .pageSize_switch {
+            width: 120px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .pageSize_switch option {
+            text-align: center;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+
+        .list_query {
+            background-color: #046acc !important;
+        }
+
+        .public_con #test .table thead tr th:nth-child(1) {
+            width: 12%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(2) {
+            width: 11%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(3) {
+            width: 15%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(4) {
+            width: 16%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(5) {
+            width: 8%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(6) {
+            width: 16%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(7) {
+            width: 5%;
+        }
+
+        .public_con #test .table thead tr th:nth-child(8) {
+            width: 11%;
+        }
+
+        .oneGDvide_tbcon button {
+            margin: 0 5px;
+        }
+        .vwatiTime_start img, .vwatiTime_end img {
+            position: absolute;
+            top: 8px;
+            right: 10%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="vwait_con_right yycon_right col-xs-12 public_con">
+    <ol class="hide_ctr breadcrumb breadcrumb_selfDefined">
+        <li><a href="#">商品管理》</a></li>
+        <li><a href="#">商品审核》</a></li>
+        <li><a href="#">待审核》</a></li>
+        <li class="active"><a href="#">审核详情》</a></li>
+    </ol>
+    <form class="col-xs-12 clearfix form-horizontal">
+        <div class="col-xs-12 clearfix">
+            <div class="row clearfix">
+                <div class="col-xs-3 form-group clearfix">
+                    <div class="row">
+                        <label class="control-label col-xs-6">按账户:</label>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <input class="form-control account_keyWord" type="text" placeholder="商家账户">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 form-group clearfix">
+                    <div class="row">
+                        <label class="control-label col-xs-6">按手机号:</label>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <input class="form-control phone_keyWord" type="text" placeholder="手机号">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 form-group clearfix">
+                    <div class="row">
+                        <label class="control-label col-xs-6">按公司:</label>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <input class="form-control company_keyWord" type="text" placeholder="公司名">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 clearfix">
+            <div class="row clearfix">
+                <div class="col-xs-3 form-group clearfix">
+                    <div class="row">
+                        <label class="control-label col-xs-6">所在区域:</label>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <select class="form-control verify_area_con">
+                                    <option>全部</option>
+                                    <option data-id="2">北京</option>
+                                    <option data-id="3">上海</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 form-group clearfix">
+                    <div class="row">
+                        <label class="control-label col-xs-6">按时间:</label>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="vwatiTime_start col-xs-12">
+                                    <div class="row">
+                                        <input class="form-control" type="text" id="dates_start1" name="dates_start1" value="">
+                                        <img src="../../images/calendar.png" alt="" class="dates_start1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 form-group clearfix">
+                    <div class="row">
+                        <label class="control-label col-xs-6">至:</label>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="vwatiTime_end col-xs-12">
+                                    <div class="row">
+                                        <input class="form-control" type="text" id="dates_end1" name="dates_end1" value="">
+                                        <img src="../../images/calendar.png" alt="" class="dates_end1">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 text-center">
+                    <button type="button" class="btn btn-primary vwait_queryBtn">查询</button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <h4 class="conRight_h4">审核列表</h4>
+    <div class="pagination_box_ctr">
+        <div class="clearfix pageSize_switch_con">
+            <div class="fl">每页显示</div>
+            <select class="pageSize_switch form-control fl">
+                <option value="20" class="">20</option>
+                <option value="30" class="">30</option>
+                <option value="40" class="">40</option>
+                <option value="50" class="">50</option>
+            </select>
+        </div>
+        <!--分页我自己尝试-->
+        <div class="wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+            <div id="pic_no" class="default-prompt">
+                <img src="../../images/nothing.png">
+                <br>
+                <span>查询无结果</span>
+            </div>
+            <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+                <thead>
+                <tr>
+                    <th>商家账号</th>
+                    <th>手机号</th>
+                    <th>公司名称</th>
+                    <th>所在地区</th>
+                    <th>申请类型</th>
+                    <th>申请时间</th>
+                    <th>审核状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="leftBottom clearfix">
+                <button type="button" class="outPut" style="display: none">批量删除</button>
+                <!--<button type="button" class="outBack">批量退回</button>-->
+                <div class="page pageBar" id="page">
+                    <p>共0条记录</p>
+                    <div class="pageLft clearfix">
+                        <!--<a class="noprev"></a>-->
+                        <a href="#" class="prev"></a>
+                        <a href="#" class="active">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <span>...</span>
+                        <a href="#" class="next"></a>
+                        <!--<a class="nonext"></a>-->
+                    </div>
+                    <div class="pageRht">共<span id="totalPage">100</span>页</div>
+                </div>
+            </div>
+        </div>
+        <div class="m-pagination">
+
+        </div>
+    </div>
+
+</div>
+
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/jquery.selectbox.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+
+<script src="../../js/lib/pagination.js"></script>
+<script src="../../js/lib/bootstrap.min.js"></script>
+<!--<script src="../../js/lib/bootstrap-table.js"></script>-->
+<!--<script src="../../js/lib/bootstrap-table-zh-CN.js"></script>-->
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/seller_verify/qualifications_verify.js"></script>
+</body>
+</html>

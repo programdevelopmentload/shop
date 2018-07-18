@@ -1,0 +1,130 @@
+i{
+	font-style: normal;
+}
+.business_info{
+	margin: 10px auto;
+
+}
+.business_info p{
+	width: 100%;
+
+}
+.business_info p span{
+	display: inline-block;
+	width: 35%;
+	line-height: 30px
+}
+.business_info p span i{
+	width: 120px;
+	text-align: right;
+	display: inline-block;
+	margin-right: 10px
+}
+.business_pic{
+	 width: 146px;
+	 height: 120px;
+}
+.bigPic{
+	cursor: pointer;
+}
+.idCard{
+    width: 86%;
+    margin: 30px auto;
+    display: flex;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -o-flex;
+
+}
+.idCard div{
+	-webkit-flex:1;
+	flex: 1;
+	-moz-flex:1;
+	-o-flex:1;
+}
+.idCard div p{
+	margin-top: 10px
+}
+.mask{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.3);
+	width: 100%;
+	height: 100%;
+	display:  none
+}
+.mask_pic{
+	margin:20px auto;
+	display:block;
+	width:80%;
+}
+.mask_btn{
+	display: block;
+	width: 70px;
+	height: 28px;
+	line-height: 28px;
+	background: #ccc;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}
+
+
+
+/*测试遮罩框样式进入*/
+.mask_control .popwin_bar{
+    background: #ffffff;
+    padding: 0 20px;
+    border-bottom: 0;
+    position: relative;
+    top: 15px;
+    height: 65px;
+    overflow: hidden;
+    height: 42px;
+}
+.mask_control h4{
+    height: 30px;
+    padding: 10px 0!important;
+    font-size: 20px!important;
+    line-height: 20px!important;
+    color: #7a85a2!important;
+    text-align: center!important;
+    font-weight:normal!important;
+}
+.test_mask_con{
+    padding:0px 36px 0 36px;
+    width: 408px;
+}
+.test_mask_con .maskBtn_operate{
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+.maskBtn{
+    display: inline-block;
+    width: 97px;
+    height: 38px;
+    background: #4fc2b9;
+    color: #ffffff;
+    border-radius: 3px;
+    margin: 15px;
+    font-size: 16px;
+    line-height: 38px;
+    text-align: center;
+    cursor: pointer;
+}
+.attr_manag_add h4{
+  font-size: 18px!important;
+}
+.attr_manag_add .attrAdd_container{
+    width: 520px;
+    height: 100px
+}
+.mask_pic img{
+     display: block;
+    margin: 0 auto;
+
+}
+   
+

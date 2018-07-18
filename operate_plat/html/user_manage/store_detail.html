@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>店铺管理-店铺列表</title>
+<link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/bootstrap-table.min.css"/>
+<link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+<link rel="stylesheet" type="text/css" href="../../css/pagination.css"/>
+<link href="../../css/jquery.datetimepicker.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="../../css/user_mangement/store_detail.css"/>
+</head>
+<body>
+
+
+<div class="vlog_con yycon">
+    <!-- 中间内容区域 -->
+    <div class="container" id="box">
+        <div class="row">
+            <!-- 左侧导航 -->
+           <div class="left" style="min-height: 951px;">
+                <ul>
+                    <li>
+                        <span>用户管理</span>
+                        <ul>
+                            <li ><a href="./user_mangement.html">用户列表</a></li>
+
+                        </ul>
+                         <span>商家管理</span>
+                         <ul>
+                              <li><a href="./business_info.html">商家列表</a></li>
+                         </ul>
+                         <span>员工管理</span>
+                         <ul>
+                             <li><a href="./staff_add.html">员工分配</a></li>
+                             <li><a href="./staff_detail.html">员工列表</a></li>
+                         </ul>
+                    </li>
+                    <li>
+                        <span>商品管理</span>
+                        <span>在售商品</span>
+                        <ul>
+                            <li><a href="../../product_manage/onSale_list.html">商品列表</a></li>
+                           <!--  <li class=""><a href="./front_oneGradeDivide.html">查看</a></li> -->
+                        </ul>
+                         <span>发布商品</span>
+                         <ul>
+                              <li><a href="../../product_manage/chose_classify.html">发布商品</a></li>
+                              <li><a href="../product_manage/draft_box.html">草稿箱</a></li>
+                         </ul>
+                         <span>经营区域</span>
+                         <ul>
+                              <li><a href="../../other_manage/businessArea.html">添加区域</a></li>
+                              <li><a href="../../other_manage/region_area.html">业务区域</a></li>
+                         </ul>
+                         <span>协议条款</span>
+                         <ul>
+                              <li><a href="../../other_manage/agreement_list.html">协议条款</a></li>
+                         </ul>
+                         <span>个人中心</span>
+                         <ul>
+                              <li><a href="../../personal_center/agreement_list.html">我的资料</a></li>
+                         </ul>
+                    </li>
+                </ul>    
+               
+            </div>
+            <!-- 右侧上导航 -->
+            <div class="verifyLog_con_right public_con yycon_right col-xs-10">
+                <ol class="breadcrumb breadcrumb_selfDefined">
+                    <li><a href="#">商品管理 > </a> </li>
+                    <li><a href="#">商品审核 > </a> </li>
+                    <li><a href="#">待审核 > </a> </li>
+                    <li class="active"><a href="#">审核详情  </a> </li>
+                </ol>
+				<div class="store_detial">
+                	<dl class="aui-screen-list-item" attr="terminal_brand_s">
+                		<dt>所属区域：</dt>
+						<dd>
+							<span>全部</span>
+							<a href="javascript:void(0)" values2="" values1="" attrval="四川">四川</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="陕西">陕西</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="山西">山西</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="河北">河北</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="东北">东北</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="山东">山东</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="西藏">西藏</a>
+						</dd>
+                	</dl>
+                	<dl class="aui-screen-list-item" attr="terminal_brand_s">
+                		<dt>店铺状态：</dt>
+						<dd>
+							<span>全部</span>
+							<a href="javascript:void(0)" values2="" values1="" attrval="已锁定">已锁定</a>
+							<a href="javascript:void(0)" values2="" values1="" attrval="正常经营">正常经营</a>
+						</dd>
+                	</dl>
+                	<h5>商家列表</h5>
+					<div class="bussiness_info">
+			  			<div class="vwait_queryRes_tab wrap_table wrap_table_01 oneGDvide_tbcon" id="test">
+	                        <table cellpadding="0" cellspacing="0" class="table_01 table" id="table_data">
+	                            <thead>
+	                            <tr>
+	                                <th>店铺名称</th>
+	                                <th>所在地区</th>
+	                                <th>创建时间</th>
+	                                <th>店铺状态</th>
+	                                <th>操作</th>
+	                            </tr>
+	                            </thead>
+	                            <tbody>
+	                            </tbody>
+	                        </table>
+	                        <div class="leftBottom clearfix">
+	                            <!--<button type="button" class="outBack">批量退回</button>-->
+	                            <div class="page pageBar" id="page">
+	                                <p>共2条记录</p>
+	                                <div class="pageLft clearfix">
+	                                    <!--<a class="noprev"></a>-->
+	                                    <a href="#" class="prev"></a>
+	                                    <a href="#" class="active">1</a>
+	                                    <a href="#">2</a>
+	                                    <a href="#">3</a>
+	                                    <a href="#">4</a>
+	                                    <a href="#">5</a>
+	                                    <span>...</span>
+	                                    <a href="#" class="next"></a>
+	                                    <!--<a class="nonext"></a>-->
+	                                </div>
+	                                <div class="pageRht">共<span id="totalPage">100</span>页</div>
+	                            </div>
+	                        </div>
+	                    </div>
+					</div>
+				</div>            
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="yyfooter">
+    <div class="container">
+        <div class="row">
+            <p>CopyRight ? 2011--2014 WWW.BOOM.COM.CN ALL RIGHT RESERVED</p>
+            <p>西藏新博美商业管理连锁股份有限公司 版权所有 技术支持：明腾-西部商务网</p>
+            <p>ICP经营许可证编号：藏ICP备16000239号-1 | 藏公安网备54222102000009号</p>
+        </div>
+    </div>
+</footer>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+       <div class="col-sm-12 mask_tip">
+        <div class="close_detail">
+            <p class="close_deal" data-state="0">
+               <input type="radio" name="radios" checked="checked" data-state="0"><label>交易锁定</label>
+            </p>
+          <p class="close_deal " data-state="2">
+            <input type="radio" name="radios"  data-state="2"><label>店铺锁定</label>
+          </p>
+        </div>
+          <div class="info_deal">锁定后，店铺内商品将不能在平台应用内进行上架交易，是否确认该操作？</div>
+          <div class="info_deal" style="display: none">锁定后，店铺内所有商品将不能在平台进行交易，同时也将暂停店铺选货，是否确认该操作？</div>
+       </div>
+	    <div class="maskBtn_operate">
+	        <span class="maskBtn mask_ok">是</span>
+	        <span class="maskBtn mask_false"  onclick="clickFalse()">否</span>
+	    </div>
+    </div>
+</template>
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script src="../../js/lib/pagination.js"></script>
+<script type="text/javascript" src="../../js/user_manage/store_detail.js"></script>
+</body>
+</html>

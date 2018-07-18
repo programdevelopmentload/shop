@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>商家详情</title>
+    <link rel="stylesheet" type="text/css" href="../../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome.4.6.0.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" href="../../css/sidebar-menu.css" rel="stylesheet" media="screen">
+    <link rel="stylesheet" type="text/css" href="../../css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/user_mangement/business_info_detail.css"/>
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+            
+<div class="uMDvfyDetail_con_right yycon_right col-xs-10">
+    <div class="user_info"> </div>
+    <div class="business_detail"> </div>
+    <div class="business_imageIdFront"></div>
+    <div class="business_btn"></div>
+</div>
+
+<!-- ˙遮罩层 -->
+<div class="mask">
+    <div class="mask_pic">
+        <i class="mask_btn">点击关闭</i>
+    </div>  
+</div>
+<!-- 测试遮罩弹窗 -->
+<template type="text/html" id="ajax_alert">
+    <div class="attrAdd_container">
+        <div class="maskBtn_operate">
+            <span class="maskBtn mask_ok">是</span>
+            <span class="maskBtn mask_false" onclick="clickFalse()">否</span>
+            <!--<span href="" class="maskBtn mask_else">取消</span>-->
+        </div>
+    </div>
+</template> 
+<!-- 渲染数据 -->
+<script type="text/html" id="uManage_uwb_acounts">
+<h4 class=" conRight_h4">账户信息</h4>
+<div class="business_info">
+    <p>
+        <span><i>账号:</i>{{data.userInfo.username}}</span>
+        <span><i>手机号:</i>{{data.userInfo.phoneNumber}}</span>
+        <span><i>注册方式:</i>账户注册</span>
+    </p>
+    <p>
+        <span><i>身份类型:</i>{{data.TypeDesc}}</span>
+    </p>
+</div>
+</script>
+<script type="text/html" id="user_business">
+<h4 class=" conRight_h4">基本信息</h4>
+<div class="business_info">
+    <p>
+        <span><i>公司名称:</i>{{data.sellerCompany.companyName}}</span>
+        <span><i>公司类型:</i>{{data.sellerCompany.companyType}}</span>
+        <span><i>成立日期:</i>{{data.sellerCompany.foundingTime}}</span>
+        <span><i>公司人数:</i>{{data.sellerCompany.peopleNum}}</span>
+    </p>
+    <p>
+        <span><i>公司地址:</i>{{data.sellerCompany.companyAddress}}</span>
+        <span><i>联系电话:</i>{{data.sellerCompany.telephone}}</span>
+        <span><i>传真号码:</i>{{data.sellerCompany.fax}}</span>
+    </p>
+</div>
+<h4  class=" conRight_h4">法人信息</h4>
+<div class="business_info">
+     <p>
+        <span><i>法人代表:</i>{{data.sellerCompany.legalRep}}</span>
+        <span><i>手机号:</i>{{data.sellerCompany.legalRepPhone}}</span>
+        <span><i>E-mail:</i>{{data.sellerCompany.legalRepEmail}}</span>
+    </p>
+</div>
+<h4 class=" conRight_h4">经营信息</h4>
+<div class="business_info">
+    <p><span><i>经营类型:</i>{{data.sellerCompany.managementType}}</span></p>
+    <p><span><i>企业规模:</i>{{data.sellerCompany.enterpriseScale}}</span></p>
+    <p><span><i>纳税规模:</i>{{data.sellerCompany.taxScale}}</span></p>
+</div>
+<h4 class=" conRight_h4">服务信息</h4>
+<div class="business_info">
+    <p>
+        <span><i>经营区域:</i>{{data.sellerCompany.operatingArea}}</span>
+        <span><i>主要客户销售范围:</i>{{data.sellerCompany.saleScope}}</span>
+    </p>
+    <p>
+        <span><i>配送人数:</i>{{data.sellerCompany.distributionNum}}</span>
+        <span><i>主营品牌:</i>{{each data.brand as nameCh}} {{nameCh.nameCh}}{{/each}}</span>
+    </p>
+    <p><span><i>测量人数:</i>{{data.sellerCompany.measureNum}}</span></p>
+    <p><span><i>设计人数:</i>{{data.sellerCompany.designNum}}</span></p>
+</div>
+<h4 class=" conRight_h4">联系信息</h4>
+<div class="business_info">
+    <p><span><i>业务对接人:</i>{{data.sellerCompany.abutmentPerson}}</span></p>
+    <p>
+        <span><i>手机号码:</i>{{data.sellerCompany.abutmentPhone}}</span>
+        <span><i>E-mail:</i>{{data.sellerCompany.abutmentEmail}}</span>
+    </p>
+    <p><span><i>服务负责人:</i>{{data.sellerCompany.servicePerson}}</span></p>
+    <p>
+        <span><i>手机号码:</i>{{data.sellerCompany.servicePhone}}</span>
+        <span><i>E-mail:</i>{{data.sellerCompany.serviceEmail}}</span>
+    </p>
+</div>
+</script>
+<script type="text/html" id="business_idCard" >
+<h4 class=" conRight_h4">经营身份证明</h4>
+<div class="business_info">
+    <p>
+        <i>营业执照: </i>
+       <!--  <img src="../../images/banner.jpg" class="business_pic"> -->
+        <img src="{{data.imageBusiness}}" class="business_pic" />
+        <i class="bigPic" onclick="bigPic(event)">查看大图</i>
+     
+    </p>
+    <div class="idCard">
+        <div>
+            <p>法人身份证正面：</p>
+           <!--  <img src="../../images/banner.jpg" class="business_pic" > -->
+            <img src="{{data.imageIdFront}}" class="business_pic"  style="width:300px; height: 200px;">
+            <i class="bigPic" onclick="bigPic(event)">查看大图</i> 
+            <button class="btn btn-primary" onclick="download('{{data.imageIdFront}}')"> 下载到本地</button> 
+            <!-- <button type="button" class="btn btn-primary" onclick=" download('{{data.imageIdFront}}')" >下载</button>
+  -->
+        </div>
+        <div>
+            <p>法人身份证反面：</p>
+            <!-- <img src="../../images/banner.jpg" class="business_pic"> -->
+            <img src="{{data.imageIdAfter}}" class="business_pic"  style="width:300px; height: 200px;">
+            <i class="bigPic" onclick="bigPic(event)">查看大图</i> 
+            <button class="btn btn-primary" onclick="download('{{data.imageIdAfter}}')"> 下载到本地</button> 
+        </div>
+        
+    </div>
+
+</div>
+<h4 class=" conRight_h4">纳税证明</h4>
+<div class="business_info">
+    <p>
+ 
+            <i>开户许可证:</i>
+           <!--  <img src="../../images/banner.jpg" class="business_pic"> -->
+            {{if data.imageLicense}}
+            <img src="{{data.imageLicense}}" class="business_pic"/>
+             {{else}}
+            <span>暂无</span>
+            {{/if}}
+
+        <i style="width: 150px">一船纳税人资格认定书:</i> 
+        <!-- <img src="../../images/banner.jpg" class="business_pic"> -->
+        {{if data.imageTaxpayer}}
+            <img src="{{data.imageTaxpayer}}" class="business_pic">
+        {{else}}
+            <span>暂无</span>
+        {{/if}}
+    </p>
+     <p>
+        <i>税务登记证书:</i>
+        <!-- <img src="../../images/banner.jpg" class="business_pic"> -->
+     {{if data.imageTaxRegistration}}
+            <img src="{{data.imageTaxRegistration}}" class="business_pic"/>
+     {{else}}
+            <span>暂无</span>
+     {{/if}}
+ </p>
+</div>
+<h4 class="conRight_h4">经营资质证明</h4>
+<div class="business_info">
+    <p>
+        <i>产品合格证:</i>
+        <!-- <img src="../../images/banner.jpg" class="business_pic"> -->
+        {{if data.imageProductQualification}}
+            <img src="{{data.imageProductQualification}}" class="business_pic"/>
+     {{else}}
+            <span>暂无</span>
+     {{/if}}
+       
+    </p>
+    <p>
+        <i>授权代理证明:</i>
+     <!-- <img src="../../images/banner.jpg" class="business_pic"> -->
+      {{if data.imageProxyCertificate}}
+            <img src="{{data.imageProxyCertificate}}" class="business_pic">
+     {{else}}
+            <span>暂无</span>
+     {{/if}}
+    </p>
+</div>
+</script>
+<script type="text/html" id="fozen">
+  <h4 class="conRight_h4">操作详情</h4>
+    {{if data.userInfo.isFrozen=='0'}}
+    <button class="conRightBottom_btn_sm" onclick="isFrozen(this)">
+        冻结
+    </button>
+    {{else if data.userInfo.isFrozen=='1'}}
+    <button class="conRightBottom_btn_sm" onclick="frozen(this)">
+        解冻
+    </button>
+    {{/if}}    
+</script>
+
+<script src="../../js/lib/jquery-1.12.4.min.js"></script>
+<script src="../../js/lib/urlParam.js"></script>
+<script src="../../js/lib/baseURL.js"></script>
+<script src="../../js/lib/localstorage.js"></script>
+<script src="../../js/lib/common.js"></script>
+<script src="../../js/lib/operate.js"></script>
+
+<script src="../../js/lib/sidebar-menu.js"></script>
+<script src="../../js/lib/jquery.datetimepicker.js"></script>
+<script src="../../js/setDateTime.js"></script>
+<script src="../../js/lib/art_template.js"></script>
+<script src="../../js/lib/jquery.popwin.js"></script>
+<script type="text/javascript" src="../../js/user_manage/business_info_detail.js"></script>
+<script type="text/javascript">
+                
+
+</script>
+     
+</body>
+</html>

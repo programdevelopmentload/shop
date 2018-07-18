@@ -1,0 +1,88 @@
+{
+  "success":true,
+  "errorCode":0,
+  "data":[
+    {
+      "id":29,
+      "menuName":"后台分类",
+      "menuUrl":"/operate_plat/html/Category_manage/backstage_oneGradeDivide.html",
+      "parentId":12,
+      "menuLevel":2,
+      "orderNum":43,
+      "leaf":false,
+      "createTime":"2018-07-02 15:00:34"
+    },
+    {
+      "id":30,
+      "menuName":"运营分类",
+      "menuUrl":"/operate_plat/html/Category_manage/front_oneGradeDivide.html",
+      "parentId":12,
+      "menuLevel":2,
+      "orderNum":44,
+      "leaf":false,
+      "createTime":"2018-07-02 15:00:40"
+    },
+    {
+      "id":31,
+      "menuName":"品牌管理",
+      "menuUrl":"/operate_plat/html/Category_manage/brand_manag.html",
+      "parentId":12,
+      "menuLevel":2,
+      "orderNum":45,
+      "leaf":false,
+      "createTime":"2018-07-02 15:00:46"
+    },
+    {
+      "id":32,
+      "menuName":"属性管理",
+      "menuUrl":"/operate_plat/html/Category_manage/attr_manag_tuiguang.html",
+      "parentId":12,
+      "menuLevel":2,
+      "orderNum":46,
+      "leaf":false,
+      "createTime":"2018-07-02 15:00:51"
+    },
+    {
+      "id":33,
+      "menuName":"型号管理",
+      "menuUrl":"/operate_plat/html/Category_manage/model_list.html",
+      "parentId":12,
+      "menuLevel":2,
+      "orderNum":47,
+      "leaf":false,
+      "createTime":"2018-07-02 15:01:24"
+    },
+    {
+      "id":34,
+      "menuName":"服务管理",
+      "menuUrl":"/operate_plat/html/Category_manage/attr_service_set.html",
+      "parentId":12,
+      "menuLevel":2,
+      "orderNum":48,
+      "leaf":true,
+      "createTime":"2018-07-02 15:03:07",
+      "childMenu":[
+        {
+          "id":42,
+          "menuName":"服务设定",
+          "menuUrl":"/operate_plat/html/Category_manage/attr_service_set.html",
+          "parentId":34,
+          "menuLevel":3,
+          "orderNum":102,
+          "leaf":false,
+          "createTime":"2018-07-02 15:02:37"
+        },
+        {
+          "id":43,
+          "menuName":"服务属性",
+          "menuUrl":"/operate_plat/html/Category_manage/attr_service_list.html",
+          "parentId":34,
+          "menuLevel":3,
+          "orderNum":103,
+          "leaf":false,
+          "createTime":"2018-07-02 15:02:59"
+        }
+      ]
+    }
+  ]
+}
