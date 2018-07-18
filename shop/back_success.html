@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<title>找回成功</title>
+		<style>
+			.mess_cont_lists .com{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont_lists .yewu{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont_lists .user{		background: #fff
+			}
+			.clearfix .com .mess_circle{background: #6DABC7}
+			.clearfix .user .mess_circle{background: #6DABC7}
+			.clearfix .yewu .mess_circle{background: #6DABC7}
+		</style>
+	</head>
+	<body>
+	<div class="header clearfix">
+		<a href="javascript:;">
+			<img src="image/xbxm.png"/>
+		</a>
+
+		<a href="javascript:;">
+			<img src="image/store.png"/>
+		</a>
+
+
+	</div>
+		<div class="mess_cont_lists">
+			  <p>设置新密码</p>
+			  <span>若您已经忘记密码，此操作流程能帮助您重新设置密码。</span>
+		   	  <div class="mess_cont__circle">
+		   	  	 <ul class="clearfix">
+		   	  	 	<li class="user">
+		   	  	 		<div class="mess_circle">1</div>
+		   	  	 		<p>账号验证</p>
+		   	  	 	</li>
+		   	  	 	<li class="com">
+		   	  	 		<div class="mess_circle">2</div>
+		   	  	 		<p>修改密码</p>
+		   	  	 	</li>
+		   	  	 	<li class="yewu">
+		   	  	 		<div class="mess_circle">3</div>
+		   	  	 		<p>设置成功</p>
+		   	  	 	</li>
+		   	  	 </ul>
+		   	  </div> 
+		   	  <div class="mess_con_bottom clearfix">
+			 	<div class="mess_bot_center" style="width: 418px;">
+				 	 <img src="image/icon.png" alt="" class="fl">
+				 	 <div class="mess_con_submit fl">
+				 	 	<p>密码设置成功！</p>
+				 	 	<span>您的密码已重新设置，为防止遗忘将重新进入登录页面</span>
+				 	 	<div>
+				 	 		<span class='time'>(6s)</span>
+				 	 		<a href="javascript:;" style="display: inline-block;">立即跳转</a>
+				 	 	</div>
+				 	 </div>
+			 	 </div>
+		      </div>
+		</div>
+
+		<div class="footer">
+			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+		</div>
+		
+		<script src="js/jquery-1.12.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script>
+            $(".header li").click(function () {
+                if($(this).html()==localStorage.getItem("username")){
+                    window.location.href="basis_setting/account_msg.html"
+
+                }else if($(this).html()=="基础设置"){
+                    window.location.href="basis_setting/basis_msg.html"
+
+                }
+            });
+		var num=6;
+		var timer=setInterval(function(){
+			num--;
+			$(".time").html("("+num+"s)")
+			if(num==0){
+				clearInterval(timer);
+				window.location.href="login.html";
+			}
+		},1000)
+			$("a").click(function(){
+				window.location.href="login.html"
+			})
+
+
+        history.pushState({back: 1}, null, "?back=1");
+        window.onpopstate = function(event) {
+            console.log(event);
+            history.pushState({back: 1},null, "?back=1");
+        };
+		</script>
+	</body>
+</html>
+

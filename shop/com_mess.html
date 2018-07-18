@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">  
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>公司基本信息</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrapValidator.css"/>
+		<link rel="stylesheet" type="text/css" href="layer/css/layui.css"/>
+		<link rel="stylesheet" type="text/css" href=""/>
+		<style>
+			b{
+				color:#f00;
+				margin-top: 5px;
+				margin-right: 5px;
+				font-size: 17px;
+			}
+			.ssx select{
+				float: left;
+				width: 75px;
+				margin-right: 10px;
+			}
+			.ssx{
+				/*overflow: hidden;*/
+				margin-bottom: 20px;
+			}
+			#com_adress{margin-left: 100px}
+			.store_province1 li:hover{
+				background: #34BEFE;
+				color: #fff;
+			}
+			.mess_cont_lists .com{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont_lists .yewu{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont_lists .user{		background: #fff
+			}
+			.clearfix .com .mess_circle{background: #6DABC7}
+			.clearfix .user .mess_circle{background: #6DABC7}
+			.mess_con_tel .lxphone1{width: 60px}
+			.mess_con_tel .lxphone2{width: 130px}
+			.mess_con_tel .lxphone3{width: 130px}
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none !important;
+				margin: 0;
+			}
+		</style>
+	</head>
+	<body>
+	<!--提示框-->
+	<!--<div class="dialogs" ></div>-->
+	<div class="header clearfix">
+		<a href="javascript:;">
+			<img src="image/xbxm.png"/>
+		</a>
+
+		<a href="javascript:;">
+			<img src="image/store.png"/>
+		</a>
+
+
+	</div>
+		<div class="mess_cont">
+		   <div class="mess_cont_title">
+		   	  <ul>
+		   	  	<li class="clearfix">
+		   	  		<span class="mess_left">供应商入驻</span>
+		   	  		<a href="login.html" class="mess_right mess-padding">立即登录</a>
+		   	  		<span  class="mess_right ">已有账户,</span>
+		   	  	</li>
+		   	  </ul>
+		   </div> 
+		   <div class="mess_cont_lists">
+		   	  <div class="mess_cont__circle">
+		   	  	 <ul class="clearfix">
+		   	  	 	<li class="user">
+		   	  	 		<div class="mess_circle">1</div>
+		   	  	 		<p>账号信息</p>
+		   	  	 	</li>
+		   	  	 	<li class="com">
+		   	  	 		<div class="mess_circle">2</div>
+		   	  	 		<p>公司信息</p>
+		   	  	 	</li>
+		   	  	 	<li class="yewu">
+		   	  	 		<div class="mess_circle">3</div>
+		   	  	 		<p>业务信息</p>
+		   	  	 	</li>
+		   	  	 </ul>
+		   	  </div>
+		   	   <div class="mess_con_form ">
+		   	   	  <p><b>*</b>基本信息</p>
+		   	   	  <form class="form-horizontal mess_list_margin" role="form" id="com_form">
+					  <div class="form-group">
+					    <label class="col-sm-2 control-label"><b>*</b>公司名称:</label>
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control" id="company_name">
+					      <span></span>
+					    </div>
+					  </div>
+					  <div class="form-group ">
+					  	<label  class="col-sm-2 control-label"><b>*</b>公司类型:</label>
+						<input name="type"    class="mess_con_radio1" type="radio" value="1" checked="checked">综合性供应商
+						<input name="type" class="mess_con_radio1" type="radio" value="2" />服务型供应商
+					  </div>
+					  <div class="form-group">
+
+					    <label  class="col-sm-2 control-label"><b>*</b>公司地址:</label>
+						  <div class="ssx col-sm-10">
+							  <select class="form-control down store_province">
+
+							  </select>
+							  <select class="form-control store_city down ">
+
+							  </select>
+							  <select class="form-control store_area down">
+
+							  </select>
+						  </div>
+
+					    <div class="col-sm-10">
+					      <input type="text" class="form-control"  id="com_adress">
+					      <span style="margin-left: 100px;"></span>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label class="col-sm-2 control-label">联系电话:</label>
+					    <div class="col-sm-10 mess_con_tel">
+							<input type="number" class="form-control lxphone1" placeholder="区号"  id="lxphone">-
+							<input type="number" class="form-control lxphone2" placeholder="电话号码">-
+							<input type="number" class="form-control lxphone3"   placeholder="电话号码">
+					    </div>
+					  </div>
+					  <div class="phoneErr" style="display: none;color: red;margin-left: 110px">只能输入数字</div>
+					  <div class="form-group">
+					  	<label class="col-sm-2 control-label">传真号码:</label>
+					    <div class="col-sm-10">
+					      <input type="number" class="form-control" id="fax_number" >
+					      <!--<span></span>-->
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label class="col-sm-2 control-label">成立日期:</label>
+					    <div class="col-sm-10">
+					      <input  type="text" class="form-control" id="data" placeholder="请选择日期" >
+					      <span></span>
+					    </div>
+					  </div>
+					  <div class="form-group">
+					  	<label  class="col-sm-2 control-label">公司人数:</label>
+					    <div class="col-sm-10">
+					      <input type="number" class="form-control" id="com_people" >
+					      <span class="peopleErr"></span>
+					    </div>
+					  </div>
+                  </form>
+		   	   </div>
+
+		   	   <button type="button" class="btn  btn-lg mess_con_btn">提交,下一步</button>
+		   </div>
+		</div>
+		<div class="footer">
+			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+		</div>
+		<script src="js/jquery-1.12.4.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/common.js"></script>
+	<script src="layer/layer.js"></script>
+	<script src="layer/layui.js"></script>
+		<script>
+            $(".header li").click(function () {
+                if($(this).html()==localStorage.getItem("username")){
+                    window.location.href="basis_setting/account_msg.html"
+
+                }else if($(this).html()=="基础设置"){
+                    window.location.href="basis_setting/basis_msg.html"
+
+                }
+            });
+
+			layui.use('laydate', function(){
+                var laydate = layui.laydate;
+
+                //执行一个laydate实例
+                laydate.render({
+                    elem: '#data', //指定元素
+                    max:'date',
+                    format:"yyyy-MM"
+                });
+            });
+            var url = getBaseUrl('ys');
+            var urls=getBaseUrl('yy');
+            var store_province_url = url +'/area/region/findAllProvince';  //一开始渲染的省
+            var store_city_url =url+'/area/region/findAllCityByProvince';          //获取市
+            var store_area_url =url+'/area/region/listAllAreasByCityId ';
+            var messUrl =urls+'/user/seller/selectCompanyBycompanyid';
+            var submitUrl =urls+'/user/seller/companyRegister';
+
+            var data_id;
+
+             //获取省
+			var first=true;
+            function findAmountType(){
+                $(".store_province").html('');
+					var res=rewriteAjax({
+                        url:store_province_url,
+					},function (res) {
+                        var data = res.data;
+                        var html='';
+                        for (var i = 0; i <data.length; i++) {
+                            html+='<option onclick="getshi(this)" value = '+ data[i].name+'  data-id = '+data[i].id+' >'+ data[i].name+'</option>';
+                            if(first){
+                                data_id=data[0].id;
+
+                            }
+                            console.log(data_id);
+                        }
+
+                        $(".store_province").html(html)
+                    })
+
+
+            }
+            findAmountType();
+            //点击相对应的省获取市
+		function province(){
+				var res=rewriteAjax({
+                    url:store_city_url,
+                    data:{provinceId:data_id},
+				},function (res) {
+                    var data = res.data;
+                    var html='';
+                    for (var i = 0; i < data.length; i++) {
+                        cityId=data[0].id;
+                        html+='<option  value = '+ data[i].name+'  data-id = '+data[i].id+' >'+ data[i].name+'</option>';
+                    }
+
+                    $(".store_city").html(html);
+                    rewriteAjax({  url:store_area_url,
+                        data:{cityId:cityId},},function (res) {
+                        var data = res.data;
+                        //console.log(data);
+                        var html='';
+                        for (var i = 0; i < data.length; i++) {
+                            html+='<option value = '+ data[i].name+'  data-id = '+data[i].id+' >'+ data[i].name+'</option>';
+                        }
+                        $(".store_area").html(html);
+                    })
+                })
+
+			}
+
+             var cityId=0;
+            $(".store_province").change(function(){
+                    data_id  = $(this).find("option:selected").attr('data-id');
+                province();
+            });
+            var boo=true;
+             $(".store_province").click(function(){
+
+				if(boo){
+					data_id  = $(this).find("option:selected").attr('data-id');
+					province();
+				}
+				first=false
+				boo=false;
+             });
+             $(".store_city").click(function(){
+                 data_id  = $(this).find("option:selected").attr('data-id');
+                 if(first){
+                     data_id=$(".store_province").find("option:selected").attr('data-id');
+                     province();
+                     first=false;
+				 }else{
+                     if($(this).find("option").length==1){
+                         return;
+                     }
+
+                     store();
+				 }
+
+
+             });
+             $(".store_city").change(function(){
+
+                 data_id = $(this).find("option:selected").attr('data-id');
+                 store()
+             });
+             // $(".store_area ").click(function(){
+             //     data_id  =  $(".store_city").find("option:selected").attr('data-id');
+             //     store();
+             // });
+        // $(".store_province").on("click","option",function () {
+        //
+        // })
+            //点击相对应的市获取区
+             function store(){
+                 rewriteAjax({	url:store_area_url,
+                     data:{cityId:data_id},},function (res) {
+                     var data = res.data;
+                     //console.log(data);
+                     var html='';
+                     for (var i = 0; i < data.length; i++) {
+                         html+='<option value = '+ data[i].name+'  data-id = '+data[i].id+' >'+ data[i].name+'</option>';
+                     }
+                     $(".store_area").html(html);
+                 })
+
+				}
+			   rewriteAjax({
+                   url:messUrl,
+                   data:{companyId:localStorage.getItem("companyId")},
+			   },function (res) {
+
+                   if(res.success){
+                       var data=res.data;
+                       $("#company_name").val(data.companyName);
+                       if(data.companyType=="服务型供应商"){
+                           $('input:radio[value="2"]').attr("checked","checked")
+                       }else{
+                           $('input:radio[value="1"]').attr("checked","checked")
+                       }
+                       $("#com_adress").val(data.companyAddress);
+                       var arr=data.telephone.split("-");
+
+                       $(".lxphone1").val(arr[0]);
+                       $(".lxphone2").val(arr[1]);
+                       $(".lxphone3").val(arr[2]);
+                       $("#fax_number").val(data.fax);
+                       $("#data").val(data.foundingTime);
+                       $("#com_people").val(data.peopleNum);
+
+                   }
+               })
+
+		       var id = localStorage.getItem("userId");
+			$(".mess_con_tel .form-control").blur(function () {
+			    if($(this).val()!=""){
+                    if(!(/^[0-9]+$/.test($(this).val()))){
+                        $(".phoneErr").show()
+                    }else{
+                        $(".phoneErr").hide()
+                    }
+
+				}
+            });
+            $("#com_people").blur(function () {
+                if($(this).val().length>9){
+
+                   $(".peopleErr").show().html("人数超过限制").css("color","red");
+
+                }
+            })
+		       $(".btn-lg").click(function(){
+				var obj={};
+				obj.companyName=$("#company_name").val();
+				obj.companyType=$('input:radio[name="type"]:checked').attr("value");
+				obj.companyAddress=$("#com_adress").val();
+				obj.companyArea=$(".store_province").val()+","+$(".store_city").val()+","+$(".store_area").val();
+				var phoneNum="";
+				$(".mess_con_tel .form-control").each(function () {
+					phoneNum+=$(this).val()+"-"
+                });
+				phoneNum=phoneNum.substr(0,phoneNum.length-1);
+				obj.telephone=phoneNum;
+				obj.fax=$("#fax_number").val();
+				obj.foundingTime=$("#data").val();
+				obj.peopleNum=$("#com_people").val();
+				obj.legalRep=$("#fr_repre").val();
+				obj.legalRepPhone=$("#phone").val();
+				obj.legalRepEmail=$("#email").val();
+				obj.userId=id;
+                   if($("#phone").val() == ""){
+                       $("#phone").next().show().html("请输入手机号");
+                       $("#phone").next().show().css('color','red');
+                       return false;
+                   }else if(($("#phone").val()).length != 11){
+                       $("#phone").next().show().html("手机号格式错误");
+                       $("#phone").next().show().css('color','red');
+                       return false;
+                   }else if (!$("#phone").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)) {
+                       $("#phone").next().show().html("手机号格式错误");
+                       $("#phone").next().show().css('color','red');
+                       return false;
+                   }
+                   // if($("#fuwuTel").val() == ""){
+                   //     $("#fuwuTel").next().show().html("请输入手机号");
+                   //     $("#fuwuTel").next().show().css('color','red');
+                   //     return false;
+                   // }else if(($("#fuwuTel").val()).length != 11){
+                   //     $("#fuwuTel").next().show().html("手机号格式错误");
+                   //     $("#fuwuTel").next().show().css('color','red');
+                   //     return false;
+                   // }else if (!$("#fuwuTel").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)) {
+                   //     $("#fuwuTel").next().show().html("手机号格式错误");
+                   //     $("#fuwuTel").next().show().css('color','red');
+                   //     return false;
+                   // }
+				if($("#company_name").val()==""){
+				    layer.msg("请输入公司名称");
+				    return;
+				}
+				if($(".store_area").val()==""||$("#com_adress").val()==""){
+				    layer.msg("请输入公司地址");
+				    return;
+				}
+
+				if($("#com_people").val().length>9){
+
+				    $(".peopleErr").html("人数超过限制").css("color","res").show();
+				    return;
+				}else{
+                    $(".peopleErr").hide();
+
+                }
+				// console.log(obj);
+		         // 提交
+				   rewriteAjax({
+                       url:submitUrl,
+                       data:obj,
+				   },function (data) {
+                       if(data.success){
+                           localStorage.setItem("companyId",data.data.companyId);
+                           window.location.href="supplier-mess.html?id="+data.data.companyId;
+                       }
+                   })
+
+			});
+            history.pushState({back: 1}, null, "?back=1");
+            window.onpopstate = function(event) {
+                console.log(event);
+                history.pushState({back: 1},null, "?back=1");
+            };
+		</script>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+<!--pages/person/person .wxml-->
+<view class="userinfo">
+<image src='../img/userBgi.png' class='bgc' scaleToFill style='width:100%;height:300rpx'></image>
+     <image class="userImg" src='{{imgUrl}}'></image>
+     <text>{{name}}</text>
+</view>

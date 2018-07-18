@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <title>认证资料-提交通知</title>
+    <style>
+        .account_cont>p{    padding-top: 10px;}
+        .btn-mess{width: 200px; padding:10px 0; margin-top: 40px;}
+        .mess_con_bottom .mess_bot_center{text-align: center;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+        </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li class="first">认证资料</li>
+                    <li>保证金</li>
+
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li>经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+        <div class="right">
+            <div class="account_cont">
+               <p class="router">基础设置》账户信息》认证资料</p>
+                <div class="mess_con_bottom  clearfix">
+                    <div class="mess_bot_center">
+                        <img src="../image/icon.png" alt="" class="fl">
+                        <div class="mess_con_submit fl">
+                            <p>您的入驻资料已提交，请等待平台审核</p>
+                            <span>温馨提示：审核时间周期为3-7个工作日 拷贝</span>
+                        </div>
+                        <a href="javascript:;" class="btn btn-primary btn-mess">查看提交信息</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script>
+       $('.btn-mess').click(function () {
+           window.location.href='./cert-already.html'
+       })
+       $(".header li").click(function () {
+           if($(this).html()==localStorage.getItem("username")){
+
+               window.location.href="account_msg.html";
+
+           }else if($(this).html()=="基础设置"){
+               window.location.href="basis_msg.html";
+
+           }
+       });
+    </script>
+</body>
+</html>

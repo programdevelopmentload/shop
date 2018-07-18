@@ -1,0 +1,529 @@
+ <!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>业务信息</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" />
+		<link rel="stylesheet" type="text/css" href="css/common.css" />
+
+		<style type="text/css">
+			b{
+				color:red;
+				margin-top: 5px;
+				margin-right: 5px	;
+			}
+			.mess_cont_lists .com{
+
+
+				background: url(image/line-hover.png) no-repeat 10px 20px;
+			}
+			.mess_cont__circle .clearfix .mess_circle{background: #6DABC7}
+			#cover,#size,#leixing{display: none;}
+			input::-webkit-outer-spin-button,
+			input::-webkit-inner-spin-button {
+				-webkit-appearance: none !important;
+				margin: 0;
+			}
+			.multiselect-selected-text{
+				width: 70px;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+		</style>
+	</head>
+	<body>
+	<div class="header clearfix">
+		<a href="javascript:;">
+			<img src="image/xbxm.png"/>
+		</a>
+
+		<a href="javascript:;">
+			<img src="image/store.png"/>
+		</a>
+	</div>
+		<div class="mess_cont">
+			<div class="mess_cont_title">
+				<ul>
+					<li class="clearfix">
+						<span class="mess_left">供应商入驻</span>
+						<a href="login.html" class="mess_right mess-padding">立即登录</a>
+						<span class="mess_right ">已有账户,</span>
+					</li>
+				</ul>
+			</div>
+			<div class="mess_cont_lists">
+				<div class="mess_cont__circle">
+					<ul class="clearfix">
+						<li class="com">
+							<div class="mess_circle">1</div>
+							<p>账号信息</p>
+						</li>
+						<li class="com">
+							<div class="mess_circle">2</div>
+							<p>公司信息</p>
+						</li>
+						<li class="com">
+							<div class="mess_circle">3</div>
+							<p>业务信息</p>
+						</li>
+					</ul>
+				</div>
+				<div class="mess_cont__circle"></div>
+				<div class="mess_con_form ">
+					<p>*经营信息</p>
+					<form class="form-horizontal mess_list_margin" role="form">
+						<div class="form-group ">
+							<label for="" class="col-sm-2 control-label"><b>*</b>经营类型:</label>
+							<input name="work_type" value="1" checked="checked" class="mess_con_radio1 jyqy" type="radio">厂家
+							<input name="work_type" value="2" class="mess_con_radio1 jyqy" type="radio" />区域代理
+							<input name="work_type" value="3" class="mess_con_radio1 jyqy" type="radio" />其他
+							<input name="work_type" placeholder="请输入" id='leixing' type="text" class="form-control" style="  margin-left: 114px;margin-top: 10px;">
+							<!--</div>-->
+						</div>
+						<div class="form-group jyqy">
+							<label for="" class="col-sm-2 control-label">企业规模:</label>
+							<!-- <div class="form-group ">-->
+							<!--<label for="" class="col-sm-2 control-label">公司类型:</label>-->
+							<input name="com_scale" value="1"  class="mess_con_radio1 qygm" type="radio">私营企业
+							<input name="com_scale" value="2" class="mess_con_radio1 qygm" type="radio" />国营企业
+							<input name="com_scale" value="3" class="mess_con_radio1 qygm" type="radio" />合资企业
+							<input name="com_scale" value="4" class="mess_con_radio1 qygm" type="radio" />外企企业
+							<input name="com_scale" value="5" class="mess_con_radio1 qygm" type="radio" />其他
+							<input name="com_scale" id='size' placeholder="请输入" type="text" class="form-control" style="  margin-left: 114px;margin-top: 10px;">
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">纳税规模:</label>
+							<input name="tepaying" value="1" class="mess_con_radio1" type="radio">一般纳税人
+							<input name="tepaying" value="2" class="mess_con_radio1" type="radio" />小规模纳税人
+							<input name="tepaying" value="3" class="mess_con_radio1" type="radio" />个人工商
+						</div>
+					</form>
+				</div>
+				<div class="mess_con_form mess_con_margin">
+					<p><b>*</b>服务信息</p>
+					<form class="form-horizontal mess_list_margin" role="form">
+						<div class="form-group check_hover">
+							<label for="" class="col-sm-2 control-label">经营区域:</label>
+							<span class='unchecked jyqy' value="1" name='jyqy' checked='false' onclick='change(this);'>全国区域</span>
+							<span class='unchecked jyqy' value="2" name='jyqy' checked='false' onclick='change(this);'>西南区域</span>
+							<span class='unchecked jyqy' value="3" name='jyqy' checked='false' onclick='change(this);'>四川区域</span>
+							<span class='unchecked jyqy' value="4" name='jyqy' checked='false' onclick='change(this);'>其他</span>
+							<div class="col-sm-10">
+								<input type="text" id='cover' class="form-control" style="margin-left: 102px;margin-top: 10px;" placeholder="请输入">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">配送人数:</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-control" id="psrs">
+                                <span></span>
+							</div>
+
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">测量人数:</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-control" id="clrs">
+                                <span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">设计人数:</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-control" id="sjrs">
+                                <span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">主要客户销售范围:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="sales">
+								<span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label" style="margin-left: 15px;"><b>*</b>主营品牌:</label>
+							<select name="" class="form-control multiselect" multiple="multiple" id="multiselect">
+								<!--<option value="林氏木业">林氏木业</option>-->
+								<!--<option value="TAT木门">TAT木门</option>-->
+								<!--<option value="帝王">帝王</option>-->
+								<!--<option value="美的">美的</option>-->
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="mess_con_form mess_con_margin">
+					<p><b>*</b>联系信息</p>
+					<form class="form-horizontal mess_list_margin" role="form">
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label"><b>*</b>业务对接人:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id="yewu">
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label"><b>*</b>手机号码:</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-control phone" id="phone">
+								<span></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">E-mail:</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control email" id='email1'>
+								<!--<span></span>-->
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">服务负责人:</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" id='fuwuMan'>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">手机号码:</label>
+							<div class="col-sm-10">
+								<input type="number" class="form-control phone" id='fuwuTel'>
+								<!--<span></span>-->
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="" class="col-sm-2 control-label">E-mail:</label>
+							<div class="col-sm-10">
+								<input type="email" class="form-control email" id='fuwuEmail'>
+								<!--<span></span>-->
+							</div>
+						</div>
+					</form>
+				</div>
+				<button type="button" id='btn' class="btn  btn-lg mess_con_btn">提交,下一步</button>
+				<a href="javascript:;" id="save_noSubmit" class="supplier_href">只保存，不提交</a>
+			</div>
+		</div>
+
+		<div class="footer">
+			<p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+			<p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+		</div>
+		<script src="js/jquery-1.12.4.min.js"></script>
+	    <script src="js/common.js"></script>
+	<script src="js/bootstrap.min.js"></script><script src="https://cdn.bootcss.com/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.min.js
+">
+		</script>
+	   <script src="layer/layer.js"></script>
+	 	<script>
+
+            $(".header li").click(function () {
+                if($(this).html()==localStorage.getItem("username")){
+                    window.location.href="basis_setting/account_msg.html"
+                }else if($(this).html()=="基础设置"){
+                    window.location.href="basis_setting/basis_msg.html"
+                }
+            });
+
+            // console.log($(this).val());
+			$("input.jyqy").click(function () {
+                if ($(this).val()==3){
+                    $('#leixing').show()
+                }else {
+                    $('#leixing').hide()
+                }
+            })
+
+
+
+            // console.log($(this).val());
+            $(".qygm").click(function () {
+                if ($(this).val()==5){
+                    $('#size').show()
+                }else {
+                    $('#size').hide()
+                }
+            })
+
+
+
+        var selected = "";
+        var brandId="";
+            //获取品牌
+			rewriteAjax({
+                url:getBaseUrl("wx")+"/goods/goods/brand/showBrandLeafClassOpenClose",
+			},function (res) {
+                $('select.multiselect').empty();
+                // console.log(res);
+                if(res.success){
+                    var data=res.data;
+                    var str=""
+                    for(var i=0;i<data.length;i++){
+                        str+='<option  value="'+data[i].nameCh+'"  brandId="'+data[i].id+'">'+data[i].nameCh+'</option>'
+                    }
+                    // console.log(str)
+                    $("select.multiselect").html(str);
+                    /*多选*/
+
+                    $('#multiselect').multiselect("destroy").multiselect({
+                        buttonText: function(options) {
+                            if (options.length == 0) {
+                                return '请选择';
+                            } else {
+                                selected = "";
+                                brandId="";
+                                options.each(function() {
+                                    selected += $(this).text() + ',';
+                                    brandId += $(this).attr("brandId") + ',';
+                                });
+
+                                // console.log(selected);
+                                selected=selected.substr(0, selected.length - 1);
+                                // console.log(selected);
+                                brandId=brandId.substr(0, brandId.length - 1);
+
+                                return selected.substr(0, selected.length - 1);
+                            }
+                        },
+                    });
+                    msg()
+                }
+            })
+
+            var url=getBaseUrl('yy');
+            console.log(url)
+            var messUrl =url+'/user/seller/workRegister';
+			(function($) {
+				$.getUrlParam = function(name) {
+					var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+					var r = window.location.search.substr(1).match(reg);
+					if (r != null) return unescape(r[2]);
+					return '';
+				}
+			})(jQuery);
+			/*模拟单选按钮*/
+			var obj = {
+				colorSpan: "",
+			};
+			function change(span) {
+				$('span[name="' + $(span).attr('name') + '"]').each(function() {
+					if (this.checked && this != span) {
+						this.className = "unchecked";
+						this.checked = false;
+					}
+				});
+
+				obj[$(span).attr('name')] = span.innerHTML;
+				span.className = "checked";
+				span.checked = true;
+			}
+
+			function msg(){
+				rewriteAjax({
+                    url:url+"/user/seller/selectCompanyBycompanyid",
+                    data:{companyId:localStorage.getItem("companyId")},
+				},function (res) {
+                    if(res.success){
+                        var data=res.data;
+                        if(data.managementType=="厂家"){
+                            $(".jyqy[value=1]").attr("checked","checked");
+                        }else if(data.managementType=="区域代理"){
+                            $(".jyqy[value=2]").attr("checked","checked");
+                        }else{
+                            $(".jyqy[value=3]").attr("checked","checked");
+                            $("#leixing").show().html(data.managementType);
+                        }
+                        if(data.enterpriseScale!=undefined){
+                            if(data.enterpriseScale=="私营企业"){
+                                $(".qygm[value=1]").attr("checked","checked");
+                            }else if(data.enterpriseScale=="国营企业"){
+                                $(".qygm[value=2]").attr("checked","checked");
+                            }else if(data.enterpriseScale=="合资企业"){
+                                $(".qygm[value=3]").attr("checked","checked");
+
+                            }else if(data.enterpriseScale=="外企企业"){
+                                $(".qygm[value=4]").attr("checked","checked");
+
+                            }else{
+                                $("#size").html(data.enterpriseScale)
+                            }
+                        }
+                        if(data.taxScale!=undefined){
+                            if(data.taxScale=="一般纳税人"){
+                                $(".mess_con_radio1[value=1]").attr("checked","checked");
+                            }else if(data.taxScale=="小规模纳税人"){
+                                $(".mess_con_radio1[value=2]").attr("checked","checked");
+
+                            }else if(data.taxScale=="个人工商"){
+                                $(".mess_con_radio1[value=3]").attr("checked","checked");
+
+                            }
+                        }
+                        if(data.operatingArea=="全国区域"){
+                            $("span[value=1]").attr("checked","checked");
+                        }else if(data.operatingArea=="西南区域"){
+                            $("span[value=2]").attr("class","checked");
+                        }else if(data.operatingArea=="四川区域"){
+                            $("span[value=3]").attr("checked","checked");
+                        }else{
+                            $("span[value=4]").attr("checked","checked");
+                            $("#cover").show().html(data.operatingArea);
+                        }
+                        if(data.distributionNum!=undefined){
+                            $("#psrs").val(data.distributionNum)
+
+                        }
+                        if(data.measureNum!=undefined){
+                            $("#clrs").val(data.measureNum)
+
+                        }
+                        if(data.designNum!=undefined){
+                            $("#sjrs").val(data.designNum)
+
+                        }
+                        if(data.saleScope!=undefined){
+                            $("#sales").val(data.saleScope)
+
+                        }
+                        if(data.abutmentPerson!=undefined){
+                            $("#yewu").val(data.abutmentPerson)
+
+                        }
+                        if(data.abutmentEmail!=undefined){
+                            $("#email1").val(data.abutmentEmail)
+
+                        }
+                        if(data.abutmentPhone!=undefined){
+                            $("#phone").val(data.abutmentPhone)
+
+                        }
+                        if(data.servicePerson!=undefined){
+                            $("#fuwuMan").val(data.servicePerson)
+
+                        }
+                        if(data.servicePhone!=undefined){
+                            $("#fuwuTel").val(data.servicePhone)
+
+                        }
+                        if(data.serviceEmail!=undefined){
+                            $("#fuwuEmail").val(data.serviceEmail)
+
+                        }
+                        var brand=""
+                        if (data.brand!=undefined) {
+                            for(var i=0;i<data.brand.length;i++){
+                                brand+=data.brand[i].nameCh+",";
+                            }
+                            brand=brand.substr(0,brand.length-1)
+                        }
+                    }
+                })
+
+
+            }
+
+            function submit(isSubmit){
+			    if ($('#psrs').val().length>=10){
+			        $('#psrs').next().show().html('人数超过限制');
+                    $('#psrs').next().show().css('color','red');
+                    return
+                }else{
+                    $('#psrs').next().hide()
+				}
+                if ($('#clrs').val().length>=10){
+                    $('#clrs').next().show().html('人数超过限制');
+                    $('#clrs').next().show().css('color','red');
+                    return;
+                }else{
+                    $('#clrs').next().hide()
+				}
+                if ($('#sjrs').val().length>=10){
+                    $('#sjrs').next().show().html('人数超过限制');
+                    $('#sjrs').next().show().css('color','red');
+                    return;
+                }else{
+                    $('#sjrs').next().hide()
+				}
+                var obj = {};
+                obj.managementType = $('input:radio[name="work_type"]:checked').attr("value")==3?$("#leixing").val():$('input:radio[name="work_type"]:checked').attr("value");
+                obj.enterpriseScale = $('input:radio[name="com_scale"]:checked').attr("value")==5?$("#size").val():$('input:radio[name="com_scale"]:checked').attr("value");
+                obj.taxScale = $('input:radio[name="tepaying"]:checked').attr("value");
+                obj.operatingArea = $('.check_hover .checked').attr("value")==4?$("#cover").val():$(".check_hover  .checked").attr("value");
+                obj.distributionNum = $('#psrs').val();
+                obj.measureNum = $('#clrs').val();
+                obj.designNum = $('#sjrs').val();
+                obj.saleScope = $('#sales').val();
+
+                obj.brand = brandId;
+
+                obj.abutmentPerson = $('#yewu').val();
+                obj.abutmentPhone = $('#phone').val();
+                obj.abutmentEmail = $('#email1').val();
+                obj.servicePerson = $('#fuwuMan').val();
+                obj.servicePhone = $('#fuwuTel').val();
+                obj.serviceEmail = $('#fuwuEmail').val();
+                obj.companyId=localStorage.getItem("companyId");
+                obj.isSubmit= isSubmit;//只保存 不提交0   或者提交1
+				// console.log(obj);
+                if(obj.managementType==""){
+                    layer.msg("请选择经营类型");
+                    return;
+                }
+				if(obj.operatingArea==""){
+				    layer.msg("请选择经营区域");
+				    return;
+				}
+				if(obj.brand==""){
+				    layer.msg("请选择主营品牌")
+					return;
+				}
+                if($("#yewu").val()==""){
+                    layer.msg("请输入负责人姓名");
+                    return;
+                }
+                if($("#phone").val()==""){
+                    layer.msg("请输入手机号");
+                    return;
+                }
+
+				rewriteAjax({
+                    url: messUrl,
+                    data: obj,
+				},function (data) {
+                    if(data.success){
+                        sessionStorage.setItem('selected',selected);
+                        if (data.success&&isSubmit==1) {
+                            window.location.href="prompt.html"
+                        }else {
+                            layer.msg("保存成功");
+
+                        }
+                    }
+                })
+
+
+			}
+			$("#save_noSubmit").click(function () {
+				submit(0)
+            });
+
+			$("#btn").click(function() {
+                submit(1)
+
+			})
+
+
+            history.pushState({back: 1}, null, "?back=1");
+            window.onpopstate = function(event) {
+                // console.log(event);
+                history.pushState({back: 1},null, "?back=1");
+            };
+
+		</script>
+	</body>
+
+</html>

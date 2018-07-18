@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>商品模板(上架协议)</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style>
+        .agreement{
+            width: 80%;margin: 20px auto;
+            padding:0 30px;
+            border:1px solid #dedede;
+            overflow: hidden;
+            height: 500px;
+        }
+        .agreement button{
+            margin: 0 auto;
+            float: left;
+            width: 200px;
+        }
+        .agreement button.no{margin-right: 2%;}
+        .btnsBox{
+            margin-top: 20px;}
+       .right ul li{
+            float: left;
+            width: 50%	;
+            line-height: 30px;
+        }
+        .agreement p{
+            line-height: 40px;
+        }
+        .mess_cont .mess_cont_title .clearfix{
+            width: 80%;
+            margin: auto;
+            float: none;
+        }
+        .mess_cont .mess_cont_title .clearfix span{
+            margin: 0;
+            padding: 0;
+            line-height: 50px;
+        }
+        .mess_cont .mess_cont_title .clearfix a{
+            line-height: 50px;
+        }
+        .mess_cont{
+            padding-bottom: 0px;
+        }
+        .mess_cont_title{
+            height: 50px;
+            line-height: 50px;
+        }
+        .agreement ul{height: 300px; overflow-y:scroll;}
+        .btnsBox{display: flex;justify-content: center;}
+    </style>
+</head>
+<body>
+     <div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+ <div id="header" class="header clearfix">
+     <ul>
+         <li><span >首页</span></li>
+         <li><span>基础设置</span></li>
+         <li class="finishMoney"><span class="head_active">商品管理</span></li>
+         <li class="finishMoney"><span >订单管理</span></li>
+         <li class="finishMoney"><span >对账管理</span></li>
+     </ul>
+ </div>
+     <div id="box">
+
+         <div class="left">
+             <ul>
+                 <li >
+                     <span>供货管理</span>
+                     <ul>
+                         <li class="first">商品模板</li>
+                     </ul>
+                 </li>
+                 <li >
+                     <span>商品管理</span>
+                     <ul>
+                         <li >在售商品</li>
+                         <li >库存管理</li>
+                     </ul>
+                 </li>
+
+             </ul>
+         </div>
+         <div class="right">
+             <p class="router">商品管理》供货管理》商品模板</p>
+            <div class="agreement">
+                 <p>商品商家协议</p>
+                 <ul class="agreements">
+                     <!--<li>1、我们如何收集和使用您的个人信息</li>-->
+                     <!--<li>2、您如何管理个人信息</li>-->
+                     <!--<li>3、我们如何使用Cookie和同类技术</li>-->
+                     <!--<li>4、未成年人信息的保护</li>-->
+                     <!--<li>5、我们如何共享、转让、公开披露您的个人信息</li>-->
+                     <!--<li>6、通知和修订</li>-->
+                     <!--<li>7、我们如何保护和保存您的个人信息</li>-->
+                     <!--<li>8、如何联系我们</li>-->
+                 </ul>
+                 <div class="btnsBox clearfix">
+                     <button class="form-control btn-default no">取消</button>
+                     <button class="form-control btn-primary yes">同意</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <div class="footer">
+         <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+         <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+     </div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+         $(".header li").click(function () {
+             if($(this).html()==localStorage.getItem("username")){
+                 window.location.href="basis_setting/account_msg.html"
+             }else if($(this).html()=="基础设置"){
+                 window.location.href="basis_setting/basis_msg.html"
+             }
+         });
+         $(".yes").click(function () {
+             window.location.href="account.html"
+         })
+         $(".no").click(function () {
+             window.location.href="login.html"
+         })
+
+         // 协议
+         rewriteAjax({
+             url:'http://172.16.38.97:8009/user/agreement/goods/info',
+         },function (data) {
+             if (data.success){
+                 console.log(data)
+                 $('.agreements') .html('<li>'+data.data.comment+'</li>')
+             }
+         })
+
+        // 点击同意跳转
+        $('.yes').click(function () {
+           window.location.href='./product_template.html'
+        })
+     </script>
+</body>
+</html>

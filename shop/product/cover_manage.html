@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>库存管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        .right .classify .fl, .right .brand .fl, .cover .fl, .type .fl {
+            width: 10%;
+        }
+
+        .right .classify, .right .brand, .cover {
+            position: relative;
+        }
+
+        .right .classify .fr, .right .brand .fr, .cover .fr, .type .fr {
+            width: 90%;
+            padding-right: 10%;
+        }
+
+        .right .classify .fr li, .right .brand .fr li, .cover .fr li, .type .fr li {
+            float: left;
+            margin-right: 30px;
+        }
+
+        .right .classify .fl > span, .right .brand .fl > span, .right .cover .fl > span, .right .type .fl > span {
+            display: inline-block;
+            padding: 2px;
+            float: right;
+            margin-right: 10px;
+        }
+
+        .right .classify > span, .right .brand > span, .right .cover > span, .right .type > span {
+            display: inline-block;
+            position: absolute;
+            right: 10px;
+            top: 0;
+        }
+
+        .right .classify, .right .brand, .cover, .type {
+            overflow: hidden;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #dedede;
+        }
+
+        .right select {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .cargo_list {
+            font-size: 18px;
+            padding: 5px 0
+        }
+
+        .list ol {
+            background: #f2f2f2;
+            border: 1px solid #dedede;
+            border-bottom: none;
+        }
+
+        .list {
+            margin-right: 5px;
+        }
+
+        .fr > p {
+            margin-bottom: 0;
+        }
+
+        dt, dd {
+            float: left;
+        }
+
+        dt img {
+            width: 50px;
+            height: 50px;
+            margin-top: 15px;
+        }
+
+        dd {
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        .classify ul, .brand ul, .cover ul, .type ul {
+            overflow: hidden;
+            height: 20px;
+            padding-top: 2px;
+            margin-bottom: 0;
+        }
+
+        .classify ul li, .brand ul li, .cover ul li, .type ul li {
+            margin-bottom: 10px;
+        }
+
+        .yixuan {
+            width: 90%;
+            overflow: hidden;
+            height: 50px;
+            border: 1px solid #dedede;
+        }
+
+        .yixuan span {
+            float: right;
+            margin-top: 30px;
+
+        }
+
+        .yixuan input {
+            float: right;
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+
+        .more {
+            display: inline-block;
+            padding: 2px;
+            border: 1px solid #eeeeee;
+        }
+
+        .biao_classify {
+            display: none;
+        }
+
+        .eng {
+            display: none;
+        }
+
+        .eng span {
+            padding-top: 2px;
+            margin-right: 12px;
+        }
+
+        #box .li2 {
+            padding-left: 40px;
+        }
+
+        #box .li3 {
+            padding-left: 63px;
+        }
+
+        .search input {
+            display: inline-block;
+            width: 250px;
+        }
+
+        .search .btn-primary {
+            display: inline-block;
+        }
+
+        .list ol {
+            overflow: hidden;
+            line-height: 40px;
+        }
+
+        .select_list li {
+            height: 80px;
+            display: flex;
+            align-items: center;
+        }
+
+        .select_list ul {
+            overflow: hidden;
+        }
+
+        dd {
+            word-wrap: break-word;
+            width: 48%;
+        }
+
+        .edit {
+            width: 20px;
+            height: 20px;
+        }
+
+        .select_list input {
+            width: 100px;
+            height: 25px;
+        }
+
+        .select_list .confirm {
+            margin-top: 49px;
+            margin-left: -100px;
+            width: 50px;
+            height: 20px;
+        }
+
+        .list li {
+            text-align: center;
+            justify-content: center;
+        }
+
+        /*.list .col-sm-2{ width: 16%;}*/
+        /*.list .col-sm-1{ width: 9%;}*/
+        .select_list .noList > img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            left: 38%;
+            top: 0;
+        }
+
+        .select_list .noList {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            position: relative;
+            margin-top: 5%;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span class="head_active">商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>供货管理</span>
+                <ul>
+                    <li>商品模板</li>
+                </ul>
+            </li>
+            <li >
+                <span>商品管理</span>
+                <ul>
+                    <li >在售商品</li>
+                    <li class="first">库存管理</li>
+                </ul>
+            </li>
+
+        </ul>
+
+    </div>
+    <div class="right">
+        <p class="router">商品管理》商品管理》库存管理</p>
+        <div class="coverCont">
+            <div class="cover">
+                <div class="fl">
+                    仓库
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="classify">
+                <div class="fl">
+                    分类
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <ul>
+                    </ul>
+                </div>
+                <span class="more">更多 <img src="../image/down.png" alt=""></span>
+            </div>
+            <div class="brand">
+                <div class="fl">
+                    品牌
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <p class="eng">
+                        <span>A</span>
+                        <span>B</span>
+                        <span>C</span>
+                        <span>D</span>
+                        <span>E</span>
+                        <span>F</span>
+                        <span>G</span>
+                        <span>H</span>
+                        <span>I</span>
+                        <span>G</span>
+                        <span>K</span>
+                        <span>L</span>
+                        <span>M</span>
+                        <span>N</span>
+                        <span>O</span>
+                        <span>P</span>
+                        <span>Q</span>
+                        <span>R</span>
+                        <span>S</span>
+                        <span>T</span>
+                        <span>U</span>
+                        <span>V</span>
+                        <span>W</span>
+                        <span>X</span>
+                        <span>Y</span>
+                        <span>Z</span>
+                    </p>
+                    <ul>
+
+                    </ul>
+                </div>
+                <span class="more">更多 <img src="../image/down.png" alt=""></span>
+            </div>
+            <div class="biao_classify">
+            </div>
+            <div class="type">
+                <div class="fl">
+                    商品类型
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <ul>
+                        <li type="0">标品</li>
+                        <li type="1" >测量类</li>
+                        <li type="2">安装类</li>
+                        <li type="3">定制类</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            商品查找： <input type="text" class="form-control" placeholder="商品名称/商品编码" id="shopNumber">
+            <button type="button" class="btn btn-primary">确认</button>
+        </div>
+        <p class="cargo_list">在售商品</p>
+        <div class="list">
+            <ol class="list_head">
+                <li class="col-sm-3">商品信息</li>
+                <li class="col-sm-3">商品编码</li>
+                <li class="col-sm-2">商品类型</li>
+                <li class="col-sm-2">实体库存</li>
+                <li class="col-sm-2">虚拟库存</li>
+            </ol>
+            <div class="select_list">
+                <!--<ul>-->
+                    <!--<li class="col-sm-3">-->
+                        <!--<dl>-->
+                            <!--<dt><img src="../image/icon.png" alt=""></dt>-->
+                            <!--<dd>qqqqqqqqqqqqqqqqqqqqqqq</dd>-->
+                        <!--</dl>-->
+                    <!--</li>-->
+                    <!--<li class="col-sm-3">商品编码</li>-->
+                    <!--<li class="col-sm-2">商品类型</li>-->
+                    <!--<li class="col-sm-2">-->
+                        <!--<span>￥qqq</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">-->
+                        <!--<input type="text"><input type="button" class="confirm" value="确认">-->
+                    <!--</li>-->
+                    <!--<li class="col-sm-2">-->
+                        <!--<span>￥qqq</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">-->
+                        <!--<input type="text"><input type="button" class="confirm" value="确认">-->
+                    <!--</li>-->
+                <!--</ul>-->
+            </div>
+        </div>
+        <!--分页-->
+        <div class="leftBottom clearfix">
+            <div class="page pageBar" id="page">
+                <p>共条记录</p>
+                <div class="pageLft clearfix">
+                    <a href=" #" class="prev"></a>
+                    <a href="#" class="active"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                </div>
+                <div class="pageRht">共<span id="totalPage"></span>页</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    var brandId = "";
+    var lcids = "";
+    var type = "";
+    var storeId = '';
+    $(".type .all").click(function () {
+        type = "";
+        // $(".select_list").html("");
+        // boo=true;
+    });
+    $(".type .fr ul").on("click", "li", function () {
+        type = $(this).attr("typeid");
+        console.log(type);
+        // $(".select_list").html("");
+        // boo=true;
+        searchPage();
+        searchPage(_nowPage);
+    });
+    $(".classify .all").click(function () {
+        lcids = "";
+        // $(".select_list").html("");
+        // boo=true;
+
+    });
+    $(".classify .fr ul").on("click", "li", function () {
+        lcids = $(this).attr("lcid");
+        console.log(lcid)
+        // console.log(lcid);
+        // $(".select_list").html("");
+        // boo=true;
+
+    });
+    $(".brand .fr ul").on("click", "li", function () {
+        brandId = $(this).attr("brandId");
+        console.log(brandId)
+        // console.log(brandId);
+        // $(".select_list").html("");
+        // boo=true;
+
+    });
+    $(".brand .all").on("click", "li", function () {
+        brandId = "";
+        // $(".select_list").html("");
+        // boo=true;
+        // index=1;
+        // fn();
+    });
+    $(".cover .fr ul").on("click", "li", function () {
+        storeId = $(this).attr("storeId");
+        console.log(storeId)
+        // console.log(brandId);
+        // $(".select_list").html("");
+        // boo=true;
+    });
+    $(".cover .all").on("click", "li", function () {
+        storeId = "";
+        // $(".select_list").html("");
+        // boo=true;
+        // index=1;
+        // fn();
+    });
+    //获取分类
+    rewriteAjax({
+        url: "http://172.16.41.60:8007/goods/GoodsClassification/showAllLeafClass",
+    },function (res) {
+        if (res.success) {
+            var data = res.data;
+            var str = ""
+            for (var i = 0; i < data.length; i++) {
+                str += '<li lcid="' + data[i].id + '">' + data[i].name + '</li>'
+            }
+            $(".classify .fr ul").html(str)
+        }
+    });
+
+    //获取品牌
+    rewriteAjax({
+        url: "http://172.16.41.60:8007/goods/brand/showBrandLeafClassOpenClose",
+    },function (res) {
+        if (res.success) {
+            var data = res.data;
+            var str = "";
+            for (var i = 0; i < data.length; i++) {
+                str += '<li fpy="' + data[i].fpy + '" brandId="' + data[i].id + '">' + data[i].nameCh + '</li>'
+            }
+            $(".brand .fr ul").html(str);
+        }
+    })
+
+    //仓库
+    rewriteAjax({
+        url: "http://172.16.40.239:8013/area/supplier/findStoreInfoBySupplierId",
+        data: {
+            supplierId: [localStorage.getItem("companyId")]
+        },
+    },function (res) {
+        var str = '';
+        if (res.success) {
+            for (var i = 0; i < res.data.length; i++) {
+                str += '<li storeId="' + res.data[i].id + '">' + res.data[i].storeName + '</li>'
+            }
+            $(".cover .fr ul").append(str)
+        }
+    })
+
+    //字母
+    $(".eng span").click(function () {
+        var letter = $(this).html();
+        var brandLetter = $(".brand .fr ul li");
+        var str = "";
+        for (var i = 0; i < brandLetter.length; i++) {
+            if (brandLetter.eq(i).attr("fpy") == letter) {
+                str += '<li fpy="' + letter + '" brandId="' + brandLetter.eq(i).attr("brandId") + '">' + brandLetter.eq(i).html() + '</li>'
+            }
+        }
+        $(".brand .fr ul").html(str);
+    });
+    function edit(a) {
+        var money = $(a).prev().html().split("￥")[1];
+        $(a).parent().html();
+        $(a).parent().html('<input type="number" value="' + money + '"><input type="button"onclick="confirm(this)" class="confirm" value="确认">');
+
+    }
+    function confirm(b) {
+        var money = $(b).prev().val();
+        rewriteAjax({
+            url: "/usergoods/sku/publisher/updatePrice",
+            data: {id: $(this).parent().attr("proId"), factory_price_new: money},
+        },function (res) {
+            if (res.success) {
+                $(b).parent().html('<span>￥' + money + '</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">')
+
+            }
+        });
+
+    }
+    //去处理
+    $(".more").click(function () {
+        console.log($(this).prev().find("ul").css("height"));
+        if ($(this).prev().find("ul").css("height") == "20px") {
+            $(this).prev().find("ul").css("height", "100%");
+            $("biao_classify").css("disaply", "block");
+            if ($(this).parent().attr("class") == "brand") {
+                $(".eng").css("display", "block");
+            }
+        } else {
+            $(this).prev().find("ul").css("height", "20px")
+            $("biao_classify").css("disaply", "none");
+            if ($(this).parent().attr("class") == "brand") {
+                $(".eng").css("display", "none");
+            }
+
+        }
+    });
+
+    $(function () {
+        searchPage();   //初始化函数
+    });
+    /**
+     * 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.38.207:8007/goods/sku/publisher/stockList', "page", function (data) {
+        fillTableData(data);
+    });
+
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+    }
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        var shopNumber=$('#shopNumber').val();
+        var params = {
+            'lcid': lcids,
+            'pageSize': 1,
+            'pageNum': 10,
+            'brandId': brandId,
+            'number': '',
+            'storeId': storeId,
+            'publisherId': ''
+        };
+        if(reg.test(shopNumber) == true ){
+            params.number=shopNumber;
+        }else if(reg.test(shopNumber) == false ){
+            params.keyWord=shopNumber
+        }
+        return params;
+    };
+
+    /** table数据 */
+     function fillTableData(data) {
+        console.log(data);
+     }
+     var data={
+         "data":{
+             "isMore":0,
+             "items":[
+                 {
+                     "sku":{
+                         "brandId":16,
+                         "brandName":"苹果",
+                         "buyInstructions":"测试测试",
+                         "createTime":1530331071000,
+                         "goodsDetails":"group100/M00/00/00/rBAKo1s2_xqAWgbDAAB2jFNOuYo357.jpg",
+                         "goodsService":{
+                             "goodsType":"冒号",
+                             "id":14,
+                             "installService":1,
+                             "isDelete":0,
+                             "measureService":1,
+                             "sendService":1,
+                             "updateTime":1530170260000
+                         },
+                         "id":"1012908041904537600",
+                         "isDelete":0,
+                         "leafClassId":210,
+                         "leafClassName":"威图手机",
+                         "model":"8",
+                         "number":"1012908041933897728",
+                         "otherName":"",
+                         "pics":[
+                             {
+                                 "id":11,
+                                 "pic":"http://172.16.10.117group100/M00/0000/rBAKols2_xSAPW_yAABqdU6Ofcw220.png"
+                             }
+                         ],
+                         "shelfTime":1530331388000,
+                         "showName":"",
+                         "spuId":55,
+                         "state":0,
+                         "sysName":"苹果 8 威图手机 12 12 12 12"
+                     },
+                     "stock":{
+                         "goodEntity":1,
+                         "goodFic":1
+                     }
+                 }
+             ],
+             "pageNum":1,
+             "pageSize":10,
+             "startIndex":0,
+             "totalCount":4,
+             "totalPage":1
+         },
+         "errorCode":0,
+         "message":"成功",
+         "success":true
+     }
+     if (data.success){
+         var data=data.data.items;
+         console.log(data)
+         var str = ''
+         for (var s=0;s<data.length;s++){
+             str +='<ul>' +
+                 '<li class="col-sm-3">' +
+                 '<dl>' +
+                 '<dt><img src="'+data[s].sku.pics[0].pic+'" alt=""></dt>' +
+                 '<dd>'+data[s].sku.otherName+'</dd>' +
+                 '</dl>' +
+                 '</li>' +
+                 '<li class="col-sm-3">'+data[s].sku.number+'</li>' +
+                 '<li class="col-sm-2">'+data[s].sku.goodsService.goodsType+'</li>' +
+                 '<li class="col-sm-2">' +
+                 '<span>'+data[s].stock.goodEntity+'</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">' +
+                 '<input type="text"><input type="button" class="confirm" value="确认">' +
+                 '</li>' +
+                 '<li class="col-sm-2">' +
+                 '<span>'+data[s].stock.goodFic+'</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">' +
+                 '<input type="text"><input type="button" class="confirm" value="确认">' +
+                 '</li>' +
+                 '</ul>'
+         }
+         $('.select_list').html(str)
+     }
+
+
+
+</script>
+</body>
+</html>

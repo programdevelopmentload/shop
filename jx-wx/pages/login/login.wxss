@@ -1,0 +1,6 @@
+page {    display: block;   min-height: 100%; background-color: #f5f3f2;} 
+.login_input{padding:60rpx 60rpx 0; position: relative;}
+.login_input input{border-bottom: 1px solid #dedede; padding-left: 20rpx; font-size: 30rpx; color: #333333; margin-bottom: 42rpx; height: 74rpx;}
+.login_input .login_btn{height: 88rpx; color: #fff; border: none;background: #eb5033; border-radius: 10rpx; }
+.login_input .ver_btn{position: absolute;top: 48%;left: 65%; width: 206rpx; 
+ height: 60rpx; background: #fff;color:#eb5033; font-size: 30rpx; line-height: 60rpx; border:none; border-radius: 10rpx; z-index: 100;}

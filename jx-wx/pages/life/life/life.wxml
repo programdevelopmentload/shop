@@ -1,0 +1,25 @@
+<view class='contain'>
+  <view class='product' wx:for="{{list}}">
+    <view class='top'>
+      <view class='fl' style='float:{{index%2==0?"left":"right"}}'>
+        <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' mode='scaleToFill'>
+        </image>
+      </view>
+      <view class='fr' style='float:{{index%2==0?"left":right}}'>
+        <text class='name'>法国xxxxx</text>
+        <text class='price'>$888</text>
+      </view>
+    </view>
+    <view class='{{item.classup}}'>
+      <text>商品描述</text>：w q w q w q w q w q w q委屈委屈委屈委屈委屈我
+      <view class="reason">
+        <text>推荐理由：</text>质量好啊。
+      </view>
+    </view>
+    <view class='more' data-index="{{index}}" bindtap='show'>{{item.textup}}
+      <image src='{{item.imgup}}' mode='scaleToFill'></image>
+    </view>
+
+  </view>
+
+</view>

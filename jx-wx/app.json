@@ -1,0 +1,54 @@
+{
+  "pages": [ 
+        "pages/productDetails/productDetails",
+        
+    "pages/location/location",
+        "pages/shou/shou",
+    "pages/person/person ",
+
+
+      "pages/classify_name/classify_name",
+   
+    
+      "pages/classify/classify",
+    "pages/city_list/city_list",   
+    "pages/index/index",
+    "pages/life/life/life",
+    "pages/login/login",
+    "pages/combination/combination",
+   
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000",
+    "selectedColor": "#f00",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/shou/shou",
+        "text": "精选",
+        "iconPath": "pages/img/精选@2x.png",
+        "selectedIconPath": "pages/img/精选填充@2x.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "pages/img/分类线性@2x.png",
+        "selectedIconPath": "pages/img/分类填充@2x.png"
+      },
+      {
+        "pagePath": "pages/person/person ",
+        "text": "个人中心",
+        "iconPath": "pages/img/个人中心线性@2x.png",
+        "selectedIconPath": "pages/img/个人中心@2x.png"
+      }
+    ]
+  }
+}

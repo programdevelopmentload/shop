@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情(状态)</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/layer/css/layui.css">
+    <style>
+        .NoList{text-align: left !important; padding-left: 20px; }
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span >商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span class="head_active">对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>结算管理</span>
+                <ul>
+                    <li >订单查询</li>
+                    <li>结算单查询</li>
+                </ul>
+            </li>
+            <li >
+                <span>发票管理</span>
+                <ul>
+                    <li >代开发票</li>
+                    <li>全部发票</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="router">1》2》3</p>
+        <p class="borderBottom">订单详情</p>
+        <div class="orderDetailState">待发货</div>
+        <!--列表-->
+        <div class="orderNumberBox">
+            <p class="list_head NoList">订单</p>
+            <ul class="clearfix">
+                <li>
+                    <label for="">订单编号:</label>
+                    <span>C356546</span>
+                </li>
+                <li>
+                    <label for="">订单金额:</label>
+                    <span>C356546</span>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li>
+                    <label for="">下单时间:</label>
+                    <span>C356546</span>
+                </li>
+                <li>
+                    <label for="">结算金额:</label>
+                    <span>C356546</span>
+                </li>
+            </ul>
+        </div>
+        <div class="list">
+            <ul class="list_head ">
+                <li class="col-sm-3">商品名称</li>
+                <li class="col-sm-2">商品编号</li>
+                <li class="col-sm-1">商品类型</li>
+                <li class="col-sm-1">销售价</li>
+                <li class="col-sm-1">采购价</li>
+                <li class="col-sm-1">结算价</li>
+                <li class="col-sm-1">数量</li>
+                <li class="col-sm-2">结算金额</li>
+            </ul>
+            <div class="list_bottom clearfix">
+                <ul class="clearfix">
+                    <li class="col-sm-3">
+                        北欧餐桌椅组合小户型现代简约家用饭桌LS003（200.40.45长宽高）
+                    </li>
+                    <li class="col-sm-2">商品编号</li>
+                    <li class="col-sm-1">商品类型</li>
+                    <li class="col-sm-1">销售价</li>
+                    <li class="col-sm-1">采购价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">数量</li>
+                    <li class="col-sm-2">结算金额</li>
+                </ul>
+                <ul class="clearfix">
+                    <li class="col-sm-3">
+                        北欧餐桌椅组合小户型现代简约家用饭桌LS003（200.40.45长宽高）
+                    </li>
+                    <li class="col-sm-2">商品编号</li>
+                    <li class="col-sm-1">商品类型</li>
+                    <li class="col-sm-1">销售价</li>
+                    <li class="col-sm-1">采购价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">数量</li>
+                    <li class="col-sm-2">结算金额</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script src="../js/layer/layui.js"></script>
+    <script>
+        // 日期插件
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '.dates', //指定元素
+                type: 'datetime'
+            });
+            laydate.render({
+                elem: '.datesEnd', //指定元素
+                type: 'datetime'
+            });
+        });
+    </script>
+</body>
+</html>

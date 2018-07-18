@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上架管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        .right .classify .fl, .right .brand .fl,.cover .fl,.type .fl{
+            width: 10%;
+        }
+        .right .classify, .right .brand,.cover{
+            position: relative;
+        }
+        .right .classify .fr, .right .brand .fr,.cover .fr,.type .fr{
+            width: 90%;
+            padding-right: 10%;
+        }
+        .right .classify .fr li,  .right .brand .fr li,.cover .fr li,.type .fr li{
+            float: left;
+            margin-right: 30px;
+        }
+        .right .classify .fl>span, .right .brand .fl>span, .right .cover .fl>span, .right .type .fl>span{
+            display: inline-block;
+            padding: 2px;
+            float: right;
+            margin-right: 10px;
+        }
+        .right .classify>span,  .right .brand>span,  .right .cover>span,  .right .type>span{
+            display: inline-block;
+            position: absolute;
+            right:10px;
+            top: 0;
+        }
+        .right .classify,.right .brand,.cover,.type{
+            overflow: hidden;
+            padding-bottom:10px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed #dedede;
+        }
+        .right select{
+            display: inline-block;
+            width: 100px;
+        }
+        .cargo_list{font-size: 18px;padding: 5px 0}
+
+        .list ol{
+            background: #f2f2f2;
+            border:1px solid #dedede;
+            border-bottom: none;
+        }
+        .list{
+            margin-right: 5px;
+        }
+        .fr>p{
+            margin-bottom: 0;
+        }
+        dt,dd{
+            float: left;
+        }
+        dt img{
+            width: 50px;
+            height: 50px;
+            margin-top: 15px;
+        }
+        dd{
+            margin-top: 10px;
+            margin-left: 15px;
+        }
+
+        .classify ul,.brand ul,.cover ul,.type ul{
+            overflow: hidden;
+            height: 20px;
+            padding-top: 2px;
+            margin-bottom: 0;
+        }
+        .classify ul li,.brand ul li,.cover ul li,.type ul li{
+            margin-bottom: 10px;
+        }
+        .yixuan{
+            width: 90%;
+            overflow: hidden;
+            height: 50px;
+            border: 1px solid #dedede;
+        }
+        .yixuan span{
+            float: right;
+            margin-top: 30px;
+
+        }
+        .yixuan input{
+            float: right;
+            width: 150px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        .more{
+            display: inline-block;
+            padding:2px;
+            border: 1px solid #eeeeee;
+        }
+        .biao_classify{
+            display: none;
+        }
+        .eng{
+            display: none;
+        }
+        .eng span{
+            padding-top: 2px;
+            margin-right: 12px;
+        }
+        .search input{
+            display: inline-block;
+            width: 250px;
+        }
+        .search .btn-primary{
+            display: inline-block;
+            width: 80px;
+        }
+        img{vertical-align: top;}
+        .putaway>li{
+            height: 80px;display: flex;justify-content: center;align-items: center}
+        .putaway>li .shopWith{width: 90px;}
+        .putaway{border:1px solid #ddd; border-bottom: none; padding:10px 0; }
+        .putaway:last-child{border-bottom:1px solid #ddd;}
+        .allSelect{padding-top:20px;}
+        .modal-footer{text-align: center; border-top:none;}
+        .xyBody{height: 200px; overflow-y: scroll;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ul>
+        <li><span >基础设置</span></li>
+        <li><span>商品管理</span></li>
+        <li><span class="head_active">订单管理</span></li>
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li class="first">
+                <img src="../image/down.png" alt="">订单管理
+            </li>
+            <li><span class="active"></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+            <li><span ></span>代发货</li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="router">1》2》3</p>
+        <div class="coverCont">
+            <div class="classify">
+                <div class="fl">
+                    分类
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <ul>
+                    </ul>
+                </div>
+                <span class="more">更多 <img src="../image/down.png" alt=""></span>
+            </div>
+            <div class="brand">
+                <div class="fl">
+                    品牌
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <p class="eng">
+                        <span>A</span>
+                        <span>B</span>
+                        <span>C</span>
+                        <span>D</span>
+                        <span>E</span>
+                        <span>F</span>
+                        <span>G</span>
+                        <span>H</span>
+                        <span>I</span>
+                        <span>G</span>
+                        <span>K</span>
+                        <span>L</span>
+                        <span>M</span>
+                        <span>N</span>
+                        <span>O</span>
+                        <span>P</span>
+                        <span>Q</span>
+                        <span>R</span>
+                        <span>S</span>
+                        <span>T</span>
+                        <span>U</span>
+                        <span>V</span>
+                        <span>W</span>
+                        <span>X</span>
+                        <span>Y</span>
+                        <span>Z</span>
+                    </p>
+                    <ul>
+                    </ul>
+                </div>
+                <span class="more">更多 <img src="../image/down.png" alt=""></span>
+            </div>
+            <div class="biao_classify">
+            </div>
+            <div class="type">
+                <div class="fl">
+                    商品类型
+                    <span class="all">全部</span>
+                </div>
+                <div class="fr">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="search">
+            商品查找： <input type="text" class="form-control" placeholder="商品名称/商品编码"  id="shopNumber">
+            <input type="button" class="form-control btn-primary" value="确认">
+        </div>
+        <p class="cargo_list">在售商品</p>
+        <div class="everyPage">
+            <span>每页显示</span>
+            <select name="" id="" class="form-control">
+                <option value="">20</option>
+                <option value="">30</option>
+                <option value="">40</option>
+                <option value="">50</option>
+            </select>
+            <button type="button" class="btn btn-default confirm">确定</button>
+        </div>
+        <div class="list">
+            <ol class="list_head">
+                <li class="col-sm-1">序号</li>
+                <li class="col-sm-3">商品信息</li>
+                <li class="col-sm-2">商品编码</li>
+                <li class="col-sm-1">商品类型</li>
+                <li class="col-sm-1">成本报价</li>
+                <li class="col-sm-1">结算价</li>
+                <li class="col-sm-1">商品状态</li>
+                <li class="col-sm-2">操作</li>
+            </ol>
+            <p class="allSelect">
+                <label for="all">
+                  <input type="checkbox" id="all">全选
+                </label>
+                <span class="sureBtn" data-toggle="modal" data-target="#myModal">确认上架</span>
+            </p>
+            <div class="putawayBox">
+                <ul class="putaway clearfix">
+                    <li class="col-sm-1">
+                        <input type="checkbox">
+                    </li>
+                    <li class="col-sm-3">
+                        <img src="../image/img.png" alt="" style="width:80px; height: 80px;">
+                        <span class="shopWith">上架上架上架上架上架上架上架上架上架上架</span>
+                    </li>
+                    <li class="col-sm-2">商品类型</li>      
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">商品状态</li>
+                    <li class="col-sm-2">
+                        <a href="javascript:;">查看</a>
+                    </li>
+                </ul>
+                <ul class="putaway clearfix">
+                    <li class="col-sm-1">
+                        <input type="checkbox">
+                    </li>
+                    <li class="col-sm-3">
+                        <img src="../image/img.png" alt="" style="width:80px; height: 80px;">
+                        <span class="shopWith">上架上架上架上架上架上架上架上架上架上架</span>
+                    </li>
+                    <li class="col-sm-2">商品类型</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">商品状态</li>
+                    <li class="col-sm-2">
+                        <a href="javascript:;">查看</a>
+                    </li>
+                </ul>
+                <ul class="putaway clearfix">
+                    <li class="col-sm-1">
+                        <input type="checkbox">
+                    </li>
+                    <li class="col-sm-3">
+                        <img src="../image/img.png" alt="" style="width:80px; height: 80px;">
+                        <span class="shopWith">上架上架上架上架上架上架上架上架上架上架</span>
+                    </li>
+                    <li class="col-sm-2">商品类型</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">结算价</li>
+                    <li class="col-sm-1">商品状态</li>
+                    <li class="col-sm-2">
+                        <a href="javascript:;">查看</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--分页-->
+        <div class="leftBottom clearfix">
+            <div class="page pageBar" id="page">
+                <p>共条记录</p >
+                <div class="pageLft clearfix">
+                    <a href=" #" class="prev"></a>
+                    <a href="#" class="active"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                </div>
+                <div class="pageRht">共<span id="totalPage"></span>页</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--上架提醒-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">库存设置</h4>
+            </div>
+            <div class="modal-body xyBody">
+                <p>我已阅读以下<span>《商品上架协议》</span>，同意商品在平台上进行上架交易。</p>
+                <p>协议，网络协议的简称，网络协议是通信计算机双方必须共同遵从的一组约定。如怎么样建立连接、怎么样互相识别等。只有遵守这个约定，计算机之间才能相互通信交流...</p>
+                <p>协议，网络协议的简称，网络协议是通信计算机双方必须共同遵从的一组约定。如怎么样建立连接、怎么样互相识别等。只有遵守这个约定，计算机之间才能相互通信交流...</p>
+                <p>协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，协议，网络协议的简称，</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/pagination.js"></script>
+<script>
+
+
+    //全选
+    $(".allSelect  label").click(function () {
+        var check=$(this).find("input").prop("checked");
+
+        $(".putawayBox input").prop("checked",check);
+    });
+    $(".putawayBox li input").click(function () {
+        var check=true;
+        $(".putawayBox  input").each(function () {
+            if(!$(this).prop("checked")){
+                check=false;
+            }
+        });
+        $(".allSelect label input").prop("checked",check)
+    })
+
+
+
+    var brandId="";
+    var lcids="";
+    var type="";
+    var storeId='';
+    // 根据type类型（全部）
+    $(".type .all").click(function () {
+        type="";
+        // $(".select_list").html("");
+        // boo=true;
+    });
+    // 根据type类型（子）
+    $(".type .fr ul").on("click","li",function () {
+        type=$(this).attr("typeid");
+        console.log(type);
+        // $(".select_list").html("");
+        // boo=true;
+
+        searchPage();
+        searchPage(_nowPage);
+    });
+    // 品牌
+    $(".classify .all").click(function () {
+        lcids="";
+        // $(".select_list").html("");
+        // boo=true;
+
+    });
+     // 根据分类
+    $(".classify .fr ul").on("click","li",function () {
+        lcids=$(this).attr("lcid");
+        console.log(lcid)
+        // console.log(lcid);
+        // $(".select_list").html("");
+        // boo=true;
+
+    });
+    // 品牌
+    $(".brand .fr ul").on("click","li",function () {
+        brandId=  $(this).attr("brandId");
+        console.log(brandId)
+        // console.log(brandId);
+        // $(".select_list").html("");
+        // boo=true;
+
+    })
+    // 品牌（全）
+    $(".brand .all").on("click","li",function () {
+        brandId= "";
+        // $(".select_list").html("");
+        // boo=true;
+        // index=1;
+        // fn();
+    });
+
+    //获取分类
+    $.ajax({
+        url:"http://172.16.41.60:8007/goods/GoodsClassification/showAllLeafClass",
+        type:"post",
+        dataType:"json",
+        success:function (res) {
+            console.log(res);
+            if(res.success){
+                var  data=res.data;
+                var str=""
+                for(var i=0;i<data.length;i++){
+                    str+='<li lcid="'+data[i].id+'">'+data[i].name+'</li>'
+                }
+                $(".classify .fr ul").html(str)
+            }
+        }
+    });
+    //获取品牌
+    $.ajax({
+        url:"http://172.16.41.60:8007/goods/brand/showBrandLeafClassOpenClose",
+        dataType:"json",
+        type:"post",
+        success:function (res) {
+            console.log(res);
+            if(res.success){
+                var  data=res.data;
+                var str="";
+                for(var i=0;i<data.length;i++){
+                    str+='<li fpy="'+data[i].fpy+'" brandId="'+data[i].id+'">'+data[i].nameCh+'</li>'
+                }
+                $(".brand .fr ul").html(str);
+            }
+        }
+    });
+    //获取类型
+    $.ajax({
+        url:"http://172.16.41.60:8007/goods/service/showAll",
+        type:"post",
+        dataType:"json",
+        success:function (res) {
+            console.log(res);
+            var str=""
+            if(res.success){
+                for(var i=0;i<res.data.length;i++){
+                    str+='<li typeId="'+res.data[i].id+'">'+res.data[i].goodsType+'</li>'
+                }
+            }
+            $(".type .fr ul").html(str)
+        }
+    })
+    $(".eng span").click(function () {
+        var letter=$(this).html();
+        var brandLetter=$(".brand .fr ul li");
+        var str="";
+        for(var i=0;i<brandLetter.length;i++){
+            if(brandLetter.eq(i).attr("fpy")==letter){
+                str+='<li fpy="'+letter+'" brandId="'+brandLetter.eq(i).attr("brandId")+'">'+brandLetter.eq(i).html()+'</li>'
+            }
+        }
+        $(".brand .fr ul").html(str);
+    });
+    //去处理
+    $(".more").click(function () {
+        console.log($(this).prev().find("ul").css("height"));
+        if($(this).prev().find("ul").css("height")=="20px"){
+            $(this).prev().find("ul").css("height","100%");
+            $("biao_classify").css("disaply","block");
+            if($(this).parent().attr("class")=="brand"){
+                $(".eng").css("display","block");
+            }
+        }else{
+            $(this).prev().find("ul").css("height","20px")
+            $("biao_classify").css("disaply","none");
+            if($(this).parent().attr("class")=="brand"){
+                $(".eng").css("display","none");
+            }
+
+        }
+    });
+    $(function () {
+        searchPage();   //初始化函数
+    });
+    /**
+     * 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.39.70:8005/purchase/order/supplier/list', "page", function (data) {
+        fillTableData(data);
+    });
+
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+
+    }
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        // var cgNumber = $("#cgNumber").val();  //采购单号
+        // var select = $("select.gjc").val() //采购单状态
+        // console.log(select)
+        var params = {
+            'currentPage':1,
+            'pageSize':10,
+            storeId:storeId,
+            brandId:brandId,
+            type:type,
+            lcids:lcids
+        };
+        return params;
+    };
+    /** table数据 */
+    function fillTableData(data) {
+        console.log(data);
+
+    }
+
+
+
+</script>
+</body>
+</html>

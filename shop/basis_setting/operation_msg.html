@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>经营管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">-->
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        .right .contract .router{
+            color:#337ab7;
+            margin: 15px 0;
+        }
+        .right .contract>.address{
+            background:#F2F2F2;
+            border:1px solid #337ab7;
+            margin-right: 10px;
+            padding: 5px;
+        }
+        .right .contract>.address p{
+            margin: 5px 0;
+        }
+        .right .contract>span{
+            display: block;
+            margin-top: 20px;
+        }
+        .right .contract p{
+            margin:10px 0;
+            padding-bottom: 20px;
+        }
+        .right .contract p span{
+            color:#337ab7;
+        }
+        .right .contract p .form-control{
+            width: 200px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li >保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li class="first">经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right">
+        <div class="contract">
+            <p class="router">基础设置》经营管理》经营区域</p>
+            <span>服务区域信息</span>
+            <p class="contract_list">共 <span>0</span> 条 <input type="button" class="form-control btn-primary" value="新增区域"></p>
+         <table id="storage">
+         </table>
+        </div>
+
+    </div>
+
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<!--<script src="../js/pagination.js"></script>-->
+<script src="../js/bootstrap-table.js"></script>
+<script src="../js/bootstrap-table-zh-CN.js"></script>
+
+<script>
+    $(".header li").click(function () {
+        if($(this).html()==localStorage.getItem("username")){
+
+            window.location.href="account_msg.html";
+
+        }else if($(this).html()=="基础设置"){
+            window.location.href="basis_msg.html";
+        }
+    });
+    var url = getBaseUrl('ys');
+    pullUrl = url +'/area/area/supplier/findAreaSupplierInfoById';
+
+    var arr2= [{
+        field: 'shop_mess',
+        title: '仓库名称',
+        width: '15%',
+        valign: "middle",
+        align: "center"
+
+    }, {
+        field: 'shop_number',
+        title: '仓库地址',
+        width: '15%',
+        valign: "middle",
+        align: "center"
+    }];
+    var res=rewriteAjax({
+        url: pullUrl,
+        data:{
+            supplierId: localStorage.getItem("companyId"),
+
+        },
+    },function (res) {
+        $(".contract_list span").html(res.data.totalCount);
+        var arr =[];
+        // console.log(res);
+        var data=res.data.items;
+
+        for(var i=0;i<data.length;i++){
+            var obj={};
+            obj.shop_mess=data[0].storeName;
+            obj.shop_number=data[i].storePosition;
+            // var str="";
+            // for(var j=0;j<data[i].storeServerDetails.length;j++){
+            //     str+=data[i].storeServerDetails[j]+","
+            // }
+            // str= str.substr(0,str.length-1);
+            // obj.start_time=str;
+            arr.push(obj);
+            console.log(arr)
+        }
+        table(arr2,arr);
+    })
+
+    $(".btn-primary").click(function () {
+        window.location.href="add_region.html";
+    })
+</script>
+</body>
+</html>

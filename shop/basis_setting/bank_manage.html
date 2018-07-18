@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账户管理</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .account_cont{padding-right: 30px;}
+        .account_cont p{line-height: 35px;margin-top: 30px;}
+        .account_cont p input{float: right;
+            width: 200px;}
+        .account_cont ul,.account_cont ol{overflow: hidden;text-align: center}
+        .account_cont ol li{padding: 10px 0}
+        .col-sm-2 span{
+            display: block;
+        }
+        ol{
+            overflow: hidden;
+        }
+        ol .edit span{display: inline-block;margin-left: 30px}
+        ol .active{padding:2px 10px;border: 1px solid red;border-radius: 10px;color: red}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span class="head_active" >基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+
+
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li >保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li class="first">账户管理</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">基础设置》收款账户》账户管理</p>
+            <p> 银行账户 <input type="button" value="添加账户" class="form-control"></p>
+            <ul class="list_head">
+                <li class="col-sm-1">收款方式</li>
+                <li class="col-sm-1">收款人</li>
+                <li class="col-sm-2">收款账号</li>
+                <li class="col-sm-1">开户行</li>
+                <li class="col-sm-2">操作</li>
+            </ul>
+            <ol>
+                <li class="col-sm-1">收款方式</li>
+                <li class="col-sm-1">收款人</li>
+                <li class="col-sm-2"><span>111111****1111</span><span>wewqeqwe</span></li>
+                <li class="col-sm-1">开户行</li>
+                <li class="col-sm-2 edit " ><span class="active" onclick="default1(this)">默认</span> <span>编辑</span></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>西藏新博美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script>
+    function  default1(a) {
+        $.ajax({
+            url:getBaseUrl("yy")+"/sellerReceivables/setDefault",
+            data:{ userSellerReceivingId:$(a).attr("id"),companyId:localStorage.getItem("companyId")},
+            dataType:"json",
+            headers: {
+                Authorization:localStorage.getItem("token"),
+            },
+            type:"post",
+            success:function (res) {
+                console.log(res);
+                if(res.errorCode==9999){
+                    window.location.href="../login.html";
+                }
+                if(res.success){
+                    layer.msg("修改成功")
+                }
+            },
+            error:function (err) {
+                console.log(err);
+            }
+        })
+    }
+    $.ajax({
+        url:getBaseUrl("yy")+"/sellerReceivables/selectSellerReceivings",
+        type:"post",
+        dataType:"json",
+        headers: {
+            Authorization:localStorage.getItem("token"),
+        },
+        data:{companyId:localStorage.getItem("companyId")},
+        success:function (res) {
+            console.log(res);
+            if(res.errorCode==9999){
+                window.location.href="../login.html";
+            }
+            if(res.success){
+                var str="";
+                for(var i=0;i<res.data.length;i++){
+                    if(res.data[i].type==0){
+                        str+='<ol><li class="col-sm-1">银行卡</li>';
+
+                    }else{
+                        str+='<ol><li class="col-sm-1">支付宝</li>';
+
+                    }
+                    str+='<li class="col-sm-1">'+res.data[i].payee+'</li>';
+                    if(res.data[i].bank!=undefined){
+                        str+='<li class="col-sm-2"><span>'+res.data[i].bankCard+'</span><span>'+res.data[i].bank+'</span></li>';
+
+                    }else{
+                        str+='<li class="col-sm-2"><span>'+res.data[i].bankCard+'</span><span>-</span></li>';
+
+                    }
+                    if(res.data[i].subbranch==undefined){
+                       str+='<li class="col-sm-1">-</li>';
+
+                    }else{
+                        str+='<li class="col-sm-1">'+res.data[i].subbranch+'</li>';
+
+                    }
+                    if(res.data[i].isDefault==1){
+                        str+='<li class="col-sm-2 edit " ><span class="active">默认</span> <span type="'+res.data[i].type+'" id="'+res.data[i].id+'" onclick="edit(this)">编辑</span></li>'
+
+                    }else{
+                        str+='<li class="col-sm-2 edit " ><span  onclick="default1(this)" id="'+res.data[i].id+'">设为默认</span> <span type="'+res.data[i].type+'" id="'+res.data[i].id+'"  onclick="edit(this)">编辑</span></li>'
+
+                    }
+                    str+='</ol>'
+                }
+                $(".account_cont").append(str);
+            }
+        }
+
+    });
+    $(".form-control").click(function () {
+        window.location.href="addBank.html";
+    })
+function edit(a) {
+    sessionStorage.setItem("bankId",$(a).attr("id"));
+    console.log($(a).attr("id"))
+    sessionStorage.setItem("bankType",$(a).attr("type"));
+
+    window.location.href="editBank.html";
+}
+</script>
+</body>
+</html>

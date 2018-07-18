@@ -1,0 +1,91 @@
+
+#box{
+  background:#F5F3F2;
+   padding:20rpx;
+   height: 100%;
+   position:fixed;
+   width:710rpx;
+}
+.head>view>text{
+   display:block;
+   
+}
+.head>view{
+  padding:30rpx 20rpx;
+  background:#fff;
+
+  border-radius: 10rpx;
+}
+.head .head_name{
+  color:#333333;
+  font-size: 30rpx;
+
+}
+.head .head_msg{
+  color:#666666;
+  font-size: 26rpx;
+   padding:20rpx 0;
+}
+.head .old{
+  color:#999999;
+  font-size: 26rpx;
+  text-decoration: line-through;
+ padding-right:40rpx;
+}
+.head .head_price .now{
+  color:#666666;
+  font-size: 26rpx;
+ 
+}
+.group{
+  color:#EB5033;
+  padding: 20rpx 0; 
+
+  font-size:12px;
+}
+.product{
+  height:180rpx;
+  padding:30rpx 20rpx;
+  overflow: hidden;
+  background: #fff;
+  font-size: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+.product .left{
+  float:left;
+}
+.product .right{
+  float:left;
+ width:440rpx;
+  padding-left:30rpx;
+  padding-right:20rpx;
+}
+.product .right .msg{
+  color:#333333;
+}
+.product .left image{
+  width:180rpx;
+  height:180rpx;
+}
+.product .right text{
+  font-size: 26rpx;
+  display: block;
+
+}
+.product .right .color{
+  color:#999999;
+  padding:20rpx 0;
+}
+.product .right view text{
+  display: inline;
+}
+.product .right .price .now{
+  color:#eb5033;
+}
+.product .right .price .old{
+  color:#999999;
+  margin-left:40rpx;
+  text-decoration: line-through;
+}
+

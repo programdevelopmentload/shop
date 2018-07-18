@@ -1,0 +1,144 @@
+<!--pages/product- details/product- details .wxml-->
+<view class='carousel'>
+  <swiper indicator-dots="{{indicatorDots}}" indicator-active-color="red" indicator-color="#fff">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" height="500" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='name'>
+    {{product.name}}
+  </view>
+  <view class='price'>
+    ￥{{product.price}}
+  </view>
+</view>
+<view class='explain'>
+  <view bindtap='explain'>
+    <text>购买说明</text>
+    <image src='../img/go.png' />
+  </view>
+  <view bindtap='number'>
+    <text>{{attr1}}  {{attr2}} X{{num}} </text>
+    <image src='../img/go.png' />
+  </view>
+  <view bindtap='param'>
+    <text>参数</text>
+    <image src='../img/go.png' />
+  </view>
+  <view id='accessory_list' bindtap='actioncnt'>
+    <text>附属清单</text>
+    <image src='../img/go.png' />
+  </view>
+  <!-- <view>
+    <text>用户评价（12233++)</text>
+    <image src='../img/go.png' />
+  </view> -->
+</view>
+
+
+<!-- 参数 -->
+ <view class='modal-mask' bindtap="hideBtn4" catchtouchmove="preventTouchMove"  hidden="{{showModal4}}">
+</view> 
+<!--弹窗-->
+ <view class="modal-dialog1"  hidden="{{showModal4}}" >
+  <view class="modal-title1">-商品参数-</view>
+   <view class="modal-content">
+      <view class='modal-padding' wx:for="{{parameter}}">
+        <text class='modal_left' space='nbsp'>{{item.name}}:</text>
+        <text class='modal_right'>{{item.value}}</text>
+      </view>
+   </view>
+    <view class="modal-footer">
+      <view class="btn-confirm" data-status="confirm"  bindtap="hideBtn4">确定</view>    
+   </view>  
+</view> 
+<!-- 基础服务 -->
+<view class='modal-mask' bindtap="hideBtn5" catchtouchmove="preventTouchMove" hidden="{{showModal3}}" >
+</view>
+<!--弹窗-->
+ <view class="modal-dialog1" hidden="{{showModal3}}" >
+  <view class="modal-title1">基础服务</view>
+   <view class="modal-content1">
+      <view > 
+          <text space="emsp">{{buyInstructions}}</text>
+      </view>
+   </view>
+    <view class="modal-footer">
+      <view class="btn-confirm" data-status="confirm"  bindtap="hideBtn5" >
+         完成
+      </view>    
+   </view>  
+</view> 
+<!-- 购买说明 -->
+ <view class='modal-mask' bindtap="hideBtn2" catchtouchmove="preventTouchMove" 
+  hidden="{{showModal2}}" >
+</view> 
+ <!-- 弹框 -->
+  <view class="modal-dialog1 modal_padding"  hidden="{{showModal2}}"> 
+    <view class="modal-content2 ">
+     <view class='clearfix'>
+      <view class='fl'>
+        <image src='{{now.picture}}'></image>
+      </view>
+      <view class='fl product_right'>
+         <text class='title'>{{now.sysName}}</text>
+         <view class='product_ruler'>
+           <text class='del'>￥{{now.price}} <text>￥{{product.price}}</text></text> 
+           <text class='ruler_sx'>{{attr1}}  {{attr2}} X{{num}} </text>
+         </view>
+      </view>
+     </view>
+     <view class='choose_box'>
+       <text class='ctil'>{{type1.name}}</text>
+       <view wx:for="{{type1.attributes}}" data-index='{{item.index}}' class='choose {{activeIndex1==index?"active":""}} {{item.able==""?"able":""}}' bindtap='choose1'>
+          <text>{{item.value}}</text>
+       </view>
+     </view>
+        <view class='choose_box'>
+       <text class='ctil'>{{type2.name}}</text>
+       <view wx:for="{{type2.attributes}}" data-index='{{item.index}}' class='choose {{activeIndex2==index?"active":""}} {{item.able==""?"able":""}}'  bindtap='choose2'>
+          <text>{{item.value}}</text>
+       </view>
+     </view>
+      <!-- 加减功能 -->
+    <view class='choose_box'>
+       <text class='ctil'>数量</text>
+       <!-- 主容器 -->  
+       <view class="stepper">  
+          <!-- 减号 -->  
+          <text class="{{minusStatus}}" bindtap="bindMinus">-</text>  
+          <!-- 数值 -->  
+          <input type="number" bindchange="bindManual" value="{{num}}" />  
+          <!-- 加号 -->  
+          <text class="normal" bindtap="bindPlus">+</text>  
+       </view>  
+     </view>
+    </view> 
+    <view class="modal-footer">
+      <view class="btn-confirm" data-status="confirm"  bindtap="hideBtn2">确定</view>    
+   </view>  
+</view> 
+
+<!-- 附属清单mask -->
+ <view class='modal-mask'  bindtap="hideBtn1" catchtouchmove="preventTouchMove"
+  hidden="{{showModal1}}"> 
+</view>
+<!--弹窗-->
+<view class="modal-dialog"  hidden="{{showModal1}}" >
+  <view class="modal-title">-附属清单-</view>
+   <view class="modal-content">
+     <view class=' model-lists' wx:for="{{pick}}">
+        <text class='list'>{{item.name}}</text>
+        <view class='list_ruler'>
+          <text>数量: {{item.value}}</text>
+        </view>
+     </view> 
+   </view>
+   <view class="modal-footer">
+      <view class="btn-confirm" data-status="confirm"  bindtap="hideBtn1">确定</view>    
+   </view>   
+</view>
+
+

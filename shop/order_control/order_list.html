@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单管理</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <style>
+        ol, ul{margin-bottom: 0;}
+        .search .gjc{width: 200px; display: inline-block; margin-right: 20px; display: inline-block;
+            margin-left: 10px;}
+        .purch_tables{margin-top:20px;}
+        .purch_tables .purch_head{width: 100%;  }
+        .purch_tables .purch_head li{float: left; text-align: center;
+            border-bottom: 1px solid #ddd;}
+        .purch_table .purch_title {
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 0;
+            border-left: 1px solid #ddd;
+            border-right:1px solid  #ddd;
+        }
+        .purch_left ul >li{    float: left;
+            display: flex;align-items: center;height: 80px;justify-content: center;  }
+        .purch_cont{text-align: center;}
+        .purch_cont ul >li:first-child{border-left:1px solid #ddd; }
+        .purch_left{ padding:0 ;}
+        .purch_left .clearfix .shop_name{  width: 22.5%;}
+         .purch_left .clearfix .shop_type{width: 22%;}
+        .purch_left .clearfix .cpj{width:22.5%;}
+        .purch_left .clearfix  .order-number{width:11%;}
+        .purch_left .clearfix  .order-price{width: 11%;}
+        .purch_left .clearfix .order-type{width: 11%;}
+        .purch_left .clearfix .dqkc{width:20%;}
+        .purch_cont{border-bottom: 1px solid #ddd;}
+        .purch_right .bh_btn{margin-left: 136px !important;}
+        .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9{
+            padding-right: 0;padding-left: 0;}
+        .purch_right>a ,span{text-align: center;}
+        .purch_right{height: 40px; line-height: 40px;}
+        .modal-header,.modal-footer{text-align: center;}
+        /*分页*/
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span class="head_active">订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li>
+                <span>订单</span>
+                <ul>
+                    <li>订单管理</li>
+                    <li>待备货</li>
+                    <li>待取货</li>
+                    <li>已取货</li>
+                    <li>已完成</li>
+                </ul>
+            </li>
+            <li>
+                <span>采购单</span>
+                <ul>
+                    <li>采购单管理</li>
+                    <li>待确认</li>
+                    <li>待备货</li>
+                    <li>待取货</li>
+                    <li>已取货</li>
+                    <li>已完成</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="router"></p>
+        <div class="search">
+            查订单:<input type="text" class="form-control gjc" placeholder="请输入关键字" id="Dd_Number">
+            查商品:<input type="text" class="form-control gjc" placeholder="请输入关键字" id="Dd_shopName">
+            <button class="btn btn-primary order_btn">查询</button>
+        </div>
+        <div class="purch_tables">
+            <div class="purch_head  list_head">
+                <ul class="clearfix">
+                    <li class="col-sm-2">规格信息</li>
+                    <li class="col-sm-2">商品型号</li>
+                    <li class="col-sm-2">商品编码</li>
+                    <li class="col-sm-1">数量</li>
+                    <li class="col-sm-1 ">单价</li>
+                    <li class="col-sm-1 ">商品类型</li>
+                    <li class="col-sm-1">订单状态</li>
+                    <li class="col-sm-2">操作</li>
+                </ul>
+            </div>
+            <div class="purch_table">
+               <!--<p class="purch_title clearfix">-->
+                   <!--<span class="fl">订单编号:13123  &nbsp; &nbsp; &nbsp; &nbsp;2018-02-19  &nbsp; &nbsp;-->
+                       <!--11:20:32-->
+                   <!--</span>-->
+               <!--</p>-->
+                <!--<div class="purch_cont  clearfix">-->
+                    <!--<div class="purch_left fl col-sm-9">-->
+                      <!--<ul class="clearfix">-->
+                        <!--<li class="col-sm-5 shop_name">-->
+                            <!--<img src="../image/look.png" alt="">-->
+                            <!--<span>喜梦宝  儿童书柜    RS01四格矮书架</span>&nbsp;&nbsp;&nbsp;&nbsp;-->
+                        <!--</li>-->
+                        <!--<li class="col-sm-1 cpj">-->
+                            <!--121324234-->
+                        <!--</li>-->
+                        <!--<li class="col-sm-1 order-number">-->
+                            <!--1321-->
+                        <!--</li>-->
+                      <!--<li class="col-sm-1 order-price">-->
+                          <!--1321-->
+                      <!--</li>-->
+                      <!--</ul>-->
+                    <!--</div>-->
+                    <!--<div class="purch_right fr col-sm-3" >-->
+                        <!--<span href="javascript:;" class="col-sm-4">待备货</span>-->
+                        <!--<a href="javascript:;" class="col-sm-8">订单详情</a>-->
+                         <!--<button class="btn btn-primary bh_btn" style="display: none">已备货，确认出库</button>-->
+                    <!--</div>-->
+                </div>
+        </div>
+        <div class="leftBottom clearfix">
+            <div class="page pageBar" id="page">
+                <p>共条记录</p >
+                <div class="pageLft clearfix">
+                    <a href=" #" class="prev"></a>
+                    <a href="#" class="active"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <span>...</span>
+                    <a href="#" class="next"></a>
+                </div>
+                <div class="pageRht">共<span id="totalPage"></span>页</div>
+            </div>
+        </div>
+      </div>
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<!--弹框-->
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">出库提示</h4>
+            </div>
+            <div class="modal-body">
+                出库后，订单信息将发送给配送工人，请确认已完成备货
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary sureBtn" data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/pagination.js"></script>
+<script src="../layer/layer.js"></script>
+<script>
+    $(".router").html("订单管理》订单》"+sessionStorage.getItem("orderName"))
+    // 设置头部颜色
+    if(sessionStorage.getItem("orderIndex")!=3){
+        var orderName=  $(".left>ul>li").eq(sessionStorage.getItem("orderIndex")).find("li");
+        orderName.each(function () {
+            if($(this).html()==sessionStorage.getItem("orderName")){
+                console.log($(this).html())
+                $(this).attr("class","first")
+            }
+        })
+    }else{
+        $(".left span").each(function () {
+            if($(this).html()==sessionStorage.getItem("orderName")){
+                $(this).attr("class","first")
+
+            }
+        })
+    }
+
+    var Dd_shopName='',
+        orderNum='';
+    // 点击查询获取数据
+    $('.order_btn').click(function () {
+        orderNum= $('#Dd_Number').val();
+        Dd_shopName=$('#Dd_shopName').val();
+        searchPage();
+        searchPage(_nowPage);
+    })
+    $(function () {
+        searchPage();   //初始化函数
+    });
+    /* 初始化分页对象
+     * @params url 访问后台分页地址
+     * @params pageId 页面上id="page"的div
+     * @params callBack 自己定义的，拼接table数据的方法，data：callBack的参数：json格式的table数据
+     */
+
+    var _nowPage = 1;
+    var pagination = new Pagination('http://172.16.44.23:8005/supplierOrder/supplierShowOrders', "page", function (data) {
+
+    });
+    function searchPage(page) {//首次两参进入
+        pagination.search(getParams(), page);
+        var a;
+        a = pagination.returnParams();
+        _nowPage = a.currentPageNo;
+    }
+    /** 得到搜索条件的json对象 */
+    function getParams() {
+        var params = {
+            'pageNum':1,
+            'pageSize':10,
+            'supplierId':123,   //供应商ID
+            'orderCodeStr':orderNum,  //根据订单
+            'skuName':Dd_shopName, //根据商品名称
+            'tradeState':'',
+        };
+        return params;
+    };
+    /*table数据 */
+    var data={
+        "success":true,
+        "errorCode":0,
+        "data":{
+            "pageNum":1,
+            "pageSize":10,
+            "totalCount":7,
+            "totalPage":1,
+            "startIndex":0,
+            "isMore":0,
+            "items":[
+                {
+                    "orderDetails":[
+                        {
+                            "id":74,
+                            "orderId":99,
+                            "orderCode":"co201806142021189168",
+                            "skuId":1010454492086464512,
+                            "pic2":"www.pic.com",
+                            "currentPrice":10.3,
+                            "skuNumber":10,
+                            "enough":"1",
+                            "skuCode":1010454492153573376,
+                            "skuModel":"WER",
+                            "skuType":"周恩来的",
+                            "specifaction":"颜色红",
+                            "parameter":"规格大"
+                        }
+                    ],
+                    "id":99,
+                    "orderCode":"co201806142021189168",
+                    "guiderDiscout":0,
+                    "createTime":"2018-06-14 20:21",
+                    "tradeState":"2",
+                    "stockReady":"1"
+                },
+                {
+                    "orderDetails":[
+                        {
+                            "id":73,
+                            "orderId":98,
+                            "orderCode":"co201806142020007101",
+                            "skuId":1010454492086464512,
+                            "pic2":"www.pic.com",
+                            "currentPrice":10.3,
+                            "skuNumber":10,
+                            "enough":"1",
+                            "skuCode":1010454492153573376,
+                            "skuModel":"WER",
+                            "skuType":"周恩来的"
+                        }
+                    ],
+                    "id":98,
+                    "orderCode":"co201806142020007101",
+                    "guiderDiscout":0,
+                    "createTime":"2018-06-14 20:20",
+                    "tradeState":"-1",
+                    "stockReady":"1"
+                },
+                {
+                    "orderDetails":[
+                        {
+                            "id":72,
+                            "orderId":97,
+                            "orderCode":"co201806142015476795",
+                            "skuId":1010454492086464512,
+                            "pic2":"www.pic.com",
+                            "currentPrice":10.3,
+                            "skuNumber":10,
+                            "enough":"1",
+                            "skuCode":1010454492153573376,
+                            "skuModel":"WER",
+                            "skuType":"周恩来的"
+                        }
+                    ],
+                    "id":97,
+                    "orderCode":"co201806142015476795",
+                    "guiderDiscout":0,
+                    "createTime":"2018-06-14 20:16",
+                    "tradeState":"-1",
+                    "stockReady":"1"
+                },
+                {
+                    "orderDetails":[
+                        {
+                            "id":71,
+                            "orderId":96,
+                            "orderCode":"co201806111816241939",
+                            "skuId":1010454492086464512,
+                            "showName":"李宁广告 CK-300 实木桌子",
+                            "pic2":"www.2.com",
+                            "currentPrice":0,
+                            "skuNumber":10,
+                            "enough":"1",
+                            "skuCode":1010454492153573376,
+                            "skuModel":"WER",
+                            "skuType":"周恩来的"
+                        }
+                    ],
+                    "id":96,
+                    "orderCode":"co201806111816241939",
+                    "guiderDiscout":0,
+                    "createTime":"2019-06-11 18:16",
+                    "tradeState":"6",
+                    "stockReady":"1"
+                },
+                {
+                    "orderDetails":[
+
+                    ],
+                    "id":95,
+                    "orderCode":"co201806111807473996",
+                    "guiderDiscout":0,
+                    "createTime":"2019-06-11 18:09",
+                    "tradeState":"5",
+                    "stockReady":"1"
+                },
+                {
+                    "orderDetails":[
+                        {
+                            "id":70,
+                            "orderId":94,
+                            "orderCode":"co201806061813567617",
+                            "skuId":1010454492086464512,
+                            "showName":"kkkkkkkk",
+                            "pic2":"www.2.com",
+                            "currentPrice":0,
+                            "skuNumber":10,
+                            "enough":"1",
+                            "skuCode":1010454492153573376,
+                            "skuModel":"WER",
+                            "skuType":"周恩来的"
+                        }
+                    ],
+                    "id":94,
+                    "orderCode":"co201806061813567617",
+                    "guiderDiscout":0,
+                    "createTime":"2019-06-06 18:13",
+                    "tradeState":"5",
+                    "stockReady":"1"
+                },
+                {
+                    "orderDetails":[
+
+                    ],
+                    "id":93,
+                    "orderCode":"co201806061811519011",
+                    "guiderDiscout":0,
+                    "createTime":"2019-06-06 18:11",
+                    "tradeState":"3",
+                    "stockReady":"1"
+                }
+            ]
+        }
+    }
+    fillTableData(data);
+    function fillTableData(data) {
+        console.log(data)
+          var html=''
+          var data=data.data.items;
+          for (var i=0;i<data.length;i++){
+            var enough=true;
+              html+='<p class="purch_title clearfix">' +
+                    '<span class="fl">订单编号:'+data[i].orderCode+'&nbsp; &nbsp; &nbsp; &nbsp;'
+                        +data[i].createTime+'</span>' +
+                    '</p>'
+              html+='<div class="purch_cont  clearfix">'
+              for (var j=0;j<data[i].orderDetails.length;j++){
+                 html+=' <div class="purch_left fl col-sm-9">'
+                 html+='<ul class="clearfix">'
+                 html+=' <li class="col-sm-3 shop_name">' +
+                         '<img src="'+data[i].orderDetails[j].pic2+'" alt="">' +
+                         '<span>'+data[i].orderDetails[j].showName+'</span>&nbsp;&nbsp;&nbsp;&nbsp;' +
+                         '</li>';
+                 html+='<li class="col-sm-3 shop_type">'+data[i].orderDetails[j].skuModel+'</li>'
+                  html+='<li class="col-sm-3 cpj">'+data[i].orderDetails[j].skuCode+'</li>'
+                  html+=' <li class="col-sm-1 order-number">'+data[i].orderDetails[j].skuNumber+'</li>'
+
+                  html+=' <li class="col-sm-1 order-price"><span>'+data[i].orderDetails[j].currentPrice+'</span>';
+                  html+='<li class="col-sm-1 order-type">'+data[i].orderDetails[j].skuType+'</li>'
+                  if (data[i].orderDetails[j].enough==0) {
+                      html+='<span style="font-size: 12px; color: red;">库存不足,无法备货</span>'
+                  }
+                  if(data[i].orderDetails[j].enough==0&&enough){
+                      enough=false;
+                  }
+                  html+='</li> </ul></div>'
+              }
+              html+=' <div class="purch_right fr col-sm-3">';
+              switch (data[i].tradeState) {
+                  case '2':
+                      html += '<p><span orderid="'+data[i].orderCode+'" class="col-sm-4">待备货</span><a href="javascript:;" class="col-sm-8 ddDetailBtn">订单详情</a>' ;
+                      if(enough){
+                          html +='<button style="display: inline-block;margin: 0;" onclick="ok(this)" class="btn btn-primary bh_btn alreadyBtn" data-toggle="modal" data-target="#myModal">已备货，确认出库</button></p>'
+                      }else{
+                          html +='<button style="display: inline-block;margin: 0;" onclick="add(this)" class="btn btn-primary bh_btn">增加库存</button></p>'
+                      }
+                      break;
+                  case '3':
+                      html += ' <p><span class="fl col-sm-4" >待取货(待发货)</span><a href="javascript:;" class="col-sm-8 ddDetailBtn">订单详情</a></p>'
+                      break;
+                  case '4':
+                      html += '<p> <span class="fl col-sm-4" >已取货(待收货)</span><a href="javascript:;" class="col-sm-8 ddDetailBtn">订单详情</a></p>'
+                      break;
+                  case '5':
+                      html += '<p> <span class="fl col-sm-4" >已完成</span><a href="javascript:;" class="col-sm-8 ddDetailBtn">订单详情</a></p>'
+                      break;
+              }
+              html+=' </div></div></div>'
+          }
+        $('.purch_table').html(html);
+    }
+    // 点击跳转详情
+    $('.purch_tables').on('click','.ddDetailBtn',function () {
+        sessionStorage.setItem("orderId",$(this).parent().attr("orderid");)
+        window.location.href='./order_details.html'
+    })
+
+    //可备货
+    var orderId="";
+    function ok(a){
+        orderId=$(a).parent().attr("orderid");
+    }
+    //增加库存
+    function add(a){
+        window.location.href="../product/kc.html"
+    }
+    $('.sureBtn').click(function () {
+        rewriteAjax({
+            url:'http://172.16.44.23:8005/supplierOrder/stockUp',
+            data:{
+                'orderId':orderId
+            },},function (res) {
+            if (data.success){
+                layer.msg('备货完成')
+            }
+        })
+
+    })
+
+
+</script>
+</body>
+</html>

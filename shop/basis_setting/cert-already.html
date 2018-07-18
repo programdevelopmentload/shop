@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/common.css" />
+    <title>认证资料</title>
+    <style>
+        .account_cont{padding-bottom: 30px;}
+        .account_cont>p{padding-top:10px;}
+        .account_cont .account_p1{padding:10px 0 10px 10px;border:1px solid #337ab7; background: #f2f2f2;}
+        .account_file{position: relative; overflow: hidden; display: inline-block ; margin-left: -200px; vertical-align: top ;width: 48px}
+        .account_file input{height: 48px; position: absolute;top:0;left:0;opacity: 0;}
+        .account_title li{float: left; margin-right: 160px; padding:20px 0;}
+        .account_card img{padding-left: 20px;}
+        .account_card li{float: left;}
+        .cer-infor-btn{width: 300px; display: block;margin:0 auto;}
+        .click_img{display: block; background: url("../image/look.png") no-repeat 10px center; margin-left: 90px; cursor: pointer;
+            display: none;
+        }
+        .account_title li div{
+            position: relative;
+        }
+        .account_title li div img{
+            margin: 0;
+            padding: 0;
+        }
+        .account_title li div input{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 48px;
+            width: 100%;
+        }
+        .account_title li span{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            background: #00000080;
+            line-height: 30px;
+            width: 100%;
+            text-align: center
+        }
+        .account_title label{width: 94px;}
+        .account_title a{padding-left: 40px;}
+        .upimg{
+            width:220px;
+            height: 140px;
+        }
+        .upimg img{
+            width: 100%;
+            height: 100%;
+        }
+        .upimg span{
+            display: none;
+        }
+        i{
+            color:red;
+        }
+        .left ul span{
+
+
+            border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+        }
+        .account_card li .upimg{display: inline-block;}
+        .left>ul:nth-child(2){
+            display:none;
+        }
+        .left>ul:nth-child(3){
+            display:none;
+        }
+        .account_p1 span{
+            margin-right: 100px;
+        }
+        .account_title>p{
+            padding: 10px 0;
+            border-bottom: 1px solid #dedede;
+        }
+        .account_title .faren label{
+            width: 300px;
+        }
+        .account_title .faren span{
+            float: left;
+            vertical-align: middle;
+            margin-top: 8px;
+        }
+        .account_title .faren input{
+            float: left;
+            display: inline-block;
+            width: 200px;
+        }
+        .account_title>p>span{
+            margin: 0;
+            font-weight: 300;
+            color:#ccc
+        }
+       .account_title .shui label{
+           width: 125px;
+       }
+        .account_title .shui label input{
+            vertical-align: top;
+        }
+        .fapiao{
+            display: none;
+        }
+        #myModal .modal-dialog{
+            min-width: 600px;
+            width: auto;
+        }
+        .modal-body{
+            display: flex;
+            justify-content: center;align-items: center;
+        }
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li class="first">认证资料</li>
+                    <li>保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">基础设置》账户信息》认证资料</p>
+            <p class="account_p1">温馨提示：您所上传的资质证明越完善，越有利于平台的加速审核以及方便我们进行供应商资质等级定位</p>
+
+            <div class="account_title">
+                <p><i>*</i>经营身份证明</p>
+                <ul class="account_card clearfix">
+                    <li>
+                        <label for="">营业执照:</label>
+                        <div class="upimg">
+                            <img src="" alt="" class="yingye">
+                            <span>更换图片</span>
+                            <input type="file" onchange="change(this)">
+                        </div>
+                        <a  class="click_img">查看大图</a>
+
+                        <div class="account_file" style="display: inline-block">
+                            <img src="../image/add1.png" alt="">
+                            <input type="file"  onchange="upImg(this)">
+                        </div>
+                    </li>
+                </ul>
+                <div class="account_title">
+                    <p><i>*</i>法人证明</p>
+                    <div class="faren">
+                        <label for="">
+                            <span> 法人姓名：</span><input type="text" class="form-control legName">
+
+                        </label>
+                        <label for="">
+                            <span> 身份证号：</span>
+                            <input type="text" class="form-control legId">
+                        </label>
+                    </div>
+                    <ul class="account_card clearfix">
+                        <li>
+                            <label for="">法人身份证正面:</label>
+                            <div  class="upimg">
+
+
+                                <img src="" alt="" class="fa_zheng">
+                                <span>更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+                            <div class="account_file" >
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+
+                        </li>
+                        <li>
+                            <label for="">法人身份证反面:</label>
+                            <!--<img src="" alt="">-->
+                            <div  class="upimg">
+
+
+                                <img src="" alt="" class="fa_fan">
+                                <span>更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+
+                            <div class="account_file" >
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="account_title">
+                    <p>*纳税证明: <span>开票类型将影响到您的供应商资质，请认真填写</span></p>
+                    <div class="shui">
+                        开票类型：
+                        <label>
+                            <input type="checkbox" name="check" select="1"> 增值税专用发票
+                        </label>
+                        <label>
+                            <input type="checkbox" name="check" select="2">普通发票
+                        </label>
+                        <label>
+                            <input type="checkbox" name="check" select="0" checked>暂无法开票
+                        </label>
+                    </div>
+                    <ul class="account_card clearfix fapiao">
+                        <li>
+                            <label for="">开户许可证:</label>
+                            <div class="upimg">
+
+
+                                <img src="" alt="" class="kaihu">
+                                <span class="chose">更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+
+                            <div class="account_file" style="">
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">一船纳税人资格认定书 :</label>
+                            <div  class="upimg">
+
+
+                                <img src="" alt="" class="zige">
+                                <span>更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+
+                            <div class="account_file" >
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">税务登记证书 :</label>
+                            <!--<img src="../image/img.png" alt="">-->
+                            <div  class="upimg">
+
+
+                                <img src="" alt="" class="shuiwu">
+                                <span>更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+
+                            <div class="account_file" >
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="account_title">
+                    <p>经营资质证明:</p>
+                    <ul class="account_card clearfix">
+                        <li>
+                            <label for="">产品合格证书:</label>
+                            <div  class="upimg">
+
+
+                                <img src="" alt="" class="jingying">
+                                <span>更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+
+                            <div class="account_file" >
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+                        </li>
+                        <li>
+                            <label for="">授权代理证明 :</label>
+                            <!--<img src="../image/img.png" alt="">-->
+                            <div  class="upimg">
+
+
+                                <img src="" alt="" class="shouqan">
+                                <span>更换图片</span>
+                                <input type="file" onchange="change(this)">
+                            </div>
+                            <a  class="click_img">查看大图</a>
+
+                            <div class="account_file" >
+                                <img src="../image/add1.png" alt="">
+                                <input type="file"  onchange="upImg(this)">
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+                <button  type="button"  class="btn btn-primary btn-lg cer-infor-btn">提交</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+           
+        </div>
+        <div class="modal-body">
+            <img src="" alt="">
+        </div>
+     
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../layer/layer.js"></script>
+    <script>
+        $(".header li").click(function () {
+
+            if($(this).html()==localStorage.getItem("username")){
+
+                window.location.href="account_msg.html";
+
+            }else if($(this).html()=="基础设置"){
+                window.location.href="basis_msg.html";
+
+            }
+        });
+        var ip="";
+        // var ip='http://172.16.10.162:8888/';
+        var url = getBaseUrl('img');
+        var urls=getBaseUrl('yy');
+        pullUrls = url +'/pic/upload';
+        pullUrl = urls +'/user/seller/imageSubmit';
+        pullUrll = urls +'/user/seller/applyInfo';
+        //  开票
+        $(".shui input").click(function () {
+            if($(this).attr("select")==0){
+                $(".shui input").each(function () {
+                    $(this).prop("checked",false);
+                });
+                $(this).prop("checked",true);
+                $(".fapiao").hide()
+            }else{
+                $("input[select=0]").prop("checked",false);
+
+                $(".fapiao").show()
+            }
+
+        });
+
+        var src="";
+        //看大图
+        $(".click_img").attr("data-toggle","modal").attr("data-target","#myModal")
+        $(".click_img").click(function () {
+            src=$(this).prev().find("img").eq(0).attr("src");
+            // console.log(src)
+        })
+        $('#myModal').on('shown.bs.modal', function () {
+
+            // console.log(src);
+            $(".modal-content img").attr("src",src);
+            // 执行一些动作...
+            // console.log(1)
+        })
+        $(".btn-lg ").click(function () {
+            var invoiceType=""
+
+
+            $(".shui input").each(function () {
+                if($(this).prop("checked")==true){
+                    invoiceType+=$(this).attr("select")+","
+                }
+
+            });
+            invoiceType=invoiceType.substr(0,invoiceType.length-1);
+
+
+
+            console.log(invoiceType);
+            var obj={};
+
+            if($(".legName").val()==""){
+              layer.msg("请输入法人姓名")
+                return;
+            }
+            if($(".legId").val()==""){
+               layer.msg("请输入身份证号")
+                return;
+            }
+            var reg = /(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+            if(reg.test($(".legId").val()) === false)
+            {
+                layer.msg("身份证号格式不正确");
+                return false;
+            }
+            if($(".fa_zheng").attr("src")==""){
+            layer.msg("请上传图片")
+                return;
+            }
+            if($(".fa_fan").attr("src")==""){
+             layer.msg("请上传图片");
+                return;
+            }
+            obj.imageIdFront=$(".fa_zheng").attr("src");
+            obj.imageIdAfter=$(".fa_fan").attr("src");
+            obj.legname=$(".legName").val();
+            obj.legIdcard=$(".legId").val();
+
+            obj.invoiceType=invoiceType
+
+            if($('.shui input:checked').attr("select")!=0){
+                if(!$(".kaihu").attr("src"))   {
+                 layer.msg("请上传开票类型")
+                    return;
+                }
+                if($(".zige").attr("src")=="")   {
+                layer.msg("请上传开票类型")
+                    return;
+                }
+                if($(".shuiwu").attr("src")=="")   {
+                    layer.msg("请上传开票类型");
+                    return;
+                }
+            }
+            obj.imageBusiness=$(".yingye").attr("src");//yingye
+            obj.imageLicense=$(".kaihu").attr("src");
+            obj.imageTaxpayer=$(".shuiwu").attr("src");
+            obj. imageTaxRegistration=$(".zige").attr("src");
+            obj.imageProxyCertificate=$(".shouqan").attr("src");
+            obj.imageProductQualification=$(".jingying").attr("src");
+            obj.companyId=localStorage.getItem("companyId");
+
+            for(var k in obj){
+                try{
+                    if(obj[k].indexOf("http")!=-1){
+                        var x=obj[k].indexOf("/");
+                        for(var i=0;i<2;i++){
+                            x=obj[k].indexOf("/",x+1);
+                        }
+                        var area=obj[k].substr(x,obj[k].length);
+                        obj[k]=area;
+
+                    }
+                }catch(err){
+                }
+            }
+            rewriteAjax({
+                url:pullUrl,
+                data:obj,
+            },function (res) {
+                if(res.success){
+                    window.location.href="cer-infor-submit.html";
+                }
+            })
+
+
+        });
+
+        function upImg(img) {
+            var that=this;
+            var formData = new FormData();
+            formData.append('uploadFile', img.files[0]);
+
+            if(img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPEG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="PNG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPG"){
+                layer.msg("图片格式错误，请重新上传");
+                return;
+            }
+            if(img.files[0].size>1024*1024*3){
+                layer.msg("图片大小错误，请重新上传");
+                return;
+            }
+            console.log();
+            $.ajax({
+                url: pullUrls,
+                type: "post",
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                data: formData,
+                headers:{
+                    Authorization:localStorage.getItem("token")
+                },
+                success: function (res) {
+                    if(res.errorCode==9527){
+                        window.location.href="../login.html";
+                    }
+                    console.log(res);
+                    if (res.success) {
+
+                        $(img).parent('.account_file').prev().css("display","block");
+                        $(img).parent('.account_file').prev().prev().find("span").css("display","block");
+                        $(img).parent('.account_file').prev().prev().find("img").attr("src",res.data.ip+res.data.url);
+                        $(img).parent('.account_file').css("display","none")
+                    }
+                },
+                error: function (err) {
+                    console.log(err)
+                }
+            })
+        }
+        function change(img) {
+            var formData = new FormData();
+            formData.append('uploadFile', img.files[0]);
+            if(img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPEG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="PNG"&&img.files[0].name.substr(img.files[0].name.lastIndexOf(".")+1).toUpperCase()!="JPG"){
+                layer.msg("图片格式错误，请重新上传");
+                return;
+            }
+                if(img.files[0].size>1024*1024*3){
+                layer.msg("图片大小错误，请重新上传");
+                return;
+            }
+            $.ajax({
+                url: pullUrls,
+                type: "post",
+                processData: false,
+                contentType: false,
+                dataType: "json",
+                cache: false,
+                headers:{
+                    Authorization:localStorage.getItem("token")
+                },
+                data: formData,
+                success: function (res) {
+                    if(res.errorCode==9527){
+                        window.location.href="../login.html";
+                    }
+                  console.log(res);
+                    if (res.success) {
+                        $(img).prev().prev().attr("src",ip+res.data.url);
+                    }
+                },
+                error: function (err) {
+                     console.log(err)
+                }
+            })
+        }
+        //回显
+        var res=rewriteAjax({
+            url:pullUrll,
+            data:{
+                companyId:localStorage.getItem("companyId")
+            }
+        },function (res) {
+            if(res.success){
+                console.log(res);
+
+                if(res.data.applyTime!=""){
+                    $(".account_p1").html('申请时间：<span class="applyTime"></span>审核时间：<span class="audit_time"></span>审核状态：<span class="audit_status"></span><span class="reason"></span>')
+                }
+                $(".applyTime").html(res.data.applyTime);
+                $(".audit_time").html(res.data.evaTime);
+                $(".audit_status").html(res.data.evaResult);
+                if(res.data.imageState==3){
+                    $(".audit_status").html("未通过");
+                    $(".audit_status").css("color","red");
+                    $(".reason").html(res.data.dismissReason);
+                    $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text"  value="'+res.data.legname+'" class="form-control legName">')
+                    $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text"  value="'+res.data.legIdcard+'" class="form-control legId">');
+
+                }else if(res.data.imageState==2){
+                    $(".audit_status").html("已通过");
+                    $(".cer-infor-btn").hide();
+
+                    $(".upimg span").hide();
+                    $(".upimg input").hide();
+                    $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text" disabled value="'+res.data.legname+'" class="form-control legName">')
+                    $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text" disabled value="'+res.data.legIdcard+'" class="form-control legId">');
+
+                }else if(res.data.imageState==1){
+                    $(".audit_status").html("待审核");
+                    $(".cer-infor-btn").hide();
+                    $(".upimg span").hide();
+                    $(".upimg input").hide();
+                    $(".faren label:first-child").html('<span> 法人姓名：</span><input style="background: #fff" type="text" disabled  value="'+res.data.legname+'" class="form-control legName">')
+                    $(".faren label:last-child").html('<span> 身份证号：</span><input style="background: #fff" type="text" disabled  value="'+res.data.legIdcard+'" class="form-control legId">');
+
+
+                }
+                $(".shui input").each(function () {
+
+                    var arr=res.data.invoiceType.split(",");
+                    for(var i=0;i<arr.length;i++){
+                        console.log($(this).attr("select"))
+                        if($(this).attr("select")== arr[i]){
+                            $(this).attr("checked","checked");
+                        }
+                    }
+                    if(res.data.invoiceType!=0){
+                        $(".shui input[select=0]").attr("checked",false);
+                        $(".fapiao").show()
+                    }
+                    if(res.data.imageState!=3) {
+                        $(this).attr("disabled", true).css("background", "#fff");
+                    }
+                })
+                /*
+                *
+                obj.imageTaxpayer=$(".shuiwu").attr("src");
+                obj.imageTaxRegistration=$(".zige").attr("src");
+
+                obj.imageProductQualification=$(".imageProductQualification").attr("src");
+                obj.imageProxyCertificate=$(".shouqan").attr("src");*/
+                if(res.data.imageIdFront!=""){
+                    // $(".fa_zheng").prepend('<img src="'+res.data.imageIdFront+'"/>')
+                    $(".fa_zheng").attr("src",ip+res.data.imageIdFront);
+                    $(".fa_zheng").parent() .next().next().css("display","none");
+                    if(res.data.imageState!=2) {
+                        $(".fa_zheng").next().css("display", "block");
+                    }
+                    $(".fa_zheng").parent().next().css("display","block");
+                    $(".fa_zheng").find("span").css("display","block")
+                }
+                if(res.data.imageIdAfter!=""){
+                    $(".fa_fan").parent() .next().next().css("display","none");
+                    if(res.data.imageState!=2) {
+                        $(".fa_fan").next().css("display", "block");
+                    }
+                    $(".fa_fan").parent().next().css("display","block");
+                    $(".fa_fan").attr("src",ip+res.data.imageIdAfter)
+
+                    $(".fa_fan").find("span").css("display","block")
+                }
+                if(res.data.imageBusiness!=""){
+                    $(".yingye").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".yingye").next().css("display", "block")
+                    }
+                    $(".yingye").parent().next().css("display","block")
+                    $(".yingye").attr("src",ip+res.data.imageBusiness)
+
+                    $(".yingye").find("span").css("display","block")
+                }
+
+                if(res.data.imageLicense!=""){
+                    $(".kaihu") .parent().next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".kaihu").next().css("display", "block");
+                    }
+                    $(".kaihu").parent().next().css("display","block");
+                    $(".kaihu").attr("src",ip+res.data.imageLicense)
+
+                    $(".kaihu").find("span").css("display","block")
+                }
+
+                if(res.data.imageTaxpayer!=""){
+                    $(".shuiwu").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".shuiwu").next().css("display", "block")
+                    }
+                    $(".shuiwu").parent().next().css("display","block")
+                    $(".shuiwu").prepend('<img src="'+ip+res.data.imageTaxpayer+'"/>')
+                    $(".shuiwu").attr("src",ip+res.data.imageTaxpayer)
+
+                    $(".shuiwu").find("span").css("display","block")
+                }
+                if(res.data.imageTaxRegistration!=""){
+                    $(".zige").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".zige").next().css("display", "block")
+                    }
+                    $(".zige").parent().next().css("display","block")
+                    $(".zige").attr("src",ip+res.data.imageTaxRegistration)
+
+                    $(".zige").find("span").css("display","block")
+                }
+                if(res.data.imageProductQualification!=""){
+                    $(".jingying").parent() .next().next().css("display","none")
+                    if(res.data.imageState!=2) {
+                        $(".jingying").next().css("display", "block");
+                    }
+                    $(".jingying").parent().next().css("display","block");
+                    $(".jingying").attr("src",ip+res.data.imageProductQualification)
+
+                    $(".jingying").find("span").css("display","block")
+                }
+                if(res.data.imageProxyCertificate!=""){
+                    $(".shouqan") .parent().next().next().css("display","none")
+                    $(".shouqan").parent().next().css("display","block")
+                    if(res.data.imageState!=2) {
+                        $(".shouqan").next().css("display", "block")
+                    }
+                    $(".shouqan").attr("src",ip+res.data.imageProxyCertificate)
+
+                    $(".shouqan").find("span").css("display","block")
+                }
+                if(res.data.imageState==2){
+
+                    $(".upimg input").css("display","none");
+                }
+            }
+        });
+
+
+    </script>
+</body>
+</html>

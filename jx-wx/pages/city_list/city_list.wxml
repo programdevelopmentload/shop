@@ -1,0 +1,22 @@
+<view class='city_listCont'>
+    <view class='list_title'>未开通城市暂无法提供测量、安装服务</view>
+    <view class='list_position'>
+       <text class='now'>当前选择</text>
+       <text class='list_provoice'>四川省</text>
+       <text class='list_city'>锦阳市</text>
+       <image src='../img/position.png'></image>
+       <text class='position_name'>城市</text>
+    </view>
+    <view class='bar'></view>
+    <view class='lists clearfix'>
+       <scroll-view class='lists_left fl' scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">  
+          <view class='lists_lefts active' >省</view>   
+          <view class='lists_lefts' wx-for="" bindtap='' >北京市</view>                  
+       </scroll-view>
+       <scroll-view class='lists_left lists_right fr' scroll-y  bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">  
+          <view class='lists_lefts actives'>市</view>
+          <view class='lists_lefts' wx-for="" bindtap='' >市</view>  
+     
+       </scroll-view>
+    </view> 
+</view>

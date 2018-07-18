@@ -1,0 +1,107 @@
+page{
+  display: block;
+  height: 100%;
+}
+::-webkit-scrollbar{
+width: 0;
+height: 0;
+color: transparent;
+}
+.head{
+  color:#fff;
+  background: #eb5033;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  padding:0 30rpx;
+}
+.chose{
+  color:#666666;
+  font-size: 24rpx;
+  margin-left: 100rpx;
+  margin-right: 22rpx;
+}
+.city .sheng{
+  font-size: 24rpx;
+  color:#eb5033;
+  margin-right:10rpx;
+}
+ .city .shi{
+  font-size: 24rpx;
+  color:#eb5033;
+  margin-right:70rpx;
+}
+.city text{
+  float:left;
+}
+.location{
+  float:left;
+}
+.location image{
+  width: 24rpx;
+  height:24rpx;
+  margin-right: 18rpx;
+}
+.location{
+  color:#eb5033;
+  font-size: 24rpx;
+}
+.city{
+  height:100rpx;
+  line-height: 100rpx;
+  background: #f5f3f2;
+}
+.line{height:10rpx;background: #dedede;}
+.box>view{
+  width: 50%;
+ float: left;
+ text-align: center;
+ height:76rpx;
+ line-height: 76rpx;
+}
+.box .sheng{
+  width: 100%;
+background: #fff;
+font-size: 30rpx;
+color:#333333;
+}
+.box .shi{
+  width: 100%;
+background: #f5f3f2;
+font-size: 30rpx;
+color:#333333;
+}
+.left scroll-view view{
+background: #f5f3f2;
+
+}
+scroll-view view{
+padding:2rpx 0;
+height:80rpx;
+line-height:80rpx;
+}
+scroll-view{
+  height: 984rpx;
+}
+scroll-view view text{
+  display: block;
+  width: 80%;
+  font-size: 30rpx;
+  color:#333333;
+
+  margin: 0 10%;
+  border-bottom: 1px solid #dedede;
+}
+scroll-view view block{
+  display: block;
+  width: 80%;
+  font-size: 30rpx;
+  color:#333333;
+
+  margin: 0 10%;
+  border-bottom: 1px solid #dedede;
+}
+.box .active{
+border-radius: 10rpx;
+background: #eb5033;
+color:#fff;
+}

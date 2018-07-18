@@ -1,0 +1,30 @@
+<view class='head'>
+未开通城市暂无法提供测量、安装服务
+</view>
+<view class='city'>
+  <text class='chose'>当前选择</text>
+  <text class='sheng'>{{city_sheng}}</text>
+  <text class='shi'>{{city_shi}}</text>
+  <view class='location'><image src='../img/location.jpg' ></image>城市</view>
+</view>
+<view class='line'></view>
+<view class='box'>
+  <view class='left'>
+  <view class='sheng'>省</view>
+    <scroll-view scroll-y style='height:{{geth}}'>
+        <view wx:for="{{cityArr}}" wx:for-index='index' wx:for-item="item">
+             <text  bindtap='sheng' data-index='{{index}}' data-id='{{item.id}}'  class='{{shengIndex==index?"active":""}}'> 
+              <block >{{item.name}}</block> 
+             </text> 
+        </view>
+    </scroll-view>
+  </view>
+<view class='right'>
+<view class='shi'>市</view>
+<scroll-view scroll-y style='height:{{geth}}'>
+<view  wx:for="{{cityArr[shengIndex].shi}}" wx:for-index='sindex' wx:for-item="sitem">
+<text bindtap='shi' class='{{shiIndex==sindex?"active":""}}' data-index='{{sindex}}' data-id='{{sitem.id}}'>{{sitem.name}}</text>
+</view>
+</scroll-view>
+</view>
+</view>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        #box .right .account_cont .account_title p{
+            margin: 20px 0;
+            border-bottom:1px solid #dedede;
+            line-height: 45px;
+        }
+        #box .account_cont li{
+            line-height: 35px;
+            height:35px;
+        }
+        #box .account_cont li span{
+            margin: 0;
+        }
+         .account_cont  .company_msg>div{
+              overflow: hidden;
+          }
+        .account_cont  .company_msg>div>div{
+            width:50%;
+        }
+        .account_cont  .service_msg>div{
+            overflow: hidden;
+        }
+        .account_cont  .service_msg>div>div{
+            width:50%;
+        }
+        .account_cont ol{
+                overflow: hidden;
+            border:1px solid #000;
+            border-left:none;
+            width:352px;
+
+            }
+        #box  .account_cont ol li{
+           float: left;
+            padding:5px 30px;
+            line-height: 28px;
+            border-left:1px solid #000;
+            cursor: pointer;
+        }
+        #box  .account_cont ol li:first-child{
+            background:#000;
+            color:#fff;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>个人中心</span>
+                <ul>
+                    <li class="first">我的资料</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="account_cont">
+
+    <p class="router">基础设置》个人中心》我的资料</p>
+            <div class="account_title">
+                <p>账户信息</p>
+                <ul>
+                    <li>
+                        <label for="">用户名:</label>
+                        <span class="userName"></span>
+                    </li>
+                    <li>
+                        <label for="">邮箱:</label>
+                        <span class="email"></span>
+                    </li>
+                    <li>
+                        <label for="">手机号:</label>
+                        <span class="phone"></span>
+                        <a href="javascript:;" onclick="phone()">更换</a>
+                    </li>
+                    <li>
+                        <label for="">密码:</label>
+                        <a href="javascript:;" onclick="edit()">修改</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script>
+    $(".header li").click(function () {
+
+        if($(this).html()==localStorage.getItem("username")){
+
+            window.location.href="account_msg.html";
+
+        }else if($(this).html()=="基础设置"){
+            window.location.href="basis_msg.html";
+
+        }
+    });
+    function edit() {
+        window.location.href="change_pwd.html";
+    }
+    function phone(){
+        window.location.href="change_phone.html";
+    }
+    $.ajax({
+        url:getBaseUrl("yy")+"/user/seller/userInformation",
+        type:"post",
+        dataType:"json",
+        data:{
+            userId:localStorage.getItem("userId"),
+        },
+        headers: {
+            Authorization:localStorage.getItem("token"),
+        },
+        success:function (res) {
+            if(res.errorCode==9999){
+                window.location.href="../login.html";
+            }
+            console.log(res);
+            if(res.success){
+                var json=res.data.sellerCompany;
+                for(var k in json){
+                    if(json[k]==null){
+                        json[k]="";
+                    }
+                }
+                $(".userName").html(res.data.userName);
+                $(".email").html(res.data.email);
+                $(".phone").html(res.data.phoneNumber);
+
+
+            }
+
+        }
+    });
+
+</script>
+</body>
+</html>

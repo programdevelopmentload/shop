@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>待办事项</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .account_cont{padding-right: 30px;}
+        .account_cont .account_p1{padding: 10px 0 10px 10px; border: 1px solid #337ab7;background: #f2f2f2}
+        .account_cont>p{ padding-top: 10px;}
+        /*.pend_application_ul{padding:30px 0;}*/
+
+        .pend_application_ul li{ background: url("../image/circle.png") no-repeat 0  3px;padding-left: 35px; position: relative; height: 54px;}
+        .pend_application_ul li .line{height: 40px; width: 1px; background: #999999; position: absolute;top: 18px; left:6px;}
+        .fr li{height: 54px;}
+        .fr li>p{background: url("../image/complete.png") no-repeat 0 center;padding-left: 20px;}
+        .apply_btn{display: block;margin: 0 auto; font-size: 16px;}
+        .nav{
+            padding: 15px 0;border-bottom: 1px solid #dedede;
+            margin-bottom: 30px;
+        }
+
+     .pend_application_cont li{float: left; margin-right: 60px; margin-top:20px;}
+    li label{font-weight: normal;line-height: 30px}
+       li .back_listTop{border:1px solid #cccccc; width:150px; height: 80px; text-align: left;  font-weight:bold; padding-left:15px;}
+        .pend_application_cont li span{display: block;text-align: center}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span class="head_active" >首页</span></li>
+        <li><span >基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>    <div id="box">
+        <div class="left">
+            <ul>
+                <li >
+                    <span>账户信息</span>
+                    <ul>
+                        <li>基本信息</li>
+                        <li>认证资料</li>
+                        <li >保证金</li>
+                    </ul>
+                </li>
+                <li >
+                    <span>经营管理</span>
+                    <ul>
+                        <li >经营区域</li>
+                    </ul>
+                </li>
+                <li>
+                    <span>收款账户</span>
+                    <ul>
+                        <li>账户管理</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="right">
+            <div class="account_cont">
+                <p class="router">首页</p>
+                <div class="pend_application_cont clearfix">
+                    <p class="nav">待办事项</p>
+                    <ul class="clearfix needOrder">
+                      <p>订单待办：</p>
+                        <li>
+
+                            <h5 class="back_listTop">
+                                <label>采购确认</label>
+                                <span class="s1">0</span>
+                            </h5>
+                        </li>
+                        <li>
+
+                            <h5 class="back_listTop">
+                                <label>带备货</label>
+                                <span class="s2">0</span>
+                            </h5>
+                        </li>
+                        <li>
+
+                            <h5 class="back_listTop">
+                                <label>待取货</label>
+                                <span class="s3">0</span>
+                            </h5>
+                        </li>
+                        <li>
+
+                            <h5 class="back_listTop">
+                                <label>已取货</label>
+                                <span class="s4">0</span>
+                            </h5>
+                        </li>
+                        <li>
+                            <h5 class="back_listTop">
+                                <label>已完成</label>
+                                <span class="s5">0</span>
+                            </h5>
+                        </li>
+                    </ul>
+                    <ul class="clearfix cover">
+                      <p>库存提醒：</p>
+
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+     </div>
+<div class="footer">
+    <p>西藏新博美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        var order="";
+        $.ajax({
+            url:"http://172.16.39.70:8005/purchase/order/getCount",
+            type:"post",
+            data:{userId:localStorage.getItem("userId")},
+            dataType:"json",
+            success:function (res) {
+                $(".s1").html(res.data.WAIT_COMFRIM);
+                $(".s2").html(res.data.WAIT_STOCK_UP);
+                $(".s3").html(res.data.WAIT_TAKE_GOODS);
+                $(".s4").html(res.data.TAKE_GOODS);
+                $(".s5").html(res.data.DONE);
+
+            }
+        })
+        $.ajax({
+            url:"http://172.16.40.239:8013/store/supplierGoods/getSupplierStoreWarn",
+            data:{
+                supplierId:localStorage.getItem("companyId")
+            },
+            dataType:"json",
+            type:"post",
+            success:function (res) {
+                console.log(res);
+                var str='';
+                if(res.success){
+                    for(var i=0;i<res.data.length;i++){
+                        str+='<li>' +
+                            '<h5 class="back_listTop">' +
+                            '<label>'+res.data[i].storeName+'</label>' +
+                            '<span >'+res.data[i].warnCount+'</span>' +
+                            '</h5>' +
+                            '</li>'
+                    }
+                    $(".cover").append(str)
+                }
+            },
+            error:function () {
+                console.log(1);
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!--index.wxml-->
+<view id='box'>
+  <view class='head'>
+    <view>
+      <text class='head_name'>{{name}}</text>
+      <text class='head_msg'>{{msg}}</text>
+      <view class='head_price'><text class='old'>{{old_price}}</text><text class='now'>{{new_price}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='group'>组合商品</view>
+  <view class='product'>
+    <view class='left'>
+    <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' />
+    </view>
+    <view class='right'>
+      <text class='msg'>千万千万企鹅撒的撒打算打算打底衫</text>
+      <text class='color'>颜色：笑嘻嘻</text>
+          <view class='price'><text class='now'>{{old_price}}</text><text class='old'>{{new_price}}</text>
+      </view>
+    </view>
+  
+  
+  
+  </view>
+    <view class='product'>
+    <view class='left'>
+    <image src='http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg' />
+    </view>
+    <view class='right'>
+      <text class='msg'>千万千万企鹅撒的撒打算打算打底衫</text>
+      <text class='color'>颜色：笑嘻嘻</text>
+          <view class='price'><text class='now'>{{old_price}}</text><text class='old'>{{new_price}}</text>
+      </view>
+    </view>
+  
+  
+  
+  </view>
+</view>

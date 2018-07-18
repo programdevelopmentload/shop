@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本信息</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <style>
+        #box .account_cont p{
+
+        }
+
+        #box .account_cont li span{
+            margin: 0;
+        }
+        .account_cont  .company_msg>div{
+            overflow: hidden;
+        }
+        .account_cont  .company_msg>div>div{
+            width:50%;
+        }
+        .account_cont  .service_msg>div{
+            overflow: hidden;
+        }
+        .account_cont  .service_msg>div>div{
+            width:50%;
+        }
+        .account_cont ol{
+            overflow: hidden;
+            border:1px solid #000;
+            border-left:none;
+            width:352px;
+
+        }
+        #box .account_cont a{
+            color:#999;font-size: 12px;
+        }
+        #box .account_cont span{
+            padding: 0;
+            color:#337ab7
+        }
+        .right ul li{
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        ul label{
+            float: left;
+        }
+        .right ul .form-control{
+            float: left;
+            width: 228px;
+        }
+        .look_nav{border-bottom: 1px solid #dedede; margin: 20px 0;line-height: 45px;}
+        #box .imgErr{line-height: 16px;padding-left: 69px;border: none}
+        .account_cont>p{line-height: 40px;color:#337ab7}
+        .form-control{width: 200px;}
+
+        .imgVerify{
+            display: none;
+            position: absolute;
+            z-index: 8888;
+            background: #fff;
+            left:-18px;
+            width: 390px;
+            height: 50px;
+        }
+
+        .msgVerify{
+            position: relative;
+        }
+        .imgVerify label{
+            width: 100px;
+        }
+        .imgVerify .col-sm-8{
+            width: 72%;
+        }
+        .msgVerify .imgOk{
+            width: 60px;
+            position: absolute;
+            top: 0;
+            left: 244px;
+
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li >经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <!--<ul>-->
+        <!--<li class="first">-->
+        <!--订单管理-->
+        <!--</li>-->
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+        <!--<ul>-->
+
+
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--<li><span ></span>代发货</li>-->
+        <!--</ul>-->
+    </div>
+    <div class="right">
+        <div class="account_cont">
+            <p class="router">基础设置》个人中心》更改手机号</p>
+
+            <div class="account_title">
+                <p class="look_nav">更改手机号</p>
+                <ul>
+                    <li>
+                        <label for="">新手机号:</label>
+                        <input type="text" class="form-control" id="phone">
+                        <span style="display:block;margin-top: 34px;margin-left:71px "></span>
+                    </li>
+                    <li>
+                        <div class="form-group msgVerify">
+                            <div class="form-group imgVerify">
+                                <label for="" class="col-sm-2 control-label">图形验证:</label>
+                                <div class="col-sm-8" style="margin-left: -30px;">
+                                    <input name="verify" id="imgCode" class="form-control"
+                                           type="text" style="width: 150px; display: inline-block">
+                                    <img width="75" height="34" id="c1"src="" style="vertical-align: top; "/>
+                                    <input type="button" class="btn-primary form-control imgOk" onclick="img()" value="确认" style="width: 60px;"/>
+                                    <span class="imagecode" style='color:red;display: none;'>验证码错误</span>
+                                </div>
+
+                            </div>
+                            <label >短信验证:</label>
+                            <div >
+                                <input name="verify" id="verify" class="form-control" type="text"
+                                       style="width: 150px; display: inline-block">
+
+                                <input class="login_hqyzm" type="button" id="yzmBtn" value="获取验证码"
+                                       style="height: 34px; width: 76px;">
+                                <span class="errorNum" style='color:red;display: none;'>短信验证错误</span>
+                            </div>
+
+                        </div>
+                    </li>
+
+
+
+                </ul>
+            </div>
+            <input type="button" value="提交" class="form-control btn-primary">
+        </div>
+
+
+
+
+    </div>
+
+</div>
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../layer/layer.js"></script>
+<script>
+    $(".header li").click(function () {
+        if($(this).html()==localStorage.getItem("username")){
+
+            window.location.href="account_msg.html";
+
+        }else if($(this).html()=="基础设置"){
+            window.location.href="basis_msg.html";
+
+        }
+    });
+    var url = getBaseUrl('yy');
+    var url1= getBaseUrl('yyy');
+    pullUrl = url1 +'/imageCode/getImageCode/';
+    pullUrls = url +'/auth/auth/sendsms';
+    pullUrlll=url1 +'/imageCode/getImageCode/';
+
+    var str="Image"+parseInt(Math.random()*100000000);
+    var Countdown = function(obj,time,className){
+        this.obj = obj;
+        this.initTime = time;
+        this.time = time;
+        this.className = className ? className : 'current';//默认不传递为current
+        this.init();
+    };
+
+    Countdown.prototype.init = function(){
+        var clearTimeout;
+        var self = this;
+        if (this.time == 0) {
+            this.obj.removeAttribute("disabled");
+            this.obj.classList.remove(this.className);
+            this.obj.value="发送验证码";
+            this.time = this.initTime;
+        } else {
+            this.obj.setAttribute("disabled", true);
+            $(this.obj).addClass(this.className);
+            this.obj.value="" + this.time +"s";
+            this.time--;
+            clearTimeout = setTimeout(function() {
+                    self.init();
+                },
+                1000)
+        }
+    };
+    //get picture code；
+    code();
+    $("#yzmBtn").click(function () {
+        if(!$("#phone").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)){
+            $("#phone").next().show().html("手机号码格式不正确");
+            $("#phone").next().show().css('color','red');
+            return;
+        }else{
+            $("#phone").next().hide()
+        }
+        str="Image"+parseInt(Math.random()*100000000);
+        $("#c1").attr("src",pullUrl+str);
+        $(".imgVerify").show()
+
+    });
+    function  img() {
+        var res=rewriteAjax({
+            data:{verifyCodeKey:str,verifyCode:$("#imgCode").val(),phoneNum:$("#phone").val()},
+            url:pullUrls,
+        },function (res) {
+            if(res.success){
+                $(".imagecode").hide();
+                $(".imgVerify").hide();
+
+                new  Countdown($("#yzmBtn")[0],60);
+
+            }else{
+                $(".imagecode").show()
+            }
+        })
+
+    }
+    $("#c1").click(function () {
+        str="Image"+parseInt(Math.random()*100000000);
+        $("#c1").attr("src",pullUrlll+str);
+    });
+    function code(){
+        str="Image"+parseInt(Math.random()*100000000);
+        $("#c1").attr("src",pullUrlll+str);
+    }
+
+
+</script>
+</body>
+</html>

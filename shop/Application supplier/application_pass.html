@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>已通过</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <style>
+        .account_cont{padding-right: 30px;}
+        .account_cont>p{  padding-top: 10px;}
+        .account_cont .account_p1{padding: 10px 0 10px 10px;border: 1px solid #337ab7;  background: #f2f2f2;}
+        .pend_application_cont{    padding: 30px 0;}
+        .pend_application_ul li{ background: url("../image/circle.png") no-repeat 0  3px;padding-left: 35px; position: relative; height: 54px;}
+        .pend_application_ul li .line{height: 40px; width: 1px; background: #999999; position: absolute;top: 18px; left:6px;}
+        .fr li{height: 54px;}
+        .fr li>p{background: url("../image/dy.png") no-repeat 0 center;padding-left: 20px;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ul>
+        <!--<li><span class="head_active">首页</span></li>-->
+        <li><span >基础设置</span></li>
+
+    </ul>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+    <div id="box">
+        <div class="left">
+            <ul>
+                <li >
+                    <span>账户信息</span>
+                    <ul>
+                        <li>基本信息</li>
+                        <li>认证资料</li>
+
+                    </ul>
+                </li>
+                <li >
+                    <span>经营管理</span>
+                    <ul>
+                        <li >经营区域</li>
+                    </ul>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="right">
+            <div class="account_cont">
+                <p class="router">首页</p>
+                <p class="account_p1">您的供应商资质申请已通过！还差最后两步即可成为供应商！</p>
+                <div class="pend_application_cont clearfix">
+                    <ul class="pend_application_ul fl">
+                        <li>
+                            缴纳保证金
+                            <!--<p class="line"></p>-->
+                        </li>
+                        <!--<li>签订供应商合同-->
+                        <!--</li>-->
+                    </ul>
+                    <ul class="fr">
+                        <li>
+                            <button class="btn btn-primary"> 去缴纳</button>
+                        </li>
+                        <!--<li>-->
+                            <!--<p>合同打印</p>-->
+                        <!--</li>-->
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="footer">
+    <p>西藏新博美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+
+
+        $(".header li").click(function () {
+            if($(this).html()==localStorage.getItem("username")){
+
+                window.location.href="../basis_setting/account_msg.html"
+
+            }else if($(this).html()=="基础设置"){
+                window.location.href="../basis_setting/basis_msg.html"
+
+            }
+        });
+        var res=rewriteAjax({
+            url:getBaseUrl("yy")+"/user/seller/sellerApplyState",
+            data:{
+                userId:localStorage.getItem("userId"),
+            }
+
+        },function(res){
+            if(res.data.coutionMoneyState==-1){
+                //显示待评审
+            }else if(res.data.coutionMoneyState==2){
+                //去缴纳
+            }
+        })
+        $(".btn-primary").click(function () {
+            window.location.href="pay_deposit.html";
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!--pages/classify_name/classify_name .wxml-->
+<view class='content'>
+  <view class='className_title'>
+      <view data-index='1' class="{{index=='1'?'active':''}}" bindtap="default1">默认</view>
+      <view data-index='2' class="{{index=='2'?'active':''}}" bindtap="sale">销售 <image src='{{sizeImg}}' ></image></view>
+      <view data-index='3' class="{{index=='3'?'active':''}}" bindtap="price" >价格 <image src='{{priceImg}}' ></image></view>
+  </view>
+
+  <view class='className_lists clearfix' >
+      <view class='className_list_pic' bindtap='details' data-id='{{item.id}}' wx:for="{{product}}">
+        <view class='className_pic'>
+            <image src='{{item.img}}'></image>
+        </view>
+        <view class='className_bottom'>
+            <text class='product_name'>{{item.name}}</text>
+            <view class='className_fonts'>
+              <text class='color'>￥{{item.price}} </text>
+              <text class='product_mail' bindtap='getpro'>{{item.size}}人购买</text>
+            </view>
+        </view>  
+      </view>
+      <view class='className_list_pic' bindtap='details' data-id='{{item.id}}' wx:for="{{product}}">
+        <view class='className_pic'>
+            <image src='{{item.img}}'></image>
+        </view>
+        <view class='className_bottom'>
+            <text class='product_name'>{{item.name}}</text>
+            <view class='className_fonts'>
+              <text class='color'>￥{{item.price}} </text>
+              <text class='product_mail' bindtap='getpro'>{{item.size}}人购买</text>
+            </view>
+        </view>  
+      </view>
+      <!-- <view class='className_list_pic'> -->
+        <!-- <view class='className_pic'>
+            <image src='../img/className_pic.png'></image>
+        </view>
+         <view class='className_special'>
+            <!-- <view>实木</view>
+            <view>包邮</view> -->
+         <!-- </view> --> 
+        <!-- mask -->
+        <!-- <view class='className_mask'>
+           <text>商品集合</text>
+        </view> -->
+        <!-- <view class='className_bottom'>
+            <text class='product_name'>新博新美</text>
+            <view class='className_fonts'>
+              <text class='del'>￥200</text>
+              <text class='color'>￥200 </text>
+              <text class='product_mail'>19999人购买</text>
+            </view>
+        </view>   -->
+      <!-- </view> -->
+
+      <!-- <view class='className_list_pic'> -->
+        <!-- <view class='className_pic'>
+            <image src='../img/className_pic.png'></image>
+        </view> -->
+        <!-- <view class='className_bottom'>
+            <text class='product_name'>新博新美</text>
+            <view class='className_fonts'>
+              <text class='del'>￥200</text>
+              <text class='color'>￥200 </text>
+              <text class='product_mail'>19999人购买</text>
+            </view>
+        </view>   -->
+      <!-- </view> -->
+  </view>
+
+      
+</view>
+ <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>

@@ -1,0 +1,33 @@
+<view class='header clearfix'>
+  <view class='fl'>
+      <image src='../img/logo.png' class='fl_img'></image>
+      <text class='city' bindtap='goCity'> {{city}}</text>
+      <image class='city_img' bindtap='goCity' src='../img/down.png'></image>
+  </view>
+  <view class='header-right fr' bindtap='geter' >
+      <image src='../img/sys.png'></image>
+  </view>
+</view>
+
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class='className_lists clearfix' >
+      <view class='className_list_pic' bindtap='details' data-id='{{item.id}}' wx:for="{{product}}">
+        <view class='className_pic'>
+            <image src='{{item.img}}'></image>
+        </view>
+        <view class='className_bottom'>
+            <text class='product_name'>{{item.name}}</text>
+            <view class='className_fonts'>
+              <text class='color'>￥{{item.price}} </text>
+              <text class='product_mail' bindtap='getpro'>{{item.size}}人购买</text>
+            </view>
+        </view>  
+      </view>
+      </view>
+

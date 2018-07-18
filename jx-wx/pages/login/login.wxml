@@ -1,0 +1,9 @@
+<view class='login_input'>
+     <input  type="text" placeholder="请输入手机手机号"  auto-focus/>
+     <input  type="text" placeholder="请输入验证码" />
+     <button disabled='{{disabled}}' data-id="2" bindtap="getVerificationCode" class='ver_btn'>
+      {{time}}
+      发送验证码
+    </button>
+     <button class='login_btn'>登录</button>
+</view>

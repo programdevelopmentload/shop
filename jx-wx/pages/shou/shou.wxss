@@ -1,0 +1,52 @@
+.header{ padding: 30rpx 20rpx; }
+.index_select>text{ font-size: 26rpx;color: #666666;}
+.fl .city{padding-left: 26rpx; display: inline-block;vertical-align:2px;font-size: 30rpx}
+.fl .city_img{width: 32rpx !important; height: 20rpx; padding-left: 18rpx;vertical-align: 4rpx}
+.header>.fl>.fl_img{width: 90rpx; height: 36rpx;}
+.header-right image{width: 36rpx; height: 34rpx;}
+.more{position: relative;}
+.more image{width:100%;height:400rpx;margin-bottom:5px;}
+.mask{width: 100%;height:400rpx;background:rgba(0, 0, 0, .4);position: absolute;top: 0;left: 0; border-radius: 10rpx; text-align: center; }
+.mask_center{margin-top: 90rpx;}
+.mask .mast_h{font-size: 48rpx; color: #fff;}
+.mask .mask_text{color: #fff; margin-top: 20rpx;}
+.mask .mask_text text{font-size: 30rpx;}
+.mask .mask_text  view{font-size: 20rpx; width: 106rpx; height: 32rpx; line-height: 32rpx; border-radius: 10rpx; border:1px solid #fff; margin:20rpx  auto;}
+.className_lists{ width:100%;padding: 10rpx 10rpx 0;}
+.className_list_pic{width: 350rpx; height: 290rpx; background: #fff; border-radius: 10rpx;font-size: 24rpx; float: left;margin-left:10rpx;position: relative; margin-bottom: 10rpx; }
+
+.className_list_pic .className_special{position: absolute;top: 0;right: 0; margin-top: 20rpx;margin-right:10rpx;}
+.className_list_pic .className_special view{width: 60rpx; height: 30rpx; border-radius: 10rpx;color: #fff; background: rgba(102, 102, 102, .9);text-align: center;
+font-size: 22rpx;}
+.className_list_pic .className_special view:last-child{margin-top: 10rpx;}
+
+.className_list_pic .className_pic image{width:350rpx; height: 200rpx; }
+.className_bottom{padding-left:10rpx;}
+.className_bottom .product_name{color: #666666; line-height:24rpx;}
+.className_bottom .className_fonts .del{text-decoration: line-through;}
+.className_bottom .className_fonts .color{color:#eb5033;}
+.className_bottom .className_fonts .product_mail{color: #999999;padding-left:50rpx;float: right;}
+.className_mask{width: 350rpx; height: 200rpx;background:rgba(173, 173, 173, .4);position: absolute;top: 0;left: 0; border-radius: 10rpx; text-align: center;line-height: 200rpx; }
+.className_mask text{font-size: 36rpx;color: #fff;}
+
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 200px;
+}

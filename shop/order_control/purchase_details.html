@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" href="../css/swiper.css">
+    <title>查看详情</title>
+    <style>
+        .account_cont {
+            padding-bottom: 30px;
+        }
+
+        .account_cont > p {
+            padding-top: 10px;
+        }
+
+        .account_cont .account_p1 {
+            padding: 10px 0 10px 10px;
+            border: 1px solid #337ab7;
+            background: #f2f2f2;
+        }
+
+        .account_file {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .account_file input {
+            height: 48px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+        }
+
+        .account_title .account_card > li {
+            float: left;
+            margin-right: 160px;
+            padding: 20px 0;
+        }
+
+        .account_card img {
+            padding-left: 20px;
+        }
+
+        .account_card li {
+            float: left;
+        }
+
+        .cer-infor-btn {
+            width: 300px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .click_img {
+            display: none;
+            background: url("../image/look.png") no-repeat 10px center;
+            cursor: pointer;
+
+        }
+
+        .account_cont ol {
+            overflow: hidden;
+            background: #f2f2f2;
+            border: 1px solid #337ab7;
+        }
+
+        .account_cont ol li {
+            float: left;
+            width: 30%;
+            margin-left: 20px;
+            line-height: 35px;
+        }
+
+        .account_cont ol li .reason {
+            display: inherit;
+            margin-left: 60px;
+        }
+
+        .account_title label {
+            min-width: 94px;
+        }
+
+        .account_title a {
+            padding-left: 40px;
+        }
+
+        .account_title li div {
+            position: relative;
+        }
+
+        .account_title li div img {
+            margin: 0;
+            padding: 0;
+        }
+
+        .account_title li div input {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            z-index: 1;
+            opacity: 0;
+            background: #00000080;
+            height: 30px;
+            width: 100%;
+        }
+
+        .account_title li span {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 0;
+            color: #fff;
+            margin: 0;
+            background: #00000080;
+            line-height: 30px;
+            width: 100%;
+            text-align: center
+        }
+
+        .account_title label {
+            width: 94px;
+        }
+
+        .account_title a {
+            padding-left: 40px;
+        }
+
+        .upimg img {
+            width: 220px;
+            height: 140px;
+        }
+
+        .look_nav {
+            padding: 15px 0;
+            border-bottom: 1px solid #dedede
+        }
+
+        .upimg span {
+            display: none;
+        }
+
+        .product_specification {
+            overflow: hidden;
+            width: 90%;
+            background: #f2f2f2;
+        }
+
+        .specification_msg {
+            margin-top: 20px;
+            border-top: 1px solid #dedede;
+            width: 90%;
+        }
+
+        .specification_msg img {
+            width: 50px;
+        }
+
+        .specification_msg ul {
+            overflow: hidden;
+            padding: 10px 0;
+            width: 100%;
+            border-bottom: 1px solid #dedede;
+        }
+
+        .basics_msg {
+            width: 60%;
+            overflow: hidden;
+        }
+
+        .basics_msg li {
+            float: left;
+            width: 100%;
+            padding: 8px 0;
+        }
+
+        #box .col-sm-3 {
+            width: 200px;
+        }
+
+        #box .col-sm-2 {
+            width: 150px;
+        }
+
+        .specification_msg ul span {
+            display: inherit;
+        }
+
+        .other_msg {
+            overflow: hidden;
+            width: 80%;
+        }
+
+        .other_msg ul {
+            overflow: hidden;
+            margin: 13px 0;
+        }
+
+        .other_msg ul span {
+            margin-right: 30px;
+        }
+
+        dt, dd {
+            float: left;
+
+        }
+
+        dd {
+            margin-top: 15px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+
+        .product_specification .col-sm-1 {
+            width: 12%;
+        }
+
+        .specification_msg .col-sm-1 {
+            width: 12%;
+        }
+
+        .worker {
+            overflow: hidden;
+        }
+
+        div.worker {
+
+            width: 80%;
+            margin-top: 30px;
+        }
+
+        .worker li {
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        ul.worker {
+            height: 80px;
+        }
+
+        ul.worker .col-sm-2 {
+            width: 11%;
+        }
+
+        .specification_msg ul li {
+            text-align: center;
+        }
+
+        .modal-body label {
+            font-weight: 100;
+            color: #000;
+        }
+
+        .modal-body span {
+            display: inline-block;
+        }
+
+        .modal-body p {
+            margin-top: 10px;
+        }
+
+        .modal-body input {
+            vertical-align: middle;
+        }
+
+        #myModalLabel {
+            text-align: center;
+        }
+
+        .modal-body span {
+            color: #337ab7
+        }
+
+        .caigou {
+            position: fixed;
+            bottom: 30%;
+            z-index: 9999;
+            border: 1px solid #dedede;
+            display: none;
+            border-radius: 10px;
+            width: 47%;
+            left: 26%;
+            background: #fff;
+            padding: 10px;
+
+        }
+
+        .caigou li {
+            line-height: 30px;
+            border-bottom: 1px solid #dedede;
+        }
+
+        .caigou span {
+            float: right;
+        }
+
+        .swiper {
+            width: 566px;
+            height: 280px;
+            border: 1px solid #dedede;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span class="head_active">订单管理</span></li>
+        <li class="finishMoney"><span>对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+
+
+        <ul>
+            <li>
+                <span>订单</span>
+                <ul>
+                    <li>订单管理</li>
+                    <li>待备货</li>
+                    <li>待取货</li>
+                    <li>已取货</li>
+                    <li>已完成</li>
+                </ul>
+            </li>
+            <li>
+                <span>采购单</span>
+                <ul>
+                    <li>采购单管理</li>
+                    <li>待确认</li>
+                    <li>待备货</li>
+                    <li>待取货</li>
+                    <li>已取货</li>
+                    <li>已完成</li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+    <div class="right">
+
+        <div class="account_cont">
+            <p class="router">1>2>3</p>
+
+            <p class="look_nav"> 订单信息</p>
+            <ul class="basics_msg">
+                <li><span>订单编号：</span></li>
+                <li><span>下单时间：</span></li>
+                <li><span>订单状态：</span></li>
+
+
+            </ul>
+            <p class="look_nav"> 仓库信息</p>
+            <ul class="cover_msg">
+                <li><span>仓库名称：</span></li>
+                <li><span>所在地址：</span></li>
+
+
+            </ul>
+            <p class="look_nav">商品信息</p>
+            <ul class="product_specification list_head">
+                <li class="col-sm-3">规格信息</li>
+                <li class="col-sm-2">商品型号</li>
+                <li class="col-sm-1">商品类型</li>
+                <li class="col-sm-2">商品编码</li>
+                <li class="col-sm-1">采购数量</li>
+                <li class="col-sm-1">采购单价</li>
+                <li class="col-sm-1">操作</li>
+            </ul>
+            <div class="specification_msg">
+                <ul>
+                    <li class="col-sm-3">
+                        <dl>
+                            <dt><img src="../image/icon.png" alt=""></dt>
+                            <dd>11</dd>
+                        </dl>
+
+                    </li>
+                    <li class="col-sm-3">
+                        <span>1</span>
+
+                    </li>
+                    <li class="col-sm-1">111</li>
+                    <li class="col-sm-1">111</li>
+                    <li class="col-sm-1">222</li>
+                    <li class="col-sm-1">222</li>
+
+                </ul>
+
+            </div>
+
+            <!--<p class="look_nav">结算信息</p>-->
+            <div class="clear">
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <p class="look_nav workerMan">工人信息</p>
+            <div class="worker">
+
+                <ul class="worker">
+                    <li class="col-sm-2">
+                        <img src="../image/icon.png" alt="">
+                    </li>
+                    <li class="col-sm-3">姓名：xx</li>
+                    <li class="col-sm-3">手机号：111</li>
+                    <li class="col-sm-3">车牌号：11</li>
+                </ul>
+            </div>
+            <p class="look_nav edit">操作</p>
+            <div class="stock">
+
+                <input type="button" value="采购单确认" data-toggle="modal" data-target="#myModal"
+                       class="form-control btn-primary" style="width: 200px;">
+            </div>
+            <!--<ul class="product_img_detail">-->
+            <!--<li>  <img src="" alt=""></li>-->
+            <!--</ul>-->
+
+
+            <!--<p class="look_nav">其他信息</p>-->
+            <!--<div class="other_msg">-->
+            <!--<ul>-->
+            <!--<li class="fl">包装清单：</li>-->
+            <!--<li class="fr"></li>-->
+            <!--</ul>-->
+            <!--<ul>-->
+            <!--<li class="fl">配件清单：</li>-->
+            <!--<li class="fr"></li>-->
+            <!--</ul>-->
+            <!--<ul>-->
+            <!--<li class="fl">购买说明：</li>-->
+            <!--<li class="fr">-->
+
+
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">采购单确认</h4>
+            </div>
+            <div class="modal-body">
+                接单后，亲您按照供货时间备货，合作愉快
+                <p><label><input type="checkbox" checked>我同意针对此订单提供</label><span>《采购服务》</span></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="swiper">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+
+                        </div>
+                        <!-- Add Pagination -->
+
+                        <!-- Add Navigation -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="caigou">
+    <ul>
+        <li>订单编号：<span>11111</span></li>
+        <li>商品名称：</li>
+        <li></li>
+    </ul>
+</div>
+
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/swiper.jquery.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../layer/layer.js"></script>
+<script>
+    $(".router").html("订单管理》采购单》"+sessionStorage.getItem("orderName"))
+        if (sessionStorage.getItem("orderIndex") != 3) {
+            var orderName = $(".left>ul>li").eq(sessionStorage.getItem("orderIndex")).find("li");
+            orderName.each(function () {
+                if ($(this).html() == sessionStorage.getItem("orderName")) {
+                    console.log($(this).html())
+                    $(this).attr("class", "first")
+                }
+            })
+        } else {
+            $(".left span").each(function () {
+                if ($(this).html() == sessionStorage.getItem("orderName")) {
+                    $(this).attr("class", "first")
+
+                }
+            })
+        }
+        var orderNum = "";
+        var createTime = "";
+        var goodsName = "";
+        $.ajax({
+            url: "http://172.16.39.165:8009/purchase/order/supplier/info",
+            data: {orderNum: "PO141609451009"},
+            dataType: "json",
+            type: "post",
+            success: function (res) {
+                console.log(res)
+
+                var enough = false;
+                if (res.success) {
+
+                    var data = res.data;
+                    orderNum = data.orderNum;
+                    createTime = data.createTime
+                    $(".cover_msg").html('<li><span>仓库名称：</span>' + data.repertoryName + '</li><li><span>所在地址：' + data.repertoryAddress + '</span></li>')
+                    str = '';
+                    for (var i = 0; i < data.supplierPurchaseGoods.length; i++) {
+                        goodsName = data.supplierPurchaseGoods[i].goodsName + ",";
+                        str += '<ul><li class="col-sm-3"><dl><dt><img src="' + data.supplierPurchaseGoods[i].picture + '" alt=""></dt><dd>' + data.supplierPurchaseGoods[i].attribute + '</dd></dl></li>'
+                        str += '<li class="col-sm-2"><span>' + data.supplierPurchaseGoods[i].goodsName + '</span></li><li class="col-sm-1">';
+                        if (enough) {
+                            if (data.supplierPurchaseGoods[i].count > data.supplierPurchaseGoods[i].stock) {
+                                enough = false;
+                            }
+
+                        }
+                        str += '' + data.supplierPurchaseGoods[i].type + '</li>';
+                        str += '<li class="col-sm-2">' + data.supplierPurchaseGoods[i].goodsCode + '</li>'
+                        str += '<li class="col-sm-1">X' + data.supplierPurchaseGoods[i].count + '</li>'
+                        str += '<li class="col-sm-1">￥' + data.supplierPurchaseGoods[i].price + '</li>'
+                        str += '<li class="col-sm-1"><p onclick="load()">下载测量表 <span style="display:none;">'+data.supplierPurchaseGoods[i].measureData+'</span></p><p onclick="look(this)"  data-toggle="modal" data-target="#myModal2" ><span style="display: none">';
+                        for(var j=0;j<data.supplierPurchaseGoods[i].pics.length;j++){
+                            str+=data.supplierPurchaseGoods[i].pics[j]+",";
+                        }
+                        str += '</span>查看设计图</p></li></ul>'
+                    }
+                    $(".specification_msg").html(str);
+                    var str = "";
+                    str += '<li><span>订单编号：<span class="orderId">' + data.orderNum + '</span></span></li><li><span>下单时间：' + data.createTime + '</span></li><li><span>订单状态：';
+                    switch (data.supplierOrderStatus) {
+                        case "0":
+                            str += "待确认";
+                            $(".stock").html('<input type="button" value="采购单确认"  data-toggle="modal" data-target="#myModal"  class="form-control btn-primary" style="width: 200px;">')
+                            break;
+                        case "1":
+                            str += "待备货";
+                            if (!enough) {
+                                // clear+='<span class="buzu" style="color:red;margin-left: 30px">库存不足，无法发货</span>'
+                                $(".stock").html('<input type="button" value="增加库存" onclick="add()" class="form-control btn-primary" style="width: 200px;">')
+                            } else {
+                                $(".stock").html('<input type="button" value="已备货，确认出库" onclick="ok()" class="form-control btn-primary" style="width: 300px;">')
+                            }
+                            break;
+                        case "2":
+                            str += "待取货";
+                            $(".stock").html('<input type="text" class="form-control" placeholder="请输入取货码" id="code"><input type="button" value="验证" onclick="verify()" class="form-control btn-primary" style="width: 200px;">')
+                            break;
+                        case "3":
+                            str += "已取货";
+                            break;
+                        case "4":
+                            str += "已完成";
+                            break;
+                    }
+                    $(".basics_msg").html(str);
+
+                    // var clear="";
+                    // for(var i=0;i<order.orderDetails.length;i++){
+                    //     clear+=' <ul><li>'+order.orderDetails[i].showName+':</li>'
+                    //     clear+='<li>￥<span class="price">'+order.orderDetails[i].currentPrice+'</span> X <span>'+order.orderDetails[i].skuNumber+'</span>'
+                    //     clear+='= <span class="total" ></span> '
+                    //
+                    //     clear+='</li></ul>'
+                    // }
+                    // clear+="<p  style='text-align: right;margin-right: 30px'> 总计：￥<span style='color:red;' class='num'></span></p>"
+                    // $(".clear").html(clear);
+                    // $(".specification_msg").html(str);
+                    // var num=0;
+                    // $(".total").each(function () {
+                    //     console.log($(this).prev().html());
+                    //     console.log($(this).prev().html());
+                    //     num+=$(this).prev().html()*$(this).prev().prev().html()
+                    //     $(this).html("￥"+$(this).prev().html()*$(this).prev().prev().html())
+                    // });
+                    // $(".num").html(num);
+                    // console.log(res.data.workerPic!==undefined);
+
+                    if (res.data.courierName !== undefined) {
+                        var worker = "";
+                        worker += '<ul class="worker"><img src="' + res.data.courierPicture + '" alt=""></li>';
+                        worker += '<li class="col-sm-3">姓名：' + res.data.courierName + '</li><li class="col-sm-3">手机号：' + res.data.courierPhone + '</li><li class="col-sm-3">车牌号：' + res.data.licensePlate + '</li>'
+                        $("ul.worker").html(worker)
+                    } else {
+                        $(".worker").hide();
+                        $(".workerMan").hide()
+                    }
+
+                }
+            }
+        });
+        function add() {
+            window.location.href="../product/cover_manage.html";
+        }
+        //验证取货吗
+        function verify() {
+            rewriteAjax({
+                url: "http://172.16.38.97:8009/purchase/order/supplier/validate",
+                data: {orderNum: "PO141609451009", code: $("#code").val()},
+            },function (res) {
+                if (res.success) {
+                    layer.msg("提货成功")
+                } else {
+                    layer.msg(res.message)
+                }
+            })
+        }
+        //看协议
+        $(".modal-content span").click(function () {
+            rewriteAjax({url: "http://172.16.44.200:8002/user/agreement/technical/service"},function (res) {
+                if (res.success) {
+
+                    $(".caigou").show();
+                    var str = "";
+                    str += '<ul><li>订单编号：' + orderNum + '<span>' + createTime + '</span></li>';
+                    goodsName = goodsName.substr(0, goodsName.length - 1);
+                    var arr = goodsName.split(",");
+                    for (var i = 0; i < arr.length; i++) {
+                        str += '<li>' + arr[i] + '</li>'
+                    }
+                    str += '<li>' + res.data.comment + '</li>';
+                    str += '</ul>';
+                    $(".caigou").html(str);
+                }
+            })
+
+
+
+        });
+        $(document).click(function () {
+            $(".caigou").hide();
+        });
+        //看设计图
+        function look(a) {
+            var str = "";
+            var pic = $(a).find("span").html();
+
+            var arr = pic.split(",");
+            for (var i = 0; i < arr.length; i++) {
+                str += '<div class="swiper-slide"><img src="'+arr[i]+'" alt=""></div>';
+            }
+            $(".swiper-wrapper").html(str);
+            var myswiper = new Swiper('.swiper-container', {
+                paginationClickable: true,
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                observer:true,
+                observeParents:true
+            });
+            $(".swiper").show();
+        }
+        function  load(a) {
+            window.location.href=$(a).find("span").html();
+        }
+        //确认出库
+        function ok() {
+            rewriteAjax({url: "http://172.16.38.97:8009/purchase/order/supplier/confirm",
+                data: {orderNum: orderId},},function (res) {
+                if (res.success) {
+                    layer.msg("已出库")
+                }
+            })
+
+        }
+        //确认采购单
+        $(".modal-footer .btn-primary").click(function () {
+            if ($(".modal-body input").prop("checked")) {
+                rewriteAjax({url: "http://172.16.38.97:8009//purchase/order/supplier/makeSure",
+                    data: {orderNum: orderId},},function () {
+                    if (res.success) {
+                        layer.msg("采购单确认成功");
+                    }
+                })
+
+            }
+
+
+        })
+
+
+
+
+</script>
+
+</body>
+</html>

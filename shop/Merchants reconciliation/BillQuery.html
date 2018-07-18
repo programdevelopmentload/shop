@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账单查询</title>
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../js/layer/css/layui.css">
+    <style>
+        .NoList{text-align: left !important; padding-left: 20px; }
+        .btn{margin-left: 10px;}
+        .MoneryDetails{margin-right: 80px;}
+        .MoneryDetails li{padding:5px 0;}
+        .MoneryDetails .orderStateMonery{font-size: 18px; color: #00BB5B;}
+        .MoneryDetails .orderStateColor{font-size: 18px;color: red;}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span>基础设置</span></li>
+        <li class="finishMoney"><span >商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span class="head_active">对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>结算管理</span>
+                <ul>
+                    <li >订单查询</li>
+                    <li>结算单查询</li>
+                </ul>
+            </li>
+            <li >
+                <span>发票管理</span>
+                <ul>
+                    <li >代开发票</li>
+                    <li>全部发票</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <p class="router">1》2》3</p>
+        <!--查询条件-->
+        <div class="form-inline queryBtns">
+            <div class="form-group">
+                <label for="">交易时间:</label>
+                <input type="text" class="form-control dates">-<input type="text" class="form-control datesEnd">
+            </div>
+            <span class="paddingSpan now">今天</span>
+            <span class="paddingSpan">昨天</span>
+            <span class="paddingSpan">最近7天</span>
+            <span class="paddingSpan">最近30天</span>
+            <button type="button" class="btn btn-primary">查询</button>
+            <button type="button" class="btn btn-default">导出excel</button>
+         </div>
+         <div class="orderDetailState clearfix">
+             <ul class="MoneryDetails fl">
+                 <li>收入</li>
+                 <li class="orderStateMonery">+4500.00元</li>
+                 <li class="Amount">1笔</li>
+             </ul>
+             <ul class="MoneryDetails fl">
+                 <li>收入</li>
+                 <li class="orderStateColor">+4500.00元</li>
+                 <li class="Amount">1笔</li>
+             </ul>
+         </div>
+        <!--列表-->
+        <div class="list">
+            <ul class="list_head ">
+                <li class="col-sm-4">订单号</li>
+                <li class="col-sm-3">交易时间</li>
+                <li class="col-sm-2">交易金额</li>
+                <li class="col-sm-2">账单类型</li>
+                <li class="col-sm-1">操作</li>
+            </ul>
+            <div class="list_bottom clearfix">
+                <ul class="clearfix">
+                    <li class="col-sm-4">CO251121301111</li>
+                    <li class="col-sm-3">2018--5-29 12:20:30</li>
+                    <li class="col-sm-2"> ￥3900.00</li>
+                    <li class="col-sm-2">订单</li>
+                    <li class="col-sm-1"><a href="javascript:;">详情</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    <script src="../js/jquery-1.12.4.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/layer/layer.js"></script>
+    <script src="../js/layer/layui.js"></script>
+    <script>
+        // 日期插件
+        layui.use('laydate', function(){
+            var laydate = layui.laydate;
+            //执行一个laydate实例
+            laydate.render({
+                elem: '.dates', //指定元素
+                time:"yyyy-MM-dd hh-mm-ss"
+            });
+            laydate.render({
+                elem: '.datesEnd', //指定元素
+                time:"yyyy-MM-dd hh-mm-ss"
+            });
+        });
+    </script>
+</body>
+</html>

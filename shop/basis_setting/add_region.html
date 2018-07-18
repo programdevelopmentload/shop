@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>经营区域</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap-table.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/common.css"/>
+    <link rel="stylesheet" href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css">
+    <style>
+        input[type=checkbox], input[type=radio]{margin:0;}
+        .contract .router{padding:10px 0;}
+        .add_inputs{padding: 10px 0;}
+       .add_inputs>input{width: 300px;}
+       .add_inputs>p{  border-bottom: 1px solid #eeedf0;width: 300px; color: #cccccc;}
+       .add_title{border-bottom: 1px solid #eeedf0;font: bold 16px/2em '';}
+        #container{height: 350px;}
+        .map_input{position: absolute;top:10%; left:10%;  z-index: 1;}
+        .map_input>input{width: 300px; ;display: inline-block;}
+        .map_input>button{margin-top: -5px; }
+        #area{border: 1px solid #999999; padding:30px 10px}
+        #area_btn{padding:10px 30px; display: inline-block; }
+        #area_btns{text-align: center;padding-bottom: 20px;}
+        #map_adress ul{ border:1px solid #f4f3f2; border-top:none;}
+        #map_adress li{ border-bottom: 1px solid #f4f3f2; padding:10px 0 10px 20px;}
+        #map_adress li:last-child{border-bottom: none;}
+        #area .area_left{width:20%; }
+        #area .area_left li{padding-bottom: 15px; }
+        #area .area_right{width:70%;}
+       .area_right>.clearfix li{float: left; width: 48%; padding-bottom: 15px; position: relative;}
+        .area_right>.clearfix li .trigger{    cursor: pointer;border: 6px solid #fff;
+            border-top-color: #dd2727; width: 0; height: 0;vertical-align: middle}
+        .area_right>.clearfix li  .trigger_click{padding:10px;border:1px solid #999999; width: 180px; height: 50px; background: #ffffff;
+            z-index: 10000; overflow-y: scroll;     display: none; position: absolute;  top: 8px;left: 44px;}
+        .area_right> .trigger_click ul li{margin:0 10px;}
+        .close1{float: right;margin-top:-12px;}
+        .area_right fl li>span{overflow: hidden;text-overflow:ellipsis;white-space: nowrap;}
+        #area_btn{margin-top: 30px;margin-bottom: 50px}
+    </style>
+</head>
+<body>
+<div class="header clearfix">
+    <a href="javascript:;">
+        <img src="../image/xbxm.png"/>
+    </a>
+
+    <a href="javascript:;">
+        <img src="../image/store.png"/>
+    </a>
+    <ol>
+        <li>退出</li>
+        <i></i>
+        <li>通知</li>
+        <i></i>
+        <li>admin</li>
+    </ol>
+
+</div>
+<div id="header" class="header clearfix">
+    <ul>
+        <li><span >首页</span></li>
+        <li><span class="head_active">基础设置</span></li>
+        <li class="finishMoney"><span>商品管理</span></li>
+        <li class="finishMoney"><span >订单管理</span></li>
+        <li class="finishMoney"><span >对账管理</span></li>
+    </ul>
+</div>
+<div id="box">
+    <div class="left">
+        <ul>
+            <li >
+                <span>账户信息</span>
+                <ul>
+                    <li>基本信息</li>
+                    <li>认证资料</li>
+                    <li>保证金</li>
+                </ul>
+            </li>
+            <li >
+                <span>经营管理</span>
+                <ul>
+                    <li class="first">经营区域</li>
+                </ul>
+            </li>
+            <li>
+                <span>收款账户</span>
+                <ul>
+                    <li>账户管理</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="right">
+        <div class="contract">
+            <p class="router">基础设置》经营管理》经营区域</p>
+            <p class="add_title">新增业务区域</p>
+            <div class="add_inputs">
+                <label >仓库名称:</label>
+                <input type="text" class="form-control add_inputsName" placeholder="仅限中文，限32个字符">
+                <span style="color:red;display: none">仓库名称格式错误</span>
+            </div>
+            <div class="add_inputs">
+                <label >仓库地址:</label>
+                <p>请在地图上选择位置</p>
+            </div>
+            <div id="container" tabindex="0">
+                <div class="map_input">
+                    <input type="text" class="form-control map_inputs" id="map_inpts" placeholder="请输入地址">
+                    <!--<button class="btn btn-default">查找</button>-->
+                </div>
+            </div>
+            </div>
+            <div id="area_btns">
+               <button class="btn btn-primary btn-lg" id="area_btn">确认，并提交</button>
+            </div>
+        </div>
+    </div>
+
+<div class="footer">
+    <p>西藏新博新美商业管理连锁股份有限公司 版权所有 CopyRight?2011-2014WWW.BOOM.COM.CN.ALL R</p>
+    <p>ICP经营许可证编号：藏ICP备16000239号-1|藏公安网备54222102000009号</p>
+</div>
+<script src="../js/jquery-1.12.4.min.js"></script>
+<script src="../js/common.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+<script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.6&key=8cf31d0448202c61dd9eeaa8304c95b7&plugin=AMap.Autocomplete,AMap.PlaceSearch"></script>
+<script src="http://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>  <!--ui库-->
+<script src="../layer/layer.js"></script>
+
+<script>
+    $(".header li").click(function () {
+        if($(this).html()==localStorage.getItem("username")){
+            window.location.href="account_msg.html";
+
+        }else if($(this).html()=="基础设置"){
+            window.location.href="basis_msg.html";
+
+        }
+    });
+    $(".add_inputsName").blur(function () {
+        if($(".add_inputsName").val()==""||$(".add_inputsName").val().length>32){
+            $(".add_inputsName").next().show();
+        }else{
+            $(".add_inputsName").next().hide();
+        }
+    })
+     var url = getBaseUrl('ys')
+     pullUrl = url +'/area/area/supplier/insertAreaSupplierInfo';
+     // pullUrl = "http://172.16.38.47:8008" +'/area/supplier/insertAreaSupplierInfo';
+     function trigger(a){
+        $(a).next().toggle();
+     }
+       $('.area_right li>input').click(function () {
+               var children = $(this).next().next().next().find('input');
+               var isChecked = $(this).prop("checked");
+               if(children){
+                   if(isChecked){
+                       children.prop("checked","checked");
+                   }else{
+                       children.removeProp("checked");
+                   }
+               }
+       });
+        $(".trigger_click input").click(function () {
+            var isChecked = $(this).prop("checked");
+            var all=$(this).parent().parent().find("input");
+            var boo=true;
+              for(var i=0;i<all.length;i++){
+                  if(all.eq(i).prop("checked")!=true){
+                      boo=false;
+                      break;
+                  }
+              }if(boo){
+                      $(this).parent().parent().parent().prev().prev().prev().prop("checked","checked");
+                    }else{
+                        $(this).parent().parent().parent().prev().prev().prev().prop("checked","");
+                    }
+                });
+
+
+
+
+
+
+     $('.close1').on("click",function () {
+
+         $(this).parent().hide()
+     })
+
+     var map = new AMap.Map("container", {
+         resizeEnable: true
+     });
+
+
+     //这里得到你想要的信息
+     var onComplete = function(result){
+         result.LngLat;//这里面获得经纬度的相关信息
+     }
+     //为地图注册click事件获取鼠标点击出的经纬度坐标
+     var str="";
+     var areaCode=0;
+     var city="";
+     var cityCode=0;
+     var clickEventListener = map.on('click', function(e) {
+
+         console.log(e.lnglat.getLng() + ',' + e.lnglat.getLat());
+         str+=e.lnglat.getLng()+","+e.lnglat.getLat();
+         map.getCity(function(data) {
+
+
+             // city=data.province+data.city+data.district;
+
+         });
+     });
+
+     var auto = new AMap.Autocomplete({
+         input: "map_inpts"
+     });
+     AMap.event.addListener(auto, "select", select);//注册监听，当选中某条记录时会触发
+     function select(e) {
+         if (e.poi && e.poi.location) {
+             map.setZoom(15);
+             map.setCenter(e.poi.location);
+         }
+     }
+$(document).on("click",".auto-item",function () {
+
+    city=$(this).find(".auto-item-span").text()+$(this).text();
+});
+     // map.on('moveend', getCity);
+     // function getCity(e) {
+     //     // console.log(e)/、移动拿不到经纬度
+     //     // console.log(e.lnglat.getLng() + ',' + e.lnglat.getLat());
+     //     map.getCity(function(data) {
+     //
+     //         city=data.province+data.city+data.district;
+     //
+     //     });
+     // }
+     AMapUI.load(['ui/geo/DistrictExplorer', 'lib/$'], function(DistrictExplorer, $) {
+
+         //创建一个实例
+         var districtExplorer = new DistrictExplorer({
+             map: map
+         });
+
+         //定位点Marker
+         var locMarker = new AMap.Marker();
+
+         function listenMouseEvents() {
+
+             var isLocating = false;
+
+             map.on('click', function(e) {
+
+
+                 districtExplorer.locatePosition(e.lnglat, function(err, features) {
+                        // console.log(features);
+                     var i, len = features.length;
+                     for (i = 0; i < len; i++) {
+                         console.info(features[i].properties.name+":"+features[i].properties.adcode);
+                         if(i!==0){
+                             city+=features[i].properties.name
+                         }
+                         $(".add_inputs p").html(city);
+                         cityCode=features[1].properties.adcode
+                         areaCode= features[i].properties.adcode;
+                     }
+
+                     console.log(cityCode)
+                     console.log(areaCode)
+                 });
+
+             });
+         }
+
+         listenMouseEvents();
+
+
+
+     });
+     $("#area_btn").click(function () {
+         if($(".add_inputsName").val()==""||$(".add_inputsName").val().length>32){
+             $(".add_inputsName").next().show();
+             return;
+         }else{
+             $(".add_inputsName").next().hide();
+         }
+         var obj={};
+         obj.storeAreaId=areaCode;
+         obj.storeCityId=cityCode;
+         obj.storeCoordinate=str;
+         obj.storeName=$(".add_inputsName").val();
+         obj.storePosition=city;
+         obj.supplierId=localStorage.getItem("companyId");
+
+            if(obj.storeAreaId){
+                layer.msg("请在地图上选择地点");
+                return;
+            }
+            var data=rewriteAjax({
+                url:pullUrl,
+                data:obj,
+            },function (data) {
+                if(data.success){
+                    layer.msg("添加区域成功",{shift:-1},function () {
+                        window.location.href="operation.html";
+                    });
+
+                }else{
+                    layer.msg("添加失败");
+                }
+            });
+
+
+     })
+
+</script>
+
+</body>
+</html>
