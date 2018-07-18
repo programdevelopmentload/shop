@@ -749,9 +749,9 @@
                        '</li>'
                html+='<li class="col-sm-2">'+data[i].number+'</li>'
                html+='<li class="col-sm-1">'+data[i].goodsService.goodsType+'</li>'
-               html+='<li class="col-sm-2">' +
-                        '<span>'+data[i].publishers[0].factoryPrice+'</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">' +
-                        '<input type="text"><input type="button" class="confirm" value="确认">' +
+               html+='<li class="col-sm-2" proId="'+data[i].number+'">' +
+                        '<span>￥'+data[i].publishers[0].factoryPrice+'</span> <img src="../image/edit.png" onclick="edit(this)" class="edit" alt="">' +
+                        // '<input type="text"><input type="button" class="confirm" value="确认">' +
                        '</li>'
                html+=' <li class="col-sm-1">'+data[i].publishers[0].purchasePrice+'</li>'
                html+='<li class="col-sm-1">在售</li>'
