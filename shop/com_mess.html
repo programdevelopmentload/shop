@@ -380,32 +380,6 @@
 				obj.legalRepPhone=$("#phone").val();
 				obj.legalRepEmail=$("#email").val();
 				obj.userId=id;
-                   if($("#phone").val() == ""){
-                       $("#phone").next().show().html("请输入手机号");
-                       $("#phone").next().show().css('color','red');
-                       return false;
-                   }else if(($("#phone").val()).length != 11){
-                       $("#phone").next().show().html("手机号格式错误");
-                       $("#phone").next().show().css('color','red');
-                       return false;
-                   }else if (!$("#phone").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)) {
-                       $("#phone").next().show().html("手机号格式错误");
-                       $("#phone").next().show().css('color','red');
-                       return false;
-                   }
-                   // if($("#fuwuTel").val() == ""){
-                   //     $("#fuwuTel").next().show().html("请输入手机号");
-                   //     $("#fuwuTel").next().show().css('color','red');
-                   //     return false;
-                   // }else if(($("#fuwuTel").val()).length != 11){
-                   //     $("#fuwuTel").next().show().html("手机号格式错误");
-                   //     $("#fuwuTel").next().show().css('color','red');
-                   //     return false;
-                   // }else if (!$("#fuwuTel").val().match(/^[1][3,4,5,7,8,9][0-9]{9}$/)) {
-                   //     $("#fuwuTel").next().show().html("手机号格式错误");
-                   //     $("#fuwuTel").next().show().css('color','red');
-                   //     return false;
-                   // }
 				if($("#company_name").val()==""){
 				    layer.msg("请输入公司名称");
 				    return;

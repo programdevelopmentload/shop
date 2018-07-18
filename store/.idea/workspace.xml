@@ -17,13 +17,20 @@
       <file leaf-file-name="new_product_list.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product_manage/new_product_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="436" column="22" selection-start-line="436" selection-start-column="12" selection-end-line="436" selection-end-column="22" />
+            <state relative-caret-position="2756">
+              <caret line="430" column="41" lean-forward="true" selection-start-line="430" selection-start-column="41" selection-end-line="430" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/js/common.js" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -52,11 +59,6 @@
               <item name="store" type="b2602c69:ProjectViewProjectNode" />
               <item name="store" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="store" type="b2602c69:ProjectViewProjectNode" />
-              <item name="store" type="462c0819:PsiDirectoryNode" />
-              <item name="product_manage" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -69,6 +71,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\web\web\store\image" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -92,15 +99,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531882131698</updated>
-      <workItem from="1531882132865" duration="506000" />
+      <workItem from="1531882132865" duration="1226000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="506000" />
+    <option name="totallyTimeSpent" value="1226000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2494043" />
@@ -129,10 +136,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="114" column="1" selection-start-line="114" selection-start-column="1" selection-end-line="114" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/product_manage/new_product_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="436" column="22" selection-start-line="436" selection-start-column="12" selection-end-line="436" selection-end-column="22" />
+        <state relative-caret-position="2756">
+          <caret line="430" column="41" lean-forward="true" selection-start-line="430" selection-start-column="41" selection-end-line="430" selection-end-column="41" />
         </state>
       </provider>
     </entry>

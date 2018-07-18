@@ -91,7 +91,28 @@ $(".left ul ul li").click(function () {
 
 });
 
-
+function getBaseUrl(param) {
+    // if(param=='img'){
+    //     return 'http://172.16.40.153:8015';
+    // }else {
+    //     return 'http://172.16.40.153:8002/goods';
+    // }
+    if(param=="t"){//陶帅江
+        return 'http://172.16.34.227:8007';
+    }else if(param=='g'){//郭斌磊
+        return 'http://172.16.40.153:8015';
+    }else if(param=='w'){//王喧
+        return 'http://172.16.34.37:8007';
+    }else if(param=='yy'){//岳禹成
+        return 'http://172.16.44.45:8003';
+    }else if (param=='ys'){ //ys
+        return 'http://172.16.40.239:8008';
+    }else if (param=='yyy'){
+        return 'http://172.16.40.134:8015';
+    }else if(param=="yuan"){
+        return 'http://172.16.40.239:8008';
+    }
+}
 // token验证
 function rewriteAjax(obj,callback){
     if(obj.data==undefined){
