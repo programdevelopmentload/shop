@@ -1,9 +1,10 @@
 {
   "pages": [ 
+      "pages/shou/shou",
         "pages/productDetails/productDetails",
-        
+        "pages/cart/cart",
     "pages/location/location",
-        "pages/shou/shou",
+      
     "pages/person/person ",
 
 
@@ -40,6 +41,12 @@
       {
         "pagePath": "pages/classify/classify",
         "text": "分类",
+        "iconPath": "pages/img/分类线性@2x.png",
+        "selectedIconPath": "pages/img/分类填充@2x.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
         "iconPath": "pages/img/分类线性@2x.png",
         "selectedIconPath": "pages/img/分类填充@2x.png"
       },

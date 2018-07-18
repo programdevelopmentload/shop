@@ -259,6 +259,7 @@ $(document).on("click",".auto-item",function () {
                  districtExplorer.locatePosition(e.lnglat, function(err, features) {
                         // console.log(features);
                      var i, len = features.length;
+                     city="";
                      for (i = 0; i < len; i++) {
                          console.info(features[i].properties.name+":"+features[i].properties.adcode);
                          if(i!==0){
@@ -296,7 +297,7 @@ $(document).on("click",".auto-item",function () {
          obj.storePosition=city;
          obj.supplierId=localStorage.getItem("companyId");
 
-            if(obj.storeAreaId){
+            if(obj.storeAreaId==""){
                 layer.msg("请在地图上选择地点");
                 return;
             }
