@@ -17,8 +17,8 @@
       <file leaf-file-name="sale.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/product/sale.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="752" column="32" selection-start-line="752" selection-start-column="32" selection-end-line="752" selection-end-column="32" />
+            <state relative-caret-position="306">
+              <caret line="761" column="28" lean-forward="true" selection-start-line="761" selection-start-column="28" selection-end-line="761" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -99,15 +99,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1531879228079</updated>
-      <workItem from="1531879229276" duration="62000" />
+      <workItem from="1531879229276" duration="392000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62000" />
+    <option name="totallyTimeSpent" value="392000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24702145" />
@@ -136,10 +136,17 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../../新建文件夹/11/shop/product/sale.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="756" column="48" lean-forward="true" selection-start-line="756" selection-start-column="48" selection-end-line="756" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/product/sale.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="752" column="32" selection-start-line="752" selection-start-column="32" selection-end-line="752" selection-end-column="32" />
+        <state relative-caret-position="306">
+          <caret line="761" column="28" lean-forward="true" selection-start-line="761" selection-start-column="28" selection-end-line="761" selection-end-column="28" />
         </state>
       </provider>
     </entry>
